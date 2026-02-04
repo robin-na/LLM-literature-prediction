@@ -169,6 +169,15 @@ def parse_args():
         default="batch_processing/inputs/batch_input.jsonl",
         help="Output JSONL path.",
     )
+    parser.add_argument(
+        "--temperature",
+        type=float,
+        default=None,
+        help=(
+            "Sampling temperature. If omitted, the parameter is not sent "
+            "(useful for reasoning models that don't support temperature)."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -228,16 +237,17 @@ def main():
                 "input": [
                     {
                         "role": "system",
-                        "content": [{"type": "text", "text": SYSTEM_PROMPT}],
+                        "content": [{"type": "input_text", "text": SYSTEM_PROMPT}],
                     },
                     {
                         "role": "user",
-                        "content": [{"type": "text", "text": user_prompt}],
+                        "content": [{"type": "input_text", "text": user_prompt}],
                     },
                 ],
-                "temperature": 0,
                 "text": {"format": {"type": "json_object"}},
             }
+            if args.temperature is not None:
+                request_body["temperature"] = args.temperature
 
             record = {
                 "custom_id": custom_id,

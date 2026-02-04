@@ -1,11 +1,14 @@
 import argparse
 import csv
 import json
+from pathlib import Path
 import sys
 
 BASE_FIELDS = [
     "experiment_id",
     "is_human_subject",
+    "simulation",
+    "analytical_model",
     "CONFIG_playerCount",
     "CONFIG_numRounds",
     "CONFIG_allOrNothing",
@@ -45,7 +48,13 @@ def parse_args():
         description="Convert OpenAI batch output JSONL to CSV."
     )
     parser.add_argument("--input-jsonl", required=True, help="Batch output JSONL file.")
-    parser.add_argument("--output-csv", default="batch_output.csv", help="Output CSV.")
+    parser.add_argument(
+        "--output-csv",
+        help=(
+            "Output CSV path. If omitted, writes to "
+            "batch_processing/output_csv/<input_basename>.csv"
+        ),
+    )
     return parser.parse_args()
 
 
@@ -71,6 +80,14 @@ def coerce_row(custom_id, experiment):
 
 def main():
     args = parse_args()
+    if args.output_csv:
+        output_csv = args.output_csv
+    else:
+        input_path = Path(args.input_jsonl)
+        output_dir = Path("batch_processing/output_csv")
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_csv = output_dir / f"{input_path.stem}.csv"
+
     rows = []
     with open(args.input_jsonl, encoding="utf-8") as handle:
         for line_number, line in enumerate(handle, start=1):
@@ -122,7 +139,7 @@ def main():
                     continue
                 rows.append(coerce_row(custom_id, experiment))
 
-    with open(args.output_csv, "w", newline="", encoding="utf-8") as out_handle:
+    with open(output_csv, "w", newline="", encoding="utf-8") as out_handle:
         writer = csv.DictWriter(out_handle, fieldnames=FIELDNAMES)
         writer.writeheader()
         writer.writerows(rows)
