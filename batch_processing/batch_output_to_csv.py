@@ -5,10 +5,13 @@ from pathlib import Path
 import sys
 
 BASE_FIELDS = [
-    "experiment_id",
-    "is_human_subject",
-    "simulation",
-    "analytical_model",
+    "data_id",
+    "indep_var",
+    "METHOD_empirical",
+    "METHOD_experiment",
+    "METHOD_lab",
+    "METHOD_simulation",
+    "METHOD_analytical",
     "CONFIG_playerCount",
     "CONFIG_numRounds",
     "CONFIG_allOrNothing",
@@ -27,7 +30,9 @@ BASE_FIELDS = [
     "CONFIG_rewardTech",
     "CONFIG_endowment",
     "DV_contributionRate",
+    "DV_contributionAmount",
     "DV_efficiency",
+    "DV_groupPayoff",
     "participant_country",
     "participant_age",
     "participant_gender",

@@ -16,18 +16,27 @@ Return a JSON object with this structure (use actual values from the paper):
 {
   "experiments": [
     {
-      "experiment_id": "string",
-      "experiment_id_reason": "string",
-      "experiment_id_confidence": number,
-      "is_human_subject": boolean,
-      "is_human_subject_reason": "string",
-      "is_human_subject_confidence": number,
-      "simulation": boolean,
-      "simulation_reason": "string",
-      "simulation_confidence": number,
-      "analytical_model": boolean,
-      "analytical_model_reason": "string",
-      "analytical_model_confidence": number,
+      "data_id": "string",
+      "data_id_reason": "string",
+      "data_id_confidence": number,
+      "indep_var": "string",
+      "indep_var_reason": "string",
+      "indep_var_confidence": number,
+      "METHOD_empirical": boolean,
+      "METHOD_empirical_reason": "string",
+      "METHOD_empirical_confidence": number,
+      "METHOD_experiment": boolean,
+      "METHOD_experiment_reason": "string",
+      "METHOD_experiment_confidence": number,
+      "METHOD_lab": boolean,
+      "METHOD_lab_reason": "string",
+      "METHOD_lab_confidence": number,
+      "METHOD_simulation": boolean,
+      "METHOD_simulation_reason": "string",
+      "METHOD_simulation_confidence": number,
+      "METHOD_analytical": boolean,
+      "METHOD_analytical_reason": "string",
+      "METHOD_analytical_confidence": number,
       "CONFIG_playerCount": number,
       "CONFIG_playerCount_reason": "string",
       "CONFIG_playerCount_confidence": number,
@@ -82,9 +91,15 @@ Return a JSON object with this structure (use actual values from the paper):
       "DV_contributionRate": number,
       "DV_contributionRate_reason": "string",
       "DV_contributionRate_confidence": number,
+      "DV_contributionAmount": number,
+      "DV_contributionAmount_reason": "string",
+      "DV_contributionAmount_confidence": number,
       "DV_efficiency": number,
       "DV_efficiency_reason": "string",
       "DV_efficiency_confidence": number,
+      "DV_groupPayoff": number,
+      "DV_groupPayoff_reason": "string",
+      "DV_groupPayoff_confidence": number,
       "participant_country": "string",
       "participant_country_reason": "string",
       "participant_country_confidence": number,
@@ -109,15 +124,18 @@ Return a JSON object with this structure (use actual values from the paper):
 """.strip()
 
 INSTRUCTION_TEXT = """
-You are given the full text of a paper. Extract every experiment or simulation described.
-Each experiment becomes one object in the "experiments" array. If the paper reports
-multiple conditions (e.g., Control/Treatment), create separate objects for each and
-set experiment_id to the label used in the paper (e.g., "Experiment 1", "Control", "Treatment A").
+You are given the full text of a paper. Extract every experiment, simulation, or observational
+condition described. Each object must be at the treatment/control (condition) level. If a
+paper groups multiple conditions under one study, create separate objects for each condition.
 
 Definitions and rules:
-- is_human_subject: true if the experiment/observation uses human participants. false for simulations or analytical models.
-- simulation: true if the study uses a numerical/computer simulation with no human subjects (e.g., agent-based model).
-- analytical_model: true if the study is a formal mathematical/closed-form model (e.g., proofs, analytical derivations) with no human subjects.
+- data_id: the name/description of the condition as the paper describes it (e.g., "Experiment 1 – Control").
+- indep_var: the independent variable(s) varied across conditions and the specific value(s) for this row.
+- METHOD_empirical: true if the study uses human participants (same meaning as is_human_subject).
+- METHOD_experiment: true if it is a controlled experiment; false if observational; false if not empirical.
+- METHOD_lab: true if lab experiment; false if field experiment; false if not an experiment.
+- METHOD_simulation: true if the study uses a numerical/computer simulation with no human subjects (e.g., agent-based model).
+- METHOD_analytical: true if the study is a formal mathematical/closed-form model (e.g., proofs, analytical derivations) with no human subjects.
 - CONFIG_allOrNothing: 1 if players can contribute any amount; 0 if only all-or-nothing.
 - CONFIG_defaultContribProp: 0 if endowment starts in private account; 1 if starts in public fund; otherwise proportion in public fund. Use N/A if no humans.
 - CONFIG_MPCR: marginal per capita return (multiplier divided by group size). Use N/R if not reported.
@@ -128,13 +146,20 @@ Definitions and rules:
 - CONFIG_punishmentExists / CONFIG_rewardExists: 1 or 0.
 - CONFIG_punishmentCost / CONFIG_rewardCost: coins spent per unit. Use N/A if disabled.
 - CONFIG_punishmentTech / CONFIG_rewardTech: magnitude per coin spent. Use N/A if disabled.
-- DV_efficiency: group's total payoff divided by theoretical maximum if all fully contribute without punishing/rewarding. Use N/R if not reported.
+- DV_contributionRate: contribution as a normalized fraction (0–1) of endowment/max possible contribution. Do not report raw amounts here.
+- DV_contributionAmount: raw contribution amount (tokens/points/units).
+- DV_efficiency: group's total payoff divided by theoretical maximum group payoff if all fully contribute without punishing/rewarding (0–1). Use N/R if not reported.
+- DV_groupPayoff: raw group payoff amount.
 - experiment_environment: one of "Online", "On site", "Field experiment", "Observational", "No human".
 - For every field above, provide a corresponding "<field>_reason" and "<field>_confidence".
   - reason: short rationale of how you inferred the value (can be empty if directly stated).
   - confidence: number from 0 to 1 reflecting certainty (1 if unambiguous).
+- If a value is not explicitly reported but can be computed from reported facts
+  (e.g., endowment, contribution amounts, group size, multipliers), calculate it and explain
+  the derivation briefly in the reason field.
 - Do not make up information. If a value cannot be inferred from the paper, use "N/R".
-- If there is heterogeneity within an experiment (e.g., different players have varying endowments), record it explicitly in the relevant field(s) rather than choosing one condition or averaging.
+- If there is heterogeneity within an experiment (e.g., different players have varying endowments),
+  record it explicitly in the relevant field(s) rather than choosing one condition or averaging.
 
 Return only valid JSON matching the schema.
 """.strip()
