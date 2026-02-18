@@ -1,0 +1,150 @@
+# Imports and data loading 
+
+```{r}
+library(lme4) #version 1.1-35.5
+library(lmerTest) #version 3.1-3
+library(censReg) #version 0.5-38
+library(tidyverse) #version 2.0.0
+library(stargazer) #version 5.2.3
+library(hettx) #version 0.1.3
+
+processed_data_dir = "../data/processed_data/"
+df_analysis_learn = read_csv(paste(processed_data_dir, "df_analysis_learn.csv", sep=""))
+df_analysis_val = read_csv(paste(processed_data_dir, "df_analysis_val.csv", sep=""))
+df_paired_learn = read_csv(paste(processed_data_dir, "df_paired_learn.csv", sep=""))
+df_paired_val = read_csv(paste(processed_data_dir, "df_paired_val.csv", sep=""))
+
+df_rounds_learn = read_csv(paste(processed_data_dir, "df_rounds_learn.csv", sep="")) %>% 
+  left_join(df_analysis_learn, by="gameId") %>% rename(coins_contributed = data.contribution) %>% 
+  mutate(contribution = coins_contributed/20) %>%
+  mutate(contribution_beta = case_when(
+    contribution == 0 ~ 0.001,
+    contribution == 1 ~ 0.999,
+    TRUE ~ contribution
+  ))
+  
+
+df_rounds_val = read_csv(paste(processed_data_dir, "df_rounds_val.csv", sep="")) %>% 
+  left_join(df_analysis_val, by="gameId") %>% rename(coins_contributed = data.contribution) %>% 
+  mutate(contribution = coins_contributed/20) %>%
+  mutate(contribution_beta = case_when(
+    contribution == 0 ~ 0.001,
+    contribution == 1 ~ 0.999,
+    TRUE ~ contribution
+  ))
+
+df_contrib_learn = df_rounds_learn %>% 
+  filter(valid_number_of_starting_players) %>% 
+  drop_na(data.roundPayoff) %>%
+  group_by(gameId) %>%
+  summarize(
+    CONFIG_punishmentExists = first(CONFIG_punishmentExists),
+    contribution = mean(contribution, na.rm = TRUE)
+  ) %>%
+  ungroup()
+
+df_contrib_val = df_rounds_val %>% 
+  filter(valid_number_of_starting_players) %>% 
+  drop_na(data.roundPayoff) %>%
+  group_by(gameId) %>%
+  summarize(
+    CONFIG_punishmentExists = first(CONFIG_punishmentExists),
+    contribution = mean(contribution, na.rm = TRUE)
+  ) %>%
+  ungroup()
+```
+
+
+## Estimating the average effect of punishment on coins contributed 
+
+```{r}
+# Learning 
+model_learn_contrib = lmer(contribution ~ CONFIG_punishmentExists + 
+                     (1|gameId) + (1|playerId), 
+                   data = df_rounds_learn %>% filter(valid_number_of_starting_players) %>% drop_na(data.roundPayoff))
+
+summary(model_learn_contrib)
+confint(model_learn_contrib)
+
+
+model_learn_contrib_tobit = censReg(contribution ~ CONFIG_punishmentExists, left=0, right=1,
+                            data = df_contrib_learn)
+
+summary(model_learn_contrib_tobit)
+confint(model_learn_contrib_tobit)
+```
+
+```{r}
+# Validation
+model_val_contrib = lmer(contribution ~ CONFIG_punishmentExists + 
+                     (1|gameId) + (1|playerId), 
+                   data = df_rounds_val %>% filter(valid_number_of_starting_players) %>% drop_na(data.roundPayoff))
+
+summary(model_val_contrib)
+confint(model_val_contrib)
+
+model_val_contrib_tobit = censReg(contribution ~ CONFIG_punishmentExists, left=0, right=1,
+                            data = df_contrib_val)
+
+summary(model_val_contrib_tobit)
+confint(model_val_contrib_tobit)
+```
+
+## Estimating the average effect of punishment on normalized efficiency 
+
+```{r}
+# Learning
+model_learn_normalized_eff = lm(itt_relative_efficiency ~ CONFIG_punishmentExists,
+                        data = df_analysis_learn %>% filter(valid_number_of_starting_players))
+
+summary(model_learn_normalized_eff)
+confint(model_learn_normalized_eff)
+```
+
+
+```{r}
+# Validation
+model_val_normalized_eff = lm(itt_relative_efficiency ~ CONFIG_punishmentExists,
+                        data = df_analysis_val %>% filter(valid_number_of_starting_players))
+
+summary(model_val_normalized_eff)
+confint(model_val_normalized_eff)
+```
+
+# Fisherian test of treatment effect heterogeneity 
+
+```{r}
+# FRT on learning wave
+set.seed(2024)
+frt_learn = detect_idiosyncratic(formula = itt_relative_efficiency ~ CONFIG_punishmentExists,
+                     data = df_analysis_learn %>% filter(valid_number_of_starting_players), 
+                     B=1000, grid.size = 300, grid.gamma = 0.1)
+
+summary(frt_learn)
+plot(frt_learn)
+```
+
+```{r}
+# FRT on validation wave
+set.seed(2024)
+frt_val = detect_idiosyncratic(formula = itt_relative_efficiency ~ CONFIG_punishmentExists,
+                     data = df_analysis_val %>% filter(valid_number_of_starting_players), 
+                     B=1000, grid.size = 300, grid.gamma = 0.1)
+
+summary(frt_val)
+plot(frt_val)
+```
+
+```{r}
+# FRT on aggregated learning and validation data
+df_analysis_agg = rbind(df_analysis_learn[,c("itt_relative_efficiency", "CONFIG_punishmentExists", "valid_number_of_starting_players")],
+                        df_analysis_val[,c("itt_relative_efficiency", "CONFIG_punishmentExists", "valid_number_of_starting_players")])
+
+set.seed(2024)
+frt_agg = detect_idiosyncratic(formula = itt_relative_efficiency ~ CONFIG_punishmentExists,
+                     data = df_analysis_agg %>% filter(valid_number_of_starting_players), 
+                     B=1000, grid.size = 300, grid.gamma = 0.1)
+
+summary(frt_agg)
+plot(frt_agg)
+```
