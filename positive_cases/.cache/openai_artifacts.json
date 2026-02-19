@@ -1,0 +1,26 @@
+{
+  "files": {
+    "/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/science-data_and_code/data/processed_data/df_analysis_learn.csv": {
+      "file_id": "file-5BdAeQxi6LGiDQeF26eCDr",
+      "fingerprint": {
+        "path": "/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/science-data_and_code/data/processed_data/df_analysis_learn.csv",
+        "mtime": 1762498340.0,
+        "size": 2799724
+      }
+    },
+    "/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/PGG_papers/science-paper/PGG_paper_science.pdf": {
+      "file_id": "file-XLjQri5seGhxDjoJavYXHa",
+      "fingerprint": {
+        "path": "/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/PGG_papers/science-paper/PGG_paper_science.pdf",
+        "mtime": 1771471448.1243882,
+        "size": 575696
+      }
+    }
+  },
+  "vector_stores": {
+    "/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/PGG_papers/science-paper/PGG_paper_science.pdf": {
+      "vector_store_id": "vs_69971c50aaec8191a1e5d685f9ee822b",
+      "file_id": "file-XLjQri5seGhxDjoJavYXHa"
+    }
+  }
+}

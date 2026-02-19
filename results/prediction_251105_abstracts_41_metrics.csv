@@ -1,2 +1,2 @@
-variation,rmse,correlation,directional_accuracy,n
-ALL,7.604614882221496,0.6152036787599923,0.6,20
+variation,rmse,rmse_ci_low,rmse_ci_high,correlation,correlation_ci_low,correlation_ci_high,directional_accuracy,directional_accuracy_ci_low,directional_accuracy_ci_high,n
+ALL,7.604614882221496,5.445993137722293,9.612205081886932,0.6152036787599923,0.2550881245457646,0.8262288793999348,0.6,0.4,0.8,20

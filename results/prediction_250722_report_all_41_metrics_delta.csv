@@ -1,0 +1,2 @@
+variation,delta_rmse,delta_rmse_ci_low,delta_rmse_ci_high,delta_correlation,delta_correlation_ci_low,delta_correlation_ci_high,delta_directional_accuracy,delta_directional_accuracy_ci_low,delta_directional_accuracy_ci_high,n
+ALL_fromTYPE1,-0.3441902739198577,-1.4476860786306873,0.528270761385507,-0.0046467607320563875,-0.11128789967005535,0.09989926217430066,0.04999999999999993,0.0,0.15000000000000002,20
