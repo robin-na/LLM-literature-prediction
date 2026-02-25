@@ -5,6 +5,46 @@ import numpy as np
 import pandas as pd
 
 
+def _extract_prediction_from_json_text(text: str | None) -> float | None:
+    """
+    Try to parse model output as JSON and read a numeric `prediction` field.
+    Returns None when parsing fails or when `prediction` is missing/non-numeric.
+    """
+    if not text:
+        return None
+
+    candidate = text.strip()
+    parsed = None
+
+    # Most include_reasoning=True outputs are plain JSON strings.
+    try:
+        parsed = json.loads(candidate)
+    except (json.JSONDecodeError, TypeError):
+        parsed = None
+
+    # Fallback: parse the outermost JSON object substring.
+    if parsed is None:
+        start = candidate.find("{")
+        end = candidate.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            try:
+                parsed = json.loads(candidate[start : end + 1])
+            except (json.JSONDecodeError, TypeError):
+                parsed = None
+
+    if not isinstance(parsed, dict):
+        return None
+
+    value = parsed.get("prediction")
+    if isinstance(value, (int, float)) and not np.isnan(value):
+        return float(value)
+    if isinstance(value, str):
+        numeric = _extract_numeric(value)
+        if not np.isnan(numeric):
+            return float(numeric)
+    return None
+
+
 def _extract_numeric(text: str | None) -> float:
     if not text:
         return float("nan")
@@ -89,7 +129,11 @@ def jsonl_to_dataframe(jsonl_path, verbose: bool = False):
             mean = None
 
         if mean is None:
-            mean = _extract_numeric(answer_text)
+            json_pred = _extract_prediction_from_json_text(answer_text)
+            if json_pred is not None:
+                mean = json_pred
+            else:
+                mean = _extract_numeric(answer_text)
             if np.isnan(mean) and verbose:
                 print(f"error: {custom_id}")
         
