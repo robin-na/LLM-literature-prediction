@@ -11,7 +11,11 @@ sys.path.append(str(Path(__file__).resolve().parent))
 from jsonl_parser import jsonl_to_dataframe  # noqa: E402
 
 
-def load_ground_truth(csv_path: Path) -> tuple[pd.Series, pd.Series]:
+def load_ground_truth(
+    csv_path: Path,
+    question_prefix: str = "Q",
+    label_mode: str = "config_id",
+) -> tuple[pd.Series, pd.Series]:
     df = pd.read_csv(csv_path)
     cols = ["CONFIG_configId", "treatment_itt_efficiency", "control_itt_efficiency"]
     missing = [c for c in cols if c not in df.columns]
@@ -26,7 +30,15 @@ def load_ground_truth(csv_path: Path) -> tuple[pd.Series, pd.Series]:
         .sort_values("CONFIG_configId")
     )
 
-    df["question"] = df["CONFIG_configId"].astype(int).map(lambda x: f"Q{x + 1}")
+    if label_mode == "config_id":
+        df["question"] = df["CONFIG_configId"].astype(int).map(
+            lambda x: f"{question_prefix}{x + 1}"
+        )
+    elif label_mode == "ordinal":
+        df = df.reset_index(drop=True)
+        df["question"] = [f"{question_prefix}{i}" for i in range(1, len(df) + 1)]
+    else:
+        raise ValueError("label_mode must be one of: config_id, ordinal")
     df["treatment_scaled"] = df["treatment_itt_efficiency"] * 100
     df["control_scaled"] = df["control_itt_efficiency"] * 100
 
@@ -93,7 +105,10 @@ def _metric_with_ci(
             boot[i] = metric_fn(
                 pred_arr[sample], truth_arr[sample], control_arr[sample]
             )
-    lo, hi = np.nanpercentile(boot, [2.5, 97.5])
+    finite_boot = boot[np.isfinite(boot)]
+    if finite_boot.size == 0:
+        return value, float("nan"), float("nan")
+    lo, hi = np.nanpercentile(finite_boot, [2.5, 97.5])
     return value, float(lo), float(hi)
 
 
@@ -136,7 +151,10 @@ def _paired_delta_ci(
                 base_arr[sample], truth_arr[sample], control_arr[sample]
             )
         boot[i] = m_pred - m_base
-    lo, hi = np.nanpercentile(boot, [2.5, 97.5])
+    finite_boot = boot[np.isfinite(boot)]
+    if finite_boot.size == 0:
+        return delta, float("nan"), float("nan")
+    lo, hi = np.nanpercentile(finite_boot, [2.5, 97.5])
     return delta, float(lo), float(hi)
 
 
@@ -284,8 +302,9 @@ def process_jsonl(
     baseline_row: pd.Series,
     rng: np.random.Generator,
     n_boot: int,
+    platform: str,
 ) -> tuple[Path, Path, Path]:
-    pred_df = jsonl_to_dataframe(jsonl_path)
+    pred_df = jsonl_to_dataframe(jsonl_path, platform=platform)
 
     results_dir.mkdir(parents=True, exist_ok=True)
     pred_csv = results_dir / f"{jsonl_path.stem}.csv"
@@ -313,12 +332,12 @@ def find_prediction_jsonls(input_dir: Path) -> list[Path]:
 
 
 def _load_baseline(
-    input_dir: Path, results_dir: Path, baseline_jsonl: Path | None
+    input_dir: Path, results_dir: Path, baseline_jsonl: Path | None, platform: str
 ) -> pd.Series:
     if baseline_jsonl is None:
         baseline_jsonl = input_dir / "prediction_baseline_41.jsonl"
     if baseline_jsonl.exists():
-        baseline_df = jsonl_to_dataframe(baseline_jsonl)
+        baseline_df = jsonl_to_dataframe(baseline_jsonl, platform=platform)
     else:
         baseline_csv = results_dir / "prediction_baseline_41.csv"
         if not baseline_csv.exists():
@@ -373,10 +392,18 @@ def main() -> None:
         default=None,
         help="Optional path to baseline prediction jsonl.",
     )
+    parser.add_argument(
+        "--platform",
+        choices=["openai", "claude"],
+        default="openai",
+        help="Platform-specific jsonl parser.",
+    )
     args = parser.parse_args()
 
     treatment, control = load_ground_truth(args.ground_truth)
-    baseline_row = _load_baseline(args.input_dir, args.results_dir, args.baseline_jsonl)
+    baseline_row = _load_baseline(
+        args.input_dir, args.results_dir, args.baseline_jsonl, args.platform
+    )
     rng = np.random.default_rng(args.seed)
 
     jsonl_files = find_prediction_jsonls(args.input_dir)
@@ -392,6 +419,7 @@ def main() -> None:
             baseline_row,
             rng,
             args.bootstrap_samples,
+            args.platform,
         )
         print(f"Wrote {pred_csv}, {metrics_csv}, {delta_csv}")
 

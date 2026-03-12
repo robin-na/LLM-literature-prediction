@@ -1,0 +1,8 @@
+feature,baseline_majority,augmented_majority,baseline_mean_corr,augmented_mean_corr,reversal
+CONFIG_MPCR,positive,positive,0.2480063397721484,0.08927037251187395,False
+CONFIG_numRounds,positive,positive,0.24332862170487868,0.13956597965669276,False
+CONFIG_playerCount,positive,negative,0.04286242301160152,-0.20320510291982227,True
+CONFIG_punishmentCost,negative,positive,-0.33230254337372317,0.07845194507159123,True
+CONFIG_punishmentTech,positive,positive,0.15554748121745582,0.2799716294819504,False
+CONFIG_rewardTech,positive,negative,0.24559759187431918,-0.4034194498583822,True
+control_pct,negative,positive,-0.24464611353650348,0.015003232947929736,True

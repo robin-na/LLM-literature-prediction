@@ -1,0 +1,8 @@
+feature,baseline_majority,augmented_majority,baseline_mean_diff,augmented_mean_diff,reversal
+CONFIG_allOrNothing,up,down,0.34488378940551084,-3.3294443895378305,True
+CONFIG_chat,tie,up,-0.060197720919127395,3.6734940241716245,False
+CONFIG_defaultContribProp,up,down,1.2016931312040495,-1.322970098700297,True
+CONFIG_rewardExists,down,up,0.012244695107007195,1.8847222760152877,True
+CONFIG_showNRounds,down,down,-1.9481525743083186,-0.2768170681792948,False
+CONFIG_showOtherSummaries,up,down,0.6361562135656136,-2.5995350783342204,True
+CONFIG_showPunishmentId,up,up,0.20115894410255064,2.1676138091057373,False

@@ -1,0 +1,11 @@
+label,group,r2
+GPT-4.1 baseline,GPT-4.1,0.11601962011437528
+GPT-4.1 baseline_reasoning,GPT-4.1,0.3619639506036456
+GPT-4.1 baseline_joint,GPT-4.1,0.05260404498690374
+GPT-4.1 baseline_joint_reasoning,GPT-4.1,0.1279231376600708
+GPT-4.1-nano baseline,GPT-4.1-nano,-0.11851762286785927
+GPT-4.1-nano baseline_reasoning,GPT-4.1-nano,-0.9938682737576572
+GPT-4.1-nano baseline_joint,GPT-4.1-nano,-0.11907676324320948
+GPT-4.1-nano baseline_joint_reasoning,GPT-4.1-nano,-0.1889092997501789
+Elastic net,Benchmarks,0.5988464754844693
+Noise ceiling,Benchmarks,0.6408561737505205

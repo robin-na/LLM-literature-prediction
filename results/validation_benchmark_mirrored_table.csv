@@ -1,0 +1,9 @@
+label,model,variation,rmse,correlation,directional_accuracy,r2
+GPT-4.1 baseline,GPT-4.1,baseline,6.704339,0.641394,0.65,0.11601962011437528
+GPT-4.1 baseline_reasoning,GPT-4.1,baseline_reasoning,5.69583318667422,0.6268523471472945,0.7,0.3619639506036456
+GPT-4.1 baseline_joint,GPT-4.1,baseline_joint,6.940654339734114,0.5295673978611708,0.65,0.05260404498690374
+GPT-4.1 baseline_joint_reasoning,GPT-4.1,baseline_joint_reasoning,6.659046308229082,0.5504489095313153,0.6,0.1279231376600708
+GPT-4.1-nano baseline,GPT-4.1-nano,baseline,7.541471055480931,0.5815833527666314,0.55,-0.11851762286785927
+GPT-4.1-nano baseline_reasoning,GPT-4.1-nano,baseline_reasoning,10.068919865829844,0.4365981432419155,0.45,-0.9938682737576572
+GPT-4.1-nano baseline_joint,GPT-4.1-nano,baseline_joint,7.543355788461948,0.4433144316667045,0.35,-0.11907676324320948
+GPT-4.1-nano baseline_joint_reasoning,GPT-4.1-nano,baseline_joint_reasoning,7.775154275461146,0.5267772584324578,0.45,-0.1889092997501789

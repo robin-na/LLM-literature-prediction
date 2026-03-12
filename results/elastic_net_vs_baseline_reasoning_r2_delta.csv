@@ -1,0 +1,2 @@
+comparison,delta_r2_vs_zero_effect,delta_r2_ci_low,delta_r2_ci_high,verdict,n
+elastic_net_minus_baseline_reasoning,0.23688253041032026,-0.12394956068283947,0.5089553352372712,uncertain,20

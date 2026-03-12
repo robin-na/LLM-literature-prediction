@@ -1,0 +1,5 @@
+shift,families,rmse_improve_count,corr_improve_count,da_improve_count,median_rmse_change,median_corr_change,median_da_change
+joint_minus_single,14,10,7,5,-0.550154655739929,0.0002849521435458052,0.0
+joint_reasoning_minus_joint,14,10,9,7,-0.20987061458896905,0.02518653072429445,0.024999999999999946
+joint_reasoning_minus_reasoning,14,8,9,5,-0.2448493966938764,0.0316875074869207,0.0
+reasoning_minus_single,14,11,8,8,-0.34590223323030234,0.007320365701055051,0.04999999999999989

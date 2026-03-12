@@ -1,0 +1,2 @@
+comparison,delta_rmse,delta_rmse_ci_low,delta_rmse_ci_high,rmse_verdict,delta_correlation,delta_correlation_ci_low,delta_correlation_ci_high,correlation_verdict,delta_directional_accuracy,delta_directional_accuracy_ci_low,delta_directional_accuracy_ci_high,directional_accuracy_verdict,n
+elastic_net_minus_baseline_reasoning,-1.1794585763639418,-2.6559153462607648,0.46493587865269775,uncertain,0.14662941932314077,-0.062056316806448436,0.4007571462197626,uncertain,0.050000000000000044,-0.15000000000000002,0.25,uncertain,20

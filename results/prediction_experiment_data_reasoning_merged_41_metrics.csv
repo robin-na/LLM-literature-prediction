@@ -1,0 +1,3 @@
+variation,rmse,rmse_ci_low,rmse_ci_high,correlation,correlation_ci_low,correlation_ci_high,directional_accuracy,directional_accuracy_ci_low,directional_accuracy_ci_high,n
+pgg_CONFIGmerged_validation,0.23171731829439943,0.17636435171601936,0.28783145420597367,0.9994675717428129,0.9988968548901884,0.9997691753565467,1.0,1.0,1.0,20
+pgg_CONFIGmerged_learn,8.73040352625482,4.52765465027015,12.56002964368286,0.46059175877829633,0.03856988268793024,0.8701631736088089,0.8,0.6,0.95,20

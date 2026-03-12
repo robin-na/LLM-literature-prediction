@@ -1,0 +1,5 @@
+metric,spearman_correlation
+overall_rank,0.5232674505879409
+rmse_rank,0.6904054016505042
+correlation_rank,0.8109422323487732
+directional_accuracy_rank,0.3597701862159984

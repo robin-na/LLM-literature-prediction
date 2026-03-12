@@ -7,6 +7,19 @@ def normalize_text(text: str) -> str:
     return dedent(text).strip()
 
 
+VALID_SOURCE_MODES = {"both", "data_only", "paper_only"}
+VALID_REPORT_STYLES = {
+    "freeform",
+    "structured",
+    "quantitative",
+    "refined",
+    "rules",
+    "contrastive",
+    "uncertainty",
+    "ensemble",
+}
+
+
 def task_context_text() -> str:
     return normalize_text(
         """
@@ -76,10 +89,14 @@ def build_final_report_prompt(
     analysis_memo: str,
     paper_memo: str,
     source_mode: str = "both",
+    report_style: str = "freeform",
 ) -> str:
     source_mode = source_mode.lower().strip()
-    if source_mode not in {"both", "data_only", "paper_only"}:
+    report_style = report_style.lower().strip()
+    if source_mode not in VALID_SOURCE_MODES:
         source_mode = "both"
+    if report_style not in VALID_REPORT_STYLES:
+        report_style = "freeform"
 
     if source_mode == "data_only":
         source_note = (
@@ -121,6 +138,8 @@ def build_final_report_prompt(
 
     memos_text = "\n\n".join(memo_blocks)
 
+    style_requirements = build_report_style_requirements(report_style)
+
     return normalize_text(
         f"""
         You are writing a prediction-support paper to help a model estimate how enabling punishment changes efficiency in new public goods games.
@@ -136,6 +155,9 @@ def build_final_report_prompt(
         - Do NOT include any final-answer formatting or \"Final Answer\" template.
         - Assume the protocol and online environment are consistent across studies; differences are driven by the CONFIG parameters.
         - Include concrete numerical estimates and tables drawn from the available evidence.
+        - Report style: {report_style}
+        - Follow these additional style requirements exactly:
+        {style_requirements}
 
         {task_context_text()}
 
@@ -154,5 +176,169 @@ def build_final_report_prompt(
         {column_defs}
 
         {memos_text}
+        """
+    )
+
+
+def build_report_style_requirements(report_style: str) -> str:
+    report_style = report_style.lower().strip()
+    if report_style == "structured":
+        return normalize_text(
+            """
+            - Prefer compact sections, bullets, and tables over long narrative paragraphs.
+            - Explicitly include a "Moderator Matrix" table with each key variable, likely effect direction, confidence, and interaction notes.
+            - Explicitly include a "Rules of Thumb" section formatted as if-then statements.
+            - Keep prose concise and operational.
+            """
+        )
+    if report_style == "quantitative":
+        return normalize_text(
+            """
+            - Prioritize numeric evidence over narrative explanation.
+            - Put tables first whenever possible.
+            - Include at least three quantitative tables: overall effects, moderator effects, and prediction guidance ranges.
+            - Minimize qualitative wording unless it clarifies how to use the numbers.
+            """
+        )
+    if report_style == "refined":
+        return normalize_text(
+            """
+            - Produce a clean final report only.
+            - The report should read like a corrected and tightened version of an earlier draft.
+            - Eliminate unsupported claims, vague wording, and claims that are not grounded in the supplied memos.
+            - Be explicit about uncertainty when evidence is mixed or weak.
+            """
+        )
+    if report_style == "rules":
+        return normalize_text(
+            """
+            - Make the report operational and rule-first rather than essay-first.
+            - Include a ranked predictor list, then a rules section built from if-then statements.
+            - Each rule should include direction of effect and an approximate numeric range when available.
+            - Keep narrative explanation minimal and subordinate to actionable guidance.
+            """
+        )
+    if report_style == "contrastive":
+        return normalize_text(
+            """
+            - Explicitly separate where the paper memo and analysis memo agree, partially agree, or disagree.
+            - Include an "Agreement / Disagreement Matrix" table.
+            - Reconcile conflicts and explain which evidence should dominate prediction when they diverge.
+            - The final predictive guidance should clearly indicate whether it is supported by paper, data, or both.
+            """
+        )
+    if report_style == "uncertainty":
+        return normalize_text(
+            """
+            - For every major predictive claim, include an explicit confidence label such as high, medium, or low.
+            - Distinguish stable effects from interaction-heavy or weakly supported effects.
+            - Include a section titled "High-Confidence Rules" and another titled "Low-Confidence / Unstable Regions".
+            - Preserve actionable guidance, but make uncertainty visible everywhere it matters.
+            """
+        )
+    if report_style == "ensemble":
+        return normalize_text(
+            """
+            - Produce a final integrated report that combines strengths of multiple drafting styles.
+            - The final result should be compact, operational, quantitatively grounded, and internally consistent.
+            - Favor content that survives across multiple candidate draft forms over content that appears only once.
+            """
+        )
+    return normalize_text(
+        """
+        - Write a balanced narrative synthesis with clear headings, concrete numbers, and actionable guidance.
+        - Use prose as the default form, with tables where helpful.
+        """
+    )
+
+
+def build_report_refinement_prompt(
+    column_defs: str,
+    analysis_memo: str,
+    paper_memo: str,
+    draft_report: str,
+    source_mode: str = "both",
+) -> str:
+    source_mode = source_mode.lower().strip()
+    if source_mode not in VALID_SOURCE_MODES:
+        source_mode = "both"
+
+    report_prompt = build_final_report_prompt(
+        column_defs=column_defs,
+        analysis_memo=analysis_memo,
+        paper_memo=paper_memo,
+        source_mode=source_mode,
+        report_style="refined",
+    )
+
+    return normalize_text(
+        f"""
+        You are revising a draft prediction-support report.
+
+        Your job:
+        - Audit the draft for unsupported claims, leakage across source constraints, vague statements, and weak quantitative grounding.
+        - Rewrite the report so it is tighter, better supported, and more useful for prediction.
+        - Preserve useful content from the draft only when it is supported by the memos.
+        - Output only the improved final report in Markdown.
+
+        Draft report:
+        ---
+        {draft_report}
+        ---
+
+        Use these report requirements for the rewrite:
+        {report_prompt}
+
+        Column definitions:
+        {column_defs}
+        """
+    )
+
+
+def build_report_ensemble_prompt(
+    column_defs: str,
+    analysis_memo: str,
+    paper_memo: str,
+    structured_draft: str,
+    quantitative_draft: str,
+    source_mode: str = "both",
+) -> str:
+    source_mode = source_mode.lower().strip()
+    if source_mode not in VALID_SOURCE_MODES:
+        source_mode = "both"
+
+    report_prompt = build_final_report_prompt(
+        column_defs=column_defs,
+        analysis_memo=analysis_memo,
+        paper_memo=paper_memo,
+        source_mode=source_mode,
+        report_style="ensemble",
+    )
+
+    return normalize_text(
+        f"""
+        You are synthesizing a final prediction-support report from two candidate drafts.
+
+        Your job:
+        - Merge the strongest parts of both drafts into one final report.
+        - Prefer claims that are numerically grounded, operational for prediction, and consistent with the supplied memos.
+        - Remove redundancy, unsupported claims, and stylistic clutter.
+        - Output only the final report in Markdown.
+
+        Structured draft:
+        ---
+        {structured_draft}
+        ---
+
+        Quantitative draft:
+        ---
+        {quantitative_draft}
+        ---
+
+        Final report requirements:
+        {report_prompt}
+
+        Column definitions:
+        {column_defs}
         """
     )

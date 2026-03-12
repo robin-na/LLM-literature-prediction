@@ -21,6 +21,103 @@ From the repo root:
 python positive_cases/run_agentic_report.py
 ```
 
+Generate the report-variation set with the OpenAI Responses API:
+```bash
+python positive_cases/run_report_variations.py \
+  --methods both_structured both_quantitative both_rules both_contrastive both_uncertainty both_refined both_ensemble
+```
+
+Generate all six named report methods and skip ones already on disk:
+```bash
+python positive_cases/run_report_variations.py
+```
+
+Named report methods currently supported:
+- `paper_only_freeform`
+- `data_only_freeform`
+- `both_freeform`
+- `paper_only_structured`
+- `data_only_structured`
+- `both_structured`
+- `paper_only_quantitative`
+- `data_only_quantitative`
+- `both_quantitative`
+- `both_rules`
+- `both_contrastive`
+- `both_uncertainty`
+- `both_refined`
+- `both_ensemble`
+
+Build one merged OpenAI batch input across report methods and elicitation modes:
+```bash
+python positive_cases/build_positive_case_variation_batch_input.py
+```
+
+This writes:
+- `openAI_batch_input/prediction_positive_case_variations_41.jsonl`
+
+Included conditions:
+- Baseline, single-question, answer-only
+- Baseline, single-question, reasoning JSON
+- Baseline, joint 20-question, answer-only JSON
+- Baseline, joint 20-question, reasoning JSON
+- The same four elicitation modes for each generated report method
+
+Joint 20-question elicitation uses a compact column guide and a single structured table, rather than repeating the full game description 20 times.
+
+Build the learning-wave elicitation-only batch file (no augmentation, sorted by `CONFIG_configId`):
+```bash
+python positive_cases/build_learning_wave_elicitation_batch_input.py
+```
+
+This writes:
+- `openAI_batch_input/prediction_learning_wave_elicitation_41.jsonl`
+
+Build one merged OpenAI batch input across both validation and learning targets, all
+elicitation variants, all generated report methods, and the experiment-catalog input
+variants:
+```bash
+python positive_cases/build_crosswave_variation_batch_input.py \
+  --model gpt-4.1 \
+  --skip-baseline \
+  --skip-experiment-inputs
+python positive_cases/build_crosswave_variation_batch_input.py \
+  --model gpt-4.1-mini \
+  --skip-experiment-inputs
+python positive_cases/build_crosswave_variation_batch_input.py \
+  --model gpt-4.1-nano \
+  --skip-experiment-inputs
+```
+
+This writes:
+- `openAI_batch_input/prediction_crosswave_variations_41.jsonl`
+- `openAI_batch_input/prediction_crosswave_variations_41mini.jsonl`
+- `openAI_batch_input/prediction_crosswave_variations_41nano.jsonl`
+
+Included condition families:
+- `baseline` for the `gpt-4.1-mini` file
+- every report method currently on disk
+
+Optional switches:
+- `--skip-baseline`
+- `--skip-experiment-inputs`
+
+Included elicitation modes for each family:
+- single-question answer-only (`top_logprobs=20`)
+- single-question reasoning JSON
+- joint prediction over the full target wave, answer-only JSON
+- joint prediction over the full target wave, reasoning JSON
+
+Per-question IDs remain:
+- validation: `.../Q1 ... /Q20`
+- learning: `.../L1 ... /L150`
+
+Joint-request IDs are dataset-qualified to avoid collisions in the merged file:
+- `validation/baseline_joint`
+- `learning/baseline_joint`
+- `validation/both_structured_joint_reasoning`
+- `learning/pgg_CONFIGmerged_learn_joint`
+
 Build prediction batch inputs from `input/pgg_CONFIGmerged_validation.csv`, augmented with
 the generated reports in `positive_cases/output/{both,data_only,paper_only}/agentic_report.md`:
 ```bash

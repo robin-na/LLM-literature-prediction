@@ -1,0 +1,3 @@
+variation,delta_rmse,delta_rmse_ci_low,delta_rmse_ci_high,delta_correlation,delta_correlation_ci_low,delta_correlation_ci_high,delta_directional_accuracy,delta_directional_accuracy_ci_low,delta_directional_accuracy_ci_high,n
+pgg_CONFIGmerged_validation,-6.472622111036749,-8.021099875740461,-4.764652863509863,0.35807309150148225,0.1511819319829657,0.7034667692308669,0.35,0.15000000000000002,0.55,20
+pgg_CONFIGmerged_learn,2.0260640969236716,-2.40170733053151,5.855363204310431,-0.18080272146303428,-0.5502302589984082,0.21231138087654866,0.15000000000000002,-0.050000000000000044,0.35,20

@@ -1,0 +1,14 @@
+pattern,count
+all_positive_pred,3
+all_negative_pred,3
+sign_flip_across_variants,143
+true_positive_effect,64
+true_negative_effect,86
+baseline_positive_pred,5
+baseline_negative_pred,145
+baseline_reasoning_positive_pred,32
+baseline_reasoning_negative_pred,118
+baseline_joint_positive_pred,135
+baseline_joint_negative_pred,14
+baseline_joint_reasoning_positive_pred,146
+baseline_joint_reasoning_negative_pred,3

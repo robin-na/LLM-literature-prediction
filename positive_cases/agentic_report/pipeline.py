@@ -21,11 +21,46 @@ from .config import (
 from .prompts import (
     build_analysis_prompt,
     build_final_report_prompt,
+    build_report_ensemble_prompt,
     build_paper_summary_prompt,
+    build_report_refinement_prompt,
 )
 
 
 CACHE_PATH = CACHE_DIR / "openai_artifacts.json"
+
+REPORT_METHOD_SPECS = {
+    "paper_only_freeform": {"source_mode": "paper_only", "report_style": "freeform"},
+    "data_only_freeform": {"source_mode": "data_only", "report_style": "freeform"},
+    "both_freeform": {"source_mode": "both", "report_style": "freeform"},
+    "paper_only_structured": {"source_mode": "paper_only", "report_style": "structured"},
+    "data_only_structured": {"source_mode": "data_only", "report_style": "structured"},
+    "both_structured": {"source_mode": "both", "report_style": "structured"},
+    "paper_only_quantitative": {"source_mode": "paper_only", "report_style": "quantitative"},
+    "data_only_quantitative": {"source_mode": "data_only", "report_style": "quantitative"},
+    "both_quantitative": {"source_mode": "both", "report_style": "quantitative"},
+    "both_rules": {"source_mode": "both", "report_style": "rules"},
+    "both_contrastive": {"source_mode": "both", "report_style": "contrastive"},
+    "both_uncertainty": {"source_mode": "both", "report_style": "uncertainty"},
+    "both_refined": {"source_mode": "both", "report_style": "refined"},
+    "both_ensemble": {"source_mode": "both", "report_style": "ensemble"},
+}
+
+
+def parse_report_method(report_method: str) -> dict[str, str]:
+    method = report_method.lower().strip()
+    if method not in REPORT_METHOD_SPECS:
+        raise ValueError(
+            f"Unsupported report method '{report_method}'. "
+            f"Expected one of: {', '.join(sorted(REPORT_METHOD_SPECS))}"
+        )
+    return REPORT_METHOD_SPECS[method]
+
+
+def canonical_output_dir_name(source_mode: str, report_style: str) -> str:
+    if report_style == "freeform" and source_mode in {"both", "data_only", "paper_only"}:
+        return source_mode
+    return f"{source_mode}_{report_style}"
 
 
 def _load_cache() -> Dict[str, Any]:
@@ -130,17 +165,37 @@ def run_pipeline(
     skip_analysis: bool = False,
     skip_paper: bool = False,
     variant: str = "both",
+    report_style: str = "freeform",
+    report_method: str | None = None,
 ) -> Dict[str, Path]:
-    source_mode = variant.lower().strip()
+    if report_method is not None:
+        spec = parse_report_method(report_method)
+        source_mode = spec["source_mode"]
+        report_style = spec["report_style"]
+    else:
+        source_mode = variant.lower().strip()
+        report_style = report_style.lower().strip()
+
     if source_mode not in {"both", "data_only", "paper_only"}:
         source_mode = "both"
+    if report_style not in {
+        "freeform",
+        "structured",
+        "quantitative",
+        "rules",
+        "contrastive",
+        "uncertainty",
+        "refined",
+        "ensemble",
+    }:
+        report_style = "freeform"
 
     if source_mode == "data_only":
         skip_paper = True
     elif source_mode == "paper_only":
         skip_analysis = True
 
-    output_dir = BASE_OUTPUT_DIR / source_mode
+    output_dir = BASE_OUTPUT_DIR / canonical_output_dir_name(source_mode, report_style)
     ensure_dirs(output_dir)
 
     try:
@@ -228,18 +283,82 @@ def run_pipeline(
         else:
             paper_memo = "(paper memo unavailable)"
 
-    report_prompt = build_final_report_prompt(
-        column_defs=column_defs,
-        analysis_memo=analysis_memo,
-        paper_memo=paper_memo,
-        source_mode=source_mode,
-    )
-
-    response = client.responses.create(
-        model=report_model,
-        input=report_prompt,
-    )
-    report_text = _extract_output_text(response)
+    if report_style == "refined":
+        draft_prompt = build_final_report_prompt(
+            column_defs=column_defs,
+            analysis_memo=analysis_memo,
+            paper_memo=paper_memo,
+            source_mode=source_mode,
+            report_style="freeform",
+        )
+        draft_response = client.responses.create(
+            model=report_model,
+            input=draft_prompt,
+        )
+        draft_report = _extract_output_text(draft_response)
+        refinement_prompt = build_report_refinement_prompt(
+            column_defs=column_defs,
+            analysis_memo=analysis_memo,
+            paper_memo=paper_memo,
+            draft_report=draft_report,
+            source_mode=source_mode,
+        )
+        response = client.responses.create(
+            model=report_model,
+            input=refinement_prompt,
+        )
+        report_text = _extract_output_text(response)
+    elif report_style == "ensemble":
+        structured_prompt = build_final_report_prompt(
+            column_defs=column_defs,
+            analysis_memo=analysis_memo,
+            paper_memo=paper_memo,
+            source_mode=source_mode,
+            report_style="structured",
+        )
+        quantitative_prompt = build_final_report_prompt(
+            column_defs=column_defs,
+            analysis_memo=analysis_memo,
+            paper_memo=paper_memo,
+            source_mode=source_mode,
+            report_style="quantitative",
+        )
+        structured_response = client.responses.create(
+            model=report_model,
+            input=structured_prompt,
+        )
+        quantitative_response = client.responses.create(
+            model=report_model,
+            input=quantitative_prompt,
+        )
+        structured_draft = _extract_output_text(structured_response)
+        quantitative_draft = _extract_output_text(quantitative_response)
+        ensemble_prompt = build_report_ensemble_prompt(
+            column_defs=column_defs,
+            analysis_memo=analysis_memo,
+            paper_memo=paper_memo,
+            structured_draft=structured_draft,
+            quantitative_draft=quantitative_draft,
+            source_mode=source_mode,
+        )
+        response = client.responses.create(
+            model=report_model,
+            input=ensemble_prompt,
+        )
+        report_text = _extract_output_text(response)
+    else:
+        report_prompt = build_final_report_prompt(
+            column_defs=column_defs,
+            analysis_memo=analysis_memo,
+            paper_memo=paper_memo,
+            source_mode=source_mode,
+            report_style=report_style,
+        )
+        response = client.responses.create(
+            model=report_model,
+            input=report_prompt,
+        )
+        report_text = _extract_output_text(response)
     _write_text(report_path, report_text)
 
     return {
@@ -263,6 +382,27 @@ def _parse_args() -> argparse.Namespace:
         choices=["both", "data_only", "paper_only"],
         help="Select evidence source: both, data_only, or paper_only.",
     )
+    parser.add_argument(
+        "--report-style",
+        default="freeform",
+        choices=[
+            "freeform",
+            "structured",
+            "quantitative",
+            "rules",
+            "contrastive",
+            "uncertainty",
+            "refined",
+            "ensemble",
+        ],
+        help="Report synthesis style.",
+    )
+    parser.add_argument(
+        "--report-method",
+        default=None,
+        choices=sorted(REPORT_METHOD_SPECS),
+        help="Named report method shortcut.",
+    )
     return parser.parse_args()
 
 
@@ -276,6 +416,8 @@ def main() -> None:
         skip_analysis=args.skip_analysis,
         skip_paper=args.skip_paper,
         variant=args.variant,
+        report_style=args.report_style,
+        report_method=args.report_method,
     )
     print("Generated:")
     for name, path in outputs.items():
