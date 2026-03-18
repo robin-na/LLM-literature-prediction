@@ -1,0 +1,4 @@
+variation,label,rmse,correlation,directional_accuracy,r2
+baseline_reasoning,Baseline reasoning,5.69583318667422,0.6268523471472945,0.7,0.3619639450741491
+both_contrastive_reasoning,Best augmented reasoning,6.114896496224247,0.7338993843836635,0.65,0.26462490345210965
+both_ensemble_reasoning,Degraded augmented reasoning,10.821196916647136,0.6481064549706288,0.5,-1.302932972640387

@@ -1,0 +1,4 @@
+variation,label,rmse,correlation,directional_accuracy,r2
+baseline_joint,Baseline joint,6.940654339734114,0.5295673978611708,0.65,0.052604036776360275
+both_uncertainty_joint,Best augmented,6.338016113219883,0.6655960458981851,0.6,0.20998129209451522
+both_ensemble_joint,Degraded augmented,8.833285434811623,0.4450425763914762,0.55,-0.53452944505828

@@ -32,6 +32,40 @@ Generate all six named report methods and skip ones already on disk:
 python positive_cases/run_report_variations.py
 ```
 
+Interactive notebook for prompt iteration on the validation positive-case task:
+- Notebook: `positive_cases/positive_case_prompt_lab.ipynb`
+- Helper module: `positive_cases/notebook_utils.py`
+- Variant registry: `positive_cases/output/report_variant_registry.json`
+
+The notebook is set up for:
+- `gpt-4.1`
+- reasoning JSON output
+- one-question-at-a-time prediction
+- sequential prediction calls
+- live evaluation with correlation, RMSE, and directional accuracy
+
+It is intentionally opinionated:
+- the editable part is the **report-generation prompt**
+- prediction-time prompting is fixed
+- report augmentation for prediction is selected by **variant name**
+
+Workflow:
+1. choose `SOURCE_MODE` and `BASE_REPORT_STYLE`
+2. edit `REPORT_PROMPT_ADDENDUM`
+3. generate a named report variant under `positive_cases/output/<variant_name>/`
+4. evaluate it by adding that variant name to `PREDICTION_VARIANTS`
+
+Built-in variants now also store:
+- `report_generation_prompt.md`
+
+Each generated custom variant stores:
+- `agentic_report.md`
+- `report_generation_prompt.md`
+- copied source memo files
+- `variant_metadata.json`
+
+The resulting run bundle is saved under `results/notebook_positive_case_prompt_lab/`.
+
 Named report methods currently supported:
 - `paper_only_freeform`
 - `data_only_freeform`

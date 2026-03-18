@@ -1,0 +1,673 @@
+variation,input_group,family,mode,feature,feature_label,needed_correction,actual_shift,importance,delta_r2_vs_matched_baseline
+both_contrastive,both,contrastive,single,CONFIG_chat,Communication,19.572753121638804,3.467474341643946,51.110633029609915,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,0.9102983649724434,19.961647925756267,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,0.48993548597694403,12.32392675282576,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_numRounds,Game Length,-0.2987286674259549,0.6628546242310882,10.725129182111948,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,-1.91748943639089,6.507610538929062,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_rewardExists,Reward,-6.530900620216153,0.09215858631224627,4.931152552357575,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-1.2417026837971488,1.8223214617426784,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,0.6647244539184167,2.729599849874877,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-1.2738596089216916,0.2978839356141676,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-0.9589170845596828,0.0,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_playerCount,Group Size,-2.002159597808501,-0.3992362709691901,0.0,0.14413773956966058
+both_contrastive,both,contrastive,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,0.5437788693585857,0.0,0.14413773956966058
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_chat,Communication,18.410042489673312,0.3406593406593412,51.110633029609915,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,1.4166666666666665,19.961647925756267,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,0.2323232323232327,12.32392675282576,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,-0.03283403958626774,10.725129182111948,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-0.09890109890109855,6.507610538929062,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,0.9797979797979801,4.931152552357575,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-5.023809523809524,1.8223214617426784,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,1.3573066205166502,2.729599849874877,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-1.1272254676425502,0.2978839356141676,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-1.9000000000000001,0.0,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,0.4904655072248416,0.0,-0.09733904162203943
+both_contrastive_reasoning,both,contrastive,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,0.66178884343042,0.0,-0.09733904162203943
+both_contrastive_joint,both,contrastive,joint,CONFIG_chat,Communication,17.860591940222765,1.2087912087912098,51.110633029609915,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,1.25,19.961647925756267,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,-2.121212121212121,12.32392675282576,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,0.9985609977266552,10.725129182111948,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,-0.9890109890109889,6.507610538929062,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_rewardExists,Reward,-6.033867541663506,1.717171717171718,4.931152552357575,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-1.6666666666666679,1.8223214617426784,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,0.699551872486702,2.729599849874877,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-1.6103220966322116,0.2978839356141676,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-1.2000000000000002,0.0,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-0.5509045500998737,0.0,0.1390675533097364
+both_contrastive_joint,both,contrastive,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,0.6928275161541257,0.0,0.1390675533097364
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,0.14285714285714413,51.110633029609915,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,5.291666666666666,19.961647925756267,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-0.5151515151515147,12.32392675282576,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,1.0726914582358518,10.725129182111948,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-2.9340659340659343,6.507610538929062,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,1.92929292929293,4.931152552357575,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-1.7380952380952381,1.8223214617426784,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,0.06819530832417575,2.729599849874877,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-2.8215643693164405,0.2978839356141676,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-3.7,0.0,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,0.17703825833306652,0.0,0.11053583920232124
+both_contrastive_joint_reasoning,both,contrastive,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-0.7976446212647323,0.0,0.11053583920232124
+both_ensemble,both,ensemble,single,CONFIG_chat,Communication,19.572753121638804,-0.2148269725615446,51.110633029609915,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,2.1859631880668555,19.961647925756267,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,2.728003231819182,12.32392675282576,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_numRounds,Game Length,-0.2987286674259549,0.7673197991252667,10.725129182111948,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,3.2098287199164934,6.507610538929062,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_rewardExists,Reward,-6.530900620216153,-7.670179586011525,4.931152552357575,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-2.68747537413846,1.8223214617426784,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,4.368651192632898,2.729599849874877,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-2.6218493247369774,0.2978839356141676,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-1.7793068950726978,0.0,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_playerCount,Group Size,-2.002159597808501,-0.011424152981051039,0.0,-0.5785090324867477
+both_ensemble,both,ensemble,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,-0.7414701606950885,0.0,-0.5785090324867477
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_chat,Communication,18.410042489673312,-2.802197802197803,51.110633029609915,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,1.2499999999999996,19.961647925756267,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-2.3737373737373737,12.32392675282576,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,-0.37065230254599607,10.725129182111948,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,2.032967032967033,6.507610538929062,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,-4.898989898989899,4.931152552357575,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-7.738095238095239,1.8223214617426784,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,6.377361252638203,2.729599849874877,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-3.278989196765588,0.2978839356141676,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-2.8999999999999995,0.0,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,-0.27010368718489053,0.0,-1.664896917714536
+both_ensemble_reasoning,both,ensemble,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,0.19583924456623464,0.0,-1.664896917714536
+both_ensemble_joint,both,ensemble,joint,CONFIG_chat,Communication,17.860591940222765,-4.428571428571429,51.110633029609915,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,1.791666666666667,19.961647925756267,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,-3.2222222222222223,12.32392675282576,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,0.9278154897521222,10.725129182111948,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,0.1868131868131867,6.507610538929062,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_rewardExists,Reward,-6.033867541663506,-4.858585858585858,4.931152552357575,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,0.5476190476190474,1.8223214617426784,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,3.347436370966241,2.729599849874877,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-0.9358538561587184,0.2978839356141676,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-1.0999999999999996,0.0,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-1.6158083940307992,0.0,-0.5871334818346403
+both_ensemble_joint,both,ensemble,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-1.4194034304284693,0.0,-0.5871334818346403
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,-0.2637362637362628,51.110633029609915,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,3.291666666666667,19.961647925756267,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-0.5252525252525242,12.32392675282576,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,0.11779634820639709,10.725129182111948,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,1.0549450549450543,6.507610538929062,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,-4.323232323232323,4.931152552357575,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-1.5714285714285703,1.8223214617426784,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,2.5928882820890746,2.729599849874877,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-2.39914654396799,0.2978839356141676,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-4.4,0.0,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,0.09199571127881256,0.0,0.010555712368231163
+both_ensemble_joint_reasoning,both,ensemble,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-1.0200884424512833,0.0,0.010555712368231163
+both_freeform,both,freeform,single,CONFIG_chat,Communication,19.572753121638804,3.1607401920652816,51.110633029609915,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,2.618793893439035,19.961647925756267,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,2.447562382196794,12.32392675282576,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_numRounds,Game Length,-0.2987286674259549,0.3701437027712471,10.725129182111948,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,-0.7013456945879044,6.507610538929062,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_rewardExists,Reward,-6.530900620216153,0.9505849687229428,4.931152552357575,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-4.519134419694808,1.8223214617426784,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,0.7260606302237993,2.729599849874877,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-1.9911490585750165,0.2978839356141676,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-2.9714816745350063,0.0,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_playerCount,Group Size,-2.002159597808501,-0.8131590869879093,0.0,-0.50965904008347
+both_freeform,both,freeform,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,-1.8256066002189641,0.0,-0.50965904008347
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_chat,Communication,18.410042489673312,-0.6593406593406588,51.110633029609915,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,3.1249999999999996,19.961647925756267,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-2.02020202020202,12.32392675282576,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,0.5686720258239922,10.725129182111948,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-1.5384615384615388,6.507610538929062,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,3.232323232323232,4.931152552357575,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-5.238095238095239,1.8223214617426784,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,1.9974625793016527,2.729599849874877,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-2.847236170856953,0.2978839356141676,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-2.5999999999999996,0.0,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,-1.6580622381646715,0.0,-0.9657005620587756
+both_freeform_reasoning,both,freeform,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,-0.504378431760204,0.0,-0.9657005620587756
+both_freeform_joint,both,freeform,joint,CONFIG_chat,Communication,17.860591940222765,2.0,51.110633029609915,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,1.166666666666667,19.961647925756267,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,0.46464646464646453,12.32392675282576,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,1.4846401817047805,10.725129182111948,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,-0.19780219780219788,6.507610538929062,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_rewardExists,Reward,-6.033867541663506,-2.0808080808080804,4.931152552357575,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-1.0,1.8223214617426784,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,1.7144153856120652,2.729599849874877,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-2.581182954891632,0.2978839356141676,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-2.4,0.0,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-0.6236453450645176,0.0,0.12512707880105856
+both_freeform_joint,both,freeform,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.8066359828077105,0.0,0.12512707880105856
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,2.010989010989011,51.110633029609915,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,4.458333333333333,19.961647925756267,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-0.41414141414141437,12.32392675282576,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,3.2559858430958264,10.725129182111948,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-3.4835164835164836,6.507610538929062,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,-1.2020202020202015,4.931152552357575,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-5.07142857142857,1.8223214617426784,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,1.8882034294059284,2.729599849874877,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-3.685070421133715,0.2978839356141676,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-3.9000000000000004,0.0,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,-0.03155666840378002,0.0,-0.5652836854115998
+both_freeform_joint_reasoning,both,freeform,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-2.2861460493043086,0.0,-0.5652836854115998
+both_quantitative,both,quantitative,single,CONFIG_chat,Communication,19.572753121638804,1.695194915704585,51.110633029609915,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,2.886161141093731,19.961647925756267,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,2.4292296787092154,12.32392675282576,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_numRounds,Game Length,-0.2987286674259549,-0.32371042569759384,10.725129182111948,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,0.06771102166118492,6.507610538929062,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_rewardExists,Reward,-6.530900620216153,-0.7773102224665616,4.931152552357575,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-2.814406022072772,1.8223214617426784,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,1.4895190805520357,2.729599849874877,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-2.0985839802860276,0.2978839356141676,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-0.5120459332324474,0.0,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_playerCount,Group Size,-2.002159597808501,-0.47498274047564437,0.0,-0.6237578895932008
+both_quantitative,both,quantitative,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,-1.3885107947803088,0.0,-0.6237578895932008
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_chat,Communication,18.410042489673312,-1.4835164835164854,51.110633029609915,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,2.9166666666666647,19.961647925756267,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,0.2525252525252526,12.32392675282576,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,0.0016924762673324878,10.725129182111948,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-0.38461538461538414,6.507610538929062,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,0.15151515151515227,4.931152552357575,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-5.119047619047619,1.8223214617426784,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,2.1917825438812892,2.729599849874877,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-2.2987931379459834,0.2978839356141676,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-1.8999999999999997,0.0,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,-0.024068645392712806,0.0,-1.4627662715904561
+both_quantitative_reasoning,both,quantitative,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,-1.2901987967492394,0.0,-1.4627662715904561
+both_quantitative_joint,both,quantitative,joint,CONFIG_chat,Communication,17.860591940222765,1.3296703296703285,51.110633029609915,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,-0.041666666666666075,19.961647925756267,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,-0.6767676767676765,12.32392675282576,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,0.7558599009910578,10.725129182111948,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,-0.42857142857142827,6.507610538929062,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_rewardExists,Reward,-6.033867541663506,-2.1515151515151505,4.931152552357575,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-0.9761904761904763,1.8223214617426784,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,1.479031579460878,2.729599849874877,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-0.8238314494364798,0.2978839356141676,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,0.7000000000000006,0.0,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-0.5739034779195795,0.0,-0.43630641017871596
+both_quantitative_joint,both,quantitative,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.2989319789699678,0.0,-0.43630641017871596
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,-1.8351648351648358,51.110633029609915,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,3.625,19.961647925756267,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-2.333333333333334,12.32392675282576,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,1.7632217753078443,10.725129182111948,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-2.714285714285715,6.507610538929062,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,-0.6969696969696972,4.931152552357575,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-3.166666666666665,1.8223214617426784,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,1.6432869457470631,2.729599849874877,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-2.6348603581127064,0.2978839356141676,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-1.299999999999999,0.0,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,0.348193070014581,0.0,-0.4363224644279021
+both_quantitative_joint_reasoning,both,quantitative,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-1.4190339224198572,0.0,-0.4363224644279021
+both_refined,both,refined,single,CONFIG_chat,Communication,19.572753121638804,0.7563415851892845,51.110633029609915,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,2.5374939522320705,19.961647925756267,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,-2.673053562480951,12.32392675282576,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_numRounds,Game Length,-0.2987286674259549,-0.41788296933160285,10.725129182111948,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,-3.296415032683164,6.507610538929062,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_rewardExists,Reward,-6.530900620216153,1.7638229685344768,4.931152552357575,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-1.2143586587932358,1.8223214617426784,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,1.0915624035263018,2.729599849874877,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-1.1491925857608272,0.2978839356141676,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-0.7734390161318325,0.0,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_playerCount,Group Size,-2.002159597808501,-0.9581004844146299,0.0,-0.7459993172369965
+both_refined,both,refined,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,-1.5566661553528274,0.0,-0.7459993172369965
+both_refined_reasoning,both,refined,reasoning,CONFIG_chat,Communication,18.410042489673312,0.9780219780219781,51.110633029609915,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,5.458333333333332,19.961647925756267,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-2.6565656565656566,12.32392675282576,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,-0.5087583659603947,10.725129182111948,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-1.8791208791208796,6.507610538929062,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,4.6767676767676765,4.931152552357575,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-2.3571428571428577,1.8223214617426784,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,0.9921317436839694,2.729599849874877,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-1.3466026808069347,0.2978839356141676,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-2.7,0.0,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,-1.0574158209198572,0.0,-0.7221337809435199
+both_refined_reasoning,both,refined,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,-0.6543986832581099,0.0,-0.7221337809435199
+both_refined_joint,both,refined,joint,CONFIG_chat,Communication,17.860591940222765,-0.21978021978022078,51.110633029609915,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,1.25,19.961647925756267,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,-2.626262626262627,12.32392675282576,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,-0.41973411429866153,10.725129182111948,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,-1.7582417582417587,6.507610538929062,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_rewardExists,Reward,-6.033867541663506,0.6060606060606064,4.931152552357575,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-0.7142857142857153,1.8223214617426784,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,0.610091360491547,2.729599849874877,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-0.4667600280093358,0.2978839356141676,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-1.6,0.0,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-4.440892098500626e-16,0.0,-0.42948096051887186
+both_refined_joint,both,refined,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.27282007969446875,0.0,-0.42948096051887186
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,-0.20879120879120805,51.110633029609915,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,4.541666666666667,19.961647925756267,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-2.8989898989898997,12.32392675282576,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,0.6881608502977241,10.725129182111948,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-3.5054945054945055,6.507610538929062,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,0.2727272727272725,4.931152552357575,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-1.4523809523809517,1.8223214617426784,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,1.5758249203080927,2.729599849874877,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-2.270787536265422,0.2978839356141676,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-1.2999999999999998,0.0,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,-0.28507973320702407,0.0,-0.059103564728234526
+both_refined_joint_reasoning,both,refined,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-1.5842040022709984,0.0,-0.059103564728234526
+both_rules,both,rules,single,CONFIG_chat,Communication,19.572753121638804,0.5706645889493185,51.110633029609915,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,2.862956679811064,19.961647925756267,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,0.31989378166843796,12.32392675282576,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_numRounds,Game Length,-0.2987286674259549,0.7256023372453335,10.725129182111948,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,-1.5916495232838996,6.507610538929062,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_rewardExists,Reward,-6.530900620216153,0.6287991720829158,4.931152552357575,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-4.121123972256349,1.8223214617426784,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,1.3369717307261446,2.729599849874877,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-2.743534565757528,0.2978839356141676,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-4.545212187609939,0.0,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_playerCount,Group Size,-2.002159597808501,-0.6289254363315413,0.0,-0.9479281169395586
+both_rules,both,rules,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,-1.4108105321628375,0.0,-0.9479281169395586
+both_rules_reasoning,both,rules,reasoning,CONFIG_chat,Communication,18.410042489673312,1.5494505494505493,51.110633029609915,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,4.125,19.961647925756267,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-0.878787878787878,12.32392675282576,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,0.07209948898839713,10.725129182111948,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-3.0659340659340657,6.507610538929062,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,0.6767676767676765,4.931152552357575,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-3.1190476190476186,1.8223214617426784,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,1.6843507873186099,2.729599849874877,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-2.0374075222607564,0.2978839356141676,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-4.1,0.0,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,-1.5901351722785702,0.0,-0.564112807380652
+both_rules_reasoning,both,rules,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,-1.5915941624433108,0.0,-0.564112807380652
+both_rules_joint,both,rules,joint,CONFIG_chat,Communication,17.860591940222765,0.8461538461538467,51.110633029609915,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,3.25,19.961647925756267,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,-0.19191919191919204,12.32392675282576,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,1.6386555220321133,10.725129182111948,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,1.0659340659340661,6.507610538929062,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_rewardExists,Reward,-6.033867541663506,-3.0404040404040398,4.931152552357575,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-2.5476190476190474,1.8223214617426784,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,3.2271779777924268,2.729599849874877,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-3.829766029816605,0.2978839356141676,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-4.1,0.0,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-2.086484126154963,0.0,-0.25304628153304365
+both_rules_joint,both,rules,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.6760764864302213,0.0,-0.25304628153304365
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,-1.6593406593406588,51.110633029609915,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,5.458333333333333,19.961647925756267,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-1.4444444444444446,12.32392675282576,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,1.5492927751169139,10.725129182111948,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-0.5604395604395607,6.507610538929062,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,0.2323232323232327,4.931152552357575,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-5.214285714285714,1.8223214617426784,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,1.7694116020025268,2.729599849874877,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-3.5403748124508185,0.2978839356141676,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-5.1000000000000005,0.0,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,-0.37279657419379975,0.0,-0.22895826375838657
+both_rules_joint_reasoning,both,rules,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-2.083162983238174,0.0,-0.22895826375838657
+both_structured,both,structured,single,CONFIG_chat,Communication,19.572753121638804,-1.1577867900777026,51.110633029609915,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,1.6684685188297497,19.961647925756267,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,1.3053225176249788,12.32392675282576,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_numRounds,Game Length,-0.2987286674259549,-0.8587087483661269,10.725129182111948,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,1.4501974733385121,6.507610538929062,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_rewardExists,Reward,-6.530900620216153,-4.282644351528196,4.931152552357575,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-3.9520627485816693,1.8223214617426784,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,2.2124294430469695,2.729599849874877,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-1.1697362901715862,0.2978839356141676,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-2.1895058683377133,0.0,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_playerCount,Group Size,-2.002159597808501,0.7095496834963801,0.0,-0.1490284657330445
+both_structured,both,structured,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,-1.4632628833182668,0.0,-0.1490284657330445
+both_structured_reasoning,both,structured,reasoning,CONFIG_chat,Communication,18.410042489673312,-2.989010989010989,51.110633029609915,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,1.9583333333333335,19.961647925756267,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-1.3737373737373737,12.32392675282576,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,-0.26267231669013047,10.725129182111948,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-1.6703296703296706,6.507610538929062,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,-1.2525252525252526,4.931152552357575,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-4.0,1.8223214617426784,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,2.0033288423833007,2.729599849874877,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-1.4096152845881966,0.2978839356141676,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-1.4000000000000006,0.0,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,1.0675781378634475,0.0,-0.42308260595410807
+both_structured_reasoning,both,structured,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,-1.2065668174659225,0.0,-0.42308260595410807
+both_structured_joint,both,structured,joint,CONFIG_chat,Communication,17.860591940222765,-1.2857142857142847,51.110633029609915,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,-0.33333333333333304,19.961647925756267,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,-1.4242424242424239,12.32392675282576,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,0.3178470430051965,10.725129182111948,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,0.03296703296703252,6.507610538929062,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_rewardExists,Reward,-6.033867541663506,-1.0,4.931152552357575,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,0.6428571428571432,1.8223214617426784,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,1.002397704076857,2.729599849874877,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-1.8180303090963648,0.2978839356141676,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-2.1,0.0,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-0.8552391996210686,0.0,0.1082143574118628
+both_structured_joint,both,structured,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.42197814583893895,0.0,0.1082143574118628
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,-0.38461538461538325,51.110633029609915,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,4.166666666666667,19.961647925756267,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-0.15151515151515138,12.32392675282576,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,0.04908181175266464,10.725129182111948,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-0.6043956043956045,6.507610538929062,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,-0.858585858585859,4.931152552357575,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-2.261904761904762,1.8223214617426784,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,1.0947913476128357,2.729599849874877,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-1.9253851155385138,0.2978839356141676,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-3.5,0.0,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,0.6070647226828716,0.0,0.10743592876980135
+both_structured_joint_reasoning,both,structured,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-1.0709573783040223,0.0,0.10743592876980135
+both_uncertainty,both,uncertainty,single,CONFIG_chat,Communication,19.572753121638804,2.477824651163953,51.110633029609915,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,2.060579400715814,19.961647925756267,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,1.4138865177105737,12.32392675282576,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_numRounds,Game Length,-0.2987286674259549,-0.2475724127202079,10.725129182111948,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,-0.8619857200552845,6.507610538929062,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_rewardExists,Reward,-6.530900620216153,1.447119261252027,4.931152552357575,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,0.21222919405488305,1.8223214617426784,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,-0.047718273901513175,2.729599849874877,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-1.0433604192420685,0.2978839356141676,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-1.3954386903156935,0.0,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_playerCount,Group Size,-2.002159597808501,-0.7478922457018791,0.0,0.015101971542214154
+both_uncertainty,both,uncertainty,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,-0.11975382030442833,0.0,0.015101971542214154
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_chat,Communication,18.410042489673312,-0.5934065934065931,51.110633029609915,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,1.4166666666666665,19.961647925756267,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-1.4343434343434334,12.32392675282576,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,0.1482609210183975,10.725129182111948,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-1.912087912087912,6.507610538929062,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,2.4444444444444446,4.931152552357575,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-2.7619047619047628,1.8223214617426784,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,0.6438223732110322,2.729599849874877,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-0.5554444333311106,0.2978839356141676,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-0.20000000000000018,0.0,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,0.5680200312680275,0.0,-0.14176642487248547
+both_uncertainty_reasoning,both,uncertainty,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,0.6273014292929711,0.0,-0.14176642487248547
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_chat,Communication,17.860591940222765,-0.1318681318681314,51.110633029609915,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,0.916666666666667,19.961647925756267,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,-0.16161616161616177,12.32392675282576,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,-0.140814025442132,10.725129182111948,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,0.5274725274725275,6.507610538929062,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_rewardExists,Reward,-6.033867541663506,-0.2424242424242422,4.931152552357575,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-0.1904761904761898,1.8223214617426784,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,0.8095443052676314,2.729599849874877,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-1.1762352705835282,0.2978839356141676,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-1.9999999999999996,0.0,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-0.7616389119827391,0.0,0.15737725531815494
+both_uncertainty_joint,both,uncertainty,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.1276034323085644,0.0,0.15737725531815494
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,-0.7802197802197792,51.110633029609915,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,3.166666666666667,19.961647925756267,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-1.2424242424242422,12.32392675282576,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,0.10053309027959798,10.725129182111948,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-2.318681318681319,6.507610538929062,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,1.4444444444444446,4.931152552357575,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-1.4047619047619042,1.8223214617426784,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,0.053529650620051994,2.729599849874877,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-0.9265186555985334,0.2978839356141676,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-2.5,0.0,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,0.42949160556329957,0.0,0.08718493496985036
+both_uncertainty_joint_reasoning,both,uncertainty,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-0.5293818070098549,0.0,0.08718493496985036
+data_only_freeform,data_only,freeform,single,CONFIG_chat,Communication,19.572753121638804,0.9098873337122573,51.110633029609915,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,-0.06236694425519396,19.961647925756267,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,1.6721860733156513,12.32392675282576,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_numRounds,Game Length,-0.2987286674259549,-0.1481372863938163,10.725129182111948,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,-0.05705629236733811,6.507610538929062,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_rewardExists,Reward,-6.530900620216153,-0.05604180182354135,4.931152552357575,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-0.6669888557228489,1.8223214617426784,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,-0.22337384551174333,2.729599849874877,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,0.3347235228908758,0.2978839356141676,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,0.3084650474426136,0.0,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_playerCount,Group Size,-2.002159597808501,0.7441707174538055,0.0,-0.21423916163854573
+data_only_freeform,data_only,freeform,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,0.267494980192415,0.0,-0.21423916163854573
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_chat,Communication,18.410042489673312,0.395604395604396,51.110633029609915,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,1.2083333333333335,19.961647925756267,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-0.32323232323232265,12.32392675282576,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,-0.15299985456693177,10.725129182111948,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-1.8021978021978025,6.507610538929062,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,1.333333333333334,4.931152552357575,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-2.2857142857142865,1.8223214617426784,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,0.5748937820016511,2.729599849874877,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,0.26138561568522767,0.2978839356141676,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,0.19999999999999996,0.0,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,0.9263754182261983,0.0,-0.44732159440283026
+data_only_freeform_reasoning,data_only,freeform,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,0.5921981684744959,0.0,-0.44732159440283026
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_chat,Communication,17.860591940222765,-0.615384615384615,51.110633029609915,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,0.666666666666667,19.961647925756267,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,0.7272727272727275,12.32392675282576,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,-0.0027079620277330463,10.725129182111948,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,0.4835164835164837,6.507610538929062,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_rewardExists,Reward,-6.033867541663506,-0.1212121212121211,4.931152552357575,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-0.33333333333333215,1.8223214617426784,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,0.36957457414391826,2.729599849874877,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-0.5881176352917641,0.2978839356141676,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-0.3999999999999999,0.0,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-0.18827029284966512,0.0,-0.11156968589336458
+data_only_freeform_joint,data_only,freeform,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.2639518874876955,0.0,-0.11156968589336458
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,-0.7802197802197792,51.110633029609915,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,3.375,19.961647925756267,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-0.43434343434343425,12.32392675282576,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,0.5608866349942587,10.725129182111948,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-2.0989010989010994,6.507610538929062,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,1.0404040404040407,4.931152552357575,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-0.6904761904761907,1.8223214617426784,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,-0.034464295604690776,2.729599849874877,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-0.6931386415938661,0.2978839356141676,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-0.30000000000000004,0.0,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,0.6541322958952884,0.0,-0.16884126075175188
+data_only_freeform_joint_reasoning,data_only,freeform,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-0.6833434772663269,0.0,-0.16884126075175188
+data_only_quantitative,data_only,quantitative,single,CONFIG_chat,Communication,19.572753121638804,0.7856750855448862,51.110633029609915,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,-1.965141556752286,19.961647925756267,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,1.511929538940593,12.32392675282576,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_numRounds,Game Length,-0.2987286674259549,-0.4722770414561315,10.725129182111948,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,-0.047624711154405475,6.507610538929062,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_rewardExists,Reward,-6.530900620216153,-1.4087001662570255,4.931152552357575,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,0.9659837831539075,1.8223214617426784,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,0.3424076344502649,2.729599849874877,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,0.8596606460949592,0.2978839356141676,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,1.9514257149087681,0.0,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_playerCount,Group Size,-2.002159597808501,0.13902615520579809,0.0,-1.5755002406102798
+data_only_quantitative,data_only,quantitative,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,0.22940602946043953,0.0,-1.5755002406102798
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_chat,Communication,18.410042489673312,1.2857142857142847,51.110633029609915,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,1.3750000000000004,19.961647925756267,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-3.2222222222222214,12.32392675282576,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,-0.29076742272786327,10.725129182111948,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-4.648351648351649,6.507610538929062,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,2.4141414141414153,4.931152552357575,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-0.6428571428571441,1.8223214617426784,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,1.1211895314802611,2.729599849874877,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,0.7444822446748922,0.2978839356141676,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,1.1000000000000003,0.0,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,0.2561973587357689,0.0,-1.558515200213498
+data_only_quantitative_reasoning,data_only,quantitative,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,0.05000675049930392,0.0,-1.558515200213498
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_chat,Communication,17.860591940222765,-0.824175824175823,51.110633029609915,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,-0.20833333333333304,19.961647925756267,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,-1.1616161616161618,12.32392675282576,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,-0.01861723894066669,10.725129182111948,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,-0.16483516483516547,6.507610538929062,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_rewardExists,Reward,-6.033867541663506,-0.2525252525252517,4.931152552357575,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,0.8333333333333339,1.8223214617426784,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,0.7398824311730441,2.729599849874877,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-0.758485045515171,0.2978839356141676,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-1.1,0.0,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-0.9975116368313257,0.0,-1.0279159635332078
+data_only_quantitative_joint,data_only,quantitative,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.2389485122380436,0.0,-1.0279159635332078
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,-1.9999999999999982,51.110633029609915,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,2.791666666666667,19.961647925756267,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-2.4848484848484844,12.32392675282576,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,0.038588458895198824,10.725129182111948,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-2.87912087912088,6.507610538929062,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,3.090909090909089,4.931152552357575,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,0.2857142857142856,1.8223214617426784,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,0.36224174529185804,2.729599849874877,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-0.6861372411737243,0.2978839356141676,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-1.200000000000001,0.0,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,-0.5637411609759861,0.0,-2.431883246145364
+data_only_quantitative_joint_reasoning,data_only,quantitative,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-0.8031872413939638,0.0,-2.431883246145364
+data_only_structured,data_only,structured,single,CONFIG_chat,Communication,19.572753121638804,2.1304169835664393,51.110633029609915,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,-2.0745055347179253,19.961647925756267,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,1.6729438994730783,12.32392675282576,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_numRounds,Game Length,-0.2987286674259549,-0.7364030339433839,10.725129182111948,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,1.3151064514223423,6.507610538929062,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_rewardExists,Reward,-6.530900620216153,-3.2145962196435613,4.931152552357575,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,0.39393840763053944,1.8223214617426784,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,0.9115259850321653,2.729599849874877,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-0.012981866933141184,0.2978839356141676,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,0.8773103092741774,0.0,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_playerCount,Group Size,-2.002159597808501,0.04361632053077691,0.0,-0.17275063249390166
+data_only_structured,data_only,structured,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,-0.34679828213585695,0.0,-0.17275063249390166
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_chat,Communication,18.410042489673312,-0.1538461538461533,51.110633029609915,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,-0.666666666666667,19.961647925756267,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-0.8282828282828278,12.32392675282576,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,-0.42041110480559496,10.725129182111948,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-0.1538461538461542,6.507610538929062,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,-0.5858585858585856,4.931152552357575,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-1.5714285714285712,1.8223214617426784,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,1.0016644211916514,2.729599849874877,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,0.2847236170856948,0.2978839356141676,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-0.19999999999999996,0.0,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,0.26849911082537714,0.0,-0.34893034341495865
+data_only_structured_reasoning,data_only,structured,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,0.2848906746425767,0.0,-0.34893034341495865
+data_only_structured_joint,data_only,structured,joint,CONFIG_chat,Communication,17.860591940222765,0.20879120879120805,51.110633029609915,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,-1.0,19.961647925756267,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,0.6767676767676769,12.32392675282576,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,-0.7152404705750579,10.725129182111948,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,1.9670329670329672,6.507610538929062,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_rewardExists,Reward,-6.033867541663506,-3.3030303030303028,4.931152552357575,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-0.9285714285714288,1.8223214617426784,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,1.753279378527992,2.729599849874877,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-1.3699406822074023,0.2978839356141676,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-0.5,0.0,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-0.7097576096917795,0.0,-0.2675694681001328
+data_only_structured_joint,data_only,structured,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.9481575501074588,0.0,-0.2675694681001328
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,0.12087912087912223,51.110633029609915,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,1.0,19.961647925756267,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,0.8383838383838391,12.32392675282576,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,-0.5067273944395951,10.725129182111948,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,0.34065934065934034,6.507610538929062,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,-3.262626262626263,4.931152552357575,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-0.023809523809522837,1.8223214617426784,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,1.9908630333347968,2.729599849874877,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-1.9207175152584206,0.2978839356141676,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,0.2999999999999998,0.0,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,0.14815588386181222,0.0,-0.7091003038262739
+data_only_structured_joint_reasoning,data_only,structured,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-2.4032800880354297,0.0,-0.7091003038262739
+paper_only_freeform,paper_only,freeform,single,CONFIG_chat,Communication,19.572753121638804,3.2625909351248197,51.110633029609915,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,4.928203749538482,19.961647925756267,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,1.1314680808178297,12.32392675282576,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_numRounds,Game Length,-0.2987286674259549,0.23373374695156557,10.725129182111948,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,-4.122638805488529,6.507610538929062,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_rewardExists,Reward,-6.530900620216153,4.07822322387649,4.931152552357575,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-2.4558580306648814,1.8223214617426784,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,-0.08069375952464863,2.729599849874877,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-2.4627735224676006,0.2978839356141676,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-2.987603970820131,0.0,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_playerCount,Group Size,-2.002159597808501,-0.4635823868218163,0.0,-0.8722612044324636
+paper_only_freeform,paper_only,freeform,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,-2.084230311720897,0.0,-0.8722612044324636
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_chat,Communication,18.410042489673312,-0.9560439560439562,51.110633029609915,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,3.8333333333333326,19.961647925756267,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-4.353535353535354,12.32392675282576,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,0.179063989083864,10.725129182111948,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-3.593406593406593,6.507610538929062,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,3.949494949494948,4.931152552357575,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-2.928571428571429,1.8223214617426784,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,2.285642753187682,2.729599849874877,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-2.4481563469089718,0.2978839356141676,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-4.9,0.0,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,-1.2242917623093348,0.0,-1.1035778837590784
+paper_only_freeform_reasoning,paper_only,freeform,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,-0.5981102966123444,0.0,-1.1035778837590784
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_chat,Communication,17.860591940222765,1.3186813186813193,51.110633029609915,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,1.458333333333333,19.961647925756267,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,-1.616161616161616,12.32392675282576,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,0.8733177539439902,10.725129182111948,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,0.6593406593406602,6.507610538929062,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_rewardExists,Reward,-6.033867541663506,2.020202020202019,4.931152552357575,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-2.6190476190476204,1.8223214617426784,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,0.8682069360841256,2.729599849874877,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-2.380476142847616,0.2978839356141676,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-1.7999999999999998,0.0,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-1.668759413894767,0.0,-0.21406301696022245
+paper_only_freeform_joint,paper_only,freeform,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.46558009085557306,0.0,-0.21406301696022245
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,-0.5824175824175803,51.110633029609915,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,9.083333333333334,19.961647925756267,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,1.1212121212121215,12.32392675282576,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,1.6420404745667796,10.725129182111948,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-2.7802197802197806,6.507610538929062,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,2.3131313131313123,4.931152552357575,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-1.833333333333333,1.8223214617426784,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,0.025664900982215633,2.729599849874877,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-3.8997800340180078,0.2978839356141676,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-4.1,0.0,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,0.7750103816453571,0.0,-0.15053968817567498
+paper_only_freeform_joint_reasoning,paper_only,freeform,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-2.611682604894592,0.0,-0.15053968817567498
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_chat,Communication,19.572753121638804,1.9331315352764928,51.110633029609915,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,1.668261898524202,19.961647925756267,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,0.3600200654445276,12.32392675282576,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_numRounds,Game Length,-0.2987286674259549,-0.1489980583580509,10.725129182111948,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,0.9800541596193213,6.507610538929062,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_rewardExists,Reward,-6.530900620216153,-1.8671599760747446,4.931152552357575,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-0.8893084448032162,1.8223214617426784,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,2.2717196640952504,2.729599849874877,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,-1.8486802680039447,0.2978839356141676,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-2.855547232168555,0.0,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_playerCount,Group Size,-2.002159597808501,-2.05830083679942,0.0,-0.15940027941918933
+paper_only_quantitative,paper_only,quantitative,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,-0.40877042141689074,0.0,-0.15940027941918933
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_chat,Communication,18.410042489673312,-0.27472527472527375,51.110633029609915,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,3.1249999999999996,19.961647925756267,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,-0.2525252525252526,12.32392675282576,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,-0.14386048272333207,10.725129182111948,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,0.1648351648351647,6.507610538929062,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,-0.7575757575757578,4.931152552357575,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-5.119047619047619,1.8223214617426784,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,2.4572309483259316,2.729599849874877,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-2.1821031309436485,0.2978839356141676,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-2.7,0.0,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,-0.3717268566207883,0.0,-0.2862886141658887
+paper_only_quantitative_reasoning,paper_only,quantitative,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,-0.7876679050321126,0.0,-0.2862886141658887
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_chat,Communication,17.860591940222765,1.0000000000000018,51.110633029609915,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,0.583333333333333,19.961647925756267,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,-1.383838383838384,12.32392675282576,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,1.2331382083790514,10.725129182111948,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,0.34065934065934045,6.507610538929062,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_rewardExists,Reward,-6.033867541663506,-4.272727272727272,4.931152552357575,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-3.1190476190476204,1.8223214617426784,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,3.175848175827994,2.729599849874877,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-2.8075615684761597,0.2978839356141676,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-1.1,0.0,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-1.3922374212718187,0.0,-0.22523848217796982
+paper_only_quantitative_joint,paper_only,quantitative,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.5237160175444164,0.0,-0.22523848217796982
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,0.9230769230769234,51.110633029609915,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,4.625,19.961647925756267,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-0.8888888888888884,12.32392675282576,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,-0.10425653806773356,10.725129182111948,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-2.813186813186814,6.507610538929062,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,0.08080808080808133,4.931152552357575,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-3.1904761904761907,1.8223214617426784,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,1.381504955728455,2.729599849874877,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-1.8016937081160398,0.2978839356141676,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-3.8,0.0,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,0.11125062759298476,0.0,-0.13955401922315003
+paper_only_quantitative_joint_reasoning,paper_only,quantitative,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-1.2560808906204042,0.0,-0.13955401922315003
+paper_only_structured,paper_only,structured,single,CONFIG_chat,Communication,19.572753121638804,4.835583932290219,51.110633029609915,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_defaultContribProp,Contribution Framing,-4.853387367797768,2.1210006009884337,19.961647925756267,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_allOrNothing,Contribution Type,6.264832425511262,-0.38308601380815066,12.32392675282576,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_numRounds,Game Length,-0.2987286674259549,0.5566490097089218,10.725129182111948,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.8711357830346889,-4.435692840205859,6.507610538929062,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_rewardExists,Reward,-6.530900620216153,4.328035855147695,4.931152552357575,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_showNRounds,Horizon Knowledge,8.102453372410725,-0.631384605158706,1.8223214617426784,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_MPCR,Return Rate (MPCR),-0.05401151434993068,-0.992781678847807,2.729599849874877,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_punishmentCost,Peer Incentive Cost,2.2130764543564623,0.020966075592174338,0.2978839356141676,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_showPunishmentId,Actor Anonymity,2.021537715735685,-0.8453993191401494,0.0,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_playerCount,Group Size,-2.002159597808501,0.6143369446892148,0.0,-0.22369383714531255
+paper_only_structured,paper_only,structured,single,CONFIG_punishmentTech,Punishment Technology,-0.5519270409759346,0.8840367212264346,0.0,-0.22369383714531255
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_chat,Communication,18.410042489673312,4.483516483516484,51.110633029609915,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_defaultContribProp,Contribution Framing,-3.8172970525518553,3.4166666666666665,19.961647925756267,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_allOrNothing,Contribution Type,4.393638557001536,0.040404040404040664,12.32392675282576,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_numRounds,Game Length,-0.42926722120850863,0.06905303170719723,10.725129182111948,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.0780164476929515,-3.208791208791209,6.507610538929062,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_rewardExists,Reward,-4.922756430552395,4.0,4.931152552357575,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_showNRounds,Horizon Knowledge,6.182414698688104,-3.2857142857142865,1.8223214617426784,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_MPCR,Return Rate (MPCR),0.5615551641482448,0.187720418612783,2.729599849874877,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_punishmentCost,Peer Incentive Cost,2.195416139271626,-0.5227712313704584,0.2978839356141676,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_showPunishmentId,Actor Anonymity,1.4304501122957458,-2.0,0.0,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_playerCount,Group Size,-1.719504262914319,-0.3658434099692369,0.0,-0.3332244548680978
+paper_only_structured_reasoning,paper_only,structured,reasoning,CONFIG_punishmentTech,Punishment Technology,-0.27468752534851115,0.39463455320138946,0.0,-0.3332244548680978
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_chat,Communication,17.860591940222765,2.615384615384616,51.110633029609915,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_defaultContribProp,Contribution Framing,-4.233963719218522,2.166666666666667,19.961647925756267,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_allOrNothing,Contribution Type,5.1007092640722425,0.9494949494949498,12.32392675282576,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_numRounds,Game Length,-0.2092453064551772,1.324870422068518,10.725129182111948,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_showOtherSummaries,Peer Outcome Visibility,-0.20988457956108325,-0.9010989010989009,6.507610538929062,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_rewardExists,Reward,-6.033867541663506,2.0808080808080813,4.931152552357575,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_showNRounds,Horizon Knowledge,8.563367079640486,-0.9047619047619051,1.8223214617426784,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_MPCR,Return Rate (MPCR),0.3401037328159764,-0.2918465883120629,2.729599849874877,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_punishmentCost,Peer Incentive Cost,1.3319100874543541,-1.4796292887895968,0.2978839356141676,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_showPunishmentId,Actor Anonymity,0.8304501122957458,-1.3999999999999995,0.0,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_playerCount,Group Size,-2.976422411200442,-0.2321287133430543,0.0,-0.05160841292681606
+paper_only_structured_joint,paper_only,structured,joint,CONFIG_punishmentTech,Punishment Technology,-0.8751380393487532,-0.14238375265318637,0.0,-0.05160841292681606
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_chat,Communication,17.67377875340958,1.6373626373626387,51.110633029609915,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_defaultContribProp,Contribution Framing,-1.233963719218522,4.416666666666667,19.961647925756267,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_allOrNothing,Contribution Type,4.4845476479106265,-1.8484848484848477,12.32392675282576,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_numRounds,Game Length,0.332008603838015,2.4090707189222367,10.725129182111948,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_showOtherSummaries,Peer Outcome Visibility,-2.3747197443962484,-4.516483516483516,6.507610538929062,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_rewardExists,Reward,-5.013665521461486,3.8686868686868694,4.931152552357575,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_showNRounds,Horizon Knowledge,7.7776527939262,-0.9285714285714279,1.8223214617426784,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_MPCR,Return Rate (MPCR),0.10178679512396549,-0.5184309998407741,2.729599849874877,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_punishmentCost,Peer Incentive Cost,1.147539876390665,-1.6733347004134713,0.2978839356141676,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_showPunishmentId,Actor Anonymity,0.7304501122957457,-2.5000000000000004,0.0,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_playerCount,Group Size,-2.1949937241170274,0.3439141997225419,0.0,-0.13770387149600294
+paper_only_structured_joint_reasoning,paper_only,structured,joint_reasoning,CONFIG_punishmentTech,Punishment Technology,-1.437529228461596,-0.35448134959850264,0.0,-0.13770387149600294
