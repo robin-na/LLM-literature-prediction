@@ -1,0 +1,21 @@
+{
+  "n_snippets": 2851,
+  "example_count": 5,
+  "csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned/card_snippets/card_snippets.csv",
+  "jsonl": "literature/output/evidence_cards/literature_evidence_cards_cleaned/card_snippets/card_snippets.jsonl",
+  "examples_markdown": "literature/output/evidence_cards/literature_evidence_cards_cleaned/card_snippets/card_snippet_examples.md",
+  "top_example_ids": [
+    "PGG_MS_202502",
+    "10.1007_s11403-022-00363-8",
+    "10.1016_j.chieco.2024.102267",
+    "10.1016_j.jebo.2013.08.006",
+    "10.1016_j.joep.2009.04.004"
+  ],
+  "bottom_example_ids": [
+    "10.20350_digitalCSIC_16534",
+    "10.1080_0022250x.2019.1704284",
+    "10.1103_PhysRevE.101.032305",
+    "10.1016_j.jebo.2003.09.017",
+    "10.1111_1467-923x.12939"
+  ]
+}

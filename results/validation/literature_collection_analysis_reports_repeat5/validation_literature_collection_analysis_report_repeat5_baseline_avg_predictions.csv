@@ -1,0 +1,7 @@
+model,mode,variant_id,variant_kind,count,description,report_path,n_runs,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16,Q17,Q18,Q19,Q20
+GPT-4.1,joint_reasoning,baseline_no_augmentation,baseline,,Five-run average of the matched no-augmentation baseline.,,5,72.2,85.4,81.6,72.4,78.8,93.8,75.8,91.2,77.0,73.6,83.2,85.6,83.2,87.0,91.6,81.2,91.0,69.2,80.0,81.2
+GPT-4.1 Mini,joint_reasoning,baseline_no_augmentation,baseline,,Five-run average of the matched no-augmentation baseline.,,5,81.4,91.4,86.8,79.4,83.4,96.6,77.8,94.6,80.0,75.4,89.6,87.8,87.6,90.2,92.4,82.0,93.0,68.0,83.8,85.6
+GPT-4.1 Nano,joint_reasoning,baseline_no_augmentation,baseline,,Five-run average of the matched no-augmentation baseline.,,5,81.0,87.0,84.6,77.6,85.4,97.2,79.2,93.0,82.4,79.8,87.4,88.2,84.8,89.0,90.2,85.4,92.8,70.6,83.8,84.4
+GPT-5.1,joint_reasoning,baseline_no_augmentation,baseline,,Five-run average of the matched no-augmentation baseline.,,5,82.2,89.0,91.4,82.2,87.6,96.0,75.8,92.2,78.2,75.0,85.4,87.2,89.8,87.8,93.8,79.6,91.8,73.4,87.4,83.6
+GPT-5 Mini,joint_reasoning,baseline_no_augmentation,baseline,,Five-run average of the matched no-augmentation baseline.,,5,77.2,95.0,90.4,79.2,80.8,94.2,75.4,94.8,74.8,71.0,87.6,89.0,89.0,89.2,89.8,85.8,92.6,66.8,87.8,80.6
+GPT-5 Nano,joint_reasoning,baseline_no_augmentation,baseline,,Five-run average of the matched no-augmentation baseline.,,5,82.0,91.2,87.2,80.8,86.0,99.6,83.2,96.8,87.2,83.4,93.2,90.6,88.8,96.8,95.8,90.0,98.6,71.6,83.0,88.8

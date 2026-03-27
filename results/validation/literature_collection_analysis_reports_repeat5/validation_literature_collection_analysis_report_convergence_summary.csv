@@ -1,0 +1,2 @@
+models,n_variants,baseline_mean_pairwise_corr_raw,baseline_mean_corr_to_truth_raw,share_variants_higher_pairwise_corr_raw,mean_delta_pairwise_corr_raw,median_delta_pairwise_corr_raw,mean_delta_corr_to_truth_raw,spearman_delta_corr_raw_vs_delta_truth_corr_raw,pearson_delta_corr_raw_vs_delta_truth_corr_raw,best_variant_id
+"GPT-4.1,GPT-4.1 Mini,GPT-5.1,GPT-5 Mini,GPT-5 Nano",9,0.8906259209411991,0.5794025769296591,0.7777777777777778,0.017620770867269334,0.014311586042631497,0.029209217350149155,-0.35,-0.19953181554582664,leaf_a0_b1_c1

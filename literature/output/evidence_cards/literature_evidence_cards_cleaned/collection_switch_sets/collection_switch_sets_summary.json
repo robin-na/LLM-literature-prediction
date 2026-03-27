@@ -1,0 +1,10 @@
+{
+  "excluded_ids": [
+    "PGG_MS_202502"
+  ],
+  "broad_universe_count": 2011,
+  "current_individual_set_count_excluding_excluded_ids": 242,
+  "remaining_broad_count": 1769,
+  "remaining_broad_set_path": "literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/broad_all_remaining_after_exactclose_empirical_payoff.csv",
+  "n_collections": 8
+}

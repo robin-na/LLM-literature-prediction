@@ -1,0 +1,13 @@
+model,mode,metric,baseline_value,best_source_id,best_source_title,best_value,best_delta,pgg_ms_value,pgg_ms_delta,pgg_ms_is_best
+GPT-4.1,joint_reasoning,correlation,0.5504489095313153,10.2307_1964229,COVENANTS WITH AND WITHOUT A SWORD - SELF-GOVERNANCE IS POSSIBLE,0.7701415057296817,0.21969259619836634,,,False
+GPT-4.1 Mini,joint_reasoning,correlation,0.5994195279383704,10.1016_j.evolhumbehav.2016.02.001,Local competition increases people's willingness to harm others,0.7893349839695363,0.18991545603116589,,,False
+GPT-4.1 Nano,joint_reasoning,correlation,0.5267772584324575,10.1016_j.jet.2009.06.003,Community enforcement when players observe partners' past play,0.7200728656721207,0.19329560723966321,,,False
+GPT-4.1,joint_reasoning,directional_accuracy,0.6,10.1111_j.1465-7295.2011.00433.x,IMMATERIAL REWARDS AND SANCTIONS IN A VOLUNTARY CONTRIBUTION EXPERIMENT,0.9,0.30000000000000004,,,False
+GPT-4.1 Mini,joint_reasoning,directional_accuracy,0.4,10.1016_j.econlet.2017.05.022,An experimental investigation of designated punishment behavior in public goods,0.8,0.4,,,False
+GPT-4.1 Nano,joint_reasoning,directional_accuracy,0.45,10.1098_rsif.2020.0880,Mathematical foundations of moral preferences,0.8,0.35000000000000003,,,False
+GPT-4.1,joint_reasoning,r2,0.12792313010227507,10.1016_j.euroecorev.2018.05.004,"Cooperation, punishment and organized crime: a lab-in-the-field experiment in southern Italy",0.41778282687498947,0.2898596967727144,,,False
+GPT-4.1 Mini,joint_reasoning,r2,-0.4868518272997808,10.1016_j.euroecorev.2021.103862,The demand for punishment to promote cooperation among like-minded people,0.32334452847846984,0.8101963557782507,,,False
+GPT-4.1 Nano,joint_reasoning,r2,-0.18890931005378264,10.1017_s0140525x11000069,Reciprocity: Weak or strong? What punishment experiments do (and do not) demonstrate,0.35252560479664174,0.5414349148504244,,,False
+GPT-4.1,joint_reasoning,rmse,6.659046308229082,10.1016_j.euroecorev.2018.05.004,"Cooperation, punishment and organized crime: a lab-in-the-field experiment in southern Italy",5.440980341474275,-1.218065966754807,,,False
+GPT-4.1 Mini,joint_reasoning,rmse,8.694978182468683,10.1016_j.euroecorev.2021.103862,The demand for punishment to promote cooperation among like-minded people,5.8656811289969,-2.829297053471783,,,False
+GPT-4.1 Nano,joint_reasoning,rmse,7.775154275461149,10.1017_s0140525x11000069,Reciprocity: Weak or strong? What punishment experiments do (and do not) demonstrate,5.737807191181914,-2.0373470842792347,,,False

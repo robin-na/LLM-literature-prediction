@@ -1,0 +1,13 @@
+scope,feature_set,target,cv_r2,cv_spearman,model
+pooled,model_only,delta_correlation,0.11291095606378487,0.2515339665398064,
+pooled,model_only,delta_rmse,0.09881622564394421,0.44966202349914053,
+pooled,paper_only,delta_correlation,0.014930962460558916,0.1320448319817517,
+pooled,paper_only,delta_rmse,0.03405062284372007,0.18228258729110872,
+pooled,model_plus_paper,delta_correlation,0.12812536764743732,0.3082777313481006,
+pooled,model_plus_paper,delta_rmse,0.13282047391393648,0.5053781300792336,
+within_model_paper_only,paper_only,delta_correlation,0.014909510984811747,0.12500326272204748,GPT-4.1
+within_model_paper_only,paper_only,delta_rmse,0.11926165867733263,0.34182768023022675,GPT-4.1
+within_model_paper_only,paper_only,delta_correlation,0.10348135231002453,0.3445782215349029,GPT-4.1 Mini
+within_model_paper_only,paper_only,delta_rmse,0.011625508611954105,0.09648420436785073,GPT-4.1 Mini
+within_model_paper_only,paper_only,delta_correlation,0.0038573527525650464,0.04485136369492264,GPT-4.1 Nano
+within_model_paper_only,paper_only,delta_rmse,0.036135466274688666,0.1849137968068969,GPT-4.1 Nano

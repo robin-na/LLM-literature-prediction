@@ -12,6 +12,8 @@ VALID_REPORT_STYLES = {
     "freeform",
     "structured",
     "quantitative",
+    "narrative",
+    "decision",
     "refined",
     "rules",
     "contrastive",
@@ -80,6 +82,51 @@ def build_paper_summary_prompt() -> str:
         3) Main Findings on Punishment
         4) Heterogeneity / Moderators
         5) Notes for Prediction
+        """
+    )
+
+
+def build_paper_retrieval_report_prompt(
+    column_defs: str,
+    report_style: str = "narrative",
+) -> str:
+    report_style = report_style.lower().strip()
+    if report_style not in VALID_REPORT_STYLES:
+        report_style = "narrative"
+
+    style_requirements = build_report_style_requirements(report_style)
+
+    return normalize_text(
+        f"""
+        You are writing a prediction-support report to help estimate how enabling punishment changes efficiency in new public goods games.
+
+        Use file search over the attached paper(s).
+
+        Requirements:
+        - Base the report strictly on what the paper(s) support.
+        - Do not speculate beyond the retrieved evidence.
+        - If a requested quantity, moderator, or rule is not clearly supported by the paper(s), say that explicitly.
+        - Explain the key variables and how they map to experimental design.
+        - Provide predictive guidance that is useful for forecasting, while remaining faithful to the paper evidence.
+        - Output in Markdown with clear section headers.
+        - Include numerical estimates and tables only when they are directly supported by the paper evidence.
+        - Follow these additional style requirements exactly:
+        {style_requirements}
+
+        {task_context_text()}
+
+        Include these sections:
+        1) Title
+        2) Abstract
+        3) Background & Definitions (explicitly restate the prediction task: given CONFIGs plus control efficiency, predict treatment efficiency)
+        4) Data & Variables (explicitly define the 14 CONFIG parameters used in prediction, plus CONFIG_punishmentExists because it distinguishes control from treatment)
+        5) Empirical Patterns (punishment effects and heterogeneity)
+        6) Predictive Guidance
+        7) Limitations & Missing Evidence
+        8) How To Use This For Predictions (concise bullet list)
+
+        Column definitions:
+        {column_defs}
         """
     )
 
@@ -198,6 +245,23 @@ def build_report_style_requirements(report_style: str) -> str:
             - Put tables first whenever possible.
             - Include at least three quantitative tables: overall effects, moderator effects, and prediction guidance ranges.
             - Minimize qualitative wording unless it clarifies how to use the numbers.
+            """
+        )
+    if report_style == "narrative":
+        return normalize_text(
+            """
+            - Keep the report narrative-driven and readable, with prose as the default form.
+            - Use tables only when they clarify the paper evidence.
+            """
+        )
+    if report_style == "decision":
+        return normalize_text(
+            """
+            - Keep the report compact, operational, and prediction-oriented.
+            - Include a "Moderator Matrix" table with each key variable, likely direction, confidence, and evidence note.
+            - Include a "Decision Rules" section written as if-then statements.
+            - Every rule must clearly distinguish strongly supported guidance from weak or missing evidence.
+            - Do not invent numeric thresholds or conditional ranges unless they are clearly supported by the paper.
             """
         )
     if report_style == "refined":

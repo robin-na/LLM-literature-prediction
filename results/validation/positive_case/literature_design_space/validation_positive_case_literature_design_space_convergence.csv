@@ -1,0 +1,17 @@
+mode,metric,n_points,r_baseline_vs_delta
+single,correlation,6,0.6983256832404555
+single,directional_accuracy,6,-0.9460780867995663
+single,r2,6,0.7057297435739165
+single,rmse,6,0.704679806957459
+reasoning,correlation,6,-0.6141019663145082
+reasoning,directional_accuracy,6,-0.9613160266404962
+reasoning,r2,6,-0.9604891280808013
+reasoning,rmse,6,-0.9677387661434732
+joint,correlation,6,0.8383778784503152
+joint,directional_accuracy,6,-0.8889481465202572
+joint,r2,6,-0.7354442248036298
+joint,rmse,6,-0.7561895804396948
+joint_reasoning,correlation,6,-0.21354579685501165
+joint_reasoning,directional_accuracy,6,-0.962911108149554
+joint_reasoning,r2,6,-0.9622949141101715
+joint_reasoning,rmse,6,-0.9621136200098194

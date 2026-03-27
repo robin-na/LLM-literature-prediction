@@ -4,6 +4,7 @@ This folder contains a small pipeline that calls the OpenAI Responses API to:
 - Analyze `df_analysis_learn.csv` with Code Interpreter.
 - Summarize the published PDF with File Search over a vector store.
 - Synthesize a final prediction-support report in Markdown.
+- For the newer paper-only variants, retrieve directly from the paper vector store and synthesize the final report in one Responses API call.
 
 ## How It Works (OpenAI API Calls)
 The implementation lives under `positive_cases/agentic_report/` and uses the official Python SDK.
@@ -12,8 +13,15 @@ OpenAI functions used:
 - `client.files.create(...)` to upload the CSV and PDF as files for the API to access.
 - `client.vector_stores.create(...)` and `client.vector_stores.files.create_and_poll(...)` to build a vector store for the paper, enabling `file_search`.
 - `client.responses.create(...)` with `tools=[{"type": "code_interpreter"}]` to run statistical analysis on the CSV inside the sandboxed tool.
-- `client.responses.create(...)` with `tools=[{"type": "file_search", "vector_store_ids": [...]}]` to retrieve paper passages and summarize them.
+- `client.responses.create(...)` with `tools=[{"type": "file_search", "vector_store_ids": [...], "max_num_results": 50}]` to retrieve paper passages and summarize them.
 - `client.responses.create(...)` (no tools) to synthesize the final report from the memos and base prompt.
+- `client.responses.create(...)` with `tools=[{"type": "file_search", "vector_store_ids": [...], "max_num_results": 50}]` to generate the new direct paper-only report variants without an intermediate `paper_memo.md`.
+
+Retrieval configuration:
+- vector store chunking strategy: OpenAI default `auto`
+- current default chunking behavior from the Retrieval guide: `800` token chunks with `400` token overlap
+- `max_num_results`: `50`
+- `include=["file_search_call.results"]` is enabled on paper-retrieval calls, so the saved log includes tool queries and raw retrieved result payloads
 
 ## Run It
 From the repo root:
@@ -31,6 +39,16 @@ Generate all six named report methods and skip ones already on disk:
 ```bash
 python positive_cases/run_report_variations.py
 ```
+
+Export prompt previews for the new direct paper-only variants before running them:
+```bash
+python positive_cases/export_prompt_previews.py \
+  --methods paper_only_narrative paper_only_decision
+```
+
+This writes:
+- `positive_cases/prompt_previews/paper_only_narrative.md`
+- `positive_cases/prompt_previews/paper_only_decision.md`
 
 Interactive notebook for prompt iteration on the validation positive-case task:
 - Notebook: `positive_cases/positive_case_prompt_lab.ipynb`
@@ -57,20 +75,31 @@ Workflow:
 
 Built-in variants now also store:
 - `report_generation_prompt.md`
+- `file_search_log.json` for any variant that uses paper retrieval
 
 Each generated custom variant stores:
 - `agentic_report.md`
 - `report_generation_prompt.md`
+- `file_search_log.json` when paper retrieval is used
 - copied source memo files
 - `variant_metadata.json`
 
 The resulting run bundle is saved under `results/notebook_positive_case_prompt_lab/`.
 
+Main analysis outputs under `results/` now mirror the `plots/` layout, for example:
+- `results/validation/no_augmentation_model_comparison/`
+- `results/validation/augmentation_delta_by_model/`
+- `results/validation/augmentation_convergence/`
+- `results/validation/model_suite_comprehensive/`
+- `results/validation/reasoning_repeat_summary/`
+
 Named report methods currently supported:
 - `paper_only_freeform`
+- `paper_only_narrative`
 - `data_only_freeform`
 - `both_freeform`
 - `paper_only_structured`
+- `paper_only_decision`
 - `data_only_structured`
 - `both_structured`
 - `paper_only_quantitative`
@@ -81,6 +110,46 @@ Named report methods currently supported:
 - `both_uncertainty`
 - `both_refined`
 - `both_ensemble`
+
+Method notes:
+- `paper_only_narrative`
+  Uses the Responses API with `file_search` directly against the paper vector store in one call.
+  It is narrative-driven and requires explicit acknowledgment of missing evidence.
+- `paper_only_decision`
+  Uses the same one-call `file_search` flow, but asks for a more decision-support-oriented output with a moderator matrix and decision rules.
+- The older `paper_only_freeform`, `paper_only_structured`, and `paper_only_quantitative` methods are unchanged and still use the memo-then-report flow.
+- All paper-retrieval paths now request up to `50` retrieved chunks and persist `file_search_log.json` with the prompt text, tool queries, and retrieved result payloads.
+
+Build model-specific OpenAI batch files for the two new paper-only retrieval variants
+(`paper_only_narrative` and `paper_only_decision`) across the 4.1 family only:
+```bash
+python positive_cases/build_paper_only_new_variants_batch_input.py
+```
+
+This writes:
+- `openAI_batch_input/prediction_positive_case_paper_only_narrative-decision_41.jsonl`
+- `openAI_batch_input/prediction_positive_case_paper_only_narrative-decision_41mini.jsonl`
+- `openAI_batch_input/prediction_positive_case_paper_only_narrative-decision_41nano.jsonl`
+
+Behavior:
+- includes exactly two augmented variants:
+  - `paper_only_narrative`
+  - `paper_only_decision`
+- includes four elicitation modes for each variant:
+  - `single w/o explanation`
+  - `single with explanation`
+  - `joint w/o explanation`
+  - `joint with explanation`
+- explanation-included modes are repeated `5` times per condition for comparability with the repeated baseline runs
+- direct single-question requests include `logprobs=true` and `top_logprobs=20`
+- explanation requests use JSON with `explanation` and `prediction`
+- example custom IDs:
+  - `paper_only_narrative/Q1`
+  - `paper_only_narrative_explanation_rep1/Q1`
+  - `paper_only_narrative_joint`
+  - `paper_only_narrative_joint_explanation_rep1`
+- these new files use `explanation` in prompts and custom IDs for the new variants only
+- older historical generators and analysis code still use `reasoning` labels for backward compatibility
 
 Build one merged OpenAI batch input across report methods and elicitation modes:
 ```bash
@@ -98,6 +167,89 @@ Included conditions:
 - The same four elicitation modes for each generated report method
 
 Joint 20-question elicitation uses a compact column guide and a single structured table, rather than repeating the full game description 20 times.
+
+Build model-specific OpenAI positive-case batch files for single-question elicitation only
+(no joint requests), across all registered report variants plus a baseline control:
+```bash
+python positive_cases/build_positive_case_model_batch_suite.py
+```
+
+This writes one combined file per model:
+- `openAI_batch_input/prediction_positive_case_variants_single_o3.jsonl`
+- `openAI_batch_input/prediction_positive_case_variants_single_o4mini.jsonl`
+- `openAI_batch_input/prediction_positive_case_variants_single_35turbo.jsonl`
+- `openAI_batch_input/prediction_positive_case_variants_single_4omini.jsonl`
+- `openAI_batch_input/prediction_positive_case_variants_single_4o.jsonl`
+- `openAI_batch_input/prediction_positive_case_variants_single_gpt51.jsonl`
+
+Default models:
+- `o3`
+- `o4-mini`
+- `gpt-3.5-turbo`
+- `gpt-4o-mini`
+- `gpt-4o`
+- `gpt-5.1`
+
+For `gpt-5.1`, use direct-only generation when you need logprobs, and the generator
+will cap `top_logprobs` at `5`:
+```bash
+python positive_cases/build_positive_case_model_batch_suite.py --models gpt-5.1 --direct-only
+```
+
+Behavior:
+- each file contains both direct-output and reasoning requests
+- direct-output requests ask for integer-only answers and include `logprobs=true` with `top_logprobs=20`
+- reasoning requests ask for JSON with `reasoning` and `prediction`
+- o-series payloads use a `developer` instruction message and omit `temperature`
+- non-o-series payloads use the existing `system` message pattern and keep `temperature`
+
+Build model-specific OpenAI positive-case batch files for joint 20-question elicitation
+only, across all registered report variants plus a baseline control:
+```bash
+python positive_cases/build_positive_case_model_joint_batch_suite.py
+```
+
+This writes one combined file per model:
+- `openAI_batch_input/prediction_positive_case_variants_joint_o3.jsonl`
+- `openAI_batch_input/prediction_positive_case_variants_joint_o4mini.jsonl`
+- `openAI_batch_input/prediction_positive_case_variants_joint_35turbo.jsonl`
+- `openAI_batch_input/prediction_positive_case_variants_joint_4omini.jsonl`
+- `openAI_batch_input/prediction_positive_case_variants_joint_4o.jsonl`
+- `openAI_batch_input/prediction_positive_case_variants_joint_gpt51.jsonl`
+
+Behavior:
+- GPT-family files contain both `joint` and `joint_reasoning` requests
+- `o3` and `o4-mini` files contain `joint_reasoning` requests only
+- joint direct requests return JSON objects mapping `Q1...Q20` to integer predictions
+- joint reasoning requests return JSON objects mapping `Q1...Q20` to `{reasoning, prediction}`
+- no logprobs are requested for joint modes
+- o-series payloads use a `developer` instruction message and omit `temperature`
+- non-o-series payloads use the existing `system` message pattern and keep `temperature`
+
+Build repeated reasoning-only positive-case batch files, covering both one-at-a-time
+reasoning and joint reasoning. This is useful for measuring decoding variance across
+repeated stochastic calls and comparing it to a `temperature=0` anchor:
+```bash
+python positive_cases/build_positive_case_reasoning_repeat_batch_suite.py
+```
+
+This writes one file per model, for example:
+- `openAI_batch_input/prediction_positive_case_reasoning_repeats_35turbo.jsonl`
+- `openAI_batch_input/prediction_positive_case_reasoning_repeats_41.jsonl`
+- `openAI_batch_input/prediction_positive_case_reasoning_repeats_41mini.jsonl`
+- `openAI_batch_input/prediction_positive_case_reasoning_repeats_41nano.jsonl`
+- `openAI_batch_input/prediction_positive_case_reasoning_repeats_4omini.jsonl`
+- `openAI_batch_input/prediction_positive_case_reasoning_repeats_4o.jsonl`
+- `openAI_batch_input/prediction_positive_case_reasoning_repeats_o3.jsonl`
+- `openAI_batch_input/prediction_positive_case_reasoning_repeats_o4mini.jsonl`
+- `openAI_batch_input/prediction_positive_case_reasoning_repeats_gpt51.jsonl`
+
+Behavior:
+- includes all built-in report variants plus the baseline condition
+- includes both single-question reasoning and joint reasoning
+- runs `n=4` repeated stochastic calls per condition by default
+- non-o-series models also include a `temperature=0` anchor
+- custom ids use suffixes like `rep1`, `rep2`, `rep3`, `rep4`, and `temp0`
 
 Build the learning-wave elicitation-only batch file (no augmentation, sorted by `CONFIG_configId`):
 ```bash

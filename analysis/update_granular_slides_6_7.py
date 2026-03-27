@@ -11,10 +11,11 @@ from pptx.util import Inches, Pt
 
 ROOT = Path(__file__).resolve().parents[1]
 DECK = ROOT / "slides" / "prediction_results_deck.pptx"
+from plot_paths import GRANULAR_PLOTS
 
-FIG_PERF = ROOT / "plots" / "granular_performance_delta_r2_heatmap.png"
-FIG_CHAT = ROOT / "plots" / "granular_chat_shift_heatmap.png"
-FIG_ENET = ROOT / "plots" / "llm_shift_vs_enet_importance.png"
+FIG_PERF = GRANULAR_PLOTS / "granular_performance_delta_r2_heatmap.png"
+FIG_CHAT = GRANULAR_PLOTS / "granular_chat_shift_heatmap.png"
+FIG_ENET = GRANULAR_PLOTS / "llm_shift_vs_enet_importance.png"
 
 BG = RGBColor(247, 245, 242)
 TEXT = RGBColor(31, 41, 51)

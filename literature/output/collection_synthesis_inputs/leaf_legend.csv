@@ -1,0 +1,9 @@
+leaf_id,count,a_switch,a_value,b_switch,b_value,c_switch,c_value,summary
+leaf_a0_b0_c0,363,exact/close on both PGG relevance and punishment relevance,off,reports payoff-like outcomes,off,empirical paper,off,"A=off (exact/close PGG+punishment), B=off (payoff-like outcomes), C=off (empirical)"
+leaf_a0_b0_c1,340,exact/close on both PGG relevance and punishment relevance,off,reports payoff-like outcomes,off,empirical paper,on,"A=off (exact/close PGG+punishment), B=off (payoff-like outcomes), C=on (empirical)"
+leaf_a0_b1_c0,275,exact/close on both PGG relevance and punishment relevance,off,reports payoff-like outcomes,on,empirical paper,off,"A=off (exact/close PGG+punishment), B=on (payoff-like outcomes), C=off (empirical)"
+leaf_a0_b1_c1,167,exact/close on both PGG relevance and punishment relevance,off,reports payoff-like outcomes,on,empirical paper,on,"A=off (exact/close PGG+punishment), B=on (payoff-like outcomes), C=on (empirical)"
+leaf_a1_b0_c0,236,exact/close on both PGG relevance and punishment relevance,on,reports payoff-like outcomes,off,empirical paper,off,"A=on (exact/close PGG+punishment), B=off (payoff-like outcomes), C=off (empirical)"
+leaf_a1_b0_c1,198,exact/close on both PGG relevance and punishment relevance,on,reports payoff-like outcomes,off,empirical paper,on,"A=on (exact/close PGG+punishment), B=off (payoff-like outcomes), C=on (empirical)"
+leaf_a1_b1_c0,190,exact/close on both PGG relevance and punishment relevance,on,reports payoff-like outcomes,on,empirical paper,off,"A=on (exact/close PGG+punishment), B=on (payoff-like outcomes), C=off (empirical)"
+leaf_a1_b1_c1,242,exact/close on both PGG relevance and punishment relevance,on,reports payoff-like outcomes,on,empirical paper,on,"A=on (exact/close PGG+punishment), B=on (payoff-like outcomes), C=on (empirical)"

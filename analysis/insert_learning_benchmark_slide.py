@@ -11,7 +11,9 @@ from pptx.util import Inches, Pt
 
 ROOT = Path(__file__).resolve().parents[1]
 DECK = ROOT / "slides" / "prediction_results_deck.pptx"
-FIG = ROOT / "plots" / "learning_r2_benchmark.png"
+from plot_paths import LEARNING_PLOTS
+
+FIG = LEARNING_PLOTS / "learning_r2_benchmark.png"
 
 BG = RGBColor(247, 245, 242)
 TEXT = RGBColor(31, 41, 51)

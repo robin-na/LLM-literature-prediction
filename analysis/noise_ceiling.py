@@ -56,6 +56,7 @@ def compute_metrics(pairs: pd.DataFrame) -> dict:
     rel_y = 0.0 if var_y == 0 else var_true_y / var_y
     rel_x = 0.0 if var_x == 0 else var_true_x / var_x
     r_max = math.sqrt(rel_x * rel_y)
+    r_max_y = math.sqrt(rel_y)
 
     delta_hat = y - x
     sem_delta = np.sqrt(sem_y**2 + sem_x**2)
@@ -76,6 +77,7 @@ def compute_metrics(pairs: pd.DataFrame) -> dict:
         "rel_x": rel_x,
         "rel_y": rel_y,
         "r_max": r_max,
+        "r_max_y": r_max_y,
         "dir_ceiling": dir_ceiling,
         "r_obs": r_obs,
         "rmse_identity": rmse_identity,
@@ -109,6 +111,7 @@ def bootstrap_cis(pairs: pd.DataFrame, b: int, seed: int) -> dict:
         rel_y = 0.0 if var_y == 0 else var_true_y / var_y
         rel_x = 0.0 if var_x == 0 else var_true_x / var_x
         r_max = math.sqrt(rel_x * rel_y)
+        r_max_y = math.sqrt(rel_y)
 
         delta_hat = y - x
         sem_delta = np.sqrt(sem_y**2 + sem_x**2)
@@ -120,13 +123,13 @@ def bootstrap_cis(pairs: pd.DataFrame, b: int, seed: int) -> dict:
         dir_ceiling = float(np.mean(p))
 
         return np.array(
-            [rmse_min_y, rmse_min_delta, rel_x, rel_y, r_max, dir_ceiling], dtype=float
+            [rmse_min_y, rmse_min_delta, rel_x, rel_y, r_max, r_max_y, dir_ceiling], dtype=float
         )
 
     if g == 0:
         return {}
 
-    boots = np.empty((b, 6), dtype=float)
+    boots = np.empty((b, 7), dtype=float)
     for i in range(b):
         idx = rng.integers(0, g, size=g)
         boots[i] = stats_for_idx(idx)
@@ -134,7 +137,7 @@ def bootstrap_cis(pairs: pd.DataFrame, b: int, seed: int) -> dict:
     lo = np.quantile(boots, 0.025, axis=0)
     hi = np.quantile(boots, 0.975, axis=0)
 
-    labels = ["rmse_min_y", "rmse_min_delta", "rel_x", "rel_y", "r_max", "dir_ceiling"]
+    labels = ["rmse_min_y", "rmse_min_delta", "rel_x", "rel_y", "r_max", "r_max_y", "dir_ceiling"]
     return {labels[i]: (lo[i], hi[i]) for i in range(len(labels))}
 
 
@@ -157,6 +160,7 @@ def main() -> None:
     print(f"Reliability control mean: {metrics['rel_x']}")
     print(f"Reliability treatment mean: {metrics['rel_y']}")
     print(f"Correlation ceiling for mapping C->T: {metrics['r_max']}")
+    print(f"Correlation ceiling for predicting observed T from latent T: {metrics['r_max_y']}")
     print(f"Directional accuracy ceiling (mean over bases): {metrics['dir_ceiling']}")
     print(f"Observed corr(mean_C, mean_T): {metrics['r_obs']}")
     print(f"RMSE of identity yhat=x: {metrics['rmse_identity']}")

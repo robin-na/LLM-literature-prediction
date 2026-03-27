@@ -15,6 +15,8 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
+from plot_paths import POSITIVE_CASE_PLOTS, ensure_plot_dir
+
 
 @dataclass
 class MetricSpec:

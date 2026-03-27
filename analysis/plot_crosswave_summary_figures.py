@@ -11,7 +11,7 @@ import seaborn as sns
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RESULTS_DIR = REPO_ROOT / "results"
-PLOTS_DIR = REPO_ROOT / "plots"
+from plot_paths import CROSSWAVE_PLOTS as PLOTS_DIR, ensure_plot_dir
 DATA_DIR = REPO_ROOT / "science-data_and_code" / "data" / "processed_data"
 
 VAL_METRICS_PATH = RESULTS_DIR / "prediction_positive_case_variations_41_metrics.csv"
@@ -528,7 +528,7 @@ def plot_robustness_scatter(robust_df: pd.DataFrame, output_png: Path, output_pd
 
 def main() -> None:
     args = parse_args()
-    PLOTS_DIR.mkdir(parents=True, exist_ok=True)
+    ensure_plot_dir(PLOTS_DIR)
     paths = output_paths(args.output_prefix)
 
     perf_df = load_performance_table(args.validation_metrics, args.learning_with_baselines_metrics)

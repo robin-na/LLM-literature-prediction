@@ -1,0 +1,9 @@
+mode,metric,n_points,r_baseline_vs_delta
+reasoning,correlation,6,-0.25435965020251283
+reasoning,directional_accuracy,6,-0.9176629354822471
+reasoning,r2,6,-0.875974200763798
+reasoning,rmse,6,-0.8741703897182178
+joint_reasoning,correlation,6,-0.6469919846453103
+joint_reasoning,directional_accuracy,6,-0.7317274774221446
+joint_reasoning,r2,6,-0.6322764617385732
+joint_reasoning,rmse,6,-0.5862184979784388

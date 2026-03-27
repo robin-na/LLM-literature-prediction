@@ -146,6 +146,11 @@ def _model_tag(model: str) -> str:
         "gpt-4.1-2025-04-14": "41",
         "gpt-4.1-mini-2025-04-14": "41mini",
         "gpt-4.1-nano-2025-04-14": "41nano",
+        "gpt-5.1": "gpt51",
+        "gpt-5-mini": "gpt5mini",
+        "gpt-5-nano": "gpt5nano",
+        "gpt-5.1-mini": "gpt51mini",
+        "gpt-5.1-nano": "gpt51nano",
     }
     if model in known:
         return known[model]

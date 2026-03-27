@@ -142,6 +142,19 @@
     "metadata_path": null,
     "exists": true
   },
+  "paper_only_decision": {
+    "variant_name": "paper_only_decision",
+    "variant_type": "built_in",
+    "source_mode": "paper_only",
+    "report_style": "decision",
+    "variant_dir": "positive_cases/output/paper_only_decision",
+    "report_path": "positive_cases/output/paper_only_decision/agentic_report.md",
+    "analysis_memo_path": null,
+    "paper_memo_path": null,
+    "report_prompt_path": "positive_cases/output/paper_only_decision/report_generation_prompt.md",
+    "metadata_path": null,
+    "exists": true
+  },
   "paper_only_freeform": {
     "variant_name": "paper_only_freeform",
     "variant_type": "built_in",
@@ -152,6 +165,19 @@
     "analysis_memo_path": null,
     "paper_memo_path": "positive_cases/output/paper_only/paper_memo.md",
     "report_prompt_path": "positive_cases/output/paper_only/report_generation_prompt.md",
+    "metadata_path": null,
+    "exists": true
+  },
+  "paper_only_narrative": {
+    "variant_name": "paper_only_narrative",
+    "variant_type": "built_in",
+    "source_mode": "paper_only",
+    "report_style": "narrative",
+    "variant_dir": "positive_cases/output/paper_only_narrative",
+    "report_path": "positive_cases/output/paper_only_narrative/agentic_report.md",
+    "analysis_memo_path": null,
+    "paper_memo_path": null,
+    "report_prompt_path": "positive_cases/output/paper_only_narrative/report_generation_prompt.md",
     "metadata_path": null,
     "exists": true
   },

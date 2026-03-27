@@ -1,0 +1,15 @@
+custom_id,paper_id,limitation_index,limitation
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,1,"No punishment or sanctioning mechanism is present in any condition, so the paper cannot inform the effect of punishment on efficiency."
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,2,"Efficiency or group payoff is not directly reported; only withdrawal rates are analyzed, which are inversely related to efficiency but not equivalent."
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,3,"The study is conducted in a low social capital environment (Nairobi slum), which may limit generalizability."
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,4,"The main outcome is behavioral (withdrawal rate), not direct group efficiency or welfare."
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,5,"The experiment only manipulates information disclosure, not punishment or reward."
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,1,"No punishment, sanction, or reward mechanisms are included in the model."
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,2,"No efficiency, group payoff, or welfare outcomes are reported; only cooperation rate and network cohesion are analyzed."
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,3,"Findings are based on simulation and theory, not empirical or experimental data."
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,4,Results may not generalize to settings with punishment or explicit payoff-based interventions.
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,1,"The paper does not model or analyze punishment, reward, or sanctioning mechanisms, so it cannot inform the effect of such interventions on efficiency or payoff."
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,2,"The analysis is theoretical and simulation-based, not empirical or experimental with human subjects."
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,3,"The games studied are two-strategy evolutionary games (e.g., Prisoner's Dilemma, Snowdrift), not public goods games per se, though they are closely related."
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,4,"The results are derived for regular graphs and may not generalize to all real-world network structures, though some robustness is suggested."
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,5,"No behavioral or psychological mechanisms (e.g., communication, framing, beliefs) are considered."

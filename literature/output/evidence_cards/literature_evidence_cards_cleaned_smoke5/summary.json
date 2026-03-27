@@ -1,0 +1,14 @@
+{
+  "input_path": "openAI_batch_output/literature_evidence_cards_cleaned_smoke5.jsonl",
+  "output_dir": "literature/output/evidence_cards/literature_evidence_cards_cleaned_smoke5",
+  "n_records": 3,
+  "n_ok": 3,
+  "n_api_errors": 0,
+  "n_json_parse_errors": 0,
+  "papers_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_smoke5/papers.csv",
+  "combined_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_smoke5/combined.csv",
+  "dimensions_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_smoke5/dimensions.csv",
+  "key_claims_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_smoke5/key_claims.csv",
+  "important_limitations_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_smoke5/important_limitations.csv",
+  "errors_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_smoke5/errors.csv"
+}

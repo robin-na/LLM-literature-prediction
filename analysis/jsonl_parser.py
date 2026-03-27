@@ -5,6 +5,28 @@ import numpy as np
 import pandas as pd
 
 
+def _extract_prediction_from_reasoning_text(text: str | None) -> float | None:
+    if not text:
+        return None
+
+    candidate = text.strip()
+    patterns = [
+        r"(?:predicted|prediction|predicted efficiency|overall predicted efficiency|bringing it to|leading to|to about|around|approximately)\D{0,20}(-?\d+(?:\.\d+)?)\s*%",
+        r"=\s*(-?\d+(?:\.\d+)?)\s*%",
+        r"(-?\d+(?:\.\d+)?)\s*%\s*$",
+        r"(?:predicted|prediction|predicted efficiency|overall predicted efficiency|bringing it to|leading to|to about|around|approximately)\D{0,20}(-?\d+(?:\.\d+)?)\s*$",
+        r"(-?\d+(?:\.\d+)?)\s*$",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, candidate, re.IGNORECASE)
+        if match:
+            try:
+                return float(match.group(1))
+            except ValueError:
+                return None
+    return None
+
+
 def _extract_prediction_from_json_text(text: str | None) -> float | None:
     """
     Try to parse model output as JSON and read a numeric `prediction` field.
@@ -22,6 +44,11 @@ def _extract_prediction_from_json_text(text: str | None) -> float | None:
         if isinstance(value, str):
             numeric = _extract_numeric(value)
             if not np.isnan(numeric):
+                return float(numeric)
+        reasoning_value = parsed_obj.get("reasoning")
+        if isinstance(reasoning_value, str):
+            numeric = _extract_prediction_from_reasoning_text(reasoning_value)
+            if numeric is not None:
                 return float(numeric)
         return None
 
@@ -60,6 +87,10 @@ def _extract_prediction_from_json_text(text: str | None) -> float | None:
     key_match = re.search(r'"prediction"\s*:\s*(-?\d+(?:\.\d+)?)', candidate)
     if key_match:
         return float(key_match.group(1))
+
+    reasoning_pred = _extract_prediction_from_reasoning_text(candidate)
+    if reasoning_pred is not None:
+        return reasoning_pred
 
     return None
 

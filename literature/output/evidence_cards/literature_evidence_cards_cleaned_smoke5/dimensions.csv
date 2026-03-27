@@ -1,0 +1,43 @@
+custom_id,paper_id,dimension,present,evidence_tier,effect_direction,evidence_basis,notes,support_refs
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,player_count,yes,informative_direct,N/A,manipulated,Groups of 4 players per session; fixed group composition across rounds.,Section 2 The experimental design
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,num_rounds,yes,informative_direct,N/A,manipulated,5 rounds per group; participants did not know the exact number of rounds in advance.,Section 2 The experimental design
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,chat,no,not_present,N/A,N/A,No mention of chat or communication between players beyond public announcement of withdrawals/payoffs in PIT.,
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,all_or_nothing,no,informative_direct,N/A,manipulated,Withdrawal amount is continuous between 0 and 150 KSh.,Section 2 The experimental design
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,default_contrib,no,not_present,N/A,N/A,No mention of default contribution framing.,
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,mpcr,yes,informative_direct,N/A,manipulated,Marginal per-capita return (MPCR) is 0.5: each unit left in the pot is doubled and split among 4 players.,Section 2 The experimental design
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,punishment_cost,no,not_present,N/A,N/A,No punishment or sanctioning mechanism in any condition.,
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,punishment_tech,no,not_present,N/A,N/A,No punishment or sanctioning mechanism in any condition.,
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,reward_exists,no,not_present,N/A,N/A,No reward mechanism present.,
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,reward_cost,no,not_present,N/A,N/A,No reward mechanism present.,
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,reward_tech,no,not_present,N/A,N/A,No reward mechanism present.,
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,show_n_rounds,yes,informative_direct,N/A,manipulated,"Players were told they would play more than once, but not the exact number of rounds.",Section 2 The experimental design
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,show_other_summaries,yes,informative_direct,less_positive,manipulated,"In the PIT, players are shown both individual withdrawals and payoffs of all group members after each round. This public information leads to higher withdrawal rates (lower cooperation/efficiency).",Section 2 The experimental design | Section 3 Hypothesis testing and descriptive findings | Table 4
+10.1007_s00355-014-0867-y,10.1007_s00355-014-0867-y,show_punishment_id,no,not_present,N/A,N/A,"No punishment or reward mechanism, so no identification of punishers/rewarders.",
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,player_count,yes,informative_direct,N/A,manipulated,"Simulations use N=400 and N=10000; results are robust to player count, but outcome is not efficiency.",Section 3 Results and discussion | Fig. 1
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,num_rounds,yes,informative_direct,N/A,manipulated,"Simulations run for up to 10,000 x N Monte Carlo steps; steady-state outcomes are reported.",Section 3 Results and discussion
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,chat,no,not_present,N/A,N/A,No communication or chat between agents.,
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,all_or_nothing,yes,informative_direct,N/A,manipulated,Binary strategies: cooperate (contribute c) or defect (contribute 0).,Section 2 Model
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,default_contrib,no,not_present,N/A,N/A,No mention of default contribution framing.,
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,mpcr,yes,informative_direct,N/A,manipulated,Productivity parameter r (r>1) is varied; MPCR is r divided by group size.,Section 2 Model | Section 3 Results and discussion | Figs. 2-4
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,punishment_cost,no,not_present,N/A,N/A,No punishment mechanism in the model.,
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,punishment_tech,no,not_present,N/A,N/A,No punishment mechanism in the model.,
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,reward_exists,no,not_present,N/A,N/A,No reward mechanism in the model.,
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,reward_cost,no,not_present,N/A,N/A,No reward mechanism in the model.,
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,reward_tech,no,not_present,N/A,N/A,No reward mechanism in the model.,
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,show_n_rounds,no,not_present,N/A,N/A,No mention of whether the number of rounds is shown to agents.,
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,show_other_summaries,no,not_present,N/A,N/A,No mention of summary information about others' contributions or payoffs being shown.,
+10.1016_j.chaos.2021.110871,10.1016_j.chaos.2021.110871,show_punishment_id,no,not_present,N/A,N/A,No punishment or identification mechanism.,
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,player_count,yes,informative_direct,N/A,manipulated,Population size N is a key parameter in both finite and infinite population models; simulations use N=100 and N=500.,Section 2 The basic model | Section 3.3 Numerical simulations
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,num_rounds,no,not_present,N/A,N/A,"Evolutionary dynamics are modeled as ongoing processes, not as repeated games with a fixed number of rounds.",
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,chat,no,not_present,N/A,N/A,No communication or chat between players is modeled.,
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,all_or_nothing,no,not_present,N/A,N/A,"Strategy choice is binary (cooperate or defect), but not all-or-nothing in the sense of forced contribution; no explicit all-or-nothing framing.",
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,default_contrib,no,not_present,N/A,N/A,No mention of default contribution framing.,
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,mpcr,yes,informative_direct,N/A,manipulated,The benefit-to-cost ratio (b/c) is the key parameter determining when cooperation is favored; this is analogous to MPCR in public goods games.,Section 3.2 The Prisoner's Dilemma | Section 4.1 Prisoner's Dilemma
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,punishment_cost,no,not_present,N/A,N/A,No punishment or sanctioning mechanism is modeled.,
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,punishment_tech,no,not_present,N/A,N/A,No punishment or sanctioning mechanism is modeled.,
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,reward_exists,no,not_present,N/A,N/A,No reward mechanism is modeled.,
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,reward_cost,no,not_present,N/A,N/A,No reward mechanism is modeled.,
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,reward_tech,no,not_present,N/A,N/A,No reward mechanism is modeled.,
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,show_n_rounds,no,not_present,N/A,N/A,"Not applicable; evolutionary process is ongoing, not round-based.",
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,show_other_summaries,no,not_present,N/A,N/A,No information about feedback or summaries shown to players.,
+10.1016_j.jtbi.2007.01.024,10.1016_j.jtbi.2007.01.024,show_punishment_id,no,not_present,N/A,N/A,No punishment or identification mechanism is modeled.,

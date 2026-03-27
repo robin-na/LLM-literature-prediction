@@ -1,0 +1,13 @@
+metric,spec,model,n_obs,r2_full,adj_r2_full
+delta_correlation,model_specific_ols,GPT-4.1,1955,0.03377381659095047,0.027803314942696833
+delta_correlation,model_specific_ols,GPT-4.1 Mini,1955,0.11407933982798979,0.10860506180426988
+delta_correlation,model_specific_ols,GPT-4.1 Nano,1952,0.016414661737550795,0.010327491000495903
+delta_rmse,model_specific_ols,GPT-4.1,1955,0.13194483950157365,0.12658095591455965
+delta_rmse,model_specific_ols,GPT-4.1 Mini,1955,0.030414144915690278,0.024422883195292844
+delta_rmse,model_specific_ols,GPT-4.1 Nano,1952,0.04785999284329534,0.041967429622108865
+delta_r2,model_specific_ols,GPT-4.1,1955,0.11493307756169002,0.10946407495136057
+delta_r2,model_specific_ols,GPT-4.1 Mini,1955,0.031423220128912965,0.02543819368274758
+delta_r2,model_specific_ols,GPT-4.1 Nano,1952,0.027054084002398948,0.02103275806533278
+delta_directional_accuracy,model_specific_ols,GPT-4.1,1955,0.043561345139966234,0.03765132255586712
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,1955,0.04024680088306043,0.034316297078012314
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,1952,0.01948270564336141,0.013414522284785013

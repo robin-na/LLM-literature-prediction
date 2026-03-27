@@ -1,0 +1,919 @@
+# Collection Evidence Digest: broad_all
+
+Chunk 16 of 21
+
+Total papers in collection: 2011
+
+Papers in this chunk: 101
+
+Each item below is a compact paper-level analysis digest. Use only this digest.
+
+- id: 10.1177_147470491301100117
+  source: Who Punishes? Personality Traits Predict Individual Variation in Punitive Sentiment | Evolutionary Psychology | 2013
+  type: empirical | empirical=experimental | experimental=other_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, show_n_rounds, show_other_summaries
+  findings: The study finds that individual differences in willingness to punish a transgressor in a public-goods-like scenario are predicted by personality traits, especially lower...
+  prediction_guidance: This paper does not provide evidence on the effect of punishment on efficiency or group payoff in public goods games or variants. It does not manipulate or measure any game...
+
+- id: 10.1177_1059712317693889
+  source: Cognitive adaptations to criminal justice lead to paranoid norm obedience | Adaptive Behavior | 2017
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The model demonstrates that evolutionary pressures can lead to agents developing a cognitive bias that causes them to overestimate the probability of being observed and...
+  prediction_guidance: This paper provides indirect support for the idea that increasing punishment magnitude and the probability of observation can increase cooperation rates in social dilemma...
+
+- id: 10.1155_2014_108024
+  source: Punishment Effect of Prisoner Dilemma Game Based on a New Evolution Strategy Rule | Mathematical Problems In Engineering | 2014
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_tech, show_n_rounds
+  findings: The paper finds that introducing punishment (in the form of a nonzero payoff for mutual defection, parameter p) in a spatial prisoner's dilemma game can, under certain...
+  prediction_guidance: This paper does not report efficiency, group payoff, or welfare outcomes, and does not use a public goods game or a direct variant. Its findings are about the dynamics of...
+
+- id: 10.1103_PhysRevE.91.022121
+  source: Peer pressure: Enhancement of cooperation through mutual punishment | Physical Review E | 2015
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that mutual (symmetric) punishment, where individuals punish neighbors with different strategies, can enhance cooperation in the prisoner's dilemma game. In...
+  prediction_guidance: This paper does not directly inform prediction of efficiency or group payoff in public goods games with punishment. However, it provides indirect evidence that symmetric,...
+
+- id: 10.1063_5.0215702
+  source: Emergence of cooperation under punishment: A reinforcement learning perspective | Chaos | 2024
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The study finds that punishment can promote cooperation in a spatial Prisoner's Dilemma with reinforcement learning agents, but only if the punishment is sufficiently strong...
+  prediction_guidance: This paper provides indirect, mechanistic evidence about how punishment parameters (cost, intensity, probability) affect cooperation rates in a spatial Prisoner's Dilemma with...
+
+- id: 10.1038_srep03055
+  source: Impact of Social Punishment on Cooperative Behavior in Complex Networks | Scientific Reports | 2013
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The introduction of a punisher strategy (who pays a cost to reduce defectors' payoffs) in networked 2-person games (PD and SD) increases the fraction of cooperative strategies...
+  prediction_guidance: This paper provides strong evidence that social punishment increases the prevalence of cooperative strategies in 2-person networked games, but does not provide direct evidence...
+
+- id: 10.1016_j.physleta.2023.128837
+  source: Social exclusion with antisocial punishment in spatial public goods game | Physics Letters A | 2023
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, all_or_nothing, mpcr, punishment_cost, punishment_tech
+  findings: The paper finds that introducing punishment by investors can induce a stable coexistence of punishing investors and trustworthy trustees in a hierarchical N-player trust game....
+  prediction_guidance: This paper provides theoretical evidence that punishment can promote trust and trustworthiness in a hierarchical trust game, with the effect moderated by punishment intensity...
+
+- id: 10.1016_j.physleta.2022.128274
+  source: Impact of multi-step punishment on the spatial prisoner?s dilemma game | Physics Letters A | 2022
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The study finds that multi-step punishment (punishment lasting multiple time steps for low-reputation individuals) can promote cooperation in a spatial prisoner's dilemma game,...
+  prediction_guidance: This paper provides indirect evidence about the effect of punishment on cooperation rates in a spatial prisoner's dilemma, but does not report efficiency or group payoff...
+
+- id: 10.1016_j.physa.2025.130902
+  source: Dynamic role-switching in hypergraphs: Enhancing cooperation via adaptive punishment and reinforcement learning | Physica A-Statistical Mechanics And Its Applications | 2025
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The study finds that periodic update rules with Q-learning and a punishment mechanism can substantially increase the frequency of cooperation in a spatial prisoner's dilemma...
+  prediction_guidance: This paper provides indirect evidence that punishment mechanisms, when combined with learning and periodic update rules, can increase cooperation rates in spatial games....
+
+- id: 10.1016_j.physa.2023.129282
+  source: Self-organization in mobile populations promotes the evolution of altruistic punishment | Physica A-Statistical Mechanics And Its Applications | 2023
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that migration in spatially structured populations promotes the evolution and prevalence of pro-social punishment (altruistic punishment) and cooperation,...
+  prediction_guidance: This paper provides indirect support for the idea that enabling migration or spatial self-organization can enhance the effectiveness of punishment in promoting cooperation,...
+
+- id: 10.1016_j.physa.2022.127997
+  source: Costly signals can facilitate cooperation and punishment in the prisoner?s dilemma | Physica A-Statistical Mechanics And Its Applications | 2022
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The study finds that in a prisoner's dilemma with costly signaling, punishment as a costly signal can become prevalent if the signal is strong and noise is low, but this does...
+  prediction_guidance: This paper provides indirect evidence about the effects of punishment in two-player prisoner's dilemma games with costly signaling, but does not directly address efficiency or...
+
+- id: 10.1016_j.physa.2018.03.054
+  source: Multigames with social punishment and the evolution of cooperation | Physica A-Statistical Mechanics And Its Applications | 2018
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The study finds that introducing a punishment strategy (punishers who pay a cost to fine defectors) in a spatial multigame environment (mix of PD and SD) increases the fraction...
+  prediction_guidance: This paper provides indirect support for the idea that punishment can increase cooperation and average payoff in spatial social dilemmas, especially when there is heterogeneity...
+
+- id: 10.1016_j.physa.2010.12.044
+  source: Costly punishment and cooperation in the evolutionary snowdrift game | Physica A-Statistical Mechanics And Its Applications | 2011
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that introducing costly punishment into the evolutionary snowdrift game can lead to two types of steady states: (1) a mixture of cooperators and punishers (with...
+  prediction_guidance: This paper provides indirect evidence about the effect of punishment on cooperation in a two-player snowdrift game, which is adjacent to public goods games. The main outcomes...
+
+- id: 10.1016_j.physa.2009.07.013
+  source: Self-organized cooperative behavior and critical penalty in an evolving population | Physica A-Statistical Mechanics And Its Applications | 2009
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that in a population of agents playing a two-action game (cooperate or defect), increasing the penalty for defection increases the mean probability to...
+  prediction_guidance: This paper provides indirect evidence that increasing the severity of punishment can increase cooperation rates in repeated social dilemma games, with a critical threshold for...
+
+- id: 10.1016_j.chaos.2023.113519
+  source: Effects of exposure-based reward and punishment on the evolution of cooperation in prisoner's dilemma game | Chaos Solitons & Fractals | 2023
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: all_or_nothing, punishment_cost, punishment_tech, reward_exists, reward_tech
+  findings: The paper finds that in an infinite well-mixed population, exposure-based punishment (and especially the combination of reward and punishment) can promote the evolution of...
+  prediction_guidance: This paper provides theoretical evidence that punishment (and especially combined with reward) can increase cooperation rates in a prisoner's dilemma setting with...
+
+- id: 10.1016_j.chaos.2017.10.016
+  source: Conditional punishment resolves social dilemma in spatial network | Chaos Solitons & Fractals | 2017
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The study demonstrates that introducing and increasing the probability of social punishment (punishers who pay a cost to penalize defectors) in a spatial prisoner's dilemma...
+  prediction_guidance: This paper provides strong evidence that punishment increases cooperation rates in spatial prisoner's dilemma settings, but does not provide direct evidence about efficiency or...
+
+- id: 10.1016_j.amc.2023.128168
+  source: An evolutionary game with revengers and sufferers on complex networks | Applied Mathematics And Computation | 2023
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that introducing a revenge-based costly punishment mechanism in the PDG on networks increases the frequency of cooperation, especially when the cost to the...
+  prediction_guidance: This paper provides indirect support for the idea that punishment mechanisms (specifically, revenge-based costly punishment) can increase cooperation rates in social dilemma...
+
+- id: 10.1016_j.actpsy.2020.103055
+  source: How intergroup relation moderates group bias in Third-Party Punishment | Acta Psychologica | 2020
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech, show_n_rounds
+  findings: The study finds that third-party observers punish selfish allocators more than fair ones, and punish outgroup members more harshly than ingroup members, demonstrating group...
+  prediction_guidance: This paper provides evidence about how punishment behavior is moderated by intergroup relations and punishment cost in a third-party punishment context, but does not provide...
+
+- id: 10.1002_(sici)1099-1727(199721)13_1_33__Aid-sd
+  source:  |  | 
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that, contrary to standard game-theoretic equilibrium predictions, increasing penalties for law violations can induce temporary compliance (reduced violation...
+  prediction_guidance: This paper does not directly inform predictions about efficiency or group payoff in public-goods-game-like environments, as it models a two-player (police vs. driver)...
+
+- id: 10.1063_5.0102483
+  source: The combination of social reward and punishment is conducive to the cooperation and heterogeneity of social relations | Chaos | 2022
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, reward_exists
+  findings: The study finds that a combined reward-punishment mechanism (RPM) in a dynamic network prisoner's dilemma can significantly increase the average frequency of cooperation...
+  prediction_guidance: This paper provides indirect evidence that the presence and calibration of both punishment and reward mechanisms can strongly affect cooperation rates in dynamic networked...
+
+- id: 10.1155_2021_6693597
+  source:  |  | 
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, all_or_nothing, punishment_cost, reward_exists
+  findings: The model demonstrates that increasing punishment for enterprises promotes their strict implementation of regulations, but with diminishing returns. Higher rewards to the...
+  prediction_guidance: This paper provides qualitative theoretical support for the idea that punishment mechanisms can increase compliance (analogous to cooperation) in multi-actor public goods-like...
+
+- id: 10.1016_j.physa.2021.126804
+  source: Research on the effectiveness of monitoring mechanism for yield to pedestrian based on system dynamics | Physica A-Statistical Mechanics And Its Applications | 2022
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech, reward_exists, reward_tech
+  findings: The paper finds that: (1) Without external control, the system exhibits persistent oscillations in the probability of drivers yielding to pedestrians, and TMD monitoring...
+  prediction_guidance: This paper provides strong theoretical evidence that dynamic punishment and/or reward mechanisms can stabilize and maximize compliance in a multi-agent system with monitoring...
+
+- id: 10.1016_j.evolhumbehav.2008.01.001
+  source: The price you pay: cost-dependent reputation effects of altruistic punishment | Evolution And Human Behavior | 2008
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech, show_other_summaries, show_punishment_id
+  findings: The main finding is that individuals who invest more in costly third-party punishment are perceived as more fair and trustworthy, and are subsequently entrusted with more money...
+  prediction_guidance: This paper does not provide direct evidence for predicting the effect of punishment on group efficiency in public goods games. However, it does provide indirect evidence that...
+
+- id: 10.3389_fpubh.2024.1373747
+  source: Behavioral decision-making of government, agricultural product producers, and consumers on agricultural product quality and safety regulation in a digital environment | Frontiers In Public Health | 2024
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, all_or_nothing, punishment_cost, reward_exists
+  findings: The paper finds that severe government penalties for non-compliance (punishment), sufficient incentives, and reduced costs for producers to build traceability systems are key...
+  prediction_guidance: This paper provides indirect support for the prediction task by showing that the presence and severity of punishment (penalties) can shift the equilibrium from non-compliance...
+
+- id: 10.1016_j.jtbi.2017.03.006
+  source: Punishment in the form of shared cost promotes altruism in the cooperative dilemma games | Journal Of Theoretical Biology | 2017
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that in a multi-player Prisoner's Dilemma with punishment (where only cooperators punish and share the cost), the evolutionary outcome depends on the punishment...
+  prediction_guidance: This paper provides indirect but informative evidence for predicting the effect of punishment on efficiency in public-goods-like games. While it does not report efficiency or...
+
+- id: 10.1371_journal.pone.0076063
+  source: Understanding Recurrent Crime as System-Immanent Collective Behavior | Plos One | 2013
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech
+  findings: The study finds that increasing punishment or inspection does not always reduce crime; instead, the system exhibits complex, sometimes counterintuitive dynamics, including...
+  prediction_guidance: This paper provides strong theoretical evidence that the effect of punishment on crime (and by analogy, on cooperation in social dilemmas) is highly sensitive to the interplay...
+
+- id: 10.1098_rsif.2022.0082
+  source: Evolution of cooperation with joint liability | Journal Of The Royal Society Interface | 2022
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that joint liability, when combined with costly punishment, strongly promotes the evolution of cooperation in a lending game. Punishment alone is insufficient...
+  prediction_guidance: This paper provides strong theoretical evidence that the combination of joint liability and costly punishment can greatly increase cooperation in group settings similar to, but...
+
+- id: 10.1063_5.0256342
+  source: Dynamic evolution in multi-player networked trust games with graded punishment | Chaos | 2025
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech
+  findings: The study finds that introducing a graded punishment mechanism in a networked trust game simulation can effectively reduce untrustworthy behavior and increase the density of...
+  prediction_guidance: This paper provides indirect, theory-based evidence that graded punishment mechanisms can increase simulated group trust and total wealth in a networked trust game, especially...
+
+- id: 10.1016_j.jtbi.2008.09.0252
+  source:  |  | 
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech
+  findings: The presence of empty sites in a lattice-structured population (spatial game) can promote the evolution of cooperation and does not reduce the effect of costly punishment,...
+  prediction_guidance: This paper provides indirect support for how spatial structure, population density (empty sites), and updating rules may moderate the effect of punishment on cooperation....
+
+- id: 10.1016_j.jtbi.2008.09.025
+  source: Effect of the presence of empty sites on the evolution of cooperation by costly punishment in spatial games | Journal Of Theoretical Biology | 2009
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech
+  findings: The presence of empty sites in spatially structured populations (lattices) promotes the evolution of cooperation and does not reduce the effect of costly punishment. In...
+  prediction_guidance: This paper provides indirect evidence for the prediction task. It shows that spatial structure (analogous to networked or local interaction in PGGs) and the presence of empty...
+
+- id: 10.1016_j.asej.2022.102006
+  source: Evolutionary game of cooperative behavior among social capitals in PPP projects: A complex network perspective | Ain Shams Engineering Journal | 2023
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, all_or_nothing, punishment_cost, punishment_tech
+  findings: The study finds that increasing the default penalty (punishment) leads to higher rates of cooperation among social capitals in a networked prisoner's dilemma setting. Higher...
+  prediction_guidance: This paper provides indirect support for the idea that introducing or increasing punishment in a networked prisoner's dilemma can increase cooperation rates, which the authors...
+
+- id: 10.1002_per.474
+  source: The personal norm of reciprocity | European Journal Of Personality | 2003
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, reward_exists, reward_cost
+  findings: The paper finds that individual differences in positive and negative reciprocity (as measured by the PNR questionnaire) predict how people allocate money to others in response...
+  prediction_guidance: This paper provides evidence that individual differences in the propensity to punish or reward (reciprocity norms) influence how people respond to others' actions in allocation...
+
+- id: 10.1007_s12110-005-1000-9
+  source: Norm enforcement among the Ju/'hoansi Bushmen - A case of strong reciprocity? | Human Nature-An Interdisciplinary Biosocial Perspective | 2005
+  type: empirical | empirical=observational | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: chat, reward_exists, show_punishment_id
+  findings: The paper finds that punishment is a frequent and central mechanism for enforcing social norms among the Ju/'hoansi, with most norm enforcement occurring through criticism,...
+  prediction_guidance: This paper does not provide direct evidence for predicting the effect of punishment on efficiency or group payoff in public goods games or similar experimental settings. Its...
+
+- id: 10.1038_nature16981
+  source: Third-party punishment as a costly signal of trustworthiness | Nature | 2016
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: reward_exists, show_other_summaries, show_punishment_id
+  findings: The paper finds that TPP is used as a signal of trustworthiness when it is the only available signal, leading to greater trust and reciprocation in a subsequent trust game....
+  prediction_guidance: This paper provides strong evidence that the signaling value and frequency of punishment depend on the availability and informativeness of alternative prosocial signals (like...
+
+- id: 10.3390_buildings12010019
+  source: Research on Cooperative Behavior of Green Technology Innovation in Construction Enterprises Based on Evolutionary Game | Buildings | 2022
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, all_or_nothing, punishment_cost
+  findings: The paper finds that stronger punishment mechanisms (higher penalty and indirect punishment) increase the likelihood that both parties will adopt positive cooperation...
+  prediction_guidance: This paper provides indirect support for the prediction task: it shows that increasing punishment intensity (both direct and indirect) makes positive cooperation more likely in...
+
+- id: 10.1007_s001820050124
+  source: The effect of punishment duration of trigger strategies and quasifinite continuation probabilities for Prisoners' Dilemmas | International Journal Of Game Theory | 1999
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing
+  findings: The paper finds that the ability to sustain cooperation in indefinitely repeated Prisoners' Dilemma games depends critically on the duration of punishment (in trigger...
+  prediction_guidance: This paper provides strong theoretical guidance on how punishment duration and the probability of future interaction (continuation probability) affect the possibility of...
+
+- id: 10.1098_rspb.2012.0063
+  source: Female cleaner fish cooperate more with unfamiliar males | Proceedings Of The Royal Society B-Biological Sciences | 2012
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, show_punishment_id
+  findings: The study finds that female cleaner fish behave more cooperatively (feed more against their preference) when paired with unfamiliar males, who are more aggressive in punishing...
+  prediction_guidance: This paper provides strong evidence that the presence and severity of punishment can increase cooperative behavior in asymmetric dyadic interactions, even when the punisher is...
+
+- id: 10.1038_s41598-021-95303-0
+  source: Peer pressure induced punishment resolves social dilemma on interdependent networks | Scientific Reports | 2021
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: all_or_nothing, punishment_cost, punishment_tech
+  findings: The study finds that introducing a peer-pressure-like punishment mechanism—where players with inconsistent strategies across interdependent network layers have their payoffs...
+  prediction_guidance: This paper provides indirect evidence that punishment mechanisms can increase cooperation rates in social dilemma settings, especially when the punishment is moderate. However,...
+
+- id: 10.1017_epi.2013.34
+  source: POLICING EPISTEMIC COMMUNITIES | Episteme-A Journal Of Individual And Social Epistemology | 2013
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech, reward_exists
+  findings: The paper finds that peer-policing can sustain high levels of honest reporting in a decentralized community if and only if punishment is opportunistic—i.e., if those who police...
+  prediction_guidance: This paper provides theoretical support for the idea that punishment can sustain prosocial behavior (honest reporting) in social dilemmas, but only if the incentive structure...
+
+- id: 10.1016_j.jrurstud.2020.08.013
+  source: When female leaders believe that men make better leaders: Empowerment in community-based water management in rural Namibia | Journal Of Rural Studies | 2020
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: all_or_nothing, punishment_cost, punishment_tech
+  findings: The introduction of conditional neutral punishment—where agents punish neighbors with the opposite strategy if their own payoff is below the neighborhood average—substantially...
+  prediction_guidance: This paper provides strong evidence that conditional neutral punishment can increase cooperation rates in spatial social dilemmas, but it does not report efficiency or group...
+
+- id: 10.1103_PhysRevE.80.066101
+  source: Largest Laplacian eigenvalue predicts the emergence of costly punishment in the evolutionary ultimatum game on networks | Physical Review E | 2009
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that in the evolutionary ultimatum game on networks, there is a critical value of the population's selfishness degree (the share of the resource claimed by the...
+  prediction_guidance: This paper is not directly informative for predicting the effect of punishment on efficiency in public goods games or their close variants, as it studies the ultimatum game (an...
+
+- id: 10.1016_j.physleta.2015.07.032
+  source: Emergence of parochial altruism in well-mixed populations of multiple groups | Physics Letters A | 2015
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that parochial altruism is more likely to emerge and be favored by selection when intergroup punishment is more effective (higher fine-to-cost ratio), when...
+  prediction_guidance: This paper provides indirect support for the idea that punishment can promote the emergence of cooperation-like strategies in group-structured populations, especially when...
+
+- id: 10.1016_j.chaos.2025.116323
+  source: Evolutionary dynamics of a probabilistic punishment mechanism with environmental feedback in regular networked Prisoner's Dilemma | Chaos Solitons & Fractals | 2025
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: all_or_nothing, punishment_cost, punishment_tech
+  findings: The paper finds that a probabilistic punishment mechanism with environmental feedback can lead to three types of system states: (1) stable full defection with low probability...
+  prediction_guidance: This paper provides theoretical insights into how probabilistic punishment and environmental feedback affect cooperation in a networked Prisoner's Dilemma, which is adjacent to...
+
+- id: 10.3934_mbe.2023233
+  source: Evolutionary game dynamics of cooperation in prisoner?s dilemma with time delay | Mathematical Biosciences And Engineering | 2023
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, punishment_cost, punishment_tech
+  findings: The paper finds that in a 2-player prisoner's dilemma, adding a penalty for mutual defection (punishment) leads to stable coexistence of cooperators and defectors when the...
+  prediction_guidance: This paper provides theoretical evidence that increasing the severity of punishment for defection in a prisoner's dilemma increases the equilibrium proportion of cooperators,...
+
+- id: 10.1371_journal.pone.0196524
+  source: Strategy intervention for the evolution of fairness | Plos One | 2018
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, punishment_cost, punishment_tech
+  findings: The paper finds that the evolution of fairness in the Ultimatum Game is promoted by the presence of spiteful strategies (which reject low or unequal offers, i.e., costly...
+  prediction_guidance: This paper provides indirect evidence about the role of costly punishment (rejection) in promoting fairness in strategic environments similar to the Ultimatum Game, which is...
+
+- id: 10.1126_science.1241399
+  source: Changing Social Norm Compliance with Noninvasive Brain Stimulation | Science | 2013
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, all_or_nothing, show_punishment_id
+  findings: The study finds that the threat of punishment increases norm compliance (higher transfers) in a modified dictator game, and that noninvasive brain stimulation of the rLPFC can...
+  prediction_guidance: This paper provides strong evidence that the presence of punishment opportunities increases norm compliance in a dictator-like game, and that this effect is modulated by neural...
+
+- id: 10.1098_rspb.2011.0690
+  source: Male cleaner wrasses adjust punishment of female partners according to the stakes | Proceedings Of The Royal Society B-Biological Sciences | 2012
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, show_punishment_id
+  findings: The study finds that male cleaner wrasses adjust the severity of punishment towards female partners based on the stakes of the cheating event (client value) and the relative...
+  prediction_guidance: This paper provides strong evidence that punishment can be flexibly and contextually applied in cooperative dilemmas, and that increased punishment can reduce cheating and...
+
+- id: 10.1016_j.paid.2010.05.002
+  source: Understanding cooperation in the Prisoner's Dilemma game | Personality And Individual Differences | 2011
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, punishment_cost, punishment_tech
+  findings: The paper finds that higher punishment severity, higher disguise cost, lower cost-to-benefit ratio, and larger group size all promote the extinction of defectors and the...
+  prediction_guidance: This paper provides indirect but informative evidence about how punishment parameters (cost, effectiveness), group size, and cost-to-benefit ratio affect the prevalence of...
+
+- id: 10.3390_su10124585
+  source: The Evolutionary Game Theoretic Analysis for Sustainable Cooperation Relationship of Collaborative Innovation Network in Strategic Emerging Industries | Sustainability | 2018
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, reward_exists
+  findings: The paper finds that government intervention through incentives and punishments can significantly influence the frequency of positive cooperation between enterprises and URIs...
+  prediction_guidance: This paper provides indirect support for the prediction task by showing that punishment (and incentives) can increase the frequency of cooperative behavior in a multi-agent...
+
+- id: 10.1023_a_1020598804674
+  source: The robustness of altruism as an evolutionary strategy | Biology & Philosophy | 2002
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The paper finds that punishment mechanisms, such as enforcement and ostracism, dramatically increase the robustness of altruism in evolutionary simulations of the prisoner's...
+  prediction_guidance: This paper provides strong theoretical and simulation-based evidence that punishment mechanisms can greatly increase the persistence of altruism (cooperation) in evolutionary...
+
+- id: 10.1016_j.ejpoleco.2012.03.001
+  source: Survey evidence on conditional norm enforcement | European Journal Of Political Economy | 2012
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: all_or_nothing, punishment_cost
+  findings: The paper finds that both punishment and reputation can sustain norm compliance, but their roles differ depending on the distribution of social motivation in the population....
+  prediction_guidance: This paper provides theoretical support for the idea that punishment can increase norm compliance, especially when reputation effects are weak. However, it does not provide...
+
+- id: 10.1007_s11047-016-9546-5
+  source: Evolving cooperation in spatial population with punishment by using PSO algorithm | Natural Computing | 2017
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds
+  findings: The study finds that introducing punishment in spatial evolutionary games (n-player IPD and ISD) increases the proportion of cooperators and punishers, and decreases the...
+  prediction_guidance: This paper provides indirect evidence that punishment can increase cooperation rates in spatial evolutionary games, and that the effect is moderated by group size,...
+
+- id: 10.1073_pnas.1105604108
+  source: Punishment sustains large-scale cooperation in prestate warfare | Proceedings Of The National Academy Of Sciences Of The United States Of America | 2011
+  type: empirical | empirical=observational | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, show_punishment_id
+  findings: The Turkana sustain costly, large-scale cooperation in warfare through informal punishment of free riders. Raiding parties are large and composed of unrelated individuals from...
+  prediction_guidance: This paper is highly informative about the real-world operation of punishment and its role in sustaining cooperation at large scales, especially in the absence of formal...
+
+- id: 10.1038_srep11027
+  source: A double-edged sword: Benefits and pitfalls of heterogeneous punishment in evolutionary inspection games | Scientific Reports | 2015
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The study finds that introducing heterogeneous punishment (punishers who invest different amounts in sanctioning) can reduce the prevalence of second-order free-riders...
+  prediction_guidance: This paper provides indirect evidence relevant to the prediction of punishment effects in public-goods-like environments, especially regarding the role of punishment...
+
+- id: 10.1007_s10588-013-9170-1
+  source: Evolving intergroup cooperation | Computational And Mathematical Organization Theory | 2014
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: all_or_nothing, show_punishment_id
+  findings: The paper finds that in-group policing is highly effective at promoting inter-group cooperation in an evolutionary Prisoner's Dilemma model, with high levels of CC outcomes...
+  prediction_guidance: This paper provides strong evidence that, in environments structurally similar to a repeated Prisoner's Dilemma with group structure, agent-level punishment (in-group policing)...
+
+- id: 10.1155_2014_148915
+  source: Punishment and Feedback Mechanism for the Evolution Game on Small-World Network Based on Varying Topology | Mathematical Problems In Engineering | 2014
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds
+  findings: The study finds that a punishment and feedback mechanism—whereby neighbors of frequent defectors break links with them and form new links with each other—can help maintain a...
+  prediction_guidance: This paper does not provide direct evidence for predicting the effect of punishment on efficiency in public goods games or their close variants. Its main relevance is in...
+
+- id: 10.1111_j.1439-0310.2011.01882.x
+  source: A General Scheme to Predict Partner Control Mechanisms in Pairwise Cooperative Interactions Between Unrelated Individuals | Ethology | 2011
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds
+  findings: The paper provides a decision-tree framework linking specific game structures (defined by investment, payoff structure, symmetry, repetition, and partner choice) to the partner...
+  prediction_guidance: This paper is useful for identifying which game structures are theoretically compatible with punishment as a mechanism for stabilizing cooperation, but it does not provide...
+
+- id: 10.1086_393069
+  source: Human uniqueness: A general theory | Quarterly Review Of Biology | 1999
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=N/R | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The central finding is that coalitional enforcement—cooperative, low-cost punishment of defectors—was necessary and sufficient for the evolution of large-scale, stable...
+  prediction_guidance: This paper provides strong theoretical support for the idea that punishment (specifically, coalitional or group-based punishment) can enable and stabilize high levels of...
+
+- id: 10.1098_rspa.2021.0397
+  source: Complex evolutionary dynamics due to punishment and free space in ecological multi-games | Proceedings Of The Royal Society A-Mathematical Physical And Engineering Sciences | 2021
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The paper finds that the inclusion of punishment as a strategy can promote the coexistence of cooperation and punishment, and can reduce the prevalence of defectors under...
+  prediction_guidance: This paper provides theoretical insights into how punishment can affect the prevalence of cooperation and defection in evolutionary games, but does not provide direct evidence...
+
+- id: 10.1038_s41598-023-41519-1
+  source: Time delays shape the eco-evolutionary dynamics of cooperation | Scientific Reports | 2023
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The study finds that the inclusion of punishment as a strategy can, depending on parameter values (notably the cost of punishment and the temptation to defect), lead to the...
+  prediction_guidance: This paper provides indirect, mechanistic insight into how punishment, its cost, and related parameters affect the prevalence of cooperation and punishment in a prisoner's...
+
+- id: 10.1016_j.jtbi.2021.110606
+  source: Eco-evolutionary dynamics of cooperation in the presence of policing | Journal Of Theoretical Biology | 2021
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The model shows that the introduction of punishment (policing) as a third strategy in a repeated PD game can lead to stable coexistence or oscillatory dominance cycles among...
+  prediction_guidance: This paper provides theoretical evidence that punishment can promote the persistence of cooperation in social dilemma settings, but the results are framed in terms of...
+
+- id: 10.1007_s11269-017-1661-2
+  source: Evolutionary Game Analysis of Emergency Management of the Middle Route of South-to-North Water Diversion Project | Water Resources Management | 2017
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost
+  findings: Theoretical and numerical analysis show that: (1) Local governments are more likely to show strong willingness to implement emergency policies if the profit from doing so...
+  prediction_guidance: This paper provides indirect support for the idea that increasing punishment (penalties) for non-cooperation can increase the willingness to cooperate in multi-agent settings...
+
+- id: 10.1002_ejsp.506
+  source: Sanctions and moral judgments: The moderating effect of sanction severity and trust in authorities | European Journal Of Social Psychology | 2009
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost
+  findings: The main finding is that severe sanctions (relative to mild or no sanctions) increase the extent to which people judge rule-breaking as morally wrong, and this effect is...
+  prediction_guidance: This paper does not provide direct evidence for predicting the effect of punishment on efficiency or group payoff in public goods games or similar economic games. Its findings...
+
+- id: 10.1017_ehs.2020.58
+  source: The dynamics of injunctive social norms | Evolutionary Human Sciences | 2020
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost
+  findings: The paper finds that the presence of punishment (active disapproval) increases the stability and prevalence of norm compliance, can create multiple stable equilibria, and...
+  prediction_guidance: This paper provides theoretical support for the idea that punishment mechanisms can stabilize norm compliance and cooperative behavior, especially in heterogeneous populations....
+
+- id: 10.1002_cplx.20244
+  source: Evolution of Shame as an Adaptation to Social Punishment and its Contribution to Social Cohesiveness | Complexity | 2008
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost
+  findings: The paper finds that shame can evolve as an adaptation to social punishment, increasing pro-social behavior (generosity) after punishment. When punishment is present...
+  prediction_guidance: This paper provides indirect support for the idea that punishment (and shame) can increase pro-social behavior in resource-sharing environments, which may translate to higher...
+
+- id: 10.1038_srep21104
+  source: The coevolution of overconfidence and bluffing in the resource competition game | Scientific Reports | 2016
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_tech
+  findings: The model shows that in the absence of punishment, both overconfidence and bluffing evolve to high levels, with bluffing generally higher than overconfidence. Introducing...
+  prediction_guidance: This paper provides strong evidence that the presence and probability of punishment can reduce the prevalence of overconfidence and bluffing in resource competition games,...
+
+- id: 10.1002_ejsp.3171
+  source: Perceptions of Economic Fairness Positively Affect Altruistic Punishment | European Journal Of Social Psychology | 2025
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost
+  findings: Across five studies (including lab experiments with TPP games), the paper finds that individuals with higher perceptions of economic fairness are more likely to engage in...
+  prediction_guidance: This paper provides strong evidence about psychological moderators of punishment behavior (specifically, perceptions of economic fairness and outcome efficacy), but does not...
+
+- id: 10.1007_s10683-011-9272-x
+  source: The strategy versus the direct-response method: a first survey of experimental comparisons | Experimental Economics | 2011
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, punishment_cost, punishment_tech, reward_exists
+  findings: The main finding is that, across a wide range of experimental games (including some with punishment and cooperation), the method of elicitation (strategy vs. direct response)...
+  prediction_guidance: This paper provides indirect evidence relevant to predicting efficiency in public-goods-like games with punishment. It suggests that the elicitation method can affect observed...
+
+- id: 10.1628_093245607783242981
+  source: Building social trust: A human-capital approach | Journal Of Institutional And Theoretical Economics-Zeitschrift Fur Die Gesamte Staatswissenschaft | 2007
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, mpcr, punishment_cost, punishment_tech
+  findings: The paper finds that when punishment institutions are more effective at detecting and punishing defection, more individuals choose to invest in cooperative tendencies, leading...
+  prediction_guidance: This paper provides theoretical support for the idea that increasing the effectiveness of punishment institutions (e.g., higher probability of detection or stronger sanctions)...
+
+- id: 10.1177_09516298221081810
+  source: Social Power and Non-cooperative Game Theory | Journal Of Theoretical Politics | 2022
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=N/R | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech, reward_exists, reward_cost
+  findings: The paper argues that the credibility of threats and offers (punishments and rewards) is central to understanding social power and governance in non-cooperative games. It shows...
+  prediction_guidance: This paper provides conceptual and theoretical insights into how punishment and reward mechanisms may affect cooperation and social power in collective action settings,...
+
+- id: 10.1016_j.euroecorev.2012.09.008
+  source: Norm enforcement in the city: A natural field experiment | European Economic Review | 2012
+  type: empirical | empirical=experimental | experimental=field_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, chat, all_or_nothing, punishment_cost, show_n_rounds
+  findings: The paper finds that some individuals are willing to engage in costly punishment to enforce social norms in one-shot, anonymous field interactions, but this is rare (11.7%...
+  prediction_guidance: This paper provides direct evidence on the willingness to engage in costly punishment in real-world, one-shot norm violation settings, but does not report efficiency or payoff...
+
+- id: 10.1075_is.19011.qir
+  source: Altruistic punishment in modern intentional communities | Interaction Studies | 2020
+  type: empirical | empirical=observational | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, chat, punishment_cost, punishment_tech, show_other_summaries, show_punishment_id
+  findings: The study finds that, in modern intentional communities, free-riding is often acknowledged as a problem and most communities have rules or norms to address it. However, only...
+  prediction_guidance: This paper provides indirect evidence relevant to the prediction task. It suggests that, in real-world cooperative groups with explicit rules and opportunities for punishment,...
+
+- id: 10.1016_j.chaos.2022.111948
+  source: Critical thresholds of benefit distribution in an extended snowdrift game model | Chaos Solitons & Fractals | 2022
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, mpcr, punishment_cost, punishment_tech, reward_exists, reward_tech
+  findings: The main findings are: (1) In both infinite and finite structured populations, the critical proportion of benefits that defectors can exploit (while still maintaining stable...
+  prediction_guidance: This paper provides indirect evidence about the effect of punishment (and reward) on the sustainability of cooperation under unequal benefit distributions in a snowdrift game,...
+
+- id: 10.1177_1069397108320422
+  source: Purposive Social Selection and the Evolution of Human Altruism | Cross-Cultural Research | 2008
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, chat, reward_exists, show_other_summaries, show_punishment_id
+  findings: The paper finds that in small-scale, mobile hunter-gatherer societies, both punitive and positive social sanctioning are pervasive and target behaviors relevant to group...
+  prediction_guidance: This paper provides strong theoretical and ethnographic support for the idea that punishment and reward mechanisms are central to the maintenance of cooperation in small-scale...
+
+- id: 10.1163_1568539x-00003143
+  source: The moral consequences of social selection | Behaviour | 2014
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech, reward_exists, show_other_summaries, show_punishment_id
+  findings: The paper finds that in mobile hunter-gatherer societies, group punishment—ranging from shaming and ostracism to capital punishment—has been a central mechanism for enforcing...
+  prediction_guidance: This paper provides theoretical and ethnographic context for the role of punishment in promoting cooperation and suppressing free-riding in small-scale societies. It supports...
+
+- id: 10.1146_annurev-soc-121919-054658
+  source: Norms: An Integrated Framework | Annual Review Of Sociology, Vol 46 | 2020
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech, reward_exists, reward_cost, reward_tech
+  findings: The paper reviews and synthesizes sociological theories of norms, focusing on why and how people enforce norms (including through punishment and reward), and the implications...
+  prediction_guidance: This paper provides high-level theoretical context for understanding the role of punishment and reward in norm enforcement and social order, but does not provide empirical...
+
+- id: 10.1098_rstb.2020.0289
+  source: Direct punishment and indirect reputation-based tactics to intervene against offences | Philosophical Transactions Of The Royal Society B-Biological Sciences | 2021
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: chat, punishment_cost, punishment_tech, show_other_summaries, show_punishment_id
+  findings: The paper argues that both direct punishment and indirect, reputation-based tactics (gossip, ostracism) are important for maintaining cooperation and enforcing norms. Direct...
+  prediction_guidance: This paper does not provide direct evidence for predicting efficiency outcomes in public goods games with or without punishment. However, it offers theoretical context...
+
+- id: 10.1086_700767
+  source: POWER IN CULTURAL EVOLUTION AND THE SPREAD OF PROSOCIAL NORMS | Quarterly Review Of Biology | 2018
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: chat, punishment_cost, punishment_tech, show_other_summaries, show_punishment_id
+  findings: The paper argues that mainstream cultural evolutionary models, which treat punishment as an individual-level, uncoordinated action, fail to capture the collective, power-based...
+  prediction_guidance: This paper provides important theoretical context for interpreting the role of punishment in public-goods-game-like environments, emphasizing that real-world punishment is...
+
+- id: 10.1080_17419166.2020.1756264
+  source: The Absence of Policing and the Political Economy of Contribution and Defection | Democracy & Security | 2020
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, punishment_cost, punishment_tech, show_other_summaries, show_punishment_id
+  findings: The paper finds that in large groups, the disappearance of institutional punishment leads to a delayed decline in public goods contribution and a rapid increase in defection,...
+  prediction_guidance: This paper does not provide quantitative or directly predictive evidence for the effect of punishment on efficiency or group payoff in public-goods-game-like environments....
+
+- id: 10.1016_s0167-4870(02)00197-6
+  source: Punishment as a public good. When should monopolists care about a consumer boycott? | Journal Of Economic Psychology | 2004
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, all_or_nothing, mpcr, punishment_cost, punishment_tech
+  findings: The paper finds that the ability of consumers to punish a monopolist (e.g., via boycott) and thereby reduce prices depends on the number of consumers and the degree of...
+  prediction_guidance: This paper provides theoretical insight into how group size and solidarity affect the effectiveness of punishment in public-good-like environments, specifically in the context...
+
+- id: 10.1016_j.geb.2007.10.009
+  source: Aversion to norm-breaking:: A model | Games And Economic Behavior | 2008
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, mpcr, punishment_cost, punishment_tech
+  findings: The paper develops a formal model in which agents internalize social norms (specifically, an 'E-norm' combining efficiency and equality) and experience emotional costs (shame,...
+  prediction_guidance: This paper provides a theoretical rationale for why punishment increases cooperation and norm compliance in public goods and related games, suggesting that the presence of...
+
+- id: 10.1016_j.cub.2010.10.027
+  source: Self-Serving Punishment of a Common Enemy Creates a Public Good in Reef Fishes | Current Biology | 2010
+  type: empirical | empirical=experimental | experimental=field_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech, show_punishment_id
+  findings: The study finds that (1) punishment by victim fish (chasing the blenny) reduces the likelihood of being attacked again, (2) in shoaling species, this punishment increases the...
+  prediction_guidance: This paper provides indirect evidence relevant to the prediction task. It shows that in repeated, naturalistic interactions, self-serving punishment can create public good...
+
+- id: 10.1177_104346397009004004
+  source: The normative structure of solidarity and inequality | Rationality And Society | 1997
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech
+  findings: The paper finds that in both dyadic and collective solidarity games (including public-goods-like settings), strategies that combine defection with active sanctioning of others...
+  prediction_guidance: This paper provides theoretical support for the idea that informal punishment mechanisms can sustain cooperation in public-goods-like environments, especially when the cost of...
+
+- id: 10.1111_j.1420-9101.2007.01482.x
+  source: Distinguishing four fundamental approaches to the evolution of helping | Journal Of Evolutionary Biology | 2008
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=N/R | overall_effect=N/A
+  dimensions: num_rounds, punishment_cost, punishment_tech, reward_exists
+  findings: The paper clarifies that punishment is a key control mechanism in the evolution and maintenance of cooperation, especially in repeated game structures. It distinguishes...
+  prediction_guidance: This paper provides high-level conceptual guidance for predicting the effects of punishment in public-goods-game-like environments. It supports the idea that punishment can...
+
+- id: 10.1038_s41598-022-18797-2
+  source: The conditional defector strategies can violate the most crucial supporting mechanisms of cooperation | Scientific Reports | 2022
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech
+  findings: The paper finds that conditional defector strategies—cheaters who sometimes cooperate (e.g., to share dispersal costs or pay to escape punishment)—can successfully invade and...
+  prediction_guidance: This paper provides a cautionary theoretical perspective: the presence of punishment mechanisms does not guarantee the maintenance of cooperation or high efficiency if...
+
+- id: 10.1016_j.evolhumbehav.2013.10.001
+  source: The cost of cowardice: punitive sentiments towards free riders in Turkana raids | Evolution And Human Behavior | 2014
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, punishment_cost, punishment_tech, show_punishment_id
+  findings: The study finds that Turkana participants are significantly more likely to express punitive sentiments (both direct and indirect) toward hypothetical warriors who free ride...
+  prediction_guidance: This paper provides evidence that punitive motivations toward free riders are present in a real-world, high-stakes collective action context, and that both direct and indirect...
+
+- id: 10.1007_s10539-004-5155-2
+  source: Punishment and the strategic structure of moral systems | Biology & Philosophy | 2005
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech
+  findings: The paper finds that punishment is a more general and empirically plausible mechanism for sustaining compliance with moral norms than reciprocity. Punishment can support...
+  prediction_guidance: This paper provides strong theoretical support for the importance of punishment mechanisms in sustaining cooperation and compliance in public-goods-like environments,...
+
+- id: 10.1177_0048393108315509
+  source: Strong reciprocity and the emergence of large-scale societies | Philosophy Of The Social Sciences | 2008
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, punishment_cost, punishment_tech
+  findings: The paper claims that strong reciprocity and altruistic punishment are key to human cooperation, but that their effectiveness is limited by cognitive constraints, especially as...
+  prediction_guidance: This paper provides theoretical context for how punishment and cooperation interact with group size and institutional structure, but does not provide direct empirical evidence...
+
+- id: 10.1098_rstb.2010.0157
+  source: How is human cooperation different? | Philosophical Transactions Of The Royal Society B-Biological Sciences | 2010
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, reward_exists, show_other_summaries
+  findings: The paper finds that humans differ from other animals in their use of active enforcement mechanisms—especially punishment, reward, and reputation—to maintain cooperation and...
+  prediction_guidance: This paper provides strong theoretical and comparative support for the idea that punishment mechanisms increase cooperation in public goods game-like environments, referencing...
+
+- id: 10.1098_rsbl.2005.0344
+  source: Punishment and partner switching cause cooperative behaviour in a cleaning mutualism | Biology Letters | 2005
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, punishment_tech
+  findings: The study finds that cleaner fish, when exposed to simulated punishment (chasing) or partner switching (fleeing) after eating their preferred food, learn to avoid the preferred...
+  prediction_guidance: This paper provides evidence that punishment and partner switching can alter behavior in a way that is consistent with increased cooperation, but it does not provide direct...
+
+- id: 10.1080_10576100490438246
+  source: Nihilism in Political Chaos: Himmler, bin Laden, and Altruistic Punishment | Studies In Conflict & Terrorism | 2004
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech, show_other_summaries
+  findings: The paper argues that in the absence of effective political institutions, groups may achieve cooperation and unity through costly punishment of defectors, a process the author...
+  prediction_guidance: This paper provides theoretical support for the idea that punishment mechanisms can increase cooperation in group settings, referencing public goods game experiments as...
+
+- id: 10.1016_j.evolhumbehav.2023.03.001
+  source: Punitive justice serves to restore reciprocal cooperation in three small-scale societies | Evolution And Human Behavior | 2023
+  type: empirical | empirical=observational | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech, show_punishment_id
+  findings: Across three small-scale societies, punitive justice is primarily restorative and dyadic, not group-norm-enforcing. Third-party punishment is rare, and most interventions are...
+  prediction_guidance: This paper provides indirect, contextual evidence about the function of punishment in environments that are adjacent to public goods games: real-world small-scale societies...
+
+- id: 10.1007_s12110-017-9298-7
+  source: Self-Interest and the Design of Rules | Human Nature-An Interdisciplinary Biosocial Perspective | 2017
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech, reward_exists
+  findings: The paper argues that rules promoting cooperation and using punishment can emerge from self-interested enforcement, not just from group-level selection. It predicts that the...
+  prediction_guidance: This paper provides theoretical context for how punishment and enforcement mechanisms may arise and be designed in social dilemmas, including public goods settings. It...
+
+- id: 10.1007_s10551-020-04664-5
+  source: Consequentialist Motives for Punishment Signal Trustworthiness | Journal Of Business Ethics | 2022
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, show_punishment_id
+  findings: The paper finds that individuals who express or are perceived to have consequentialist motives for punishing norm violators are rated as more trustworthy, are entrusted with...
+  prediction_guidance: This paper does not provide direct evidence for predicting the effect of punishment on group efficiency or payoff in public goods games or similar environments. Its findings...
+
+- id: 10.3389_fnins.2015.00026
+  source: Neural components of altruistic punishment | Frontiers In Neuroscience | 2015
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The paper reviews evidence that altruistic punishment is driven by neural processes related to inequity aversion, cost-benefit analysis, and social reference framing. It...
+  prediction_guidance: This paper does not provide direct evidence for predicting the effect of punishment on efficiency in public goods games or similar environments. It is useful for understanding...
+
+- id: 10.1111_oik.02064
+  source: Policing and punishment across the domains of social evolution | Oikos | 2015
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The paper proposes that punishment and policing behaviors are maintained when the inclusive fitness benefits to the punisher outweigh the costs, and when these benefits are...
+  prediction_guidance: This paper provides a conceptual framework for understanding the conditions under which punishment is likely to emerge and be maintained in social groups, emphasizing the roles...
+
+- id: 10.1111_brv.12352
+  source: The concepts of asymmetric and symmetric power can help resolve the puzzle of altruistic and cooperative behaviour | Biological Reviews | 2018
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The paper finds that the effectiveness and function of punishment in promoting cooperation depend critically on the symmetry or asymmetry of power among individuals. In...
+  prediction_guidance: This paper provides theoretical and conceptual guidance for predicting the effects of punishment on efficiency in public goods game-like environments, especially regarding the...
+
+- id: 10.1017_ehs.2020.2
+  source: Cultural group selection and human cooperation: a conceptual and empirical review | Evolutionary Human Sciences | 2020
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=N/R | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The paper finds that the mechanisms often posited by CGS models to stabilize cooperation—such as conformist social learning and a norm psychology that motivates indiscriminate...
+  prediction_guidance: This paper provides important conceptual guidance for predicting the effects of punishment on efficiency in public-goods-game-like environments. It suggests that the impact of...
+
+- id: 10.1007_s11284-006-0163-0
+  source: Lattice models in ecology and social sciences | Ecological Research | 2006
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The paper reviews and synthesizes theoretical and simulation results showing that lattice-structured populations (as opposed to well-mixed populations) can promote the...
+  prediction_guidance: This paper provides indirect support for the idea that spatial or network structure (such as lattice models) can moderate the effectiveness of punishment in promoting...
+
+- id: 10.1007_s10539-012-9341-3
+  source: The evolution of punishment | Biology & Philosophy | 2012
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The paper finds that punishment is widespread in nature and often evolves for reasons other than inducing behavioral change in the punishee. In many cases (especially among...
+  prediction_guidance: This paper does not provide direct evidence or quantitative data relevant to predicting the efficiency effects of punishment in public-goods-game-like environments. It does,...
+
+- id: 10.3389_fpsyg.2018.00859
+  source: The Neural Basis of and a Common Neural Circuitry in Different Types of Pro-social Behavior | Frontiers In Psychology | 2018
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost
+  findings: The paper reviews neuroscience evidence showing that costly punishment, cooperation, trust, and fairness are associated with activation in specific brain regions, such as the...
+  prediction_guidance: This paper does not provide direct evidence to inform predictions about the effect of punishment on efficiency in public goods games or similar environments. While it reviews...
+

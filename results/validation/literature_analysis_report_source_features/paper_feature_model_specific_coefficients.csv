@@ -1,0 +1,157 @@
+metric,spec,model,term,coef,std_err,p_value
+delta_correlation,model_specific_ols,GPT-4.1,Intercept,0.043362587920467086,0.0032307650844291044,2.413206511306583e-39
+delta_correlation,model_specific_ols,GPT-4.1,empirical[T.True],-0.01710153359181383,0.004305546923128174,7.38788410940258e-05
+delta_correlation,model_specific_ols,GPT-4.1,exactclose_domain[T.True],-0.008542379109879206,0.002677696969456492,0.0014444490755833614
+delta_correlation,model_specific_ols,GPT-4.1,payoff_relevance_exactclose[T.True],-0.006889221389602759,0.005369300590413527,0.19961850746136076
+delta_correlation,model_specific_ols,GPT-4.1,payoff_outcome_primary[T.True],-0.00505760967258788,0.005385558987754465,0.3477932124288641
+delta_correlation,model_specific_ols,GPT-4.1,chat_discussed[T.True],0.005971401997664793,0.004156233195487637,0.15095463766441497
+delta_correlation,model_specific_ols,GPT-4.1,show_other_summaries_discussed[T.True],-0.004238608451834989,0.003311095709187408,0.20065490904057692
+delta_correlation,model_specific_ols,GPT-4.1,show_punishment_id_discussed[T.True],0.0051878271155084725,0.0033534021423385326,0.12201798348112926
+delta_correlation,model_specific_ols,GPT-4.1,pub_year_z,0.0010144537447693937,0.0015729625650637198,0.5190474923447528
+delta_correlation,model_specific_ols,GPT-4.1,log_citations_z,0.0012889456909963674,0.0015785868650166745,0.41430368031198117
+delta_correlation,model_specific_ols,GPT-4.1,n_pages_z,-0.002612994828961113,0.001286462932660149,0.04237607533036193
+delta_correlation,model_specific_ols,GPT-4.1,dimension_informative_direct_count_z,0.004879592407403372,0.002512475245965964,0.052263910183877146
+delta_correlation,model_specific_ols,GPT-4.1,broad_only_count_z,0.004507003448187966,0.001957186060837909,0.02139548711731215
+delta_correlation,model_specific_ols,GPT-4.1 Mini,Intercept,0.014723010122162853,0.004021825144413367,0.0002581700959261253
+delta_correlation,model_specific_ols,GPT-4.1 Mini,empirical[T.True],-0.013041830684620453,0.005359769721217092,0.015052337188365626
+delta_correlation,model_specific_ols,GPT-4.1 Mini,exactclose_domain[T.True],-0.02162850673514811,0.0033333370639612994,1.0968941328172839e-10
+delta_correlation,model_specific_ols,GPT-4.1 Mini,payoff_relevance_exactclose[T.True],-0.012349095591549524,0.00668398585416015,0.06481734756610821
+delta_correlation,model_specific_ols,GPT-4.1 Mini,payoff_outcome_primary[T.True],-0.011974531344253955,0.0067042251564693135,0.07423626838273113
+delta_correlation,model_specific_ols,GPT-4.1 Mini,chat_discussed[T.True],-0.004239389675284599,0.005173896193263909,0.41266989796476006
+delta_correlation,model_specific_ols,GPT-4.1 Mini,show_other_summaries_discussed[T.True],-0.012965327381058897,0.004121824902389107,0.0016829669266005666
+delta_correlation,model_specific_ols,GPT-4.1 Mini,show_punishment_id_discussed[T.True],0.003385352868641773,0.004174490160360873,0.4174868696864187
+delta_correlation,model_specific_ols,GPT-4.1 Mini,pub_year_z,-0.0038812991126076393,0.001958105968732818,0.047600957886516915
+delta_correlation,model_specific_ols,GPT-4.1 Mini,log_citations_z,-0.0025331825491012832,0.001965107391114016,0.1975234612148058
+delta_correlation,model_specific_ols,GPT-4.1 Mini,n_pages_z,-0.0013565367894725986,0.0016014562602723595,0.3970635299789328
+delta_correlation,model_specific_ols,GPT-4.1 Mini,dimension_informative_direct_count_z,-0.002730386737624992,0.003127660431779007,0.38278160321065435
+delta_correlation,model_specific_ols,GPT-4.1 Mini,broad_only_count_z,0.002398110103177537,0.0024364074471741374,0.3250998684525497
+delta_correlation,model_specific_ols,GPT-4.1 Nano,Intercept,-0.03368438262781975,0.008847821813469799,0.00014498446067559987
+delta_correlation,model_specific_ols,GPT-4.1 Nano,empirical[T.True],-0.033491843960241185,0.011783701182188758,0.004526960524734697
+delta_correlation,model_specific_ols,GPT-4.1 Nano,exactclose_domain[T.True],0.011373482534579421,0.007336521589596826,0.12124340888634591
+delta_correlation,model_specific_ols,GPT-4.1 Nano,payoff_relevance_exactclose[T.True],-0.021525728616748514,0.014695790224873304,0.1431499532668137
+delta_correlation,model_specific_ols,GPT-4.1 Nano,payoff_outcome_primary[T.True],-0.0026614982518180282,0.014740783182297199,0.8567370186893635
+delta_correlation,model_specific_ols,GPT-4.1 Nano,chat_discussed[T.True],0.0003646538394199506,0.011381151737484944,0.974443327660006
+delta_correlation,model_specific_ols,GPT-4.1 Nano,show_other_summaries_discussed[T.True],-0.007464889810790321,0.009067482980307899,0.41046178437040814
+delta_correlation,model_specific_ols,GPT-4.1 Nano,show_punishment_id_discussed[T.True],-0.0010101178694462568,0.009180699942363492,0.9123999528668706
+delta_correlation,model_specific_ols,GPT-4.1 Nano,pub_year_z,0.0037284422822973,0.004306991349188866,0.3867770933600192
+delta_correlation,model_specific_ols,GPT-4.1 Nano,log_citations_z,0.001878997391233528,0.004321346475448035,0.6637432344640768
+delta_correlation,model_specific_ols,GPT-4.1 Nano,n_pages_z,0.0011646876692739928,0.0035223573589828407,0.7409402645162917
+delta_correlation,model_specific_ols,GPT-4.1 Nano,dimension_informative_direct_count_z,0.018510907528168787,0.006881837951151907,0.007210346276861599
+delta_correlation,model_specific_ols,GPT-4.1 Nano,broad_only_count_z,0.011523520429253333,0.00537594199208651,0.03219422630295996
+delta_rmse,model_specific_ols,GPT-4.1,Intercept,0.7248815225501005,0.06084707911483146,1.24150144926373e-31
+delta_rmse,model_specific_ols,GPT-4.1,empirical[T.True],-0.2568206452175389,0.08108913753179693,0.0015633768347239837
+delta_rmse,model_specific_ols,GPT-4.1,exactclose_domain[T.True],0.36408021397893175,0.05043079118668088,7.459628579037528e-13
+delta_rmse,model_specific_ols,GPT-4.1,payoff_relevance_exactclose[T.True],0.2863541519471453,0.10112349529552195,0.004677450459137148
+delta_rmse,model_specific_ols,GPT-4.1,payoff_outcome_primary[T.True],0.2444768945906918,0.10142970016137628,0.016031436552488166
+delta_rmse,model_specific_ols,GPT-4.1,chat_discussed[T.True],-0.06134582699129141,0.07827701595648916,0.43331076061797424
+delta_rmse,model_specific_ols,GPT-4.1,show_other_summaries_discussed[T.True],0.03631636433077164,0.06235999749554872,0.5603875443167375
+delta_rmse,model_specific_ols,GPT-4.1,show_punishment_id_discussed[T.True],-0.06934983247528918,0.06315678179206705,0.27231512690780785
+delta_rmse,model_specific_ols,GPT-4.1,pub_year_z,-0.09738506798476196,0.029624616813640276,0.001029565238456109
+delta_rmse,model_specific_ols,GPT-4.1,log_citations_z,-0.03203359156865512,0.029730542876123846,0.2814068172743615
+delta_rmse,model_specific_ols,GPT-4.1,n_pages_z,0.044889129857096546,0.024228784760344867,0.06407426739940712
+delta_rmse,model_specific_ols,GPT-4.1,dimension_informative_direct_count_z,0.11917922659806737,0.04731906408242025,0.01186099147043982
+delta_rmse,model_specific_ols,GPT-4.1,broad_only_count_z,0.12069269329182716,0.036860945309891924,0.0010779716031869059
+delta_rmse,model_specific_ols,GPT-4.1 Mini,Intercept,-0.3507743019110673,0.06064189936550294,8.464866627364505e-09
+delta_rmse,model_specific_ols,GPT-4.1 Mini,empirical[T.True],0.018265209747858557,0.08081570043088629,0.8212169132287102
+delta_rmse,model_specific_ols,GPT-4.1 Mini,exactclose_domain[T.True],0.06666686254429006,0.05026073574203753,0.18485646545815368
+delta_rmse,model_specific_ols,GPT-4.1 Mini,payoff_relevance_exactclose[T.True],0.09290213349196234,0.10078250122123282,0.35674314400716345
+delta_rmse,model_specific_ols,GPT-4.1 Mini,payoff_outcome_primary[T.True],0.20136997783530847,0.10108767354717674,0.04650725355811626
+delta_rmse,model_specific_ols,GPT-4.1 Mini,chat_discussed[T.True],0.08319492907431064,0.07801306148659871,0.2863649926575118
+delta_rmse,model_specific_ols,GPT-4.1 Mini,show_other_summaries_discussed[T.True],0.04976617532935474,0.06214971610093787,0.4233762954367347
+delta_rmse,model_specific_ols,GPT-4.1 Mini,show_punishment_id_discussed[T.True],-0.20215479620439172,0.06294381359630474,0.001341244364027147
+delta_rmse,model_specific_ols,GPT-4.1 Mini,pub_year_z,-0.013332536499500955,0.029524720951091064,0.6516277888258493
+delta_rmse,model_specific_ols,GPT-4.1 Mini,log_citations_z,0.030082664451424636,0.029630289824975543,0.3101048955576634
+delta_rmse,model_specific_ols,GPT-4.1 Mini,n_pages_z,0.022470789862075662,0.024147083944858223,0.35218660204936736
+delta_rmse,model_specific_ols,GPT-4.1 Mini,dimension_informative_direct_count_z,0.04048745651364885,0.04715950155537489,0.3907103897754389
+delta_rmse,model_specific_ols,GPT-4.1 Mini,broad_only_count_z,0.06807766198594356,0.036736648143475395,0.0640157993694862
+delta_rmse,model_specific_ols,GPT-4.1 Nano,Intercept,0.27518331475362046,0.12259927714970305,0.024907763695055
+delta_rmse,model_specific_ols,GPT-4.1 Nano,empirical[T.True],0.0427366510813886,0.1632801018760451,0.7935510347949883
+delta_rmse,model_specific_ols,GPT-4.1 Nano,exactclose_domain[T.True],-0.13181347010210065,0.10165804224362292,0.1949107672305018
+delta_rmse,model_specific_ols,GPT-4.1 Nano,payoff_relevance_exactclose[T.True],0.38572465678252316,0.20363127747105697,0.058343057337410416
+delta_rmse,model_specific_ols,GPT-4.1 Nano,payoff_outcome_primary[T.True],0.4901584642481302,0.20425471950835017,0.016500479765940594
+delta_rmse,model_specific_ols,GPT-4.1 Nano,chat_discussed[T.True],0.14536373885560397,0.15770220123810857,0.3567679261265424
+delta_rmse,model_specific_ols,GPT-4.1 Nano,show_other_summaries_discussed[T.True],0.09211898338886176,0.125642998060901,0.4635370369596483
+delta_rmse,model_specific_ols,GPT-4.1 Nano,show_punishment_id_discussed[T.True],-0.12212774119228559,0.12721178165552197,0.33715738047756894
+delta_rmse,model_specific_ols,GPT-4.1 Nano,pub_year_z,0.028894499570769557,0.05967955020259423,0.6283264234225675
+delta_rmse,model_specific_ols,GPT-4.1 Nano,log_citations_z,0.07847458899966751,0.0598784610916096,0.19016012825232287
+delta_rmse,model_specific_ols,GPT-4.1 Nano,n_pages_z,0.002435008599642654,0.048807319493799996,0.9602149980140544
+delta_rmse,model_specific_ols,GPT-4.1 Nano,dimension_informative_direct_count_z,0.0795694399548412,0.09535774748403811,0.4041410652042956
+delta_rmse,model_specific_ols,GPT-4.1 Nano,broad_only_count_z,-0.024782150151440027,0.07449139642766726,0.7394082401482149
+delta_r2,model_specific_ols,GPT-4.1,Intercept,-0.21577286524310602,0.022378628171364066,1.600332891415425e-21
+delta_r2,model_specific_ols,GPT-4.1,empirical[T.True],0.09960150397173177,0.029823348695769396,0.0008545103400545276
+delta_r2,model_specific_ols,GPT-4.1,exactclose_domain[T.True],-0.12113783650970301,0.018547676252866286,8.309887740891408e-11
+delta_r2,model_specific_ols,GPT-4.1,payoff_relevance_exactclose[T.True],-0.08477407064694531,0.03719168008601357,0.0227523790202762
+delta_r2,model_specific_ols,GPT-4.1,payoff_outcome_primary[T.True],-0.09407133621634181,0.03730429756801767,0.011757365083066377
+delta_r2,model_specific_ols,GPT-4.1,chat_discussed[T.True],0.018178230351400395,0.02878909324715997,0.5278352349463152
+delta_r2,model_specific_ols,GPT-4.1,show_other_summaries_discussed[T.True],-0.019233443456211842,0.022935056489505657,0.4017944456740049
+delta_r2,model_specific_ols,GPT-4.1,show_punishment_id_discussed[T.True],0.02306048137493668,0.023228101607923168,0.3209390405420899
+delta_r2,model_specific_ols,GPT-4.1,pub_year_z,0.03416114261595798,0.010895482478960933,0.0017421846871111947
+delta_r2,model_specific_ols,GPT-4.1,log_citations_z,0.007713836480523603,0.010934440470050414,0.48060713883950956
+delta_r2,model_specific_ols,GPT-4.1,n_pages_z,-0.013375472398966654,0.008910977701534522,0.1335153698722093
+delta_r2,model_specific_ols,GPT-4.1,dimension_informative_direct_count_z,-0.038753975748718084,0.017403230457767628,0.026073142899743468
+delta_r2,model_specific_ols,GPT-4.1,broad_only_count_z,-0.036631487794182314,0.013556893792359363,0.006951177223494348
+delta_r2,model_specific_ols,GPT-4.1 Mini,Intercept,0.11272900869856832,0.024579098432676194,4.797775198509612e-06
+delta_r2,model_specific_ols,GPT-4.1 Mini,empirical[T.True],-0.020195792084994404,0.03275585159073046,0.5376003897026528
+delta_r2,model_specific_ols,GPT-4.1 Mini,exactclose_domain[T.True],-0.02315195657126704,0.020371452478037358,0.2558916744404205
+delta_r2,model_specific_ols,GPT-4.1 Mini,payoff_relevance_exactclose[T.True],-0.03581763365099288,0.0408487043401736,0.38068391946740787
+delta_r2,model_specific_ols,GPT-4.1 Mini,payoff_outcome_primary[T.True],-0.08756775807392486,0.04097239539729393,0.032703230898707775
+delta_r2,model_specific_ols,GPT-4.1 Mini,chat_discussed[T.True],-0.025220368919181595,0.03161989873958868,0.4251939644073377
+delta_r2,model_specific_ols,GPT-4.1 Mini,show_other_summaries_discussed[T.True],-0.02235936857451782,0.02519023984391923,0.37485493884194354
+delta_r2,model_specific_ols,GPT-4.1 Mini,show_punishment_id_discussed[T.True],0.07934728159609268,0.025512099823701905,0.0018968801201865544
+delta_r2,model_specific_ols,GPT-4.1 Mini,pub_year_z,0.002232894423923599,0.011966825413568504,0.8520013042133594
+delta_r2,model_specific_ols,GPT-4.1 Mini,log_citations_z,-0.017187833055467745,0.012009614108675069,0.15254159455053273
+delta_r2,model_specific_ols,GPT-4.1 Mini,n_pages_z,-0.007891518894210995,0.009787186076833114,0.4201620926572813
+delta_r2,model_specific_ols,GPT-4.1 Mini,dimension_informative_direct_count_z,-0.01739161593020788,0.01911447436332937,0.3630059377718302
+delta_r2,model_specific_ols,GPT-4.1 Mini,broad_only_count_z,-0.026377031749228022,0.014889930893535496,0.07663975831714911
+delta_r2,model_specific_ols,GPT-4.1 Nano,Intercept,-0.09098687536182812,0.08874889771458994,0.3053887067744289
+delta_r2,model_specific_ols,GPT-4.1 Nano,empirical[T.True],-0.0480812586113976,0.11819750815113228,0.6842090279813764
+delta_r2,model_specific_ols,GPT-4.1 Nano,exactclose_domain[T.True],0.10771348136678809,0.07358966058118073,0.14343692671293273
+delta_r2,model_specific_ols,GPT-4.1 Nano,payoff_relevance_exactclose[T.True],-0.17914796520420664,0.14740748751481436,0.22439021907133955
+delta_r2,model_specific_ols,GPT-4.1 Nano,payoff_outcome_primary[T.True],-0.24913180327118442,0.14785879354927936,0.09216288520761046
+delta_r2,model_specific_ols,GPT-4.1 Nano,chat_discussed[T.True],-0.09684512967869649,0.11415969859232139,0.3963587658219623
+delta_r2,model_specific_ols,GPT-4.1 Nano,show_other_summaries_discussed[T.True],-0.019729703161329076,0.09095222943154468,0.8282905509120972
+delta_r2,model_specific_ols,GPT-4.1 Nano,show_punishment_id_discussed[T.True],0.0005431775002594473,0.0920878626751676,0.9952943358681238
+delta_r2,model_specific_ols,GPT-4.1 Nano,pub_year_z,-0.008334780963816155,0.04320167638603079,0.8470361421572306
+delta_r2,model_specific_ols,GPT-4.1 Nano,log_citations_z,-0.06266366207913743,0.04334566681202644,0.14843052985321253
+delta_r2,model_specific_ols,GPT-4.1 Nano,n_pages_z,0.004776618151494273,0.035331332338846985,0.8924717622428924
+delta_r2,model_specific_ols,GPT-4.1 Nano,dimension_informative_direct_count_z,-0.06733829632395708,0.0690289141543694,0.32942974355509036
+delta_r2,model_specific_ols,GPT-4.1 Nano,broad_only_count_z,-0.009227568353273584,0.053923885000589714,0.8641456150037068
+delta_directional_accuracy,model_specific_ols,GPT-4.1,Intercept,-0.09007128958513277,0.006207082208775708,2.23284321342932e-45
+delta_directional_accuracy,model_specific_ols,GPT-4.1,empirical[T.True],0.0011544256164909906,0.008271998429845705,0.889023501430455
+delta_directional_accuracy,model_specific_ols,GPT-4.1,exactclose_domain[T.True],-0.02005017252781569,0.005144504408479143,0.00010053088040820173
+delta_directional_accuracy,model_specific_ols,GPT-4.1,payoff_relevance_exactclose[T.True],-0.021609343583745715,0.01031572686264,0.03631839868257319
+delta_directional_accuracy,model_specific_ols,GPT-4.1,payoff_outcome_primary[T.True],-0.0025655923387596334,0.010346963181666885,0.8041946099932193
+delta_directional_accuracy,model_specific_ols,GPT-4.1,chat_discussed[T.True],0.006502379393582762,0.007985130595712438,0.4155666695588318
+delta_directional_accuracy,model_specific_ols,GPT-4.1,show_other_summaries_discussed[T.True],0.0011746012898377982,0.006361416794772143,0.8535270773684382
+delta_directional_accuracy,model_specific_ols,GPT-4.1,show_punishment_id_discussed[T.True],0.004588062818895435,0.006442697699346332,0.47646746528392037
+delta_directional_accuracy,model_specific_ols,GPT-4.1,pub_year_z,0.008120804121355234,0.0030220420542902107,0.007267043199059886
+delta_directional_accuracy,model_specific_ols,GPT-4.1,log_citations_z,0.006037729665665389,0.0030328476966883706,0.046645115766378475
+delta_directional_accuracy,model_specific_ols,GPT-4.1,n_pages_z,-0.004188982420892211,0.002471606871093588,0.09026577217140651
+delta_directional_accuracy,model_specific_ols,GPT-4.1,dimension_informative_direct_count_z,-0.005772639343189112,0.00482707346144929,0.23188625535902424
+delta_directional_accuracy,model_specific_ols,GPT-4.1,broad_only_count_z,-0.014156086045190872,0.0037602284474476085,0.00017171359159386457
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,Intercept,0.04015863697742608,0.004738123008628799,4.552446212455273e-17
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,empirical[T.True],0.008102376236088006,0.0063143591094025255,0.19958673630891474
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,exactclose_domain[T.True],0.017970574290529895,0.003927013351191805,5.035792575820462e-06
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,payoff_relevance_exactclose[T.True],0.020071975825478247,0.007874421693577886,0.010879252548021549
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,payoff_outcome_primary[T.True],0.0019624475781211638,0.00789826567000805,0.8038004286040892
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,chat_discussed[T.True],-0.015807094736756542,0.006095381006708694,0.00957764126491145
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,show_other_summaries_discussed[T.True],0.0033818014051171697,0.004855932992183238,0.486244988918182
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,show_punishment_id_discussed[T.True],0.012325734442670414,0.004917978074102829,0.012282746330231553
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,pub_year_z,0.0013674287261888508,0.002306849902879013,0.5534048848394936
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,log_citations_z,0.0007125500381280517,0.0023150982973979954,0.7582797603490463
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,n_pages_z,0.0005559882655205932,0.0018866799230815108,0.7682611643513125
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,dimension_informative_direct_count_z,-0.0035295868425823814,0.003684705158197913,0.3382313571239366
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Mini,broad_only_count_z,-0.0022162466244278916,0.002870338159749651,0.44013707480606545
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,Intercept,0.00871588758746129,0.005564239793331387,0.11741555321761256
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,empirical[T.True],0.02321987218213766,0.007410562781773249,0.0017540872623957424
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,exactclose_domain[T.True],0.0012517876736705988,0.00461380961711078,0.7861789985119285
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,payoff_relevance_exactclose[T.True],0.012156378826735365,0.009241924451869452,0.18854732658274964
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,payoff_outcome_primary[T.True],-0.0049473011493640015,0.009270219732831889,0.5936263369314292
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,chat_discussed[T.True],-0.005430268289364233,0.0071574065037394346,0.44812893074430304
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,show_other_summaries_discussed[T.True],0.006012388263397251,0.005702380844466643,0.291847402463118
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,show_punishment_id_discussed[T.True],0.017507019676047474,0.005773581004102629,0.002459437275895079
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,pub_year_z,-0.0033007143699075843,0.002708591239733891,0.22314077342038272
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,log_citations_z,-0.0016811428788080416,0.0027176189265989185,0.5362467897369896
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,n_pages_z,-0.004596383751514783,0.002215148699462772,0.03812021957233986
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,dimension_informative_direct_count_z,-0.012336408441174045,0.004327867059976511,0.004411771945490076
+delta_directional_accuracy,model_specific_ols,GPT-4.1 Nano,broad_only_count_z,-0.002942289747283511,0.0033808355310082977,0.3842525127367038

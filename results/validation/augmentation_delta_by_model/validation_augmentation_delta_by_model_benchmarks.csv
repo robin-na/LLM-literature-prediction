@@ -1,0 +1,4 @@
+benchmark,rmse,correlation,r2_vs_control_null,r2_vs_learning_mean,directional_accuracy,note
+E-Net,4.516374610310278,0.7734817664704352,0.5988464754844693,0.5333430997709674,0.75,Elastic net on processed validation features
+Noise ceiling,4.273353832404235,0.7765353937484988,0.6408561737505206,0.5822124586930115,,Treatment-side RMSE floor and correlation ceiling
+Train mean baseline,6.611364649445295,0.0,0.1403673141474029,0.0,0.55,Constant predictor at learning-wave treatment mean (79.87)

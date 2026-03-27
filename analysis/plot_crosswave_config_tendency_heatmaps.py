@@ -11,7 +11,7 @@ import seaborn as sns
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RESULTS_DIR = REPO_ROOT / "results"
-PLOTS_DIR = REPO_ROOT / "plots"
+from plot_paths import CROSSWAVE_PLOTS as PLOTS_DIR, ensure_plot_dir
 DATA_DIR = REPO_ROOT / "science-data_and_code" / "data" / "processed_data"
 
 VAL_PRED_PATH = RESULTS_DIR / "prediction_positive_case_variations_41.csv"
@@ -400,7 +400,7 @@ def output_paths(prefix: str) -> dict[str, Path]:
 
 def main() -> None:
     args = parse_args()
-    PLOTS_DIR.mkdir(parents=True, exist_ok=True)
+    ensure_plot_dir(PLOTS_DIR)
     paths = output_paths(args.output_prefix)
 
     val_config, val_meta = build_wave_dataset(

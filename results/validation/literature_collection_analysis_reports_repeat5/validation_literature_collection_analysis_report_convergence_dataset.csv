@@ -1,0 +1,10 @@
+variant_id,short_label,variant_kind,description,mean_pairwise_corr_raw,delta_mean_pairwise_corr_raw_vs_baseline,mean_corr_to_truth_raw,delta_mean_corr_to_truth_raw_vs_baseline
+broad_all_2011,All,collection_direct,Direct synthesized report for collection `broad_all`.,0.9191698183330969,0.028543897391897777,0.5589658811187326,-0.020436695810926553
+leaf_a0_b0_c0,A0B0C0,subset_summary,"A=off (exact/close PGG+punishment), B=off (payoff-like outcomes), C=off (empirical)",0.9183652776846915,0.02773935674349237,0.6055436938820704,0.02614111695241128
+leaf_a0_b0_c1,A0B0C1,subset_summary,"A=off (exact/close PGG+punishment), B=off (payoff-like outcomes), C=on (empirical)",0.9043050524631788,0.013679131521979748,0.5758133568147553,-0.0035892201149038128
+leaf_a0_b1_c0,A0B1C0,subset_summary,"A=off (exact/close PGG+punishment), B=on (payoff-like outcomes), C=off (empirical)",0.9010005145321649,0.01037459359096582,0.6370659789323793,0.05766340200272013
+leaf_a0_b1_c1,A0B1C1,subset_summary,"A=off (exact/close PGG+punishment), B=on (payoff-like outcomes), C=on (empirical)",0.9393133480616619,0.04868742712046281,0.6180772009440172,0.03867462401435806
+leaf_a1_b0_c0,A1B0C0,subset_summary,"A=on (exact/close PGG+punishment), B=off (payoff-like outcomes), C=off (empirical)",0.9163446316821193,0.025718710740920248,0.6279391724153143,0.04853659548565514
+leaf_a1_b0_c1,A1B0C1,subset_summary,"A=on (exact/close PGG+punishment), B=off (payoff-like outcomes), C=on (empirical)",0.9049375069838306,0.014311586042631497,0.6072287528231669,0.027826175893507776
+leaf_a1_b1_c0,A1B1C0,subset_summary,"A=on (exact/close PGG+punishment), B=on (payoff-like outcomes), C=off (empirical)",0.8891183492551249,-0.0015075716860741828,0.6402888333673881,0.060886256437728936
+leaf_a1_b1_c1,A1B1C1,subset_summary,"A=on (exact/close PGG+punishment), B=on (payoff-like outcomes), C=on (empirical)",0.881665727280347,-0.0089601936608521,0.6065832782204506,0.02718070129079142

@@ -8,7 +8,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
-PLOTS = ROOT / "plots"
+from plot_paths import VALIDATION_PLOTS as PLOTS, ensure_plot_dir
 
 BASELINE_RMSE = 6.704339
 NULL_MSE = 50.847465

@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import pandas as pd
 
+from plot_paths import POSITIVE_CASE_PLOTS, ensure_plot_dir
+
 
 SUMMARY_FILE = "prediction_positive_case_variations_ranked_summary.csv"
 OUTPUT_PNG = "positive_case_variations_delta_forest.png"

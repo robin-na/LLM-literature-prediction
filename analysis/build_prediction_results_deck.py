@@ -10,8 +10,8 @@ from pptx.util import Inches, Pt
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PLOTS = ROOT / "plots"
 SLIDES = ROOT / "slides"
+from plot_paths import CROSSWAVE_PLOTS, VALIDATION_PLOTS
 
 BG = RGBColor(247, 245, 242)
 TEXT = RGBColor(31, 41, 51)
@@ -193,7 +193,7 @@ def add_title_slide(prs: Presentation) -> None:
         accent=TEAL,
     )
 
-    add_picture(slide, PLOTS / "validation_r2_benchmark.png", 7.0, 3.7, w=5.5)
+    add_picture(slide, VALIDATION_PLOTS / "validation_r2_benchmark.png", 7.0, 3.7, w=5.5)
 
 
 def add_single_figure_slide(
@@ -267,7 +267,7 @@ def build() -> Path:
         prs,
         "Benchmark Before Augmentation",
         "Validation R² uses the control-equals-treatment null as the denominator baseline.",
-        PLOTS / "validation_r2_benchmark.png",
+        VALIDATION_PLOTS / "validation_r2_benchmark.png",
         [
             "GPT-4.1 baseline R² = 0.116; GPT-4.1 baseline_reasoning improves to 0.362.",
             "Elastic net reaches R² = 0.599; the noise ceiling is 0.641.",
@@ -279,7 +279,7 @@ def build() -> Path:
         prs,
         "Main Validation Result",
         "This summary includes the larger report/RAG/abstract search space plus the newer positive-case prompt variants.",
-        PLOTS / "validation_augmentation_search_summary.png",
+        VALIDATION_PLOTS / "validation_augmentation_search_summary.png",
         [
             "Report filters: median ΔRMSE +0.46, only 20% of variants beat baseline on point estimate.",
             "RAG filters: median ΔRMSE +0.24; Abstract filters: median +0.04.",
@@ -291,7 +291,7 @@ def build() -> Path:
         prs,
         "Validation: Correlation And Directional Accuracy",
         "A few augmentation pockets improve correlation, but directional-accuracy gains are rare.",
-        PLOTS / "validation_augmentation_search_summary_corr_da.png",
+        VALIDATION_PLOTS / "validation_augmentation_search_summary_corr_da.png",
         [
             "Report, RAG, and abstract filter families all have negative median Δcorrelation on validation.",
             "Positive-case prompt variants are the one family with positive median Δcorrelation (+0.027), but their median Δdirectional accuracy is -0.10.",
@@ -303,7 +303,7 @@ def build() -> Path:
         prs,
         "Where Augmentation Helps",
         "Grouped by input family and elicitation mode across validation and learning waves.",
-        PLOTS / "crosswave_augmentation_performance_heatmap.png",
+        CROSSWAVE_PLOTS / "crosswave_augmentation_performance_heatmap.png",
         [
             "Validation: gains are limited and mostly concentrated in correlation rather than RMSE/R².",
             "Learning: both + joint is the strongest GPT-4.1 region; paper_only can also help.",
@@ -315,7 +315,7 @@ def build() -> Path:
         prs,
         "Augmentation Changes The Model's Priors",
         "Cell values show how augmentation changes the predicted treatment-effect contrast associated with each binary CONFIG.",
-        PLOTS / "crosswave_config_augmentation_binary_delta_heatmap.png",
+        CROSSWAVE_PLOTS / "crosswave_config_augmentation_binary_delta_heatmap.png",
         [
             "Changes are substantive, not cosmetic: augmentation shifts the model's response to chat, rewardExists, and showOtherSummaries.",
             "These shifts depend on both input family and elicitation mode.",
@@ -327,8 +327,8 @@ def build() -> Path:
         prs,
         "Nano Is Not A Drop-In Substitute",
         "The same analysis pipeline on GPT-4.1-nano produces a materially different pattern.",
-        PLOTS / "crosswave_augmentation_performance_heatmap.png",
-        PLOTS / "crosswave_41nano_augmentation_performance_heatmap.png",
+        CROSSWAVE_PLOTS / "crosswave_augmentation_performance_heatmap.png",
+        CROSSWAVE_PLOTS / "crosswave_41nano_augmentation_performance_heatmap.png",
         [
             "GPT-4.1 cross-wave search has 0 missing outputs; GPT-4.1-nano has 71 missing outputs, including 50 missing learning cases for both_refined_joint_reasoning.",
             "Some coarse trends survive, especially data_only being weak.",
@@ -341,7 +341,7 @@ def build() -> Path:
         prs,
         "Appendix: Cross-Wave Robustness",
         "Raw performance is not directly comparable across waves, so robustness is shown on normalized/ranked summaries.",
-        PLOTS / "crosswave_robustness_scatter.png",
+        CROSSWAVE_PLOTS / "crosswave_robustness_scatter.png",
         [
             "GPT-4.1 cross-wave overall rank Spearman is 0.61: moderate robustness, not a full replication.",
             "The best families are more stable than the exact top-ranked variant.",
@@ -353,8 +353,8 @@ def build() -> Path:
         prs,
         "Appendix: Raw CONFIG Tendency Maps",
         "These show the model's implied treatment-effect tendencies before differencing against the matched no-input baseline.",
-        PLOTS / "crosswave_config_tendency_binary_heatmap.png",
-        PLOTS / "crosswave_config_tendency_continuous_heatmap.png",
+        CROSSWAVE_PLOTS / "crosswave_config_tendency_binary_heatmap.png",
+        CROSSWAVE_PLOTS / "crosswave_config_tendency_continuous_heatmap.png",
         [
             "Binary features summarize sign and magnitude shifts for yes/no CONFIGs.",
             "Continuous features summarize correlations between predicted treatment effect and CONFIG intensity.",

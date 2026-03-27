@@ -55,3 +55,29 @@ def format_column_definitions() -> str:
     for key, desc in COLUMN_DEFINITIONS.items():
         lines.append(f"- {key}: {desc}")
     return "\n".join(lines)
+
+
+PREDICTION_TASK_KEYS = [
+    "CONFIG_playerCount",
+    "CONFIG_numRounds",
+    "CONFIG_MPCR",
+    "CONFIG_allOrNothing",
+    "CONFIG_chat",
+    "CONFIG_defaultContribProp",
+    "CONFIG_punishmentCost",
+    "CONFIG_punishmentMagnitude",
+    "CONFIG_showOtherSummaries",
+    "CONFIG_showNRounds",
+    "CONFIG_showPunishmentId",
+    "CONFIG_rewardExists",
+    "CONFIG_rewardCost",
+    "CONFIG_rewardMagnitude",
+    "CONFIG_punishmentExists",
+]
+
+
+def format_prediction_task_column_definitions() -> str:
+    lines = []
+    for key in PREDICTION_TASK_KEYS:
+        lines.append(f"- {key}: {COLUMN_DEFINITIONS[key]}")
+    return "\n".join(lines)

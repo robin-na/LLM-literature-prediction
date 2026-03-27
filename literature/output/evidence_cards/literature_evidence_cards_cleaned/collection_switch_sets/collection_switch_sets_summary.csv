@@ -1,0 +1,9 @@
+collection_id,a_pgg_pun_exactclose,b_payoff_like_outcome,c_empirical_only,description,count,set_path
+broad_all,False,False,False,Broad all-types pool with no additional A/B/C switches turned on.,2011,literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/broad_all.csv
+broad_empirical,False,False,True,Broad pool restricted to empirical papers only.,947,literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/broad_empirical.csv
+broad_empirical_payoff_like,False,True,True,Broad pool restricted to empirical papers with payoff-like outcomes.,409,literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/broad_empirical_payoff_like.csv
+broad_payoff_like,False,True,False,Broad pool restricted to papers that report payoff-like outcomes.,874,literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/broad_payoff_like.csv
+exactclose_empirical_payoff,True,True,True,"Exact/close PGG and punishment relevance, payoff-like outcomes, empirical only.",242,literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/exactclose_empirical_payoff.csv
+exactclose_pggpun,True,False,False,Broad pool restricted to exact/close PGG relevance and exact/close punishment relevance.,866,literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/exactclose_pggpun.csv
+exactclose_pggpun_empirical,True,False,True,"Exact/close PGG and punishment relevance, empirical only.",440,literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/exactclose_pggpun_empirical.csv
+exactclose_pggpun_payoff_like,True,True,False,"Exact/close PGG and punishment relevance, plus payoff-like outcomes.",432,literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/exactclose_pggpun_payoff_like.csv

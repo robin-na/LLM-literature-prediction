@@ -1,0 +1,12 @@
+source_file,model,variant,mode,run_label,run_kind,rep_idx,n_questions,rmse,correlation,r2,directional_accuracy
+prediction_positive_case_reasoning_repeats_35turbo.jsonl,GPT-3.5 Turbo,both_contrastive,joint_reasoning,rep4,repeat,4.0,2,10.885526696666691,-0.9999999999999999,0.19182021513380287,0.5
+prediction_positive_case_reasoning_repeats_41nano.jsonl,GPT-4.1 Nano,paper_only_quantitative,reasoning,rep2,repeat,2.0,19,11.02350791705156,0.6679796627588321,-1.7433358779490606,0.5789473684210527
+prediction_positive_case_reasoning_repeats_41nano.jsonl,GPT-4.1 Nano,paper_only_structured,reasoning,rep3,repeat,3.0,19,9.495432582476688,0.6492612399614435,-0.759936132912395,0.42105263157894735
+prediction_positive_case_reasoning_repeats_41nano.jsonl,GPT-4.1 Nano,data_only_freeform,reasoning,rep4,repeat,4.0,19,7.544090432660573,0.5831813108556229,-0.42217153117347483,0.42105263157894735
+prediction_positive_case_reasoning_repeats_41nano.jsonl,GPT-4.1 Nano,data_only_quantitative,reasoning,rep4,repeat,4.0,19,13.17047808342539,0.33693556053827695,-2.385871551944428,0.3684210526315789
+prediction_positive_case_reasoning_repeats_41mini.jsonl,GPT-4.1 Mini,both_quantitative,reasoning,rep1,repeat,1.0,18,10.056175487492125,0.6212401457083773,-1.0208878565467776,0.6111111111111112
+prediction_positive_case_reasoning_repeats_41mini.jsonl,GPT-4.1 Mini,both_quantitative,reasoning,rep3,repeat,3.0,19,10.575820423529025,0.5983346904822854,-1.0910254633085104,0.5789473684210527
+prediction_positive_case_reasoning_repeats_41mini.jsonl,GPT-4.1 Mini,both_structured,reasoning,rep2,repeat,2.0,19,7.709537059646999,0.8037819629659698,-0.11537132239092496,0.7894736842105263
+prediction_positive_case_reasoning_repeats_41mini.jsonl,GPT-4.1 Mini,both_structured,reasoning,rep3,repeat,3.0,19,10.465773742939303,0.7643663191315786,-1.1380117207864449,0.6842105263157895
+prediction_positive_case_reasoning_repeats_4o.jsonl,GPT-4o,both_rules,reasoning,rep2,repeat,2.0,19,7.079286980087888,0.7684246957337886,0.011669673082547516,0.631578947368421
+prediction_positive_case_reasoning_repeats_41.jsonl,GPT-4.1,both_freeform,reasoning,rep3,repeat,3.0,19,7.807604652170592,0.7312856506882485,-0.13963771671205327,0.5789473684210527

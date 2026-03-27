@@ -1,0 +1,10 @@
+variant_id,custom_id,variant_kind,count,description,report_path
+broad_all_2011,collection_direct/broad_all_2011,collection_direct,2011,Direct synthesized report for collection `broad_all`.,literature/output/collection_analysis_reports/switch_sets_stage1/broad_all_2011.md
+leaf_a0_b0_c0,subset_summary/leaf_a0_b0_c0,subset_summary,363,"A=off (exact/close PGG+punishment), B=off (payoff-like outcomes), C=off (empirical)",literature/output/collection_analysis_reports/switch_sets_stage1/leaf_a0_b0_c0.md
+leaf_a0_b0_c1,subset_summary/leaf_a0_b0_c1,subset_summary,340,"A=off (exact/close PGG+punishment), B=off (payoff-like outcomes), C=on (empirical)",literature/output/collection_analysis_reports/switch_sets_stage1/leaf_a0_b0_c1.md
+leaf_a0_b1_c0,subset_summary/leaf_a0_b1_c0,subset_summary,275,"A=off (exact/close PGG+punishment), B=on (payoff-like outcomes), C=off (empirical)",literature/output/collection_analysis_reports/switch_sets_stage1/leaf_a0_b1_c0.md
+leaf_a0_b1_c1,subset_summary/leaf_a0_b1_c1,subset_summary,167,"A=off (exact/close PGG+punishment), B=on (payoff-like outcomes), C=on (empirical)",literature/output/collection_analysis_reports/switch_sets_stage1/leaf_a0_b1_c1.md
+leaf_a1_b0_c0,subset_summary/leaf_a1_b0_c0,subset_summary,236,"A=on (exact/close PGG+punishment), B=off (payoff-like outcomes), C=off (empirical)",literature/output/collection_analysis_reports/switch_sets_stage1/leaf_a1_b0_c0.md
+leaf_a1_b0_c1,subset_summary/leaf_a1_b0_c1,subset_summary,198,"A=on (exact/close PGG+punishment), B=off (payoff-like outcomes), C=on (empirical)",literature/output/collection_analysis_reports/switch_sets_stage1/leaf_a1_b0_c1.md
+leaf_a1_b1_c0,subset_summary/leaf_a1_b1_c0,subset_summary,190,"A=on (exact/close PGG+punishment), B=on (payoff-like outcomes), C=off (empirical)",literature/output/collection_analysis_reports/switch_sets_stage1/leaf_a1_b1_c0.md
+leaf_a1_b1_c1,subset_summary/leaf_a1_b1_c1,subset_summary,242,"A=on (exact/close PGG+punishment), B=on (payoff-like outcomes), C=on (empirical)",literature/output/collection_analysis_reports/switch_sets_stage1/leaf_a1_b1_c1.md

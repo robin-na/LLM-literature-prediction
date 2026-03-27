@@ -19,8 +19,10 @@
   },
   "vector_stores": {
     "/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/PGG_papers/science-paper/PGG_paper_science.pdf": {
-      "vector_store_id": "vs_69971c50aaec8191a1e5d685f9ee822b",
-      "file_id": "file-XLjQri5seGhxDjoJavYXHa"
+      "vector_store_id": "vs_69c1ab8ce1dc81918a8cfbe244dac73b",
+      "file_ids": [
+        "file-XLjQri5seGhxDjoJavYXHa"
+      ]
     }
   }
 }

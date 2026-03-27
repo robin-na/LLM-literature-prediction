@@ -1,0 +1,23 @@
+[
+  {
+    "model": "GPT-4.1",
+    "mode": "joint_reasoning",
+    "merged_path": "/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_41.jsonl",
+    "kept_rows": 2011,
+    "skipped_rows": 1
+  },
+  {
+    "model": "GPT-4.1 Mini",
+    "mode": "joint_reasoning",
+    "merged_path": "/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_41mini.jsonl",
+    "kept_rows": 2011,
+    "skipped_rows": 1
+  },
+  {
+    "model": "GPT-4.1 Nano",
+    "mode": "joint_reasoning",
+    "merged_path": "/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_41nano.jsonl",
+    "kept_rows": 2011,
+    "skipped_rows": 1
+  }
+]
