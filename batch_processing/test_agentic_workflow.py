@@ -8,6 +8,7 @@ from types import SimpleNamespace
 from batch_processing.agentic_tools import (
     evaluate_expression,
     execute_tool,
+    needs_review_gate,
     validate_field_output,
 )
 from batch_processing.agentic_workflow import run_agentic_field_extraction
@@ -79,6 +80,63 @@ class AgenticWorkflowTests(unittest.TestCase):
         )
         self.assertEqual(len(result["matches"]), 1)
         self.assertIn("20 tokens", result["matches"][0]["snippet"])
+
+    def test_evidence_pack_and_normalization_tools(self):
+        paper_text = (
+            "Control groups had four players with an endowment of 20 tokens each. "
+            "Average group contribution was 29.64 tokens."
+        )
+        evidence = execute_tool(
+            "evidence_pack_builder",
+            {"field": "DV_contributionRate", "max_results": 4},
+            paper_text,
+        )
+        self.assertGreaterEqual(evidence["evidence_count"], 1)
+
+        normalized = execute_tool(
+            "normalization_checker",
+            {
+                "field": "DV_contributionRate",
+                "raw_value": 29.64,
+                "endowment": 20,
+                "player_count": 4,
+            },
+            paper_text,
+        )
+        self.assertTrue(normalized["ok"])
+        self.assertAlmostEqual(normalized["computed_value"], 0.3705)
+
+    def test_payoff_formula_parser_and_review_gate(self):
+        paper_text = (
+            "Each player's payoff was 20 - c_i + 0.4 times the sum of contributions. "
+            "Groups had 4 players and each player had an endowment of 20 tokens."
+        )
+        parsed = execute_tool(
+            "payoff_formula_parser",
+            {"field": "CONFIG_MPCR", "max_results": 3},
+            paper_text,
+        )
+        self.assertEqual(parsed["candidate_player_count"], 4.0)
+        self.assertEqual(parsed["candidate_endowment"], 20.0)
+        self.assertEqual(parsed["candidate_mpcr"], 0.4)
+
+        gate = needs_review_gate(
+            field="CONFIG_MPCR",
+            candidate_json=json.dumps(
+                {
+                    "experiments": [
+                        {
+                            "data_id": "Baseline",
+                            "CONFIG_MPCR": 0.4,
+                            "CONFIG_MPCR_reason": "coefficient on the public-good term",
+                            "CONFIG_MPCR_confidence": 0.7,
+                        }
+                    ]
+                }
+            ),
+            min_confidence=0.85,
+        )
+        self.assertEqual(gate["decision"], "needs_review")
 
     def test_validator_rejects_raw_contribution_amount(self):
         payload = {

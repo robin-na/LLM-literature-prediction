@@ -9,12 +9,69 @@ from typing import Any
 
 
 SUPPORTED_AGENTIC_FIELDS = (
+    "CONFIG_playerCount",
+    "CONFIG_allOrNothing",
     "DV_contributionRate",
     "DV_efficiency",
     "CONFIG_MPCR",
 )
 
+FIELD_DEFAULT_TERMS = {
+    "CONFIG_playerCount": [
+        "group of",
+        "groups of",
+        "players",
+        "participants",
+        "teams",
+        "members",
+    ],
+    "CONFIG_allOrNothing": [
+        "contribute",
+        "contribution",
+        "all or nothing",
+        "0 to",
+        "full endowment",
+        "binary",
+    ],
+    "DV_contributionRate": [
+        "contribution",
+        "endowment",
+        "average contribution",
+        "group contribution",
+        "control",
+        "treatment",
+    ],
+    "DV_efficiency": [
+        "efficiency",
+        "payoff",
+        "earnings",
+        "endowment",
+        "MPCR",
+        "multiplier",
+        "control",
+        "treatment",
+    ],
+    "CONFIG_MPCR": [
+        "MPCR",
+        "marginal per capita return",
+        "multiplier",
+        "payoff",
+        "sum of contributions",
+        "group size",
+    ],
+}
+
 FIELD_TOOL_HINTS = {
+    "CONFIG_playerCount": [
+        "Count strategic players in the payoff-relevant group, not total session headcount.",
+        "If teams act as players, count teams rather than people.",
+        "Use N/R only when group structure is truly absent.",
+    ],
+    "CONFIG_allOrNothing": [
+        "Return 1 when players can choose any contribution from 0 to endowment.",
+        "Return 0 for binary or no continuous contribution scale.",
+        "Do not confuse binary actions with flexible contribution choice.",
+    ],
     "DV_contributionRate": [
         "Normalize raw contributions to a 0-1 fraction.",
         "If a group total is reported, divide by players times endowment.",
@@ -33,6 +90,8 @@ FIELD_TOOL_HINTS = {
 }
 
 FIELD_EXTRA_KEYS = {
+    "CONFIG_playerCount": [],
+    "CONFIG_allOrNothing": [],
     "DV_contributionRate": ["step1_raw_quotes", "step2_endowment", "step3_computation"],
     "DV_efficiency": ["step2_max_payoff", "step3_computation"],
     "CONFIG_MPCR": [],
@@ -138,6 +197,152 @@ def build_tool_specs() -> list[dict[str, Any]]:
         {
             "type": "function",
             "function": {
+                "name": "evidence_pack_builder",
+                "description": (
+                    "Build a compact field-specific evidence pack by collecting the most "
+                    "relevant snippets from the paper before extraction or critique."
+                ),
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string",
+                            "enum": list(SUPPORTED_AGENTIC_FIELDS),
+                        },
+                        "terms": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "description": "Optional extra search terms to prioritize.",
+                        },
+                        "max_results": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 12,
+                            "default": 6,
+                        },
+                    },
+                    "required": ["field"],
+                    "additionalProperties": False,
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "condition_aligner",
+                "description": (
+                    "Extract candidate condition labels and supporting snippets to reduce "
+                    "condition-mixing mistakes."
+                ),
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "known_labels": {
+                            "type": "array",
+                            "items": {"type": "string"},
+                            "description": "Optional known condition labels to search for.",
+                        },
+                        "max_results": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 12,
+                            "default": 6,
+                        },
+                    },
+                    "additionalProperties": False,
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "normalization_checker",
+                "description": (
+                    "Check normalization arithmetic for contribution-rate or efficiency "
+                    "derivations and return the computed value plus formula."
+                ),
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string",
+                            "enum": ["DV_contributionRate", "DV_efficiency"],
+                        },
+                        "raw_value": {"type": "number"},
+                        "endowment": {"type": "number"},
+                        "player_count": {"type": "number"},
+                        "percentage": {"type": "number"},
+                        "already_normalized": {"type": "number"},
+                        "actual_payoff": {"type": "number"},
+                        "max_payoff": {"type": "number"},
+                    },
+                    "required": ["field"],
+                    "additionalProperties": False,
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "payoff_formula_parser",
+                "description": (
+                    "Extract candidate payoff-formula ingredients relevant for MPCR or "
+                    "efficiency, including multipliers, player counts, endowments, and "
+                    "payoff-equation snippets."
+                ),
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string",
+                            "enum": ["DV_efficiency", "CONFIG_MPCR"],
+                        },
+                        "max_results": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 10,
+                            "default": 5,
+                        },
+                    },
+                    "required": ["field"],
+                    "additionalProperties": False,
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
+                "name": "needs_review_gate",
+                "description": (
+                    "Decide whether a candidate extraction should be auto-accepted or "
+                    "flagged for human review based on validation and confidence."
+                ),
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "type": "string",
+                            "enum": list(SUPPORTED_AGENTIC_FIELDS),
+                        },
+                        "candidate_json": {
+                            "type": "string",
+                            "description": "Candidate JSON text to assess.",
+                        },
+                        "min_confidence": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1,
+                            "default": 0.85,
+                        },
+                    },
+                    "required": ["field", "candidate_json"],
+                    "additionalProperties": False,
+                },
+            },
+        },
+        {
+            "type": "function",
+            "function": {
                 "name": "field_rulebook",
                 "description": "Return deterministic validation hints for the selected field.",
                 "parameters": {
@@ -194,6 +399,43 @@ def execute_tool(name: str, arguments: dict[str, Any], paper_text: str) -> dict[
             terms=[str(term) for term in terms],
             max_results=max_results,
             context_chars=context_chars,
+        )
+    if name == "evidence_pack_builder":
+        field = str(arguments.get("field", ""))
+        terms = [str(term) for term in arguments.get("terms", [])]
+        max_results = int(arguments.get("max_results", 6))
+        return build_evidence_pack(
+            field=field,
+            paper_text=paper_text,
+            extra_terms=terms,
+            max_results=max_results,
+        )
+    if name == "condition_aligner":
+        known_labels = [str(label) for label in arguments.get("known_labels", [])]
+        max_results = int(arguments.get("max_results", 6))
+        return condition_aligner(
+            paper_text=paper_text,
+            known_labels=known_labels,
+            max_results=max_results,
+        )
+    if name == "normalization_checker":
+        return normalization_checker(arguments)
+    if name == "payoff_formula_parser":
+        field = str(arguments.get("field", ""))
+        max_results = int(arguments.get("max_results", 5))
+        return payoff_formula_parser(
+            field=field,
+            paper_text=paper_text,
+            max_results=max_results,
+        )
+    if name == "needs_review_gate":
+        field = str(arguments.get("field", ""))
+        candidate_json = str(arguments.get("candidate_json", ""))
+        min_confidence = float(arguments.get("min_confidence", 0.85))
+        return needs_review_gate(
+            field=field,
+            candidate_json=candidate_json,
+            min_confidence=min_confidence,
         )
     if name == "field_rulebook":
         field = str(arguments.get("field", ""))
@@ -309,6 +551,232 @@ def find_quotes(
     return {"matches": matches}
 
 
+def build_evidence_pack(
+    *,
+    field: str,
+    paper_text: str,
+    extra_terms: list[str] | None = None,
+    max_results: int = 6,
+) -> dict[str, Any]:
+    base_terms = FIELD_DEFAULT_TERMS.get(field, [])
+    all_terms = list(dict.fromkeys([*base_terms, *(extra_terms or [])]))
+    quote_result = find_quotes(
+        paper_text=paper_text,
+        terms=all_terms,
+        max_results=max_results,
+        context_chars=220,
+    )
+    return {
+        "field": field,
+        "terms_used": all_terms,
+        "evidence_count": len(quote_result["matches"]),
+        "evidence": quote_result["matches"],
+    }
+
+
+def condition_aligner(
+    *,
+    paper_text: str,
+    known_labels: list[str] | None = None,
+    max_results: int = 6,
+) -> dict[str, Any]:
+    sentences = _split_text_units(paper_text)
+    label_patterns = [label.strip() for label in (known_labels or []) if label and label.strip()]
+    generic_pattern = re.compile(
+        r"\b(control|treatment|condition|arm|baseline|experiment\s*\d+|study\s*\d+)\b",
+        flags=re.IGNORECASE,
+    )
+    matches: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for sentence in sentences:
+        sentence_lower = sentence.lower()
+        labels: list[str] = []
+        for label in label_patterns:
+            if label.lower() in sentence_lower:
+                labels.append(label)
+        for found in generic_pattern.findall(sentence):
+            labels.append(str(found))
+        unique_labels = [label for label in dict.fromkeys(labels) if label]
+        if not unique_labels:
+            continue
+        snippet = sentence.strip()
+        if snippet in seen:
+            continue
+        seen.add(snippet)
+        matches.append({"labels": unique_labels, "snippet": snippet})
+        if len(matches) >= max_results:
+            break
+    return {"conditions": matches}
+
+
+def normalization_checker(arguments: dict[str, Any]) -> dict[str, Any]:
+    field = str(arguments.get("field", ""))
+    if field == "DV_contributionRate":
+        already_normalized = arguments.get("already_normalized")
+        if isinstance(already_normalized, (int, float)):
+            return {
+                "ok": 0 <= float(already_normalized) <= 1,
+                "field": field,
+                "computed_value": float(already_normalized),
+                "formula": "already_normalized",
+            }
+        percentage = arguments.get("percentage")
+        if isinstance(percentage, (int, float)):
+            value = float(percentage) / 100.0
+            return {
+                "ok": True,
+                "field": field,
+                "computed_value": round(value, 10),
+                "formula": f"{percentage} / 100",
+            }
+        raw_value = arguments.get("raw_value")
+        endowment = arguments.get("endowment")
+        player_count = arguments.get("player_count")
+        if isinstance(raw_value, (int, float)) and isinstance(endowment, (int, float)):
+            if isinstance(player_count, (int, float)):
+                value = float(raw_value) / (float(player_count) * float(endowment))
+                return {
+                    "ok": True,
+                    "field": field,
+                    "computed_value": round(value, 10),
+                    "formula": f"{raw_value} / ({player_count} * {endowment})",
+                }
+            value = float(raw_value) / float(endowment)
+            return {
+                "ok": True,
+                "field": field,
+                "computed_value": round(value, 10),
+                "formula": f"{raw_value} / {endowment}",
+            }
+        return {
+            "ok": False,
+            "field": field,
+            "error": "Need already_normalized, percentage, or raw_value plus endowment.",
+        }
+    if field == "DV_efficiency":
+        actual_payoff = arguments.get("actual_payoff")
+        max_payoff = arguments.get("max_payoff")
+        if isinstance(actual_payoff, (int, float)) and isinstance(max_payoff, (int, float)):
+            if float(max_payoff) == 0:
+                return {"ok": False, "field": field, "error": "max_payoff must be non-zero."}
+            value = float(actual_payoff) / float(max_payoff)
+            return {
+                "ok": True,
+                "field": field,
+                "computed_value": round(value, 10),
+                "formula": f"{actual_payoff} / {max_payoff}",
+            }
+        return {
+            "ok": False,
+            "field": field,
+            "error": "Need actual_payoff and max_payoff for efficiency.",
+        }
+    return {"ok": False, "field": field, "error": f"Unsupported field for normalization: {field}"}
+
+
+def payoff_formula_parser(
+    *,
+    field: str,
+    paper_text: str,
+    max_results: int = 5,
+) -> dict[str, Any]:
+    evidence = build_evidence_pack(field=field, paper_text=paper_text, max_results=max_results)
+    snippets = [item["snippet"] for item in evidence["evidence"]]
+    number_pattern = re.compile(r"(?<!\w)(\d+(?:\.\d+)?)")
+    extracted_numbers: list[float] = []
+    for snippet in snippets:
+        for match in number_pattern.findall(snippet):
+            try:
+                extracted_numbers.append(float(match))
+            except ValueError:
+                continue
+
+    player_count = _extract_first_number(
+        paper_text,
+        patterns=[
+            r"group(?:s)? of (\d+(?:\.\d+)?)",
+            r"(\d+(?:\.\d+)?) players",
+            r"(\d+(?:\.\d+)?) members",
+        ],
+    )
+    endowment = _extract_first_number(
+        paper_text,
+        patterns=[
+            r"endowment of (\d+(?:\.\d+)?)",
+            r"each player.*?(\d+(?:\.\d+)?) tokens",
+        ],
+    )
+    multiplier = _extract_first_number(
+        paper_text,
+        patterns=[
+            r"multiplier(?: of)? (\d+(?:\.\d+)?)",
+            r"multiplied by (\d+(?:\.\d+)?)",
+            r"(\d+(?:\.\d+)?) times the sum of contributions",
+        ],
+    )
+    mpcr = _extract_first_number(
+        paper_text,
+        patterns=[
+            r"MPCR(?: of)? (\d+(?:\.\d+)?)",
+            r"marginal per capita return(?: of)? (\d+(?:\.\d+)?)",
+            r"each player(?: receives| gets)? (\d+(?:\.\d+)?) per",
+            r"(\d+(?:\.\d+)?) times the sum of contributions",
+        ],
+    )
+    return {
+        "field": field,
+        "candidate_player_count": player_count,
+        "candidate_endowment": endowment,
+        "candidate_multiplier": multiplier,
+        "candidate_mpcr": mpcr,
+        "snippets": snippets,
+        "numbers_seen": extracted_numbers[:20],
+    }
+
+
+def needs_review_gate(
+    *,
+    field: str,
+    candidate_json: str,
+    min_confidence: float = 0.85,
+) -> dict[str, Any]:
+    parsed, parse_error = parse_json_object(candidate_json)
+    if parse_error:
+        return {
+            "decision": "needs_review",
+            "reasons": [parse_error],
+            "validation": {"ok": False, "errors": [parse_error], "warnings": []},
+        }
+    validation = validate_field_output(field, parsed).to_dict()
+    reasons = list(validation["errors"]) + list(validation["warnings"])
+    if not validation["ok"]:
+        return {
+            "decision": "needs_review",
+            "reasons": reasons,
+            "validation": validation,
+        }
+    experiments = parsed.get("experiments", [])
+    confidences: list[float] = []
+    confidence_key = f"{field}_confidence"
+    for experiment in experiments:
+        confidence = experiment.get(confidence_key)
+        if isinstance(confidence, (int, float)):
+            confidences.append(float(confidence))
+    low_confidence = [value for value in confidences if value < min_confidence]
+    if low_confidence:
+        reasons.append(
+            f"One or more confidences fell below the review threshold of {min_confidence:.2f}."
+        )
+    decision = "needs_review" if reasons else "auto_accept"
+    return {
+        "decision": decision,
+        "reasons": reasons,
+        "validation": validation,
+        "min_confidence": min_confidence,
+        "confidences": confidences,
+    }
+
+
 def required_experiment_keys(field: str) -> list[str]:
     if field not in SUPPORTED_AGENTIC_FIELDS:
         return []
@@ -393,6 +861,14 @@ def validate_field_output(field: str, payload: dict[str, Any]) -> ValidationResu
                 errors.append(f"{prefix}.{field} cannot be numeric when step2_max_payoff is 'N/R'.")
         elif field == "CONFIG_MPCR":
             _validate_mpcr_value(prefix, value, errors, warnings)
+        elif field == "CONFIG_playerCount":
+            if value != "N/R" and not (
+                isinstance(value, int) and not isinstance(value, bool) and value > 0
+            ):
+                errors.append(f"{prefix}.CONFIG_playerCount must be a positive integer or 'N/R'.")
+        elif field == "CONFIG_allOrNothing":
+            if value not in {0, 1}:
+                errors.append(f"{prefix}.CONFIG_allOrNothing must be 0 or 1.")
 
     return ValidationResult(ok=not errors, errors=errors, warnings=warnings)
 
@@ -455,3 +931,20 @@ def _validate_mpcr_value(
     errors.append(
         f"{prefix}.CONFIG_MPCR must be a number, list of numbers, descriptive string, or 'N/R'."
     )
+
+
+def _split_text_units(text: str) -> list[str]:
+    units = re.split(r"[\n\r]+|(?<=[.!?])\s+", text)
+    return [unit.strip() for unit in units if unit and unit.strip()]
+
+
+def _extract_first_number(text: str, patterns: list[str]) -> float | None:
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.IGNORECASE | re.DOTALL)
+        if not match:
+            continue
+        try:
+            return float(match.group(1))
+        except ValueError:
+            continue
+    return None

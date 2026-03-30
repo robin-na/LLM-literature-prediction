@@ -27,10 +27,15 @@ EXTRACTOR_APPENDIX = """
 You are the primary extraction agent.
 
 Use tools when they can reduce extraction error:
+- start with evidence_pack_builder to gather field-specific support,
+- use condition_aligner if there may be multiple arms or conditions,
 - use quote_finder to confirm exact text support,
 - use calculator for arithmetic,
+- use normalization_checker for DV normalization or efficiency formulas,
+- use payoff_formula_parser for MPCR or efficiency ingredients,
 - use field_rulebook for deterministic reminders,
-- use validate_candidate_output before finalizing.
+- use validate_candidate_output before finalizing,
+- use needs_review_gate if the candidate still looks uncertain.
 
 Return only the final extraction JSON object for the selected field.
 """.strip()
@@ -43,6 +48,9 @@ you can point to a concrete textual gap, quote mismatch, arithmetic mistake,
 normalization mistake, or condition-mixing risk. If the extraction is well supported,
 say so explicitly.
 
+Use tools when needed, especially evidence_pack_builder, condition_aligner,
+quote_finder, normalization_checker, and payoff_formula_parser.
+
 Do not rewrite the extraction. Return only a structured attack report as JSON.
 """.strip()
 
@@ -51,7 +59,9 @@ You are revising an existing field extraction after critique.
 
 Only change a value when the critic provides a grounded objection backed by text or
 arithmetic. If the attack report is ungrounded or weak, preserve the original answer.
-Use tools if needed, and validate your candidate JSON before finalizing.
+Use tools if needed, especially evidence_pack_builder, condition_aligner,
+normalization_checker, payoff_formula_parser, validate_candidate_output, and
+needs_review_gate.
 
 Return only the revised extraction JSON object.
 """.strip()
@@ -60,7 +70,8 @@ VALIDATION_REPAIR_APPENDIX = """
 Your previous extraction failed deterministic validation.
 
 Repair only the schema or value issues listed below. Keep supported values intact.
-Use tools if needed and validate your candidate JSON before finalizing.
+Use tools if needed and validate your candidate JSON before finalizing. If the
+candidate still looks dubious after repair, consult needs_review_gate.
 
 Return only the repaired extraction JSON object.
 """.strip()
@@ -95,6 +106,7 @@ def run_agentic_field_extraction(
     max_critic_rounds: int = 1,
     temperature: float = 0.0,
     max_tool_rounds: int = 8,
+    progress_callback: Any | None = None,
 ) -> dict[str, Any]:
     if field not in SUPPORTED_AGENTIC_FIELDS:
         raise ValueError(
@@ -111,6 +123,8 @@ def run_agentic_field_extraction(
         paper_text=paper_text,
         temperature=temperature,
         max_tool_rounds=max_tool_rounds,
+        request_label=f"{field}:extractor",
+        progress_callback=progress_callback,
     )
 
     critique_rounds: list[dict[str, Any]] = []
@@ -128,6 +142,8 @@ def run_agentic_field_extraction(
             paper_text=paper_text,
             temperature=temperature,
             max_tool_rounds=max_tool_rounds,
+            request_label=f"{field}:critic_round_{critic_index + 1}",
+            progress_callback=progress_callback,
         )
         critique_entry = {
             "round": critic_index + 1,
@@ -153,6 +169,8 @@ def run_agentic_field_extraction(
             paper_text=paper_text,
             temperature=temperature,
             max_tool_rounds=max_tool_rounds,
+            request_label=f"{field}:revision_round_{critic_index + 1}",
+            progress_callback=progress_callback,
         )
         critique_entry["revision_text"] = revised_draft["text"]
         critique_entry["revision_json"] = revised_draft["parsed"]
@@ -175,6 +193,8 @@ def run_agentic_field_extraction(
             paper_text=paper_text,
             temperature=temperature,
             max_tool_rounds=max_tool_rounds,
+            request_label=f"{field}:validation_repair",
+            progress_callback=progress_callback,
         )
         repaired_validation = validate_field_output(field, repaired["parsed"]).to_dict()
         current_draft = repaired
@@ -271,6 +291,8 @@ def _run_json_agent(
     paper_text: str,
     temperature: float,
     max_tool_rounds: int,
+    request_label: str,
+    progress_callback: Any | None,
 ) -> dict[str, Any]:
     messages: list[dict[str, Any]] = [
         {"role": "system", "content": system_prompt},
@@ -280,6 +302,14 @@ def _run_json_agent(
     tools = build_tool_specs()
 
     for _ in range(max_tool_rounds + 1):
+        if progress_callback is not None:
+            progress_callback(
+                {
+                    "label": request_label,
+                    "messages": messages,
+                    "model": model,
+                }
+            )
         response = client.chat.completions.create(
             model=model,
             temperature=temperature,
