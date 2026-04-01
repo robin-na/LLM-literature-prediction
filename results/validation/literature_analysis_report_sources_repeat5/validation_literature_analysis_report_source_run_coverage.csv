@@ -1,0 +1,7 @@
+model,n_sources_initial_or_repeat,n_sources_averaged,expected_aug_runs,n_sources_with_all_5_aug_runs,n_sources_missing_any_aug_runs,min_aug_runs_observed,max_aug_runs_observed,n_baseline_runs_used
+GPT-4.1,2011,2011,5,2011,0,5,5,5
+GPT-4.1 Mini,2011,2011,5,2011,0,5,5,5
+GPT-4.1 Nano,2011,2011,5,2011,0,5,5,5
+GPT-5 Mini,2011,2011,5,2011,0,5,5,5
+GPT-5 Nano,2011,2011,5,2011,0,5,5,5
+GPT-5.1,2011,2011,5,2011,0,5,5,5

@@ -55,7 +55,7 @@ def parse_args() -> argparse.Namespace:
         "--models",
         nargs="+",
         default=DEFAULT_MODELS,
-        choices=DEFAULT_MODELS,
+        choices=sorted(MODEL_TAGS),
         help="Prediction models to generate batch files for.",
     )
     parser.add_argument(

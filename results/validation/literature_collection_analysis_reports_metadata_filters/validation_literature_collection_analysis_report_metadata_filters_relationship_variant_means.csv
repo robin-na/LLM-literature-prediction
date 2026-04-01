@@ -1,0 +1,717 @@
+variant_id,count,n_filters,size_quintile,type_value,citation_value,jcr_value,year_value,discipline_value,delta_correlation,delta_r2,rmse_improvement
+citation_q1_lowest,698,1,Size Q5 (largest),ANY,Q1_lowest,ANY,ANY,ANY,0.03358478609645273,0.18053370806445213,0.4248384885702963
+citation_q1_lowest__discipline_bio_evo,61,2,Size Q3,ANY,Q1_lowest,ANY,ANY,bio_evo,0.02801872555339242,0.548255682914153,1.4996667159313397
+citation_q1_lowest__discipline_economics,229,2,Size Q5 (largest),ANY,Q1_lowest,ANY,ANY,economics,0.010217669247825,0.46209276808171995,1.21980447100743
+citation_q1_lowest__discipline_math_phys_cs,231,2,Size Q5 (largest),ANY,Q1_lowest,ANY,ANY,math_phys_cs,-0.0059710814165681,-0.01577077217032975,-0.11174787554001453
+citation_q1_lowest__discipline_multidisciplinary,85,2,Size Q4,ANY,Q1_lowest,ANY,ANY,multidisciplinary,0.04587628706220692,0.572465013393457,1.564592386555119
+citation_q1_lowest__discipline_other,36,2,Size Q2,ANY,Q1_lowest,ANY,ANY,other,-0.05190622047658849,0.3731210837053213,0.9430292698457277
+citation_q1_lowest__discipline_psych_social,209,2,Size Q5 (largest),ANY,Q1_lowest,ANY,ANY,psych_social,0.03151208424492583,0.26915359589327903,0.6924235277090903
+citation_q1_lowest__jcr_q1,296,2,Size Q5 (largest),ANY,Q1_lowest,Q1,ANY,ANY,0.04805881047173246,0.5744755078640534,1.585081602405949
+citation_q1_lowest__jcr_q1__discipline_bio_evo,19,3,Size Q2,ANY,Q1_lowest,Q1,ANY,bio_evo,-0.01932430005149133,0.5808434793638143,1.589251702300155
+citation_q1_lowest__jcr_q1__discipline_economics,40,3,Size Q3,ANY,Q1_lowest,Q1,ANY,economics,0.0092169867349059,0.00888049694766139,-0.04170733166590975
+citation_q1_lowest__jcr_q1__discipline_math_phys_cs,103,3,Size Q4,ANY,Q1_lowest,Q1,ANY,math_phys_cs,0.04472121858521208,0.202255627442097,0.4662881148571209
+citation_q1_lowest__jcr_q1__discipline_multidisciplinary,82,3,Size Q4,ANY,Q1_lowest,Q1,ANY,multidisciplinary,0.027484240769584032,0.33176155977318217,0.8510875952953533
+citation_q1_lowest__jcr_q1__discipline_other,10,3,Size Q1 (smallest),ANY,Q1_lowest,Q1,ANY,other,-0.024116250237585055,0.3325326849308563,0.8244010858450767
+citation_q1_lowest__jcr_q1__discipline_psych_social,73,3,Size Q4,ANY,Q1_lowest,Q1,ANY,psych_social,0.07374546194000943,0.2585750430114024,0.6211065702353354
+citation_q1_lowest__jcr_q1__year_q1_oldest,9,3,Size Q1 (smallest),ANY,Q1_lowest,Q1,Q1_oldest,ANY,0.03719257577184742,-0.4426798016541249,-1.1234156039640866
+citation_q1_lowest__jcr_q1__year_q2,21,3,Size Q2,ANY,Q1_lowest,Q1,Q2,ANY,0.08418411278649075,0.7368011781858358,2.1364946616405684
+citation_q1_lowest__jcr_q1__year_q3,49,3,Size Q3,ANY,Q1_lowest,Q1,Q3,ANY,-0.018909640471896468,0.3184279013958527,0.8310565404806968
+citation_q1_lowest__jcr_q1__year_q4_newest,217,3,Size Q5 (largest),ANY,Q1_lowest,Q1,Q4_newest,ANY,0.01671728753967985,0.30709832998980613,0.7608127845043376
+citation_q1_lowest__jcr_q2,217,2,Size Q5 (largest),ANY,Q1_lowest,Q2,ANY,ANY,0.04117747410062853,0.16434476865201722,0.3961266132905519
+citation_q1_lowest__jcr_q2__discipline_bio_evo,6,3,Size Q1 (smallest),ANY,Q1_lowest,Q2,ANY,bio_evo,0.0009065892688821138,0.4956787337151123,1.3207294397269125
+citation_q1_lowest__jcr_q2__discipline_economics,105,3,Size Q4,ANY,Q1_lowest,Q2,ANY,economics,0.0187145597132435,0.28292239797979124,0.6951581888113852
+citation_q1_lowest__jcr_q2__discipline_math_phys_cs,61,3,Size Q3,ANY,Q1_lowest,Q2,ANY,math_phys_cs,-0.011461126169324848,-0.09979317493369648,-0.3230007238473062
+citation_q1_lowest__jcr_q2__discipline_multidisciplinary,3,3,Size Q1 (smallest),ANY,Q1_lowest,Q2,ANY,multidisciplinary,-0.03419307605501105,0.36981866849332584,0.9734282744640544
+citation_q1_lowest__jcr_q2__discipline_other,9,3,Size Q1 (smallest),ANY,Q1_lowest,Q2,ANY,other,0.007553570110836701,0.29099190327395524,0.6997976554149822
+citation_q1_lowest__jcr_q2__discipline_psych_social,59,3,Size Q3,ANY,Q1_lowest,Q2,ANY,psych_social,-0.026106285413862198,0.4481095581538432,1.1734706811819906
+citation_q1_lowest__jcr_q2__year_q1_oldest,13,3,Size Q1 (smallest),ANY,Q1_lowest,Q2,Q1_oldest,ANY,0.013160797595221851,0.12728089186419575,0.25192994402989105
+citation_q1_lowest__jcr_q2__year_q2,24,3,Size Q2,ANY,Q1_lowest,Q2,Q2,ANY,0.019534222919979752,0.05830574127902122,0.07885816223566093
+citation_q1_lowest__jcr_q2__year_q3,59,3,Size Q3,ANY,Q1_lowest,Q2,Q3,ANY,0.007572375376263335,0.037436665027037574,0.024517243376814896
+citation_q1_lowest__jcr_q2__year_q4_newest,121,3,Size Q4,ANY,Q1_lowest,Q2,Q4_newest,ANY,0.017992260693747847,0.19744211527575584,0.4853279841655926
+citation_q1_lowest__jcr_q3,110,2,Size Q4,ANY,Q1_lowest,Q3,ANY,ANY,0.013907827575245536,0.2903616834965302,0.7401356153403159
+citation_q1_lowest__jcr_q3__discipline_bio_evo,29,3,Size Q2,ANY,Q1_lowest,Q3,ANY,bio_evo,0.0198688632639637,0.4378338266697479,1.143172448149764
+citation_q1_lowest__jcr_q3__discipline_economics,37,3,Size Q3,ANY,Q1_lowest,Q3,ANY,economics,0.018874786932507232,0.6625594207929525,1.86469660726333
+citation_q1_lowest__jcr_q3__discipline_math_phys_cs,33,3,Size Q2,ANY,Q1_lowest,Q3,ANY,math_phys_cs,0.05719883505427742,0.6533303468711131,1.8307016146892743
+citation_q1_lowest__jcr_q3__discipline_other,9,3,Size Q1 (smallest),ANY,Q1_lowest,Q3,ANY,other,-0.07702802356159777,0.48692343724637754,1.2871298246298666
+citation_q1_lowest__jcr_q3__discipline_psych_social,32,3,Size Q2,ANY,Q1_lowest,Q3,ANY,psych_social,0.028847051301836037,0.05306466512749127,0.09782388336603202
+citation_q1_lowest__jcr_q3__year_q1_oldest,12,3,Size Q1 (smallest),ANY,Q1_lowest,Q3,Q1_oldest,ANY,0.0005655513596922989,0.33499219112465317,0.8364250116263267
+citation_q1_lowest__jcr_q3__year_q2,18,3,Size Q2,ANY,Q1_lowest,Q3,Q2,ANY,0.01158988737984405,0.0904217172947479,0.15142578410252286
+citation_q1_lowest__jcr_q3__year_q3,32,3,Size Q2,ANY,Q1_lowest,Q3,Q3,ANY,0.03857942684415882,-0.2845936209671743,-0.7417079356596434
+citation_q1_lowest__jcr_q3__year_q4_newest,48,3,Size Q3,ANY,Q1_lowest,Q3,Q4_newest,ANY,-0.007744061311841916,0.34113156887759305,0.8564961207622722
+citation_q1_lowest__jcr_q4,49,2,Size Q3,ANY,Q1_lowest,Q4,ANY,ANY,-0.008046798269709903,0.02116616659233504,0.003972158105615353
+citation_q1_lowest__jcr_q4__discipline_bio_evo,4,3,Size Q1 (smallest),ANY,Q1_lowest,Q4,ANY,bio_evo,0.029364578564205806,0.37974996460347904,1.0008553914938803
+citation_q1_lowest__jcr_q4__discipline_economics,36,3,Size Q2,ANY,Q1_lowest,Q4,ANY,economics,-0.009032932282250062,-0.016478597195252465,-0.1099887437905435
+citation_q1_lowest__jcr_q4__discipline_math_phys_cs,31,3,Size Q2,ANY,Q1_lowest,Q4,ANY,math_phys_cs,0.032726300397752754,0.13119059893359275,0.2841828915193117
+citation_q1_lowest__jcr_q4__discipline_other,2,3,Size Q1 (smallest),ANY,Q1_lowest,Q4,ANY,other,0.0035415963721663495,-0.02144608802726337,-0.11751633358851714
+citation_q1_lowest__jcr_q4__discipline_psych_social,38,3,Size Q3,ANY,Q1_lowest,Q4,ANY,psych_social,0.022244932889182435,-0.01216343946387836,-0.0622043358569904
+citation_q1_lowest__jcr_q4__year_q1_oldest,3,3,Size Q1 (smallest),ANY,Q1_lowest,Q4,Q1_oldest,ANY,0.03552189731522307,0.10037513666222027,0.20418773618483896
+citation_q1_lowest__jcr_q4__year_q2,5,3,Size Q1 (smallest),ANY,Q1_lowest,Q4,Q2,ANY,0.015476944684226385,0.29000075750420024,0.7224526656383709
+citation_q1_lowest__jcr_q4__year_q3,16,3,Size Q2,ANY,Q1_lowest,Q4,Q3,ANY,0.0027004506580422826,-0.2323805283221649,-0.6419857886717284
+citation_q1_lowest__jcr_q4__year_q4_newest,25,3,Size Q2,ANY,Q1_lowest,Q4,Q4_newest,ANY,-0.0002134118087698325,0.37043018234639896,0.952342058491154
+citation_q1_lowest__year_q1_oldest,45,2,Size Q3,ANY,Q1_lowest,ANY,Q1_oldest,ANY,0.002776377041378685,0.5782608697103414,1.597747748366439
+citation_q1_lowest__year_q1_oldest__discipline_bio_evo,7,3,Size Q1 (smallest),ANY,Q1_lowest,ANY,Q1_oldest,bio_evo,0.005641661722698865,0.16990439189344178,0.39723915385349945
+citation_q1_lowest__year_q1_oldest__discipline_economics,20,3,Size Q2,ANY,Q1_lowest,ANY,Q1_oldest,economics,0.01400037868742055,0.31625423921018375,0.7913015139812664
+citation_q1_lowest__year_q1_oldest__discipline_math_phys_cs,13,3,Size Q1 (smallest),ANY,Q1_lowest,ANY,Q1_oldest,math_phys_cs,0.04739002648913767,-0.2803753406517751,-0.6179574079598551
+citation_q1_lowest__year_q1_oldest__discipline_multidisciplinary,3,3,Size Q1 (smallest),ANY,Q1_lowest,ANY,Q1_oldest,multidisciplinary,0.01273358130379425,0.5073058813102,1.3535470418845055
+citation_q1_lowest__year_q1_oldest__discipline_psych_social,16,3,Size Q2,ANY,Q1_lowest,ANY,Q1_oldest,psych_social,0.01595284803632802,0.36536371800173845,0.940315748524113
+citation_q1_lowest__year_q2,74,2,Size Q4,ANY,Q1_lowest,ANY,Q2,ANY,0.024101567903398537,0.3387559065507803,0.867822433781071
+citation_q1_lowest__year_q2__discipline_bio_evo,8,3,Size Q1 (smallest),ANY,Q1_lowest,ANY,Q2,bio_evo,0.029543809731045433,0.332404852836028,0.8236424379263755
+citation_q1_lowest__year_q2__discipline_economics,27,3,Size Q2,ANY,Q1_lowest,ANY,Q2,economics,0.04803585274938649,0.06815453462669781,0.09068372375909843
+citation_q1_lowest__year_q2__discipline_math_phys_cs,28,3,Size Q2,ANY,Q1_lowest,ANY,Q2,math_phys_cs,-0.05804393923358216,-0.21412541376680602,-0.6108595279142821
+citation_q1_lowest__year_q2__discipline_multidisciplinary,4,3,Size Q1 (smallest),ANY,Q1_lowest,ANY,Q2,multidisciplinary,-0.12366359977499734,-1.0758691619548248,-2.202604109772599
+citation_q1_lowest__year_q2__discipline_other,4,3,Size Q1 (smallest),ANY,Q1_lowest,ANY,Q2,other,-0.006446686745445883,-0.15577673819790747,-0.46095805836573883
+citation_q1_lowest__year_q2__discipline_psych_social,25,3,Size Q2,ANY,Q1_lowest,ANY,Q2,psych_social,0.07222755018794443,0.6385689088987264,1.831251566878402
+citation_q1_lowest__year_q3,162,2,Size Q5 (largest),ANY,Q1_lowest,ANY,Q3,ANY,0.03238860034867033,0.27977458728223575,0.722772384952946
+citation_q1_lowest__year_q3__discipline_bio_evo,14,3,Size Q1 (smallest),ANY,Q1_lowest,ANY,Q3,bio_evo,0.0036397552880039507,0.6355473706411275,1.775546655328516
+citation_q1_lowest__year_q3__discipline_economics,65,3,Size Q3,ANY,Q1_lowest,ANY,Q3,economics,-0.007056700548292148,0.11529219242800799,0.23282625801507986
+citation_q1_lowest__year_q3__discipline_math_phys_cs,40,3,Size Q3,ANY,Q1_lowest,ANY,Q3,math_phys_cs,0.03164851927681668,0.006866237450336728,-0.04940419865504545
+citation_q1_lowest__year_q3__discipline_multidisciplinary,18,3,Size Q2,ANY,Q1_lowest,ANY,Q3,multidisciplinary,-0.07032623624877227,0.396167497762735,1.0134999208365316
+citation_q1_lowest__year_q3__discipline_other,11,3,Size Q1 (smallest),ANY,Q1_lowest,ANY,Q3,other,-0.09238913393096217,0.4541051496353699,1.20022283521438
+citation_q1_lowest__year_q3__discipline_psych_social,48,3,Size Q3,ANY,Q1_lowest,ANY,Q3,psych_social,-0.006527232488752335,-0.031836290231649765,-0.15034935348089182
+citation_q1_lowest__year_q4_newest,417,2,Size Q5 (largest),ANY,Q1_lowest,ANY,Q4_newest,ANY,0.04518432680690193,0.3817960728493286,0.9943056357616619
+citation_q1_lowest__year_q4_newest__discipline_bio_evo,32,3,Size Q2,ANY,Q1_lowest,ANY,Q4_newest,bio_evo,0.002888453641771349,0.4929512450384053,1.3394572191153404
+citation_q1_lowest__year_q4_newest__discipline_economics,117,3,Size Q4,ANY,Q1_lowest,ANY,Q4_newest,economics,-0.023162784537435463,0.2327736029313955,0.5511185579214927
+citation_q1_lowest__year_q4_newest__discipline_math_phys_cs,150,3,Size Q4,ANY,Q1_lowest,ANY,Q4_newest,math_phys_cs,0.02838438018087452,0.40335046343872477,1.067459687860254
+citation_q1_lowest__year_q4_newest__discipline_multidisciplinary,60,3,Size Q3,ANY,Q1_lowest,ANY,Q4_newest,multidisciplinary,-0.002245170236389784,0.3647698371894114,0.9546208632702068
+citation_q1_lowest__year_q4_newest__discipline_other,21,3,Size Q2,ANY,Q1_lowest,ANY,Q4_newest,other,-0.006457524856687533,0.38686229877541,0.9852926187430259
+citation_q1_lowest__year_q4_newest__discipline_psych_social,120,3,Size Q4,ANY,Q1_lowest,ANY,Q4_newest,psych_social,0.04989270631396675,0.1057950267480764,0.2318915777121421
+citation_q2,681,1,Size Q5 (largest),ANY,Q2,ANY,ANY,ANY,0.029206462342777916,-0.20896522111823626,-0.4380251315519774
+citation_q2__discipline_bio_evo,86,2,Size Q4,ANY,Q2,ANY,ANY,bio_evo,0.055705897648373304,0.7718627958781473,2.262140696517074
+citation_q2__discipline_economics,184,2,Size Q5 (largest),ANY,Q2,ANY,ANY,economics,0.08110192680283292,0.6546789814320161,1.8528095337464847
+citation_q2__discipline_math_phys_cs,250,2,Size Q5 (largest),ANY,Q2,ANY,ANY,math_phys_cs,0.044530891020336805,-0.019202291042908715,-0.1164232638761961
+citation_q2__discipline_multidisciplinary,100,2,Size Q4,ANY,Q2,ANY,ANY,multidisciplinary,0.00703959429188475,0.17639740400383405,0.38764956123773614
+citation_q2__discipline_other,27,2,Size Q2,ANY,Q2,ANY,ANY,other,0.03872748478178087,0.1264832923101339,0.28067114479486505
+citation_q2__discipline_psych_social,164,2,Size Q5 (largest),ANY,Q2,ANY,ANY,psych_social,0.03624404732310677,-0.6160530240051991,-1.49216522249436
+citation_q2__jcr_q1,302,2,Size Q5 (largest),ANY,Q2,Q1,ANY,ANY,0.03057044013265675,0.442280740468398,1.175726756723169
+citation_q2__jcr_q1__discipline_bio_evo,34,3,Size Q2,ANY,Q2,Q1,ANY,bio_evo,0.035605125267544446,0.5875693568872365,1.6306723209931888
+citation_q2__jcr_q1__discipline_economics,24,3,Size Q2,ANY,Q2,Q1,ANY,economics,0.051387307682870885,0.8525776971664979,2.5615202836905357
+citation_q2__jcr_q1__discipline_math_phys_cs,105,3,Size Q4,ANY,Q2,Q1,ANY,math_phys_cs,0.020538859207668913,-0.022561529349590066,-0.14971579584335926
+citation_q2__jcr_q1__discipline_multidisciplinary,94,3,Size Q4,ANY,Q2,Q1,ANY,multidisciplinary,-0.012596992016594546,0.2493570654875987,0.5887848787222739
+citation_q2__jcr_q1__discipline_other,16,3,Size Q2,ANY,Q2,Q1,ANY,other,-0.0040333840854574685,-0.007633466592733747,-0.09726068847234688
+citation_q2__jcr_q1__discipline_psych_social,62,3,Size Q3,ANY,Q2,Q1,ANY,psych_social,0.04244455957337123,-0.2730706920934764,-0.6792723086760009
+citation_q2__jcr_q1__year_q1_oldest,35,3,Size Q2,ANY,Q2,Q1,Q1_oldest,ANY,0.03521527115428353,0.17014503571261494,0.393550103179061
+citation_q2__jcr_q1__year_q2,67,3,Size Q3,ANY,Q2,Q1,Q2,ANY,0.042309574921169914,-0.18517414636542864,-0.45465760899440094
+citation_q2__jcr_q1__year_q3,87,3,Size Q4,ANY,Q2,Q1,Q3,ANY,0.014556907255688362,0.7742730388330372,2.2610389642630455
+citation_q2__jcr_q1__year_q4_newest,113,3,Size Q4,ANY,Q2,Q1,Q4_newest,ANY,0.030023597319164916,-0.028591751129731224,-0.14105381044602036
+citation_q2__jcr_q2,229,2,Size Q5 (largest),ANY,Q2,Q2,ANY,ANY,-0.002995567878843268,0.4228393146680745,1.098973696700179
+citation_q2__jcr_q2__discipline_bio_evo,15,3,Size Q2,ANY,Q2,Q2,ANY,bio_evo,-0.03343238667722633,0.5522881159471426,1.4995874020173587
+citation_q2__jcr_q2__discipline_economics,101,3,Size Q4,ANY,Q2,Q2,ANY,economics,0.015421259044844952,0.17812643540769346,0.4598052752727703
+citation_q2__jcr_q2__discipline_math_phys_cs,94,3,Size Q4,ANY,Q2,Q2,ANY,math_phys_cs,-0.0207742376732438,-0.019864498646363304,-0.11546267542099597
+citation_q2__jcr_q2__discipline_multidisciplinary,4,3,Size Q1 (smallest),ANY,Q2,Q2,ANY,multidisciplinary,-0.009981401126345935,0.2245440293636872,0.5161806993399497
+citation_q2__jcr_q2__discipline_other,2,3,Size Q1 (smallest),ANY,Q2,Q2,ANY,other,0.023184749125678417,0.13347190710772605,0.28404413190627453
+citation_q2__jcr_q2__discipline_psych_social,52,3,Size Q3,ANY,Q2,Q2,ANY,psych_social,0.03835079336090787,0.33278515033790995,0.8248238019858237
+citation_q2__jcr_q2__year_q1_oldest,26,3,Size Q2,ANY,Q2,Q2,Q1_oldest,ANY,-0.018599110206724136,0.46844466619560654,1.2368140471691327
+citation_q2__jcr_q2__year_q2,70,3,Size Q3,ANY,Q2,Q2,Q2,ANY,0.027738226095079466,0.46471907787392075,1.2503108434592123
+citation_q2__jcr_q2__year_q3,90,3,Size Q4,ANY,Q2,Q2,Q3,ANY,0.006245913743216833,0.29742149604230655,0.724072958301945
+citation_q2__jcr_q2__year_q4_newest,43,3,Size Q3,ANY,Q2,Q2,Q4_newest,ANY,-0.015012241761645617,0.32115368140607603,0.7860817365561362
+citation_q2__jcr_q3,107,2,Size Q4,ANY,Q2,Q3,ANY,ANY,0.03555635873401073,0.29198314838478495,0.7472000373119548
+citation_q2__jcr_q3__discipline_bio_evo,33,3,Size Q2,ANY,Q2,Q3,ANY,bio_evo,0.027585414687036514,0.38115177644162906,0.9704580558056072
+citation_q2__jcr_q3__discipline_economics,42,3,Size Q3,ANY,Q2,Q3,ANY,economics,-0.028690385183454462,0.009439151414926164,-0.05565958691493315
+citation_q2__jcr_q3__discipline_math_phys_cs,32,3,Size Q2,ANY,Q2,Q3,ANY,math_phys_cs,-0.0471371386058737,0.20069660835335187,0.46786914792800305
+citation_q2__jcr_q3__discipline_other,2,3,Size Q1 (smallest),ANY,Q2,Q3,ANY,other,-0.031183905214578415,0.5586398258741394,1.4617509193536595
+citation_q2__jcr_q3__discipline_psych_social,32,3,Size Q2,ANY,Q2,Q3,ANY,psych_social,0.08448547387047513,0.4958302586562388,1.3296428772523439
+citation_q2__jcr_q3__year_q1_oldest,24,3,Size Q2,ANY,Q2,Q3,Q1_oldest,ANY,-0.06436127162055265,0.21893576873212586,0.5080890906566814
+citation_q2__jcr_q3__year_q2,34,3,Size Q2,ANY,Q2,Q3,Q2,ANY,0.10240595801595752,-0.027806161911591576,-0.1395154543007974
+citation_q2__jcr_q3__year_q3,35,3,Size Q2,ANY,Q2,Q3,Q3,ANY,-0.03339007731354327,-0.5586809109363006,-1.2973185923979247
+citation_q2__jcr_q3__year_q4_newest,14,3,Size Q1 (smallest),ANY,Q2,Q3,Q4_newest,ANY,0.02028566861077055,0.24840964965889387,0.6137492907757
+citation_q2__jcr_q4,20,2,Size Q2,ANY,Q2,Q4,ANY,ANY,-0.10119828816330521,0.08779692742098899,0.14515887227797863
+citation_q2__jcr_q4__discipline_bio_evo,3,3,Size Q1 (smallest),ANY,Q2,Q4,ANY,bio_evo,0.015313220659135832,-0.35766365038484804,-0.9569884684965575
+citation_q2__jcr_q4__discipline_economics,13,3,Size Q1 (smallest),ANY,Q2,Q4,ANY,economics,-0.0739553594199428,0.036562175481215396,0.057366396259708775
+citation_q2__jcr_q4__discipline_math_phys_cs,13,3,Size Q1 (smallest),ANY,Q2,Q4,ANY,math_phys_cs,-0.008924203476072267,0.41289150807131864,1.064152106912378
+citation_q2__jcr_q4__discipline_psych_social,13,3,Size Q1 (smallest),ANY,Q2,Q4,ANY,psych_social,0.02395244701627795,0.5418946255531861,1.5001702559704022
+citation_q2__jcr_q4__year_q1_oldest,6,3,Size Q1 (smallest),ANY,Q2,Q4,Q1_oldest,ANY,-0.016776857138435988,0.41699948005745346,1.0748234840943849
+citation_q2__jcr_q4__year_q2,8,3,Size Q1 (smallest),ANY,Q2,Q4,Q2,ANY,-0.03662820891614845,0.36058034591743876,0.9363050711864666
+citation_q2__jcr_q4__year_q3,5,3,Size Q1 (smallest),ANY,Q2,Q4,Q3,ANY,-0.005347239336133934,0.41120355420181687,1.0608813218985433
+citation_q2__year_q1_oldest,100,2,Size Q4,ANY,Q2,ANY,Q1_oldest,ANY,0.02638942265434965,-0.14343694753577776,-0.42059975338832184
+citation_q2__year_q1_oldest__discipline_bio_evo,14,3,Size Q1 (smallest),ANY,Q2,ANY,Q1_oldest,bio_evo,-0.0366685016560166,0.52465979350477,1.4044300171449222
+citation_q2__year_q1_oldest__discipline_economics,29,3,Size Q2,ANY,Q2,ANY,Q1_oldest,economics,0.008037649233380033,0.17579470170408018,0.409601554544214
+citation_q2__year_q1_oldest__discipline_math_phys_cs,34,3,Size Q2,ANY,Q2,ANY,Q1_oldest,math_phys_cs,0.008074117341875083,0.4135406920598898,1.075529600452824
+citation_q2__year_q1_oldest__discipline_multidisciplinary,13,3,Size Q1 (smallest),ANY,Q2,ANY,Q1_oldest,multidisciplinary,0.005931434670328163,-0.47961081968874203,-1.2210769402271076
+citation_q2__year_q1_oldest__discipline_other,8,3,Size Q1 (smallest),ANY,Q2,ANY,Q1_oldest,other,0.007494591314831399,0.36591182244687803,0.932348832757715
+citation_q2__year_q1_oldest__discipline_psych_social,30,3,Size Q2,ANY,Q2,ANY,Q1_oldest,psych_social,0.028409066437919003,0.38781714531649675,0.9985471817567384
+citation_q2__year_q2,190,2,Size Q5 (largest),ANY,Q2,ANY,Q2,ANY,0.04786265158577665,0.5692109772848043,1.5612462612702884
+citation_q2__year_q2__discipline_bio_evo,26,3,Size Q2,ANY,Q2,ANY,Q2,bio_evo,0.09626253708128037,0.6598132559942159,1.8778962545309899
+citation_q2__year_q2__discipline_economics,58,3,Size Q3,ANY,Q2,ANY,Q2,economics,0.05521830185178822,0.5463482846108032,1.4887566022787926
+citation_q2__year_q2__discipline_math_phys_cs,53,3,Size Q3,ANY,Q2,ANY,Q2,math_phys_cs,-0.015528422952454232,0.35234836829572447,0.8953221095318035
+citation_q2__year_q2__discipline_multidisciplinary,32,3,Size Q2,ANY,Q2,ANY,Q2,multidisciplinary,0.008545898039379768,0.1094913094527476,0.23931076652948421
+citation_q2__year_q2__discipline_other,9,3,Size Q1 (smallest),ANY,Q2,ANY,Q2,other,0.017472935357927332,-0.7022794475866405,-1.6812154200956788
+citation_q2__year_q2__discipline_psych_social,45,3,Size Q3,ANY,Q2,ANY,Q2,psych_social,0.04267890516841316,0.09341960244247843,0.25189791646743176
+citation_q2__year_q3,219,2,Size Q5 (largest),ANY,Q2,ANY,Q3,ANY,0.044676887630660383,0.5697886655019674,1.569009488097274
+citation_q2__year_q3__discipline_bio_evo,23,3,Size Q2,ANY,Q2,ANY,Q3,bio_evo,0.015078159808356618,0.04076262407371931,0.01856949455682792
+citation_q2__year_q3__discipline_economics,75,3,Size Q4,ANY,Q2,ANY,Q3,economics,0.07258044942144459,0.6818667560107463,1.967949336043441
+citation_q2__year_q3__discipline_math_phys_cs,80,3,Size Q4,ANY,Q2,ANY,Q3,math_phys_cs,0.007883283137519233,-0.07849385248750912,-0.2617427256987059
+citation_q2__year_q3__discipline_multidisciplinary,29,3,Size Q2,ANY,Q2,ANY,Q3,multidisciplinary,-0.01574708755886648,0.47160248053937687,1.240831161808415
+citation_q2__year_q3__discipline_other,4,3,Size Q1 (smallest),ANY,Q2,ANY,Q3,other,-0.02447804546431795,0.4369584529883616,1.127737785648747
+citation_q2__year_q3__discipline_psych_social,50,3,Size Q3,ANY,Q2,ANY,Q3,psych_social,-0.006000923475385664,-0.1207128356608795,-0.4044294106250567
+citation_q2__year_q4_newest,172,2,Size Q5 (largest),ANY,Q2,ANY,Q4_newest,ANY,0.023960553247967434,0.19401087455818586,0.4364235652202801
+citation_q2__year_q4_newest__discipline_bio_evo,23,3,Size Q2,ANY,Q2,ANY,Q4_newest,bio_evo,-0.036280887683988496,0.5502699821479075,1.4867618335003094
+citation_q2__year_q4_newest__discipline_economics,22,3,Size Q2,ANY,Q2,ANY,Q4_newest,economics,0.009447607039649348,0.4647969016717824,1.2264058046255941
+citation_q2__year_q4_newest__discipline_math_phys_cs,83,3,Size Q4,ANY,Q2,ANY,Q4_newest,math_phys_cs,-0.02893012003179483,0.2910322953548981,0.7224567982270753
+citation_q2__year_q4_newest__discipline_multidisciplinary,26,3,Size Q2,ANY,Q2,ANY,Q4_newest,multidisciplinary,-0.005243442814311335,0.06570903552442324,0.11437196063145356
+citation_q2__year_q4_newest__discipline_other,6,3,Size Q1 (smallest),ANY,Q2,ANY,Q4_newest,other,-0.0012196375536530472,-0.476214904657309,-1.1767074810748859
+citation_q2__year_q4_newest__discipline_psych_social,39,3,Size Q3,ANY,Q2,ANY,Q4_newest,psych_social,-0.01926146682179065,-0.18275817143053277,-0.43541603756800945
+citation_q3,693,1,Size Q5 (largest),ANY,Q3,ANY,ANY,ANY,0.05050783618215626,0.46538868638743486,1.2339697929933107
+citation_q3__discipline_bio_evo,123,2,Size Q4,ANY,Q3,ANY,ANY,bio_evo,-0.030153872927785833,0.22670471760501,0.527927741678003
+citation_q3__discipline_economics,159,2,Size Q5 (largest),ANY,Q3,ANY,ANY,economics,0.0046405023726215815,0.0798837750441783,0.16264401403212903
+citation_q3__discipline_math_phys_cs,208,2,Size Q5 (largest),ANY,Q3,ANY,ANY,math_phys_cs,-0.048466188073914146,0.22121924254168604,0.5513765268240806
+citation_q3__discipline_multidisciplinary,121,2,Size Q4,ANY,Q3,ANY,ANY,multidisciplinary,-0.031259365241488736,0.5404869029210958,1.473122145008488
+citation_q3__discipline_other,24,2,Size Q2,ANY,Q3,ANY,ANY,other,0.047631445168692894,0.11698929561048281,0.23219675349339208
+citation_q3__discipline_psych_social,189,2,Size Q5 (largest),ANY,Q3,ANY,ANY,psych_social,-0.025459753831983515,0.5863869298782899,1.612259174656315
+citation_q3__jcr_q1,382,2,Size Q5 (largest),ANY,Q3,Q1,ANY,ANY,-0.002871356766185084,0.724072606294051,2.0785058590486085
+citation_q3__jcr_q1__discipline_bio_evo,55,3,Size Q3,ANY,Q3,Q1,ANY,bio_evo,0.03367090487404573,0.5680907377885732,1.5531656993145184
+citation_q3__jcr_q1__discipline_economics,50,3,Size Q3,ANY,Q3,Q1,ANY,economics,0.03142105801824635,-0.11611419823895365,-0.34026373895859363
+citation_q3__jcr_q1__discipline_math_phys_cs,85,3,Size Q4,ANY,Q3,Q1,ANY,math_phys_cs,-0.0016735219565638994,0.30051926864057316,0.770618145934188
+citation_q3__jcr_q1__discipline_multidisciplinary,118,3,Size Q4,ANY,Q3,Q1,ANY,multidisciplinary,0.012983791668453884,0.7082803556608114,2.018507585199121
+citation_q3__jcr_q1__discipline_other,14,3,Size Q1 (smallest),ANY,Q3,Q1,ANY,other,-0.005973594745756099,-0.05087600059440204,-0.19057636929408361
+citation_q3__jcr_q1__discipline_psych_social,102,3,Size Q4,ANY,Q3,Q1,ANY,psych_social,-0.0569724911061534,0.5102177569555196,1.4016360692892906
+citation_q3__jcr_q1__year_q1_oldest,52,3,Size Q3,ANY,Q3,Q1,Q1_oldest,ANY,-0.010783669710915203,0.5857927907791687,1.6162036511018314
+citation_q3__jcr_q1__year_q2,151,3,Size Q4,ANY,Q3,Q1,Q2,ANY,0.01613689724528695,0.48071397436528934,1.2882726443523602
+citation_q3__jcr_q1__year_q3,130,3,Size Q4,ANY,Q3,Q1,Q3,ANY,-0.0360963467367102,0.6487752903786255,1.8215813093100426
+citation_q3__jcr_q1__year_q4_newest,49,3,Size Q3,ANY,Q3,Q1,Q4_newest,ANY,0.00404736165130045,0.3919526943849477,0.9969942026053306
+citation_q3__jcr_q2,189,2,Size Q5 (largest),ANY,Q3,Q2,ANY,ANY,-0.006324646235268201,0.29994336856275333,0.7316677026663657
+citation_q3__jcr_q2__discipline_bio_evo,13,3,Size Q1 (smallest),ANY,Q3,Q2,ANY,bio_evo,-0.005727010330320315,-0.009825566481853213,-0.07012960784490548
+citation_q3__jcr_q2__discipline_economics,87,3,Size Q4,ANY,Q3,Q2,ANY,economics,0.0444235529892038,0.4668636629270468,1.2447674525493817
+citation_q3__jcr_q2__discipline_math_phys_cs,61,3,Size Q3,ANY,Q3,Q2,ANY,math_phys_cs,-0.02434500789717925,0.2674982954350067,0.6476625057771241
+citation_q3__jcr_q2__discipline_multidisciplinary,2,3,Size Q1 (smallest),ANY,Q3,Q2,ANY,multidisciplinary,-0.004163739443581254,0.4494976013190501,1.167098547291203
+citation_q3__jcr_q2__discipline_other,5,3,Size Q1 (smallest),ANY,Q3,Q2,ANY,other,0.03003914419734385,-0.15592106091112365,-0.46828887336309394
+citation_q3__jcr_q2__discipline_psych_social,47,3,Size Q3,ANY,Q3,Q2,ANY,psych_social,-0.0072101427721588994,0.45404878350962735,1.1887863728120363
+citation_q3__jcr_q2__year_q1_oldest,48,3,Size Q3,ANY,Q3,Q2,Q1_oldest,ANY,0.011943690617123318,0.4229728588746939,1.099152113270207
+citation_q3__jcr_q2__year_q2,83,3,Size Q4,ANY,Q3,Q2,Q2,ANY,0.016856802144884164,0.06694952739148867,0.13374545700494803
+citation_q3__jcr_q2__year_q3,52,3,Size Q3,ANY,Q3,Q2,Q3,ANY,-0.004751828671257646,0.09238561086723736,0.18476782766127942
+citation_q3__jcr_q2__year_q4_newest,6,3,Size Q1 (smallest),ANY,Q3,Q2,Q4_newest,ANY,-0.020275798798363314,0.4460207630482269,1.1686813287649984
+citation_q3__jcr_q3,93,2,Size Q4,ANY,Q3,Q3,ANY,ANY,0.04582271242066133,0.39343825074900723,1.082949901890202
+citation_q3__jcr_q3__discipline_bio_evo,48,3,Size Q3,ANY,Q3,Q3,ANY,bio_evo,0.0424534108631204,0.21515367520719297,0.5136943114513591
+citation_q3__jcr_q3__discipline_economics,13,3,Size Q1 (smallest),ANY,Q3,Q3,ANY,economics,0.010506672302125966,0.32003756456444193,0.7914160343720948
+citation_q3__jcr_q3__discipline_math_phys_cs,48,3,Size Q3,ANY,Q3,Q3,ANY,math_phys_cs,0.011609586714942284,-0.154307781727418,-0.4562603381559813
+citation_q3__jcr_q3__discipline_other,4,3,Size Q1 (smallest),ANY,Q3,Q3,ANY,other,-0.023806246480108234,0.23898969186216126,0.5638477258597251
+citation_q3__jcr_q3__discipline_psych_social,27,3,Size Q2,ANY,Q3,Q3,ANY,psych_social,0.054852786301810584,0.745170623986617,2.1798966976716554
+citation_q3__jcr_q3__year_q1_oldest,34,3,Size Q2,ANY,Q3,Q3,Q1_oldest,ANY,0.025335552930075982,-0.15317759818961688,-0.3955476032977863
+citation_q3__jcr_q3__year_q2,34,3,Size Q2,ANY,Q3,Q3,Q2,ANY,0.03687501712564535,0.04316579394409592,0.08220126755182305
+citation_q3__jcr_q3__year_q3,23,3,Size Q2,ANY,Q3,Q3,Q3,ANY,-0.044346225620072004,0.4457417537060333,1.164247140558008
+citation_q3__jcr_q3__year_q4_newest,2,3,Size Q1 (smallest),ANY,Q3,Q3,Q4_newest,ANY,-0.007914470991254816,0.4847005217559093,1.2787878764385419
+citation_q3__jcr_q4,13,2,Size Q1 (smallest),ANY,Q3,Q4,ANY,ANY,-0.17793815072453112,-0.0408619831714081,-0.1924168017790282
+citation_q3__jcr_q4__discipline_bio_evo,4,3,Size Q1 (smallest),ANY,Q3,Q4,ANY,bio_evo,0.060536248126863514,0.272275150744811,0.7282810462230876
+citation_q3__jcr_q4__discipline_economics,7,3,Size Q1 (smallest),ANY,Q3,Q4,ANY,economics,-0.1756329957254339,0.16311800572146506,0.35854524897679046
+citation_q3__jcr_q4__discipline_math_phys_cs,9,3,Size Q1 (smallest),ANY,Q3,Q4,ANY,math_phys_cs,-0.14768054570829955,0.13432705494631855,0.2893847080781495
+citation_q3__jcr_q4__discipline_psych_social,7,3,Size Q1 (smallest),ANY,Q3,Q4,ANY,psych_social,-0.20823577777620242,-0.0753177792542226,-0.27424086603378894
+citation_q3__jcr_q4__year_q1_oldest,6,3,Size Q1 (smallest),ANY,Q3,Q4,Q1_oldest,ANY,-0.01615515585815998,-0.06275933888684182,-0.24216069254135728
+citation_q3__jcr_q4__year_q2,7,3,Size Q1 (smallest),ANY,Q3,Q4,Q2,ANY,-0.18370003736094723,0.09760669959455259,0.18415238983575857
+citation_q3__year_q1_oldest,146,2,Size Q4,ANY,Q3,ANY,Q1_oldest,ANY,0.008504552284120585,0.5720476219343099,1.5595712912792399
+citation_q3__year_q1_oldest__discipline_bio_evo,39,3,Size Q3,ANY,Q3,ANY,Q1_oldest,bio_evo,0.015913777191677764,0.06570323400566509,0.09365958499058435
+citation_q3__year_q1_oldest__discipline_economics,42,3,Size Q3,ANY,Q3,ANY,Q1_oldest,economics,-0.008962668340167334,0.6453382680105123,1.806794191669865
+citation_q3__year_q1_oldest__discipline_math_phys_cs,46,3,Size Q3,ANY,Q3,ANY,Q1_oldest,math_phys_cs,-0.0015902145313828515,-0.26888348566622006,-0.6736487296507323
+citation_q3__year_q1_oldest__discipline_multidisciplinary,10,3,Size Q1 (smallest),ANY,Q3,ANY,Q1_oldest,multidisciplinary,-0.09633005893306025,0.3242576330191844,0.8096181007936037
+citation_q3__year_q1_oldest__discipline_other,3,3,Size Q1 (smallest),ANY,Q3,ANY,Q1_oldest,other,0.012782933949668299,0.34259454501539,0.8715077492311035
+citation_q3__year_q1_oldest__discipline_psych_social,51,3,Size Q3,ANY,Q3,ANY,Q1_oldest,psych_social,-0.010619558255633663,0.6651986846612844,1.880752668054346
+citation_q3__year_q2,284,2,Size Q5 (largest),ANY,Q3,ANY,Q2,ANY,0.03666230304960317,0.29366670144468077,0.7614774955028728
+citation_q3__year_q2__discipline_bio_evo,49,3,Size Q3,ANY,Q3,ANY,Q2,bio_evo,0.00600826009038993,-0.004314660103425072,-0.09870916081324858
+citation_q3__year_q2__discipline_economics,82,3,Size Q4,ANY,Q3,ANY,Q2,economics,-0.051178492467364584,-0.0269893199913747,-0.15797485384201648
+citation_q3__year_q2__discipline_math_phys_cs,68,3,Size Q3,ANY,Q3,ANY,Q2,math_phys_cs,-0.08240054285601864,0.2333513110167735,0.561446930241032
+citation_q3__year_q2__discipline_multidisciplinary,57,3,Size Q3,ANY,Q3,ANY,Q2,multidisciplinary,0.012642425933717748,0.7105399975465688,2.046516125670516
+citation_q3__year_q2__discipline_other,13,3,Size Q1 (smallest),ANY,Q3,ANY,Q2,other,0.03939721250458463,-0.3019067437165029,-0.7936244554604653
+citation_q3__year_q2__discipline_psych_social,68,3,Size Q3,ANY,Q3,ANY,Q2,psych_social,-0.03467263515865892,0.3617748627351675,0.9099854084565675
+citation_q3__year_q3,206,2,Size Q5 (largest),ANY,Q3,ANY,Q3,ANY,0.0383193419766814,0.5092651853250417,1.3828706992382245
+citation_q3__year_q3__discipline_bio_evo,31,3,Size Q2,ANY,Q3,ANY,Q3,bio_evo,0.004955632129549065,0.6184425859935038,1.7064501695547936
+citation_q3__year_q3__discipline_economics,33,3,Size Q2,ANY,Q3,ANY,Q3,economics,0.0034400350245227863,0.07970996790001325,0.13805368072931332
+citation_q3__year_q3__discipline_math_phys_cs,72,3,Size Q4,ANY,Q3,ANY,Q3,math_phys_cs,-0.029964086771767273,0.23570344937711488,0.5436037632539309
+citation_q3__year_q3__discipline_multidisciplinary,39,3,Size Q3,ANY,Q3,ANY,Q3,multidisciplinary,0.043449662764111184,0.6299441863384797,1.7931758019044437
+citation_q3__year_q3__discipline_other,4,3,Size Q1 (smallest),ANY,Q3,ANY,Q3,other,0.026482038338223133,0.27872200899193217,0.6700945946290529
+citation_q3__year_q3__discipline_psych_social,55,3,Size Q3,ANY,Q3,ANY,Q3,psych_social,0.009538613398113878,0.701782336760258,2.0218772344504234
+citation_q3__year_q4_newest,57,2,Size Q3,ANY,Q3,ANY,Q4_newest,ANY,-0.07683343923167478,0.22106810503075056,0.5256263666067954
+citation_q3__year_q4_newest__discipline_bio_evo,4,3,Size Q1 (smallest),ANY,Q3,ANY,Q4_newest,bio_evo,-0.00029777224934195157,0.4435765553799225,1.155066356332544
+citation_q3__year_q4_newest__discipline_economics,2,3,Size Q1 (smallest),ANY,Q3,ANY,Q4_newest,economics,-0.006849902233243898,0.28869370711713566,0.7262326332643068
+citation_q3__year_q4_newest__discipline_math_phys_cs,22,3,Size Q2,ANY,Q3,ANY,Q4_newest,math_phys_cs,-0.030416063826045347,0.37301904055346574,0.93879598902806
+citation_q3__year_q4_newest__discipline_multidisciplinary,15,3,Size Q2,ANY,Q3,ANY,Q4_newest,multidisciplinary,-0.037835198005796364,0.18486297222842304,0.41862323410455743
+citation_q3__year_q4_newest__discipline_other,4,3,Size Q1 (smallest),ANY,Q3,ANY,Q4_newest,other,0.014934900044638983,0.22025954815615745,0.5026093575074708
+citation_q3__year_q4_newest__discipline_psych_social,15,3,Size Q2,ANY,Q3,ANY,Q4_newest,psych_social,0.03604123258515105,0.5634437212633047,1.531758174569849
+citation_q4_highest,684,1,Size Q5 (largest),ANY,Q4_highest,ANY,ANY,ANY,0.08356969817403859,0.01776492687930198,0.05740001327936209
+citation_q4_highest__discipline_bio_evo,162,2,Size Q5 (largest),ANY,Q4_highest,ANY,ANY,bio_evo,0.022797537485002517,0.25738015863169755,0.6635821911408937
+citation_q4_highest__discipline_economics,158,2,Size Q5 (largest),ANY,Q4_highest,ANY,ANY,economics,-0.026947902998090717,-0.5736622006409413,-1.2370072749540773
+citation_q4_highest__discipline_math_phys_cs,116,2,Size Q4,ANY,Q4_highest,ANY,ANY,math_phys_cs,-0.001143134992083882,0.24798562221596168,0.6514505001618898
+citation_q4_highest__discipline_multidisciplinary,164,2,Size Q5 (largest),ANY,Q4_highest,ANY,ANY,multidisciplinary,0.014544449884930302,0.024745385774667377,0.1509208930248455
+citation_q4_highest__discipline_other,12,2,Size Q1 (smallest),ANY,Q4_highest,ANY,ANY,other,0.02688135965589587,0.21776663355896408,0.545242096256657
+citation_q4_highest__discipline_psych_social,175,2,Size Q5 (largest),ANY,Q4_highest,ANY,ANY,psych_social,0.060438526311754226,0.07429417066643167,0.38728597290460626
+citation_q4_highest__jcr_q1,462,2,Size Q5 (largest),ANY,Q4_highest,Q1,ANY,ANY,-0.023754971584440187,0.04783415886630147,0.11482598907892265
+citation_q4_highest__jcr_q1__discipline_bio_evo,92,3,Size Q4,ANY,Q4_highest,Q1,ANY,bio_evo,0.022342098394273768,0.46976211759318437,1.2574989252005453
+citation_q4_highest__jcr_q1__discipline_economics,76,3,Size Q4,ANY,Q4_highest,Q1,ANY,economics,0.04394323889338875,0.044735313384428925,0.13982123660191256
+citation_q4_highest__jcr_q1__discipline_math_phys_cs,41,3,Size Q3,ANY,Q4_highest,Q1,ANY,math_phys_cs,-0.04343336061712196,0.25854867789019675,0.6109980198457275
+citation_q4_highest__jcr_q1__discipline_multidisciplinary,155,3,Size Q5 (largest),ANY,Q4_highest,Q1,ANY,multidisciplinary,0.0443353381149362,-0.02330223627021381,-0.07978285822128894
+citation_q4_highest__jcr_q1__discipline_other,11,3,Size Q1 (smallest),ANY,Q4_highest,Q1,ANY,other,0.02135811511599923,0.18882195247083441,0.4287100884034669
+citation_q4_highest__jcr_q1__discipline_psych_social,130,3,Size Q4,ANY,Q4_highest,Q1,ANY,psych_social,0.0028219894957930494,0.20934401048093565,0.538631464313908
+citation_q4_highest__jcr_q1__year_q1_oldest,255,3,Size Q5 (largest),ANY,Q4_highest,Q1,Q1_oldest,ANY,0.021925566235422165,-0.10992133525143533,-0.17259412480250638
+citation_q4_highest__jcr_q1__year_q2,145,3,Size Q4,ANY,Q4_highest,Q1,Q2,ANY,0.04149376614812917,0.3099501936919444,0.780795599293156
+citation_q4_highest__jcr_q1__year_q3,51,3,Size Q3,ANY,Q4_highest,Q1,Q3,ANY,0.009785326956946718,0.2214381505337311,0.5277992340638673
+citation_q4_highest__jcr_q1__year_q4_newest,11,3,Size Q1 (smallest),ANY,Q4_highest,Q1,Q4_newest,ANY,0.0002856181455046676,0.4058601666775299,1.0410535586590008
+citation_q4_highest__jcr_q2,103,2,Size Q4,ANY,Q4_highest,Q2,ANY,ANY,-0.05705888307170164,0.15447663359711103,0.3755400431865887
+citation_q4_highest__jcr_q2__discipline_bio_evo,18,3,Size Q2,ANY,Q4_highest,Q2,ANY,bio_evo,0.08306921784007452,0.0030148435917449943,-0.03169804287806791
+citation_q4_highest__jcr_q2__discipline_economics,50,3,Size Q3,ANY,Q4_highest,Q2,ANY,economics,-0.11618656154549212,0.06585445098946026,0.15956968592747403
+citation_q4_highest__jcr_q2__discipline_math_phys_cs,22,3,Size Q2,ANY,Q4_highest,Q2,ANY,math_phys_cs,-0.005836762349566783,0.5165256569074544,1.3932780675803063
+citation_q4_highest__jcr_q2__discipline_psych_social,24,3,Size Q2,ANY,Q4_highest,Q2,ANY,psych_social,-0.04105780259843758,-1.01595117556185,-1.9788830823983314
+citation_q4_highest__jcr_q2__year_q1_oldest,70,3,Size Q3,ANY,Q4_highest,Q2,Q1_oldest,ANY,-0.054607031107704714,0.024400344420170125,0.03470025983596207
+citation_q4_highest__jcr_q2__year_q2,26,3,Size Q2,ANY,Q4_highest,Q2,Q2,ANY,0.07593199872894986,0.32848674151171775,0.828837419819279
+citation_q4_highest__jcr_q2__year_q3,7,3,Size Q1 (smallest),ANY,Q4_highest,Q2,Q3,ANY,0.04089836541736033,-0.259146550368572,-0.7149267740334634
+citation_q4_highest__jcr_q3,88,2,Size Q4,ANY,Q4_highest,Q3,ANY,ANY,-0.033681673169891964,0.1627890874233795,0.37206787394627283
+citation_q4_highest__jcr_q3__discipline_bio_evo,47,3,Size Q3,ANY,Q4_highest,Q3,ANY,bio_evo,-0.06304497257944036,-0.07243227866421609,-0.2424924122577473
+citation_q4_highest__jcr_q3__discipline_economics,28,3,Size Q2,ANY,Q4_highest,Q3,ANY,economics,0.032463190594553,-0.4710469236684886,-1.1663315839852457
+citation_q4_highest__jcr_q3__discipline_math_phys_cs,39,3,Size Q3,ANY,Q4_highest,Q3,ANY,math_phys_cs,-0.04413084423617616,0.17387267046043806,0.3933187576844728
+citation_q4_highest__jcr_q3__discipline_psych_social,14,3,Size Q1 (smallest),ANY,Q4_highest,Q3,ANY,psych_social,-0.03330730136311147,-0.42271407353014223,-1.1047269252226317
+citation_q4_highest__jcr_q3__year_q1_oldest,72,3,Size Q4,ANY,Q4_highest,Q3,Q1_oldest,ANY,-0.04223229722257549,0.26145609312126566,0.6374398323609864
+citation_q4_highest__jcr_q3__year_q2,13,3,Size Q1 (smallest),ANY,Q4_highest,Q3,Q2,ANY,0.07444647216721283,-1.0146865040772206,-2.368017330496069
+citation_q4_highest__jcr_q3__year_q3,2,3,Size Q1 (smallest),ANY,Q4_highest,Q3,Q3,ANY,0.005274407703915333,-0.1475192100517995,-0.4159771350309813
+citation_q4_highest__jcr_q4,7,2,Size Q1 (smallest),ANY,Q4_highest,Q4,ANY,ANY,-0.02642590042030905,0.21181215934822495,0.4798362506145672
+citation_q4_highest__jcr_q4__discipline_bio_evo,2,3,Size Q1 (smallest),ANY,Q4_highest,Q4,ANY,bio_evo,0.013410029450296448,-1.488785782527233,-3.27649892839646
+citation_q4_highest__jcr_q4__discipline_economics,3,3,Size Q1 (smallest),ANY,Q4_highest,Q4,ANY,economics,-0.033141456406077685,0.14824645810196324,0.4025774253124432
+citation_q4_highest__jcr_q4__discipline_math_phys_cs,4,3,Size Q1 (smallest),ANY,Q4_highest,Q4,ANY,math_phys_cs,0.020849379538733833,-1.455962696742321,-3.1108281361347
+citation_q4_highest__jcr_q4__discipline_psych_social,4,3,Size Q1 (smallest),ANY,Q4_highest,Q4,ANY,psych_social,0.020206305026252116,0.2110526769644969,0.5149305117840007
+citation_q4_highest__jcr_q4__year_q1_oldest,5,3,Size Q1 (smallest),ANY,Q4_highest,Q4,Q1_oldest,ANY,0.03495031857414945,0.4482471157398773,1.1879175755097902
+citation_q4_highest__year_q1_oldest,414,2,Size Q5 (largest),ANY,Q4_highest,ANY,Q1_oldest,ANY,0.028294565915305447,-0.6646711221052256,-1.5022425400501056
+citation_q4_highest__year_q1_oldest__discipline_bio_evo,110,3,Size Q4,ANY,Q4_highest,ANY,Q1_oldest,bio_evo,-0.003903624773781435,0.5166609991875243,1.3862037115012047
+citation_q4_highest__year_q1_oldest__discipline_economics,122,3,Size Q4,ANY,Q4_highest,ANY,Q1_oldest,economics,0.02894354128761993,-0.5562020531011668,-1.3901831057951417
+citation_q4_highest__year_q1_oldest__discipline_math_phys_cs,66,3,Size Q3,ANY,Q4_highest,ANY,Q1_oldest,math_phys_cs,-0.04862226283625851,-0.057275135389273014,-0.21806396517014148
+citation_q4_highest__year_q1_oldest__discipline_multidisciplinary,77,3,Size Q4,ANY,Q4_highest,ANY,Q1_oldest,multidisciplinary,0.002306200702229202,-0.34698233909537857,-0.921367938050187
+citation_q4_highest__year_q1_oldest__discipline_other,5,3,Size Q1 (smallest),ANY,Q4_highest,ANY,Q1_oldest,other,0.0012259708238036339,0.2506801495241079,0.5837872279400066
+citation_q4_highest__year_q1_oldest__discipline_psych_social,102,3,Size Q4,ANY,Q4_highest,ANY,Q1_oldest,psych_social,0.05877195064151194,-0.21631350027651064,-0.4358937489276691
+citation_q4_highest__year_q2,195,2,Size Q5 (largest),ANY,Q4_highest,ANY,Q2,ANY,0.05277481937332853,-0.43173962739239596,-1.1127509819751547
+citation_q4_highest__year_q2__discipline_bio_evo,44,3,Size Q3,ANY,Q4_highest,ANY,Q2,bio_evo,0.023623816807308833,-0.46486121323834323,-1.159738118180192
+citation_q4_highest__year_q2__discipline_economics,28,3,Size Q2,ANY,Q4_highest,ANY,Q2,economics,-0.057002293428541136,-0.3438682944290883,-0.9163439022784993
+citation_q4_highest__year_q2__discipline_math_phys_cs,29,3,Size Q2,ANY,Q4_highest,ANY,Q2,math_phys_cs,0.017304224410890568,0.26493048760165305,0.6543584120983318
+citation_q4_highest__year_q2__discipline_multidisciplinary,62,3,Size Q3,ANY,Q4_highest,ANY,Q2,multidisciplinary,-0.028446478009979865,-0.030410169632538824,-0.11916785908595366
+citation_q4_highest__year_q2__discipline_other,3,3,Size Q1 (smallest),ANY,Q4_highest,ANY,Q2,other,0.014896852413057333,0.3737606812801911,0.9407548360739585
+citation_q4_highest__year_q2__discipline_psych_social,55,3,Size Q3,ANY,Q4_highest,ANY,Q2,psych_social,0.016146086294689835,-0.24745033092429702,-0.6753441241667235
+citation_q4_highest__year_q3,63,2,Size Q3,ANY,Q4_highest,ANY,Q3,ANY,-0.02226855592008525,0.0953120399799896,0.19113805420343433
+citation_q4_highest__year_q3__discipline_bio_evo,7,3,Size Q1 (smallest),ANY,Q4_highest,ANY,Q3,bio_evo,-0.012561159690977064,0.5067060599016103,1.3475638481690917
+citation_q4_highest__year_q3__discipline_economics,7,3,Size Q1 (smallest),ANY,Q4_highest,ANY,Q3,economics,0.046390357255179704,-1.050217369269634,-2.4000173953459227
+citation_q4_highest__year_q3__discipline_math_phys_cs,18,3,Size Q2,ANY,Q4_highest,ANY,Q3,math_phys_cs,-0.0010439230608552165,0.41366309019793596,1.0789486818228597
+citation_q4_highest__year_q3__discipline_multidisciplinary,22,3,Size Q2,ANY,Q4_highest,ANY,Q3,multidisciplinary,-0.03133865928725493,0.5229237684892568,1.3982862882529137
+citation_q4_highest__year_q3__discipline_other,3,3,Size Q1 (smallest),ANY,Q4_highest,ANY,Q3,other,-0.004494624694944332,0.0788866092053009,0.1342572622214194
+citation_q4_highest__year_q3__discipline_psych_social,14,3,Size Q1 (smallest),ANY,Q4_highest,ANY,Q3,psych_social,0.039828322966137565,0.4579972137299133,1.2053405694876547
+citation_q4_highest__year_q4_newest,12,2,Size Q1 (smallest),ANY,Q4_highest,ANY,Q4_newest,ANY,-0.005289591710528666,0.4320338675664816,1.1268921944215333
+citation_q4_highest__year_q4_newest__discipline_math_phys_cs,3,3,Size Q1 (smallest),ANY,Q4_highest,ANY,Q4_newest,math_phys_cs,-0.001173980395755116,0.3188753335959666,0.7845233532502687
+citation_q4_highest__year_q4_newest__discipline_multidisciplinary,3,3,Size Q1 (smallest),ANY,Q4_highest,ANY,Q4_newest,multidisciplinary,-0.000786947569013583,0.3527481167800181,0.884861097009424
+citation_q4_highest__year_q4_newest__discipline_psych_social,4,3,Size Q1 (smallest),ANY,Q4_highest,ANY,Q4_newest,psych_social,-0.01807808613852752,0.6412492304332011,1.7916919641409752
+discipline_bio_evo,432,1,Size Q5 (largest),ANY,ANY,ANY,ANY,bio_evo,0.040867609420656204,0.2922259181029551,0.7649841559642986
+discipline_economics,730,1,Size Q5 (largest),ANY,ANY,ANY,ANY,economics,0.029260985691586184,0.21073357356458433,0.5299483391358888
+discipline_math_phys_cs,805,1,Size Q5 (largest),ANY,ANY,ANY,ANY,math_phys_cs,-0.019183340033651332,-0.3545540164622711,-0.8769106613879963
+discipline_multidisciplinary,470,1,Size Q5 (largest),ANY,ANY,ANY,ANY,multidisciplinary,0.026905161777376202,0.3728311865813487,1.001916115752303
+discipline_other,193,1,Size Q5 (largest),ANY,ANY,ANY,ANY,other,0.04654831949794199,0.6004865079409831,1.673349326125228
+discipline_psych_social,737,1,Size Q5 (largest),ANY,ANY,ANY,ANY,psych_social,0.09804227216962878,0.37607928209373886,0.9820737295065757
+jcr_q1,1442,1,Size Q5 (largest),ANY,ANY,Q1,ANY,ANY,0.04603236182455128,0.3016793141054067,0.903539682697697
+jcr_q1__discipline_bio_evo,200,2,Size Q5 (largest),ANY,ANY,Q1,ANY,bio_evo,0.009307248035310765,0.6496842711455577,1.813064679773096
+jcr_q1__discipline_economics,190,2,Size Q5 (largest),ANY,ANY,Q1,ANY,economics,0.054437600214520154,0.14619271052747498,0.3769232683096762
+jcr_q1__discipline_math_phys_cs,334,2,Size Q5 (largest),ANY,ANY,Q1,ANY,math_phys_cs,0.01968117817167345,0.04042865924904282,0.03313472397272151
+jcr_q1__discipline_multidisciplinary,449,2,Size Q5 (largest),ANY,ANY,Q1,ANY,multidisciplinary,-0.002897225182017616,0.29067237270742186,0.840214118631128
+jcr_q1__discipline_other,51,2,Size Q3,ANY,ANY,Q1,ANY,other,0.047491533199190146,0.3842232236551199,0.9800828548982179
+jcr_q1__discipline_psych_social,367,2,Size Q5 (largest),ANY,ANY,Q1,ANY,psych_social,0.03474759324316092,0.006610036818877174,0.02417773532017427
+jcr_q1__year_q1_oldest,351,2,Size Q5 (largest),ANY,ANY,Q1,Q1_oldest,ANY,0.07907729609731738,-0.5438791901581532,-1.054287646937923
+jcr_q1__year_q1_oldest__discipline_bio_evo,69,3,Size Q3,ANY,ANY,Q1,Q1_oldest,bio_evo,-0.05399105187332718,0.29182682526975406,0.7221934251700278
+jcr_q1__year_q1_oldest__discipline_economics,75,3,Size Q4,ANY,ANY,Q1,Q1_oldest,economics,0.046112778424460765,-0.27503100938727926,-0.6895873295551106
+jcr_q1__year_q1_oldest__discipline_math_phys_cs,31,3,Size Q2,ANY,ANY,Q1,Q1_oldest,math_phys_cs,0.041806809742489494,-0.04714862413337295,-0.19678033861374497
+jcr_q1__year_q1_oldest__discipline_multidisciplinary,99,3,Size Q4,ANY,ANY,Q1,Q1_oldest,multidisciplinary,0.031524422406394366,0.05531708491712343,0.11319226550205908
+jcr_q1__year_q1_oldest__discipline_other,12,3,Size Q1 (smallest),ANY,ANY,Q1,Q1_oldest,other,0.07593483988368417,0.26791575643290605,0.6846992425833579
+jcr_q1__year_q1_oldest__discipline_psych_social,108,3,Size Q4,ANY,ANY,Q1,Q1_oldest,psych_social,0.05501138432745045,-0.367904026380484,-0.8833534466510579
+jcr_q1__year_q2,384,2,Size Q5 (largest),ANY,ANY,Q1,Q2,ANY,0.05066017572009468,0.330824316470519,0.8593259108776289
+jcr_q1__year_q2__discipline_bio_evo,59,3,Size Q3,ANY,ANY,Q1,Q2,bio_evo,-0.006807622671883233,-0.2799433261864431,-0.7686276184802815
+jcr_q1__year_q2__discipline_economics,47,3,Size Q3,ANY,ANY,Q1,Q2,economics,0.04683864378853544,-0.3626347572319753,-0.9211539971118731
+jcr_q1__year_q2__discipline_math_phys_cs,51,3,Size Q3,ANY,ANY,Q1,Q2,math_phys_cs,-0.012618876855334587,0.22729452543327736,0.522286519677881
+jcr_q1__year_q2__discipline_multidisciplinary,144,3,Size Q4,ANY,ANY,Q1,Q2,multidisciplinary,0.012919458388526298,0.4136573880202525,1.0849484853659506
+jcr_q1__year_q2__discipline_other,18,3,Size Q2,ANY,ANY,Q1,Q2,other,0.051529290913779606,-0.5988251756343291,-1.3717845824644528
+jcr_q1__year_q2__discipline_psych_social,96,3,Size Q4,ANY,ANY,Q1,Q2,psych_social,0.04514461024526659,0.561848353275354,1.5336830072317955
+jcr_q1__year_q3,317,2,Size Q5 (largest),ANY,ANY,Q1,Q3,ANY,0.015214495499172883,0.7529450564868205,2.1916120303386886
+jcr_q1__year_q3__discipline_bio_evo,37,3,Size Q3,ANY,ANY,Q1,Q3,bio_evo,-0.0148634437330176,0.390960137971933,0.9965740295960939
+jcr_q1__year_q3__discipline_economics,34,3,Size Q2,ANY,ANY,Q1,Q3,economics,0.0017933772397429482,0.4472956865317576,1.1956766697480714
+jcr_q1__year_q3__discipline_math_phys_cs,90,3,Size Q4,ANY,ANY,Q1,Q3,math_phys_cs,0.04327852789485362,-0.19905819403261413,-0.5437533604388997
+jcr_q1__year_q3__discipline_multidisciplinary,103,3,Size Q4,ANY,ANY,Q1,Q3,multidisciplinary,0.010980251073081385,0.6566627829558604,1.8577438446595707
+jcr_q1__year_q3__discipline_other,9,3,Size Q1 (smallest),ANY,ANY,Q1,Q3,other,-0.0554970228282222,0.48419924669334824,1.276901826532129
+jcr_q1__year_q3__discipline_psych_social,76,3,Size Q4,ANY,ANY,Q1,Q3,psych_social,0.031215819358069764,0.6762280473398122,1.9178619635814862
+jcr_q1__year_q4_newest,390,2,Size Q5 (largest),ANY,ANY,Q1,Q4_newest,ANY,0.013053101936220184,0.022870024967884334,0.0018271856222982958
+jcr_q1__year_q4_newest__discipline_bio_evo,35,3,Size Q2,ANY,ANY,Q1,Q4_newest,bio_evo,-0.03179530040498665,0.5411091158079061,1.4567110789531903
+jcr_q1__year_q4_newest__discipline_economics,34,3,Size Q2,ANY,ANY,Q1,Q4_newest,economics,-0.004262395064791984,0.12335012448697817,0.24920839594944674
+jcr_q1__year_q4_newest__discipline_math_phys_cs,162,3,Size Q5 (largest),ANY,ANY,Q1,Q4_newest,math_phys_cs,0.028996817905941667,0.41536989900340165,1.1149634771262045
+jcr_q1__year_q4_newest__discipline_multidisciplinary,103,3,Size Q4,ANY,ANY,Q1,Q4_newest,multidisciplinary,0.013305100440223086,0.1085830340074453,0.20022911357029635
+jcr_q1__year_q4_newest__discipline_other,12,3,Size Q1 (smallest),ANY,ANY,Q1,Q4_newest,other,0.01261328919653003,-0.039008020432099354,-0.1908713725492919
+jcr_q1__year_q4_newest__discipline_psych_social,87,3,Size Q4,ANY,ANY,Q1,Q4_newest,psych_social,0.050707094509640394,-0.8783240507754729,-1.9497260796314044
+jcr_q2,738,1,Size Q5 (largest),ANY,ANY,Q2,ANY,ANY,0.042927446603019094,0.29253057731061705,0.7417145026439861
+jcr_q2__discipline_bio_evo,52,2,Size Q3,ANY,ANY,Q2,ANY,bio_evo,0.005394530931352638,0.3012109209385467,0.7543341569815513
+jcr_q2__discipline_economics,343,2,Size Q5 (largest),ANY,ANY,Q2,ANY,economics,0.0260242349299183,0.22164090566704206,0.5407510849549806
+jcr_q2__discipline_math_phys_cs,238,2,Size Q5 (largest),ANY,ANY,Q2,ANY,math_phys_cs,0.03246252997640677,0.0006536453253977818,-0.07415284189438465
+jcr_q2__discipline_multidisciplinary,9,2,Size Q1 (smallest),ANY,ANY,Q2,ANY,multidisciplinary,-0.04585608081098486,0.23386776539553733,0.5417675428305503
+jcr_q2__discipline_other,16,2,Size Q2,ANY,ANY,Q2,ANY,other,0.030083490053056734,-0.4906261752757477,-1.2460881617948973
+jcr_q2__discipline_psych_social,182,2,Size Q5 (largest),ANY,ANY,Q2,ANY,psych_social,0.01513098939184255,-0.11262414760520524,-0.32760037454819324
+jcr_q2__year_q1_oldest,157,2,Size Q5 (largest),ANY,ANY,Q2,Q1_oldest,ANY,0.03840095066948635,0.22898920469353126,0.5542365960989829
+jcr_q2__year_q1_oldest__discipline_bio_evo,19,3,Size Q2,ANY,ANY,Q2,Q1_oldest,bio_evo,0.027141782283027032,-0.18182504084835915,-0.517607663798885
+jcr_q2__year_q1_oldest__discipline_economics,80,3,Size Q4,ANY,ANY,Q2,Q1_oldest,economics,0.012353109955031735,0.24710740737984113,0.5799953393851157
+jcr_q2__year_q1_oldest__discipline_math_phys_cs,41,3,Size Q3,ANY,ANY,Q2,Q1_oldest,math_phys_cs,0.06134498381539092,-0.2895116598122365,-0.7263475008095864
+jcr_q2__year_q1_oldest__discipline_multidisciplinary,3,3,Size Q1 (smallest),ANY,ANY,Q2,Q1_oldest,multidisciplinary,-0.021825499694308567,0.47924204759666855,1.2623797508790529
+jcr_q2__year_q1_oldest__discipline_psych_social,46,3,Size Q3,ANY,ANY,Q2,Q1_oldest,psych_social,-0.054037727277240065,0.27080190273989774,0.6549313319439128
+jcr_q2__year_q2,203,2,Size Q5 (largest),ANY,ANY,Q2,Q2,ANY,0.0483241703502725,0.19920392923424177,0.46597920385146496
+jcr_q2__year_q2__discipline_bio_evo,23,3,Size Q2,ANY,ANY,Q2,Q2,bio_evo,0.0420406387639434,0.6241036265380137,1.7500598681682782
+jcr_q2__year_q2__discipline_economics,93,3,Size Q4,ANY,ANY,Q2,Q2,economics,-0.012588875850797631,0.09563227586815289,0.17531166997695324
+jcr_q2__year_q2__discipline_math_phys_cs,66,3,Size Q3,ANY,ANY,Q2,Q2,math_phys_cs,0.012719564278164565,-0.4505904903722849,-1.0836047875171466
+jcr_q2__year_q2__discipline_multidisciplinary,3,3,Size Q1 (smallest),ANY,ANY,Q2,Q2,multidisciplinary,-0.0207410329190502,0.41197347733248807,1.0618965082083578
+jcr_q2__year_q2__discipline_other,2,3,Size Q1 (smallest),ANY,ANY,Q2,Q2,other,0.023302061000703835,-0.6176721643123076,-1.5199217545276447
+jcr_q2__year_q2__discipline_psych_social,48,3,Size Q3,ANY,ANY,Q2,Q2,psych_social,0.029909782249966283,0.08814178002744451,0.17128334966445324
+jcr_q2__year_q3,208,2,Size Q5 (largest),ANY,ANY,Q2,Q3,ANY,0.03688733045184517,-0.2427521736138112,-0.6418251740222737
+jcr_q2__year_q3__discipline_bio_evo,7,3,Size Q1 (smallest),ANY,ANY,Q2,Q3,bio_evo,0.004748436450202335,0.36791203511625065,0.922944650323633
+jcr_q2__year_q3__discipline_economics,101,3,Size Q4,ANY,ANY,Q2,Q3,economics,0.008548550446072285,-0.04101784931749567,-0.12787832292770984
+jcr_q2__year_q3__discipline_math_phys_cs,74,3,Size Q4,ANY,ANY,Q2,Q3,math_phys_cs,0.008539445836582832,0.5117024887886598,1.378049319258773
+jcr_q2__year_q3__discipline_multidisciplinary,2,3,Size Q1 (smallest),ANY,ANY,Q2,Q3,multidisciplinary,-0.022944785516223216,0.3105763603535248,0.7938486191346681
+jcr_q2__year_q3__discipline_other,4,3,Size Q1 (smallest),ANY,ANY,Q2,Q3,other,0.0478855397693704,-0.4209479283008026,-1.0130132583067382
+jcr_q2__year_q3__discipline_psych_social,38,3,Size Q3,ANY,ANY,Q2,Q3,psych_social,0.0006264871748676339,-3.2873819858544127,-4.349723552394466
+jcr_q2__year_q4_newest,170,2,Size Q5 (largest),ANY,ANY,Q2,Q4_newest,ANY,-0.02032750582770598,0.23460734976201783,0.5855216436301108
+jcr_q2__year_q4_newest__discipline_bio_evo,3,3,Size Q1 (smallest),ANY,ANY,Q2,Q4_newest,bio_evo,-0.0165042205261796,0.3135109950390411,0.775920495660547
+jcr_q2__year_q4_newest__discipline_economics,69,3,Size Q3,ANY,ANY,Q2,Q4_newest,economics,-0.02591488993243471,0.3131131141669505,0.783125028283838
+jcr_q2__year_q4_newest__discipline_math_phys_cs,57,3,Size Q3,ANY,ANY,Q2,Q4_newest,math_phys_cs,-0.029257304828128165,0.14365585737297468,0.3089730195914145
+jcr_q2__year_q4_newest__discipline_other,10,3,Size Q1 (smallest),ANY,ANY,Q2,Q4_newest,other,0.007783872524141333,0.1226916521079295,0.23227225271010754
+jcr_q2__year_q4_newest__discipline_psych_social,50,3,Size Q3,ANY,ANY,Q2,Q4_newest,psych_social,0.02095873419368176,0.39193768394857176,1.0420929047181642
+jcr_q3,398,1,Size Q5 (largest),ANY,ANY,Q3,ANY,ANY,0.021503739197292964,0.25000466995308335,0.6046796890809572
+jcr_q3__discipline_bio_evo,157,2,Size Q5 (largest),ANY,ANY,Q3,ANY,bio_evo,0.033272030591208805,0.24965006205309961,0.6084010852092938
+jcr_q3__discipline_economics,120,2,Size Q4,ANY,ANY,Q3,ANY,economics,0.004839874942341523,0.166045587190683,0.3947250299368735
+jcr_q3__discipline_math_phys_cs,152,2,Size Q5 (largest),ANY,ANY,Q3,ANY,math_phys_cs,0.007900489011644397,0.06392725400993755,0.1027976922903891
+jcr_q3__discipline_other,15,2,Size Q2,ANY,ANY,Q3,ANY,other,-0.1345681720582256,0.40655483894417216,1.0428881101523275
+jcr_q3__discipline_psych_social,105,2,Size Q4,ANY,ANY,Q3,ANY,psych_social,0.0019554124665648667,0.17687300933271186,0.45732286102716485
+jcr_q3__year_q1_oldest,142,2,Size Q4,ANY,ANY,Q3,Q1_oldest,ANY,0.05140155319297218,0.4621294249382568,1.2485126905356283
+jcr_q3__year_q1_oldest__discipline_bio_evo,68,3,Size Q3,ANY,ANY,Q3,Q1_oldest,bio_evo,0.004187785227337516,-0.14461427834759621,-0.3286719865883951
+jcr_q3__year_q1_oldest__discipline_economics,40,3,Size Q3,ANY,ANY,Q3,Q1_oldest,economics,-0.05784301694309802,0.3562614231593364,0.9120105358674562
+jcr_q3__year_q1_oldest__discipline_math_phys_cs,60,3,Size Q3,ANY,ANY,Q3,Q1_oldest,math_phys_cs,-0.03425863123015655,0.1226543396003001,0.24200910853489596
+jcr_q3__year_q1_oldest__discipline_psych_social,30,3,Size Q2,ANY,ANY,Q3,Q1_oldest,psych_social,0.028767449298738465,-0.19098583764960833,-0.5246565090900227
+jcr_q3__year_q2,99,2,Size Q4,ANY,ANY,Q3,Q2,ANY,0.10060357316259445,-0.8130017112407134,-1.8861997671212318
+jcr_q3__year_q2__discipline_bio_evo,41,3,Size Q3,ANY,ANY,Q3,Q2,bio_evo,0.10216150943362617,0.4159484117514842,1.0771208855226075
+jcr_q3__year_q2__discipline_economics,33,3,Size Q2,ANY,ANY,Q3,Q2,economics,0.13426919046962169,0.4119115779088888,1.0955807619009847
+jcr_q3__year_q2__discipline_math_phys_cs,39,3,Size Q3,ANY,ANY,Q3,Q2,math_phys_cs,0.05216678245786733,0.25869830541679795,0.602888768187606
+jcr_q3__year_q2__discipline_other,3,3,Size Q1 (smallest),ANY,ANY,Q3,Q2,other,0.004899722972749766,0.08703406744072369,0.1437049957826173
+jcr_q3__year_q2__discipline_psych_social,25,3,Size Q2,ANY,ANY,Q3,Q2,psych_social,0.13474276924057707,0.557169458199238,1.54731379476333
+jcr_q3__year_q3,92,2,Size Q4,ANY,ANY,Q3,Q3,ANY,0.004560120542088218,0.3864536890672597,0.9847524417156414
+jcr_q3__year_q3__discipline_bio_evo,30,3,Size Q2,ANY,ANY,Q3,Q3,bio_evo,0.0220814969532083,0.29222128880887754,0.741733099293156
+jcr_q3__year_q3__discipline_economics,26,3,Size Q2,ANY,ANY,Q3,Q3,economics,0.0366455243420989,-0.46438618408769833,-1.1753735291248126
+jcr_q3__year_q3__discipline_math_phys_cs,32,3,Size Q2,ANY,ANY,Q3,Q3,math_phys_cs,-0.018714057764173484,0.1852568794575287,0.40887787468378106
+jcr_q3__year_q3__discipline_other,5,3,Size Q1 (smallest),ANY,ANY,Q3,Q3,other,-0.0189961069432506,0.5432179579423818,1.4666962874645428
+jcr_q3__year_q3__discipline_psych_social,31,3,Size Q2,ANY,ANY,Q3,Q3,psych_social,0.015874934831499116,0.35770478936900235,0.910934234928532
+jcr_q3__year_q4_newest,65,2,Size Q3,ANY,ANY,Q3,Q4_newest,ANY,0.008496038754025182,0.40592269194989933,1.0659877710257406
+jcr_q3__year_q4_newest__discipline_bio_evo,18,3,Size Q2,ANY,ANY,Q3,Q4_newest,bio_evo,-0.00968332823193165,0.449795386124348,1.1954467547649579
+jcr_q3__year_q4_newest__discipline_economics,21,3,Size Q2,ANY,ANY,Q3,Q4_newest,economics,-0.03878536558226833,0.3906475116100861,0.9999771369213298
+jcr_q3__year_q4_newest__discipline_math_phys_cs,21,3,Size Q2,ANY,ANY,Q3,Q4_newest,math_phys_cs,-0.011756616195798814,0.5698032785740448,1.5572973343446292
+jcr_q3__year_q4_newest__discipline_other,6,3,Size Q1 (smallest),ANY,ANY,Q3,Q4_newest,other,-0.029269032041987702,0.4123481521295462,1.0688812189017172
+jcr_q3__year_q4_newest__discipline_psych_social,19,3,Size Q2,ANY,ANY,Q3,Q4_newest,psych_social,0.04997022215449714,-0.016694524955058743,-0.1142623173480793
+jcr_q4,89,1,Size Q4,ANY,ANY,Q4,ANY,ANY,-0.050411052863559035,0.3312776693986806,0.8395669711345867
+jcr_q4__discipline_bio_evo,13,2,Size Q1 (smallest),ANY,ANY,Q4,ANY,bio_evo,0.01705918971621893,0.005692761072213799,-0.07389558824753413
+jcr_q4__discipline_economics,59,2,Size Q3,ANY,ANY,Q4,ANY,economics,-0.05622474090333871,0.3987956652330313,1.0302039238526857
+jcr_q4__discipline_math_phys_cs,57,2,Size Q3,ANY,ANY,Q4,ANY,math_phys_cs,-0.036663445195318174,0.2217925796197805,0.5107481730694011
+jcr_q4__discipline_other,2,2,Size Q1 (smallest),ANY,ANY,Q4,ANY,other,-0.010846661886335334,0.07795125338305568,0.11564153956516939
+jcr_q4__discipline_psych_social,62,2,Size Q3,ANY,ANY,Q4,ANY,psych_social,-0.003353960673770251,-0.025786498259807333,-0.10282283497706694
+jcr_q4__year_q1_oldest,20,2,Size Q2,ANY,ANY,Q4,Q1_oldest,ANY,-0.017558780670921925,0.438936154970224,1.1709489278708334
+jcr_q4__year_q1_oldest__discipline_bio_evo,7,3,Size Q1 (smallest),ANY,ANY,Q4,Q1_oldest,bio_evo,-0.009149737517794902,-0.06921225693951512,-0.26360525163864734
+jcr_q4__year_q1_oldest__discipline_economics,11,3,Size Q1 (smallest),ANY,ANY,Q4,Q1_oldest,economics,0.018101019302248,0.33027480138211973,0.8396866572612957
+jcr_q4__year_q1_oldest__discipline_math_phys_cs,13,3,Size Q1 (smallest),ANY,ANY,Q4,Q1_oldest,math_phys_cs,0.016516926526267402,0.06711181097099712,0.11755906072402356
+jcr_q4__year_q1_oldest__discipline_psych_social,7,3,Size Q1 (smallest),ANY,ANY,Q4,Q1_oldest,psych_social,-0.12589907135641662,0.13875470651059876,0.38455393440668145
+jcr_q4__year_q2,21,2,Size Q2,ANY,ANY,Q4,Q2,ANY,-0.19951149559096581,-0.37552386430035506,-0.7908177124744221
+jcr_q4__year_q2__discipline_bio_evo,2,3,Size Q1 (smallest),ANY,ANY,Q4,Q2,bio_evo,-0.008670312524597767,-0.8692557206464854,-2.064289067912654
+jcr_q4__year_q2__discipline_economics,15,3,Size Q2,ANY,ANY,Q4,Q2,economics,-0.16705448663310296,0.11467782748609318,0.20957965182408056
+jcr_q4__year_q2__discipline_math_phys_cs,13,3,Size Q1 (smallest),ANY,ANY,Q4,Q2,math_phys_cs,-0.12789887424385638,0.15207757644722394,0.33081462509576837
+jcr_q4__year_q2__discipline_psych_social,16,3,Size Q2,ANY,ANY,Q4,Q2,psych_social,-0.1474625193682918,0.172585905520812,0.38045051224176446
+jcr_q4__year_q3,22,2,Size Q2,ANY,ANY,Q4,Q3,ANY,0.0008666640909901002,-0.2941671401970632,-0.7613262084410155
+jcr_q4__year_q3__discipline_economics,16,3,Size Q2,ANY,ANY,Q4,Q3,economics,-0.02744452393130553,0.04657324247429303,0.05542423851434745
+jcr_q4__year_q3__discipline_math_phys_cs,14,3,Size Q1 (smallest),ANY,ANY,Q4,Q3,math_phys_cs,0.023818743863939302,-0.5773240914655772,-1.3926439034229083
+jcr_q4__year_q3__discipline_psych_social,19,3,Size Q2,ANY,ANY,Q4,Q3,psych_social,0.0004020558190733989,-0.05305890150001117,-0.20173698140040677
+jcr_q4__year_q4_newest,26,2,Size Q2,ANY,ANY,Q4,Q4_newest,ANY,0.011595529952882766,0.6459171582546784,1.8153111390982506
+jcr_q4__year_q4_newest__discipline_bio_evo,3,3,Size Q1 (smallest),ANY,ANY,Q4,Q4_newest,bio_evo,0.052495402732728964,0.2525443046576732,0.6030702047263022
+jcr_q4__year_q4_newest__discipline_economics,17,3,Size Q2,ANY,ANY,Q4,Q4_newest,economics,-0.0016060842680542993,0.042822977829670233,0.04873222636326511
+jcr_q4__year_q4_newest__discipline_math_phys_cs,17,3,Size Q2,ANY,ANY,Q4,Q4_newest,math_phys_cs,0.015001120804984414,0.5644817758884979,1.5610118958070316
+jcr_q4__year_q4_newest__discipline_psych_social,20,3,Size Q2,ANY,ANY,Q4,Q4_newest,psych_social,0.009254070758063669,0.5052332390633179,1.3794949305767255
+type_empirical,1405,1,Size Q5 (largest),empirical,ANY,ANY,ANY,ANY,0.04237347110036915,0.485269785849944,1.3201867195680177
+type_empirical__citation_q1_lowest,348,2,Size Q5 (largest),empirical,Q1_lowest,ANY,ANY,ANY,0.02731638415578905,0.21417530469963478,0.5530350459331707
+type_empirical__citation_q1_lowest__discipline_bio_evo,20,3,Size Q2,empirical,Q1_lowest,ANY,ANY,bio_evo,0.009958667198060982,0.5132183739828023,1.3783405078167157
+type_empirical__citation_q1_lowest__discipline_economics,173,3,Size Q5 (largest),empirical,Q1_lowest,ANY,ANY,economics,0.0027048564347019522,0.42498590641090805,1.0985688619528646
+type_empirical__citation_q1_lowest__discipline_math_phys_cs,30,3,Size Q2,empirical,Q1_lowest,ANY,ANY,math_phys_cs,-0.062346972386798184,0.19063925835360615,0.4481042477204835
+type_empirical__citation_q1_lowest__discipline_multidisciplinary,49,3,Size Q3,empirical,Q1_lowest,ANY,ANY,multidisciplinary,0.006702982027569466,0.45026139510541685,1.172805016509139
+type_empirical__citation_q1_lowest__discipline_other,14,3,Size Q1 (smallest),empirical,Q1_lowest,ANY,ANY,other,-0.019251036008954964,0.5946650116927379,1.6707453978771405
+type_empirical__citation_q1_lowest__discipline_psych_social,142,3,Size Q4,empirical,Q1_lowest,ANY,ANY,psych_social,-0.018544557055593453,0.02947910718986922,0.02982014941319185
+type_empirical__citation_q1_lowest__jcr_q1,131,3,Size Q4,empirical,Q1_lowest,Q1,ANY,ANY,0.01699395243251227,0.2570169179923289,0.645342136692448
+type_empirical__citation_q1_lowest__jcr_q2,135,3,Size Q4,empirical,Q1_lowest,Q2,ANY,ANY,0.020108732222754815,0.5541122564958486,1.5053291571850018
+type_empirical__citation_q1_lowest__jcr_q3,46,3,Size Q3,empirical,Q1_lowest,Q3,ANY,ANY,0.02919690076434515,0.14184183967977296,0.3851745379680828
+type_empirical__citation_q1_lowest__jcr_q4,26,3,Size Q2,empirical,Q1_lowest,Q4,ANY,ANY,0.010514530181128834,0.07634361677238873,0.2734373661592042
+type_empirical__citation_q1_lowest__year_q1_oldest,16,3,Size Q2,empirical,Q1_lowest,ANY,Q1_oldest,ANY,-0.014404895266653029,0.34047901722659196,0.8555810702556804
+type_empirical__citation_q1_lowest__year_q2,22,3,Size Q2,empirical,Q1_lowest,ANY,Q2,ANY,0.08857376638972665,0.6412874072081798,1.8504806610658207
+type_empirical__citation_q1_lowest__year_q3,99,3,Size Q4,empirical,Q1_lowest,ANY,Q3,ANY,0.016935202120978734,0.0413989036566966,0.10147780703648283
+type_empirical__citation_q1_lowest__year_q4_newest,211,3,Size Q5 (largest),empirical,Q1_lowest,ANY,Q4_newest,ANY,-0.015631648263097733,0.35256205094724424,0.8871405375713542
+type_empirical__citation_q2,303,2,Size Q5 (largest),empirical,Q2,ANY,ANY,ANY,0.04265416924083137,0.5474349865602407,1.4901955378765301
+type_empirical__citation_q2__discipline_bio_evo,37,3,Size Q3,empirical,Q2,ANY,ANY,bio_evo,0.11764448149923389,0.8529473353710725,2.5710550400331056
+type_empirical__citation_q2__discipline_economics,144,3,Size Q4,empirical,Q2,ANY,ANY,economics,0.0385579890402546,0.45774044685432846,1.2137797129863934
+type_empirical__citation_q2__discipline_math_phys_cs,20,3,Size Q2,empirical,Q2,ANY,ANY,math_phys_cs,0.019278439521033603,-0.11139893439541726,-0.33289636644577625
+type_empirical__citation_q2__discipline_multidisciplinary,44,3,Size Q3,empirical,Q2,ANY,ANY,multidisciplinary,-0.07088649507439229,-0.24843947000434471,-0.6940494922087157
+type_empirical__citation_q2__discipline_other,7,3,Size Q1 (smallest),empirical,Q2,ANY,ANY,other,0.025940828163662635,-0.5406280945453095,-1.3918122994190023
+type_empirical__citation_q2__discipline_psych_social,109,3,Size Q4,empirical,Q2,ANY,ANY,psych_social,0.046173217534262984,-0.8802973022771922,-1.8854004290983644
+type_empirical__citation_q2__jcr_q1,113,3,Size Q4,empirical,Q2,Q1,ANY,ANY,0.011833839256802267,0.4740567613926483,1.2682436558320558
+type_empirical__citation_q2__jcr_q2,123,3,Size Q4,empirical,Q2,Q2,ANY,ANY,0.023233739176630037,0.3085434644706004,0.7715454352611736
+type_empirical__citation_q2__jcr_q3,48,3,Size Q3,empirical,Q2,Q3,ANY,ANY,0.11355516576691371,0.3104493428555084,0.8257030897055503
+type_empirical__citation_q2__jcr_q4,13,3,Size Q1 (smallest),empirical,Q2,Q4,ANY,ANY,-0.04735253985798446,0.26462712976206865,0.656599705687606
+type_empirical__citation_q2__year_q1_oldest,34,3,Size Q2,empirical,Q2,ANY,Q1_oldest,ANY,-0.07564263280308335,0.159036637275115,0.33438240018630383
+type_empirical__citation_q2__year_q2,90,3,Size Q4,empirical,Q2,ANY,Q2,ANY,0.01633897685929045,0.5452238926576528,1.4793948583517906
+type_empirical__citation_q2__year_q3,111,3,Size Q4,empirical,Q2,ANY,Q3,ANY,0.11131605768128139,0.7341980347322377,2.1575961364025313
+type_empirical__citation_q2__year_q4_newest,68,3,Size Q3,empirical,Q2,ANY,Q4_newest,ANY,0.0008909231814136677,-0.8286929518692738,-1.6035555747435055
+type_empirical__citation_q3,310,2,Size Q5 (largest),empirical,Q3,ANY,ANY,ANY,0.01632604265137418,0.4495115488059276,1.2041190716340577
+type_empirical__citation_q3__discipline_bio_evo,32,3,Size Q2,empirical,Q3,ANY,ANY,bio_evo,-0.013716565927625634,0.2246726959235423,0.519862359038436
+type_empirical__citation_q3__discipline_economics,120,3,Size Q4,empirical,Q3,ANY,ANY,economics,0.0029853807282836167,-0.049491881401642866,-0.1480399516508544
+type_empirical__citation_q3__discipline_math_phys_cs,12,3,Size Q1 (smallest),empirical,Q3,ANY,ANY,math_phys_cs,-0.1848651343194255,0.04324851525693665,0.06832467046523445
+type_empirical__citation_q3__discipline_multidisciplinary,65,3,Size Q3,empirical,Q3,ANY,ANY,multidisciplinary,-0.01339659329331013,0.5873465249227438,1.6207488628938231
+type_empirical__citation_q3__discipline_other,5,3,Size Q1 (smallest),empirical,Q3,ANY,ANY,other,-0.019453398745021135,-0.3971166601492014,-0.9696729726876382
+type_empirical__citation_q3__discipline_psych_social,127,3,Size Q4,empirical,Q3,ANY,ANY,psych_social,0.06686575476252939,0.8089145431207571,2.4015883061006105
+type_empirical__citation_q3__jcr_q1,183,3,Size Q5 (largest),empirical,Q3,Q1,ANY,ANY,-0.0296771152424424,0.5345799435463501,1.4465851240073082
+type_empirical__citation_q3__jcr_q2,92,3,Size Q4,empirical,Q3,Q2,ANY,ANY,0.02227515244408353,0.35919704132149155,0.9138518425538575
+type_empirical__citation_q3__jcr_q3,25,3,Size Q2,empirical,Q3,Q3,ANY,ANY,0.07716079815153186,0.26571189456055094,0.6912767343436116
+type_empirical__citation_q3__jcr_q4,6,3,Size Q1 (smallest),empirical,Q3,Q4,ANY,ANY,-0.1368735903111705,0.2104004134026123,0.49257217374587414
+type_empirical__citation_q3__year_q1_oldest,48,3,Size Q3,empirical,Q3,ANY,Q1_oldest,ANY,-0.03936420118884333,0.5797592311389201,1.5915768397564127
+type_empirical__citation_q3__year_q2,159,3,Size Q5 (largest),empirical,Q3,ANY,Q2,ANY,0.0362941450270405,0.48181588543325193,1.3094288759146566
+type_empirical__citation_q3__year_q3,87,3,Size Q4,empirical,Q3,ANY,Q3,ANY,0.009236060221234,0.5610985765146169,1.5352181049897704
+type_empirical__citation_q3__year_q4_newest,16,3,Size Q2,empirical,Q3,ANY,Q4_newest,ANY,-0.006117301544309566,0.11065330200264394,0.1991204671774741
+type_empirical__citation_q4_highest,379,2,Size Q5 (largest),empirical,Q4_highest,ANY,ANY,ANY,-0.05151143904602615,-0.4511690428567972,-0.861037626592871
+type_empirical__citation_q4_highest__discipline_bio_evo,43,3,Size Q3,empirical,Q4_highest,ANY,ANY,bio_evo,-0.06597368156985534,0.34615868422259427,0.873496875436548
+type_empirical__citation_q4_highest__discipline_economics,125,3,Size Q4,empirical,Q4_highest,ANY,ANY,economics,-0.004202552001437484,-0.594847320587739,-1.4087789602364662
+type_empirical__citation_q4_highest__discipline_math_phys_cs,7,3,Size Q1 (smallest),empirical,Q4_highest,ANY,ANY,math_phys_cs,0.03636001809362475,0.4507118472741994,1.1872827463065023
+type_empirical__citation_q4_highest__discipline_multidisciplinary,105,3,Size Q4,empirical,Q4_highest,ANY,ANY,multidisciplinary,-0.02998586730237893,-0.04459079014391173,-0.17137429587896316
+type_empirical__citation_q4_highest__discipline_psych_social,127,3,Size Q4,empirical,Q4_highest,ANY,ANY,psych_social,-0.018630829811852097,-0.14870438880851336,-0.3663071540281737
+type_empirical__citation_q4_highest__jcr_q1,273,3,Size Q5 (largest),empirical,Q4_highest,Q1,ANY,ANY,0.026843123276272463,-0.7439829101873484,-1.514053796458797
+type_empirical__citation_q4_highest__jcr_q2,61,3,Size Q3,empirical,Q4_highest,Q2,ANY,ANY,-0.005584301909566866,-0.2766745478623159,-0.6494498001819416
+type_empirical__citation_q4_highest__jcr_q3,32,3,Size Q2,empirical,Q4_highest,Q3,ANY,ANY,-0.0345566246517111,0.38385254236926175,0.9890398435507651
+type_empirical__citation_q4_highest__jcr_q4,3,3,Size Q1 (smallest),empirical,Q4_highest,Q4,ANY,ANY,-0.030003788432241375,0.17221343609561057,0.41124227173273126
+type_empirical__citation_q4_highest__year_q1_oldest,236,3,Size Q5 (largest),empirical,Q4_highest,ANY,Q1_oldest,ANY,-0.03826843436634631,-1.27457302716504,-2.8114798612679603
+type_empirical__citation_q4_highest__year_q2,115,3,Size Q4,empirical,Q4_highest,ANY,Q2,ANY,0.028512321550884914,0.028938294379607127,0.004940852792505002
+type_empirical__citation_q4_highest__year_q3,27,3,Size Q2,empirical,Q4_highest,ANY,Q3,ANY,-0.020968240857880252,0.18294672263532416,0.41017908381565765
+type_empirical__discipline_bio_evo,132,2,Size Q4,empirical,ANY,ANY,ANY,bio_evo,0.04706556860530281,0.5419694095141642,1.470308964720809
+type_empirical__discipline_economics,562,2,Size Q5 (largest),empirical,ANY,ANY,ANY,economics,0.05022123718186126,-0.1622037083618886,-0.3055170920774901
+type_empirical__discipline_math_phys_cs,69,2,Size Q3,empirical,ANY,ANY,ANY,math_phys_cs,-0.025128173193098038,0.09087260656425884,0.17550987528904635
+type_empirical__discipline_multidisciplinary,263,2,Size Q5 (largest),empirical,ANY,ANY,ANY,multidisciplinary,0.06578907632752161,0.5567417551365448,1.5248652550294437
+type_empirical__discipline_other,92,2,Size Q4,empirical,ANY,ANY,ANY,other,0.0203776584458739,0.6251347868926279,1.7353827409659264
+type_empirical__discipline_psych_social,505,2,Size Q5 (largest),empirical,ANY,ANY,ANY,psych_social,0.08024457359238368,-0.6305068324717925,-1.375440572429256
+type_empirical__jcr_q1,700,2,Size Q5 (largest),empirical,ANY,Q1,ANY,ANY,-0.01445191836432707,0.24315947386492817,0.7326972735637859
+type_empirical__jcr_q1__discipline_bio_evo,86,3,Size Q4,empirical,ANY,Q1,ANY,bio_evo,-0.03164501722729295,0.40826801551252134,1.1122683935080404
+type_empirical__jcr_q1__discipline_economics,153,3,Size Q5 (largest),empirical,ANY,Q1,ANY,economics,0.05050528311653837,0.04242328895002139,0.07805222796543791
+type_empirical__jcr_q1__discipline_math_phys_cs,27,3,Size Q2,empirical,ANY,Q1,ANY,math_phys_cs,0.06616731746915881,0.1577980130202525,0.37761635111912456
+type_empirical__jcr_q1__discipline_multidisciplinary,251,3,Size Q5 (largest),empirical,ANY,Q1,ANY,multidisciplinary,0.03303501272125945,-0.08553496904304096,-0.21830611897364896
+type_empirical__jcr_q1__discipline_other,10,3,Size Q1 (smallest),empirical,ANY,Q1,ANY,other,-0.041081907710195466,0.22635303033262025,0.5318729333792563
+type_empirical__jcr_q1__discipline_psych_social,253,3,Size Q5 (largest),empirical,ANY,Q1,ANY,psych_social,0.02131385866725353,0.5659605671253755,1.5991153173361656
+type_empirical__jcr_q1__year_q1_oldest,200,3,Size Q5 (largest),empirical,ANY,Q1,Q1_oldest,ANY,0.057048253853359876,-0.10882780857017109,-0.19802488359665515
+type_empirical__jcr_q1__year_q2,209,3,Size Q5 (largest),empirical,ANY,Q1,Q2,ANY,0.08209017181320892,0.519426793782607,1.4315488589519696
+type_empirical__jcr_q1__year_q3,148,3,Size Q4,empirical,ANY,Q1,Q3,ANY,-0.02354351914004575,0.6581920990632925,1.8559952828004398
+type_empirical__jcr_q1__year_q4_newest,143,3,Size Q4,empirical,ANY,Q1,Q4_newest,ANY,0.0353509710622222,-0.25112297045320736,-0.5429846194670165
+type_empirical__jcr_q2,411,2,Size Q5 (largest),empirical,ANY,Q2,ANY,ANY,0.0575548337293059,-0.13141405490170388,-0.3271852878019774
+type_empirical__jcr_q2__discipline_bio_evo,26,3,Size Q2,empirical,ANY,Q2,ANY,bio_evo,-0.010700590770205784,0.6892540166067037,1.9539513839000897
+type_empirical__jcr_q2__discipline_economics,289,3,Size Q5 (largest),empirical,ANY,Q2,ANY,economics,-0.023427131137014345,0.08252859207858172,0.16191842682306326
+type_empirical__jcr_q2__discipline_math_phys_cs,12,3,Size Q1 (smallest),empirical,ANY,Q2,ANY,math_phys_cs,0.00034114483916666594,-0.6231860906594044,-1.4999270188098712
+type_empirical__jcr_q2__discipline_multidisciplinary,3,3,Size Q1 (smallest),empirical,ANY,Q2,ANY,multidisciplinary,-0.07158074017441358,0.05768605165550641,0.07310766505345064
+type_empirical__jcr_q2__discipline_other,4,3,Size Q1 (smallest),empirical,ANY,Q2,ANY,other,-0.006606884162387167,0.22665550403664045,0.5402230672751303
+type_empirical__jcr_q2__discipline_psych_social,141,3,Size Q4,empirical,ANY,Q2,ANY,psych_social,-0.027872351170342105,0.22312243871757917,0.5175010614310142
+type_empirical__jcr_q2__year_q1_oldest,76,3,Size Q4,empirical,ANY,Q2,Q1_oldest,ANY,-0.0009357406305878687,0.33187663647402854,0.8241745087220704
+type_empirical__jcr_q2__year_q2,114,3,Size Q4,empirical,ANY,Q2,Q2,ANY,-0.005401270946622833,0.35940724703539945,0.9285044921154216
+type_empirical__jcr_q2__year_q3,121,3,Size Q4,empirical,ANY,Q2,Q3,ANY,0.02079698705597625,0.07355767580737203,0.14105401960158706
+type_empirical__jcr_q2__year_q4_newest,100,3,Size Q4,empirical,ANY,Q2,Q4_newest,ANY,0.007965547481416733,-0.12477163381507465,-0.2964696633106037
+type_empirical__jcr_q3,151,2,Size Q4,empirical,ANY,Q3,ANY,ANY,0.09314112130725292,0.6529231676744375,1.8659591925853924
+type_empirical__jcr_q3__discipline_bio_evo,18,3,Size Q2,empirical,ANY,Q3,ANY,bio_evo,0.1548781719200204,0.41699367853869523,1.1153392248068685
+type_empirical__jcr_q3__discipline_economics,73,3,Size Q4,empirical,ANY,Q3,ANY,economics,0.06987639530424182,0.4077925095247182,1.0996191752666669
+type_empirical__jcr_q3__discipline_math_phys_cs,3,3,Size Q1 (smallest),empirical,ANY,Q3,ANY,math_phys_cs,-0.05620376006837777,-0.07416466779639788,-0.16013826402878403
+type_empirical__jcr_q3__discipline_other,8,3,Size Q1 (smallest),empirical,ANY,Q3,ANY,other,-0.11750187214291184,0.3108554293003632,0.7600020818625327
+type_empirical__jcr_q3__discipline_psych_social,66,3,Size Q3,empirical,ANY,Q3,ANY,psych_social,0.06278670096321803,0.16693270298709006,0.38585220304274914
+type_empirical__jcr_q3__year_q1_oldest,41,3,Size Q3,empirical,ANY,Q3,Q1_oldest,ANY,-0.04078184799428868,0.6379494477596832,1.7855977468405602
+type_empirical__jcr_q3__year_q2,38,3,Size Q3,empirical,ANY,Q3,Q2,ANY,0.11167122189128302,0.3826261569347931,1.0203998339885907
+type_empirical__jcr_q3__year_q3,38,3,Size Q3,empirical,ANY,Q3,Q3,ANY,-0.003656265497963549,0.38181758019198514,0.966629609735254
+type_empirical__jcr_q3__year_q4_newest,34,3,Size Q2,empirical,ANY,Q3,Q4_newest,ANY,-0.020333327214679033,0.3392001598365062,0.8517668498272136
+type_empirical__jcr_q4,48,2,Size Q3,empirical,ANY,Q4,ANY,ANY,-0.042374290387591614,0.29534339997042747,0.7241766703838542
+type_empirical__jcr_q4__discipline_economics,36,3,Size Q2,empirical,ANY,Q4,ANY,economics,0.0017750984820117666,0.6811645834929698,1.9395838034862714
+type_empirical__jcr_q4__discipline_math_phys_cs,27,3,Size Q2,empirical,ANY,Q4,ANY,math_phys_cs,-0.07529317077076524,0.29391739858060606,0.7110508534028566
+type_empirical__jcr_q4__discipline_psych_social,40,3,Size Q3,empirical,ANY,Q4,ANY,psych_social,-0.07084947065587928,0.15308803412188618,0.33833784388645843
+type_empirical__jcr_q4__year_q1_oldest,8,3,Size Q1 (smallest),empirical,ANY,Q4,Q1_oldest,ANY,-0.010560450316231347,0.39985906176636155,1.0395377728059327
+type_empirical__jcr_q4__year_q2,13,3,Size Q1 (smallest),empirical,ANY,Q4,Q2,ANY,-0.18348587787226925,-0.13368439582119854,-0.4293544836129312
+type_empirical__jcr_q4__year_q3,10,3,Size Q1 (smallest),empirical,ANY,Q4,Q3,ANY,-0.020455099503955184,0.04133484853177798,0.07427337295953788
+type_empirical__jcr_q4__year_q4_newest,17,3,Size Q2,empirical,ANY,Q4,Q4_newest,ANY,0.002625974654395432,0.33906587057182724,0.9005271050050294
+type_empirical__year_q1_oldest,334,2,Size Q5 (largest),empirical,ANY,ANY,Q1_oldest,ANY,0.0343209829322885,0.3096883604215535,0.8268686386659181
+type_empirical__year_q1_oldest__discipline_bio_evo,35,3,Size Q2,empirical,ANY,ANY,Q1_oldest,bio_evo,-0.011821237564842851,0.609060377805129,1.680537169447982
+type_empirical__year_q1_oldest__discipline_economics,141,3,Size Q4,empirical,ANY,ANY,Q1_oldest,economics,0.04005609218203927,0.3142356683102204,0.8061518920177654
+type_empirical__year_q1_oldest__discipline_math_phys_cs,9,3,Size Q1 (smallest),empirical,ANY,ANY,Q1_oldest,math_phys_cs,-0.048967761159699065,0.34609470857053526,0.8628723872417644
+type_empirical__year_q1_oldest__discipline_multidisciplinary,64,3,Size Q3,empirical,ANY,ANY,Q1_oldest,multidisciplinary,0.009457819302120871,0.27579136781761576,0.6779672555838463
+type_empirical__year_q1_oldest__discipline_other,4,3,Size Q1 (smallest),empirical,ANY,ANY,Q1_oldest,other,-0.10659101343230494,-0.15259635356198217,-0.45840252908920887
+type_empirical__year_q1_oldest__discipline_psych_social,122,3,Size Q4,empirical,ANY,ANY,Q1_oldest,psych_social,0.02701784435832405,0.1144552438742869,0.28578021652643243
+type_empirical__year_q2,386,2,Size Q5 (largest),empirical,ANY,ANY,Q2,ANY,0.03748782737974233,0.3515380232817882,0.8778685185029542
+type_empirical__year_q2__discipline_bio_evo,48,3,Size Q3,empirical,ANY,ANY,Q2,bio_evo,0.1308076606583983,0.2594832787202749,0.6330240023845867
+type_empirical__year_q2__discipline_economics,153,3,Size Q5 (largest),empirical,ANY,ANY,Q2,economics,-0.03597610926703702,0.25990243845055033,0.6194605283652183
+type_empirical__year_q2__discipline_math_phys_cs,12,3,Size Q1 (smallest),empirical,ANY,ANY,Q2,math_phys_cs,-0.18147509531255654,-0.00020533707867533466,-0.05272004478033029
+type_empirical__year_q2__discipline_multidisciplinary,89,3,Size Q4,empirical,ANY,ANY,Q2,multidisciplinary,0.0369294311992715,0.5028524706052694,1.3566379798168378
+type_empirical__year_q2__discipline_other,6,3,Size Q1 (smallest),empirical,ANY,ANY,Q2,other,0.01987551911596365,-0.5215562374108084,-1.3357880659188393
+type_empirical__year_q2__discipline_psych_social,140,3,Size Q4,empirical,ANY,ANY,Q2,psych_social,0.05868699415449206,0.32602322193850614,0.8461588474824464
+type_empirical__year_q3,324,2,Size Q5 (largest),empirical,ANY,ANY,Q3,ANY,0.045140288908520364,0.38671914828687437,1.060918038359725
+type_empirical__year_q3__discipline_bio_evo,24,3,Size Q2,empirical,ANY,ANY,Q3,bio_evo,-0.09621570990558558,0.14511080675194196,0.4013807229910727
+type_empirical__year_q3__discipline_economics,145,3,Size Q4,empirical,ANY,ANY,Q3,economics,0.0326913720759144,0.30415221147606303,0.7721625420167482
+type_empirical__year_q3__discipline_math_phys_cs,22,3,Size Q2,empirical,ANY,ANY,Q3,math_phys_cs,-0.013945452730616868,-0.12870152699083556,-0.37487067255234363
+type_empirical__year_q3__discipline_multidisciplinary,59,3,Size Q3,empirical,ANY,ANY,Q3,multidisciplinary,-0.016246067842603632,0.6134935427990509,1.6938086601808109
+type_empirical__year_q3__discipline_other,10,3,Size Q1 (smallest),empirical,ANY,ANY,Q3,other,-0.07663240269895481,0.509328286775644,1.3549518041525719
+type_empirical__year_q3__discipline_psych_social,112,3,Size Q4,empirical,ANY,ANY,Q3,psych_social,0.014831207830944748,0.41426694485415544,1.0877518110190267
+type_empirical__year_q4_newest,296,2,Size Q5 (largest),empirical,ANY,ANY,Q4_newest,ANY,-0.027212175091863567,-0.45665721006324356,-1.0354977992460692
+type_empirical__year_q4_newest__discipline_bio_evo,25,3,Size Q2,empirical,ANY,ANY,Q4_newest,bio_evo,-0.004425473372897437,0.48511394950617875,1.293239380192204
+type_empirical__year_q4_newest__discipline_economics,123,3,Size Q4,empirical,ANY,ANY,Q4_newest,economics,-0.004491157691439931,0.21024938516685895,0.5134922119691407
+type_empirical__year_q4_newest__discipline_math_phys_cs,26,3,Size Q2,empirical,ANY,ANY,Q4_newest,math_phys_cs,0.0201505647492797,0.006144067574238095,-0.04741403930242497
+type_empirical__year_q4_newest__discipline_multidisciplinary,51,3,Size Q3,empirical,ANY,ANY,Q4_newest,multidisciplinary,0.01857088271701242,0.4338757603652232,1.1356172017966146
+type_empirical__year_q4_newest__discipline_other,7,3,Size Q1 (smallest),empirical,ANY,ANY,Q4_newest,other,-0.04327564175999258,0.35167140854268797,0.893435980152531
+type_empirical__year_q4_newest__discipline_psych_social,131,3,Size Q4,empirical,ANY,ANY,Q4_newest,psych_social,-0.018782603105665163,0.3043469696528666,0.7657343002870118
+type_theoretical,1445,1,Size Q5 (largest),theoretical,ANY,ANY,ANY,ANY,0.01794679725094543,-0.20382714179287822,-0.4844937868203287
+type_theoretical__citation_q1_lowest,350,2,Size Q5 (largest),theoretical,Q1_lowest,ANY,ANY,ANY,0.042793326218167005,0.36067672662804057,0.9435142132356202
+type_theoretical__citation_q1_lowest__discipline_bio_evo,41,3,Size Q3,theoretical,Q1_lowest,ANY,ANY,bio_evo,0.038783602554836934,0.6110693722254984,1.705697720519149
+type_theoretical__citation_q1_lowest__discipline_economics,56,3,Size Q3,theoretical,Q1_lowest,ANY,ANY,economics,0.024438850719967518,-0.3232542068474538,-0.8755699542448485
+type_theoretical__citation_q1_lowest__discipline_math_phys_cs,201,3,Size Q5 (largest),theoretical,Q1_lowest,ANY,ANY,math_phys_cs,0.015637966632087105,0.180856169192687,0.3961915426169272
+type_theoretical__citation_q1_lowest__discipline_multidisciplinary,36,3,Size Q2,theoretical,Q1_lowest,ANY,ANY,multidisciplinary,0.03249600791855559,0.5570618916836334,1.5172376883739667
+type_theoretical__citation_q1_lowest__discipline_other,22,3,Size Q2,theoretical,Q1_lowest,ANY,ANY,other,0.0324048426143716,0.07677169733116561,0.11653703974827485
+type_theoretical__citation_q1_lowest__discipline_psych_social,67,3,Size Q3,theoretical,Q1_lowest,ANY,ANY,psych_social,0.03855275376562182,0.36766992104917295,0.9418127787822917
+type_theoretical__citation_q1_lowest__jcr_q1,165,3,Size Q5 (largest),theoretical,Q1_lowest,Q1,ANY,ANY,0.05795302255872792,0.5843797037290487,1.6391012919658856
+type_theoretical__citation_q1_lowest__jcr_q2,82,3,Size Q4,theoretical,Q1_lowest,Q2,ANY,ANY,-0.007358488798897414,-0.006620128026907313,-0.10427289677516267
+type_theoretical__citation_q1_lowest__jcr_q3,64,3,Size Q3,theoretical,Q1_lowest,Q3,ANY,ANY,-0.028970571717382394,0.19986025584607855,0.4504522733603354
+type_theoretical__citation_q1_lowest__jcr_q4,23,3,Size Q2,theoretical,Q1_lowest,Q4,ANY,ANY,0.012597647944330234,-0.7247864594770518,-1.7246966110950275
+type_theoretical__citation_q1_lowest__year_q1_oldest,29,3,Size Q2,theoretical,Q1_lowest,ANY,Q1_oldest,ANY,0.014370165903607082,-0.11015820410977273,-0.36000010840948066
+type_theoretical__citation_q1_lowest__year_q2,52,3,Size Q3,theoretical,Q1_lowest,ANY,Q2,ANY,0.04239064717217195,0.13747499478727113,0.3332814626608725
+type_theoretical__citation_q1_lowest__year_q3,63,3,Size Q3,theoretical,Q1_lowest,ANY,Q3,ANY,-0.007895000140628166,0.23412011159330146,0.5492003215069011
+type_theoretical__citation_q1_lowest__year_q4_newest,206,3,Size Q5 (largest),theoretical,Q1_lowest,ANY,Q4_newest,ANY,0.0412286148858458,0.1710136343327118,0.38073947555963555
+type_theoretical__citation_q2,378,2,Size Q5 (largest),theoretical,Q2,ANY,ANY,ANY,0.01767555141373382,0.10655584030220437,0.2279466244294679
+type_theoretical__citation_q2__discipline_bio_evo,49,3,Size Q3,theoretical,Q2,ANY,ANY,bio_evo,0.021270824113725686,0.08088654371966453,0.1317991666708823
+type_theoretical__citation_q2__discipline_economics,40,3,Size Q3,theoretical,Q2,ANY,ANY,economics,0.03858460251414685,-0.41272417612006734,-1.0457629111692872
+type_theoretical__citation_q2__discipline_math_phys_cs,230,3,Size Q5 (largest),theoretical,Q2,ANY,ANY,math_phys_cs,0.0013175384593397687,0.18393794787793882,0.41322861638808606
+type_theoretical__citation_q2__discipline_multidisciplinary,56,3,Size Q3,theoretical,Q2,ANY,ANY,multidisciplinary,0.05026854340159797,0.23210173937548725,0.5541325661256349
+type_theoretical__citation_q2__discipline_other,20,3,Size Q2,theoretical,Q2,ANY,ANY,other,0.02147671345794105,0.14937343292305405,0.3276521615897055
+type_theoretical__citation_q2__discipline_psych_social,55,3,Size Q3,theoretical,Q2,ANY,ANY,psych_social,-0.015778876702746702,0.299871525097584,0.7293896131430503
+type_theoretical__citation_q2__jcr_q1,189,3,Size Q5 (largest),theoretical,Q2,Q1,ANY,ANY,0.011135178446013798,-0.2741541455897735,-0.6733840850279296
+type_theoretical__citation_q2__jcr_q2,106,3,Size Q4,theoretical,Q2,Q2,ANY,ANY,0.005216342845796598,0.27932055883476664,0.673546498290145
+type_theoretical__citation_q2__jcr_q3,59,3,Size Q3,theoretical,Q2,Q3,ANY,ANY,-0.036660022895297316,-0.07521337178479104,-0.25535382303452137
+type_theoretical__citation_q2__jcr_q4,7,3,Size Q1 (smallest),theoretical,Q2,Q4,ANY,ANY,-0.0010393136349925818,-0.07616126445065406,-0.03814813964422185
+type_theoretical__citation_q2__year_q1_oldest,66,3,Size Q3,theoretical,Q2,ANY,Q1_oldest,ANY,0.03630351289037767,-0.14732481943697207,-0.3584944950824544
+type_theoretical__citation_q2__year_q2,100,3,Size Q4,theoretical,Q2,ANY,Q2,ANY,0.014874500671266583,-0.17125513063997497,-0.4828734941567545
+type_theoretical__citation_q2__year_q3,108,3,Size Q4,theoretical,Q2,ANY,Q3,ANY,0.02401322388573393,0.23057240339984028,0.5465910685772136
+type_theoretical__citation_q2__year_q4_newest,104,3,Size Q4,theoretical,Q2,ANY,Q4_newest,ANY,0.03499725723191005,0.4970122088280273,1.3597043606355228
+type_theoretical__citation_q3,383,2,Size Q5 (largest),theoretical,Q3,ANY,ANY,ANY,0.023352516332506203,0.24205279442538352,0.598773107202295
+type_theoretical__citation_q3__discipline_bio_evo,91,3,Size Q4,theoretical,Q3,ANY,ANY,bio_evo,0.042475444713472386,0.3964157709764394,1.0187492621654706
+type_theoretical__citation_q3__discipline_economics,39,3,Size Q3,theoretical,Q3,ANY,ANY,economics,0.016973031202196166,0.05454127086072696,0.09302555051589367
+type_theoretical__citation_q3__discipline_math_phys_cs,196,3,Size Q5 (largest),theoretical,Q3,ANY,ANY,math_phys_cs,0.019343637068310434,0.07696306797732443,0.12315808263564465
+type_theoretical__citation_q3__discipline_multidisciplinary,56,3,Size Q3,theoretical,Q3,ANY,ANY,multidisciplinary,0.0056791033737252855,0.4850720673091167,1.289674386651758
+type_theoretical__citation_q3__discipline_other,19,3,Size Q2,theoretical,Q3,ANY,ANY,other,0.049987914799888004,0.29722444308667906,0.7263834727520183
+type_theoretical__citation_q3__discipline_psych_social,62,3,Size Q3,theoretical,Q3,ANY,ANY,psych_social,0.012472721575934731,0.44090440961588956,1.1637076787863607
+type_theoretical__citation_q3__jcr_q1,199,3,Size Q5 (largest),theoretical,Q3,Q1,ANY,ANY,0.033449642498532,0.21496772858370872,0.5371842635387615
+type_theoretical__citation_q3__jcr_q2,97,3,Size Q4,theoretical,Q3,Q2,ANY,ANY,-0.0169304483739147,-0.21141077982515563,-0.6078278767352864
+type_theoretical__citation_q3__jcr_q3,68,3,Size Q3,theoretical,Q3,Q3,ANY,ANY,0.0004354791236311657,-0.31573909428845315,-0.7593184061135415
+type_theoretical__citation_q3__jcr_q4,7,3,Size Q1 (smallest),theoretical,Q3,Q4,ANY,ANY,0.03154392305934335,0.20217023385434874,0.5030781679068442
+type_theoretical__citation_q3__year_q1_oldest,98,3,Size Q4,theoretical,Q3,ANY,Q1_oldest,ANY,0.04671422902667425,0.3473380813287648,0.8795371306652263
+type_theoretical__citation_q3__year_q2,125,3,Size Q4,theoretical,Q3,ANY,Q2,ANY,0.04207196100477285,-0.15496102876594134,-0.4399666535144611
+type_theoretical__citation_q3__year_q3,119,3,Size Q4,theoretical,Q3,ANY,Q3,ANY,0.03250771029714649,0.54376642001539,1.4931727501466312
+type_theoretical__citation_q3__year_q4_newest,41,3,Size Q3,theoretical,Q3,ANY,Q4_newest,ANY,0.005027773617942199,0.3694767166462494,0.9464286419465577
+type_theoretical__citation_q4_highest,305,2,Size Q5 (largest),theoretical,Q4_highest,ANY,ANY,ANY,-0.006939239661654768,-0.13995667206377257,-0.4150095529641275
+type_theoretical__citation_q4_highest__discipline_bio_evo,119,3,Size Q4,theoretical,Q4_highest,ANY,ANY,bio_evo,0.03346684837265717,0.29532930347193803,0.7774167311901287
+type_theoretical__citation_q4_highest__discipline_economics,33,3,Size Q2,theoretical,Q4_highest,ANY,ANY,economics,0.022908133903383282,-1.0125506709727692,-2.3169663496102455
+type_theoretical__citation_q4_highest__discipline_math_phys_cs,109,3,Size Q4,theoretical,Q4_highest,ANY,ANY,math_phys_cs,0.025192789871731448,0.14905935618151755,0.31832705465102556
+type_theoretical__citation_q4_highest__discipline_multidisciplinary,59,3,Size Q3,theoretical,Q4_highest,ANY,ANY,multidisciplinary,0.01848803226077463,0.3815956025607341,1.0058666321351564
+type_theoretical__citation_q4_highest__discipline_other,11,3,Size Q1 (smallest),theoretical,Q4_highest,ANY,ANY,other,0.05914050602837306,-0.23842428035667007,-0.6690590925301675
+type_theoretical__citation_q4_highest__discipline_psych_social,48,3,Size Q3,theoretical,Q4_highest,ANY,ANY,psych_social,0.04728532099648225,-0.05699066228797504,-0.1974959122424885
+type_theoretical__citation_q4_highest__jcr_q1,189,3,Size Q5 (largest),theoretical,Q4_highest,Q1,ANY,ANY,0.0344949887586028,0.028980951437051372,-0.0073641684935057405
+type_theoretical__citation_q4_highest__jcr_q2,42,3,Size Q3,theoretical,Q4_highest,Q2,ANY,ANY,0.01463737352613515,0.2925472864793692,0.7303995542441245
+type_theoretical__citation_q4_highest__jcr_q3,56,3,Size Q3,theoretical,Q4_highest,Q3,ANY,ANY,-0.041442322095991066,0.017865936883981342,-0.04086555513596183
+type_theoretical__citation_q4_highest__jcr_q4,4,3,Size Q1 (smallest),theoretical,Q4_highest,Q4,ANY,ANY,-0.002979598801097216,-1.10313854522636,-2.5385821409310463
+type_theoretical__citation_q4_highest__year_q1_oldest,178,3,Size Q5 (largest),theoretical,Q4_highest,ANY,Q1_oldest,ANY,0.06870369378650094,-0.15583991912136938,-0.44642318758225086
+type_theoretical__citation_q4_highest__year_q2,80,3,Size Q4,theoretical,Q4_highest,ANY,Q2,ANY,0.006697523235518782,0.3764448473142538,0.966784899703109
+type_theoretical__citation_q4_highest__year_q3,36,3,Size Q2,theoretical,Q4_highest,ANY,Q3,ANY,-0.0077249331879227804,0.4204524168657217,1.0934170338227784
+type_theoretical__citation_q4_highest__year_q4_newest,11,3,Size Q1 (smallest),theoretical,Q4_highest,ANY,Q4_newest,ANY,-0.021214144786954835,0.3665810932007385,0.959588791202946
+type_theoretical__discipline_bio_evo,300,2,Size Q5 (largest),theoretical,ANY,ANY,ANY,bio_evo,-0.01405240829861257,0.3682464668439778,0.9757778895611003
+type_theoretical__discipline_economics,168,2,Size Q5 (largest),theoretical,ANY,ANY,ANY,economics,-0.01710109647190665,-0.023071327876353947,-0.11999699943120919
+type_theoretical__discipline_math_phys_cs,736,2,Size Q5 (largest),theoretical,ANY,ANY,ANY,math_phys_cs,0.022651486237087886,0.10406744572390647,0.20090288447483737
+type_theoretical__discipline_multidisciplinary,207,2,Size Q5 (largest),theoretical,ANY,ANY,ANY,multidisciplinary,0.03544062638207183,0.6103103468107137,1.6980100723817386
+type_theoretical__discipline_other,101,2,Size Q4,theoretical,ANY,ANY,ANY,other,0.0530688888224354,0.4295115778135213,1.1193452132457928
+type_theoretical__discipline_psych_social,232,2,Size Q5 (largest),theoretical,ANY,ANY,ANY,psych_social,0.03685690228068733,0.3427177279479259,0.9127273810619548
+type_theoretical__jcr_q1,742,2,Size Q5 (largest),theoretical,ANY,Q1,ANY,ANY,0.03247870270335582,0.060970972904260234,0.16878575610264498
+type_theoretical__jcr_q1__discipline_bio_evo,114,3,Size Q4,theoretical,ANY,Q1,ANY,bio_evo,0.02606553101464018,0.4524021853294922,1.2063273045136964
+type_theoretical__jcr_q1__discipline_economics,37,3,Size Q3,theoretical,ANY,Q1,ANY,economics,0.08338486417059009,-0.07977386223406065,-0.2766302175606851
+type_theoretical__jcr_q1__discipline_math_phys_cs,307,3,Size Q5 (largest),theoretical,ANY,Q1,ANY,math_phys_cs,0.023412945508200982,0.5004946400013519,1.341576839756413
+type_theoretical__jcr_q1__discipline_multidisciplinary,198,3,Size Q5 (largest),theoretical,ANY,Q1,ANY,multidisciplinary,0.0019486870758126662,0.39658851517110594,1.041141853006128
+type_theoretical__jcr_q1__discipline_other,41,3,Size Q3,theoretical,ANY,Q1,ANY,other,0.051563503979880666,0.16531509253253074,0.38521157232070324
+type_theoretical__jcr_q1__discipline_psych_social,114,3,Size Q4,theoretical,ANY,Q1,ANY,psych_social,0.023466728766003298,0.42279774042834367,1.1020996026907797
+type_theoretical__jcr_q1__year_q1_oldest,151,3,Size Q4,theoretical,ANY,Q1,Q1_oldest,ANY,0.09416618211988513,0.029028774230376198,0.036099617949568806
+type_theoretical__jcr_q1__year_q2,175,3,Size Q5 (largest),theoretical,ANY,Q1,Q2,ANY,0.009299290815233247,0.08801968984672955,0.14014612165236828
+type_theoretical__jcr_q1__year_q3,169,3,Size Q5 (largest),theoretical,ANY,Q1,Q3,ANY,0.02392832700335885,0.45882701966036893,1.2082929862255292
+type_theoretical__jcr_q1__year_q4_newest,247,3,Size Q5 (largest),theoretical,ANY,Q1,Q4_newest,ANY,0.0004790054154784171,0.29938940299421085,0.7407488279257651
+type_theoretical__jcr_q2,327,2,Size Q5 (largest),theoretical,ANY,Q2,ANY,ANY,0.0187521603099893,-0.9466320664398915,-2.1040816056018636
+type_theoretical__jcr_q2__discipline_bio_evo,26,3,Size Q2,theoretical,ANY,Q2,ANY,bio_evo,0.0105198896321049,-0.29099416640530495,-0.7438088007058267
+type_theoretical__jcr_q2__discipline_economics,54,3,Size Q3,theoretical,ANY,Q2,ANY,economics,0.01566066606763902,-0.17150779472917785,-0.4900224752511147
+type_theoretical__jcr_q2__discipline_math_phys_cs,226,3,Size Q5 (largest),theoretical,ANY,Q2,ANY,math_phys_cs,-0.015452004830798451,-0.030484516492788643,-0.162696972219702
+type_theoretical__jcr_q2__discipline_multidisciplinary,6,3,Size Q1 (smallest),theoretical,ANY,Q2,ANY,multidisciplinary,-0.009988499046127934,0.026478688844735736,-0.019211664526220584
+type_theoretical__jcr_q2__discipline_other,12,3,Size Q1 (smallest),theoretical,ANY,Q2,ANY,other,0.05034346644008065,-0.3849558821035471,-1.042336438823299
+type_theoretical__jcr_q2__discipline_psych_social,41,3,Size Q3,theoretical,ANY,Q2,ANY,psych_social,0.029488635698198346,-0.10463718480994767,-0.29886346531764313
+type_theoretical__jcr_q2__year_q1_oldest,81,3,Size Q4,theoretical,ANY,Q2,Q1_oldest,ANY,0.01788643264694913,0.21110300315290223,0.5436118694856202
+type_theoretical__jcr_q2__year_q2,89,3,Size Q4,theoretical,ANY,Q2,Q2,ANY,-0.06309676901575023,-0.18069291022549538,-0.5235345112567708
+type_theoretical__jcr_q2__year_q3,87,3,Size Q4,theoretical,ANY,Q2,Q3,ANY,-0.010745994608363433,0.1621918488827301,0.35487725861017266
+type_theoretical__jcr_q2__year_q4_newest,70,3,Size Q3,theoretical,ANY,Q2,Q4_newest,ANY,0.03219307724559215,0.200099876452183,0.4973579498841798
+type_theoretical__jcr_q3,247,2,Size Q5 (largest),theoretical,ANY,Q3,ANY,ANY,0.03406687839750353,-0.05778094040483702,-0.1678168522601887
+type_theoretical__jcr_q3__discipline_bio_evo,139,3,Size Q4,theoretical,ANY,Q3,ANY,bio_evo,0.012263439734020902,0.058957677015359505,0.1812730881288087
+type_theoretical__jcr_q3__discipline_economics,47,3,Size Q3,theoretical,ANY,Q3,ANY,economics,0.037826808928687415,-0.19465317236513366,-0.5260266211912595
+type_theoretical__jcr_q3__discipline_math_phys_cs,149,3,Size Q4,theoretical,ANY,Q3,ANY,math_phys_cs,-0.013623503208916317,0.21826885236173402,0.5096659116659995
+type_theoretical__jcr_q3__discipline_other,7,3,Size Q1 (smallest),theoretical,ANY,Q3,ANY,other,0.02193709476713247,-0.03776504503816832,-0.1676207927153075
+type_theoretical__jcr_q3__discipline_psych_social,39,3,Size Q3,theoretical,ANY,Q3,ANY,psych_social,-0.010610935450356166,-0.06078402109077045,-0.23784801833684885
+type_theoretical__jcr_q3__year_q1_oldest,101,3,Size Q4,theoretical,ANY,Q3,Q1_oldest,ANY,0.03482804461244648,0.11626839730013938,0.2655608110342856
+type_theoretical__jcr_q3__year_q2,61,3,Size Q3,theoretical,ANY,Q3,Q2,ANY,0.040102554002641684,0.2572277793573293,0.616527185113672
+type_theoretical__jcr_q3__year_q3,54,3,Size Q3,theoretical,ANY,Q3,Q3,ANY,0.002074323732891748,-0.2362606118831085,-0.6455232051298583
+type_theoretical__jcr_q3__year_q4_newest,31,3,Size Q2,theoretical,ANY,Q3,Q4_newest,ANY,0.016008498906333282,0.25768685433138944,0.660505399377588
+type_theoretical__jcr_q4,41,2,Size Q3,theoretical,ANY,Q4,ANY,ANY,0.01716988547567432,0.22927339963982032,0.5424380553478435
+type_theoretical__jcr_q4__discipline_bio_evo,13,3,Size Q1 (smallest),theoretical,ANY,Q4,ANY,bio_evo,-0.011116333167514115,0.010559440581694557,-0.05142304771001779
+type_theoretical__jcr_q4__discipline_economics,23,3,Size Q2,theoretical,ANY,Q4,ANY,economics,0.02001541121725148,-0.20176994708310034,-0.5786819206958577
+type_theoretical__jcr_q4__discipline_math_phys_cs,30,3,Size Q2,theoretical,ANY,Q4,ANY,math_phys_cs,0.003284173845488883,-0.02955009447664486,-0.1184579280302489
+type_theoretical__jcr_q4__discipline_other,2,3,Size Q1 (smallest),theoretical,ANY,Q4,ANY,other,0.015289368867118217,-0.16316787309577532,-0.443234736451066
+type_theoretical__jcr_q4__discipline_psych_social,22,3,Size Q2,theoretical,ANY,Q4,ANY,psych_social,0.011152895926673267,0.1398488491065257,0.29019747701430676
+type_theoretical__jcr_q4__year_q1_oldest,12,3,Size Q1 (smallest),theoretical,ANY,Q4,Q1_oldest,ANY,-0.018449939649066247,0.12241359644005227,0.24265784548863126
+type_theoretical__jcr_q4__year_q2,8,3,Size Q1 (smallest),theoretical,ANY,Q4,Q2,ANY,0.018004628657538733,-0.18374629723161925,-0.4975762910927896
+type_theoretical__jcr_q4__year_q3,12,3,Size Q1 (smallest),theoretical,ANY,Q4,Q3,ANY,0.017507694799938852,-0.5563395610166636,-1.4132377055571042
+type_theoretical__jcr_q4__year_q4_newest,9,3,Size Q1 (smallest),theoretical,ANY,Q4,Q4_newest,ANY,0.008238685766099952,0.3032297699935191,0.8118427050823406
+type_theoretical__year_q1_oldest,371,2,Size Q5 (largest),theoretical,ANY,ANY,Q1_oldest,ANY,0.05936000013275847,0.3871978729254954,0.9953350477133628
+type_theoretical__year_q1_oldest__discipline_bio_evo,135,3,Size Q4,theoretical,ANY,ANY,Q1_oldest,bio_evo,-0.012421406667193715,0.25457420044014384,0.6052950474336183
+type_theoretical__year_q1_oldest__discipline_economics,72,3,Size Q4,theoretical,ANY,ANY,Q1_oldest,economics,0.024225178002555234,0.0022736797021779553,-0.027938579249934776
+type_theoretical__year_q1_oldest__discipline_math_phys_cs,150,3,Size Q4,theoretical,ANY,ANY,Q1_oldest,math_phys_cs,-0.0022524668383210335,0.057416976420775416,0.08547856934015312
+type_theoretical__year_q1_oldest__discipline_multidisciplinary,39,3,Size Q3,theoretical,ANY,ANY,Q1_oldest,multidisciplinary,0.042885912099718086,0.3299564132379445,0.8103737287436362
+type_theoretical__year_q1_oldest__discipline_other,12,3,Size Q1 (smallest),theoretical,ANY,ANY,Q1_oldest,other,0.06622139875018501,0.3182543028679443,0.837062066069686
+type_theoretical__year_q1_oldest__discipline_psych_social,77,3,Size Q4,theoretical,ANY,ANY,Q1_oldest,psych_social,0.052770488102474845,-0.016700664233470646,-0.07819499048447254
+type_theoretical__year_q2,357,2,Size Q5 (largest),theoretical,ANY,ANY,Q2,ANY,-0.008067441345017084,0.0102377741820567,0.06286575920526544
+type_theoretical__year_q2__discipline_bio_evo,79,3,Size Q4,theoretical,ANY,ANY,Q2,bio_evo,0.031185570000846236,0.42235664618879093,1.1040487540477948
+type_theoretical__year_q2__discipline_economics,42,3,Size Q3,theoretical,ANY,ANY,Q2,economics,0.06426728033943874,-0.17960295982291763,-0.5001168794716958
+type_theoretical__year_q2__discipline_math_phys_cs,166,3,Size Q5 (largest),theoretical,ANY,ANY,Q2,math_phys_cs,-0.005107246200999567,0.2636000721938365,0.6406008653555747
+type_theoretical__year_q2__discipline_multidisciplinary,66,3,Size Q3,theoretical,ANY,ANY,Q2,multidisciplinary,0.02762354675853158,0.38436951332161357,1.0145849637900228
+type_theoretical__year_q2__discipline_other,23,3,Size Q2,theoretical,ANY,ANY,Q2,other,0.023988418419399915,-0.28578338928153585,-0.7896667865202391
+type_theoretical__year_q2__discipline_psych_social,53,3,Size Q3,theoretical,ANY,ANY,Q2,psych_social,0.0450126455617339,0.5098332275238587,1.3957946551555829
+type_theoretical__year_q3,326,2,Size Q5 (largest),theoretical,ANY,ANY,Q3,ANY,0.055660031874218634,0.09440318835645452,0.28223167386794445
+type_theoretical__year_q3__discipline_bio_evo,51,3,Size Q3,theoretical,ANY,ANY,Q3,bio_evo,-0.006727553765734982,0.1786652315941406,0.6494039945517417
+type_theoretical__year_q3__discipline_economics,35,3,Size Q2,theoretical,ANY,ANY,Q3,economics,0.0004826412988097166,-0.22726098604133194,-0.629150444992936
+type_theoretical__year_q3__discipline_math_phys_cs,188,3,Size Q5 (largest),theoretical,ANY,ANY,Q3,math_phys_cs,0.01711855594241525,0.011546513367389969,-0.025873715409195846
+type_theoretical__year_q3__discipline_multidisciplinary,49,3,Size Q3,theoretical,ANY,ANY,Q3,multidisciplinary,0.031559549410381985,0.31777384969462485,0.7885630381817058
+type_theoretical__year_q3__discipline_other,12,3,Size Q1 (smallest),theoretical,ANY,ANY,Q3,other,0.039908004442094816,0.01536895923683577,-0.037505601573543136
+type_theoretical__year_q3__discipline_psych_social,55,3,Size Q3,theoretical,ANY,ANY,Q3,psych_social,-0.027992032329997363,0.27879061393806864,0.6781524273469484
+type_theoretical__year_q4_newest,362,2,Size Q5 (largest),theoretical,ANY,ANY,Q4_newest,ANY,0.05438477063103423,0.10362935158480735,0.25819137222711597
+type_theoretical__year_q4_newest__discipline_bio_evo,35,3,Size Q2,theoretical,ANY,ANY,Q4_newest,bio_evo,-0.010958072901528018,0.4394810010281159,1.167203054101709
+type_theoretical__year_q4_newest__discipline_economics,19,3,Size Q2,theoretical,ANY,ANY,Q4_newest,economics,0.032563341298936864,-1.138560433259909,-2.548903440166072
+type_theoretical__year_q4_newest__discipline_math_phys_cs,232,3,Size Q5 (largest),theoretical,ANY,ANY,Q4_newest,math_phys_cs,0.00627798104210598,0.07761808328697613,0.14387800819818533
+type_theoretical__year_q4_newest__discipline_multidisciplinary,53,3,Size Q3,theoretical,ANY,ANY,Q4_newest,multidisciplinary,0.037168336549638754,0.5709486612962636,1.5991597426647381
+type_theoretical__year_q4_newest__discipline_other,25,3,Size Q2,theoretical,ANY,ANY,Q4_newest,other,0.0290106064470997,-0.09010920829703876,-0.2979177382872069
+type_theoretical__year_q4_newest__discipline_psych_social,47,3,Size Q3,theoretical,ANY,ANY,Q4_newest,psych_social,0.03358886901461985,0.6162636785990947,1.7259041719351647
+year_q1_oldest,705,1,Size Q5 (largest),ANY,ANY,ANY,Q1_oldest,ANY,-0.048014474273483904,0.19765478464831446,0.49050905830804864
+year_q1_oldest__discipline_bio_evo,170,2,Size Q5 (largest),ANY,ANY,ANY,Q1_oldest,bio_evo,0.016387177148698796,0.5520248819675995,1.495838667225285
+year_q1_oldest__discipline_economics,213,2,Size Q5 (largest),ANY,ANY,ANY,Q1_oldest,economics,0.06160873436852202,-0.5222651551875518,-1.088598703075008
+year_q1_oldest__discipline_math_phys_cs,159,2,Size Q5 (largest),ANY,ANY,ANY,Q1_oldest,math_phys_cs,0.05761600796306038,0.35536246590683396,0.9127179237916505
+year_q1_oldest__discipline_multidisciplinary,103,2,Size Q4,ANY,ANY,ANY,Q1_oldest,multidisciplinary,0.0675717419775715,0.17016812257835798,0.4122919492636557
+year_q1_oldest__discipline_other,16,2,Size Q2,ANY,ANY,ANY,Q1_oldest,other,0.00808933639450773,0.266593854555185,0.645329421034896
+year_q1_oldest__discipline_psych_social,199,2,Size Q5 (largest),ANY,ANY,ANY,Q1_oldest,psych_social,0.03035497927590118,0.5173934707330617,1.3953775815878746
+year_q2,743,1,Size Q5 (largest),ANY,ANY,ANY,Q2,ANY,0.06645769143028958,0.483188490995462,1.2977001918071942
+year_q2__discipline_bio_evo,127,2,Size Q4,ANY,ANY,ANY,Q2,bio_evo,0.0827402498714517,0.5403502791411631,1.4938168776745038
+year_q2__discipline_economics,195,2,Size Q5 (largest),ANY,ANY,ANY,Q2,economics,0.0158478743227711,-0.30684212751319473,-0.7996506439929768
+year_q2__discipline_math_phys_cs,178,2,Size Q5 (largest),ANY,ANY,ANY,Q2,math_phys_cs,-0.017210282247027683,0.15010641110807194,0.33061149246637384
+year_q2__discipline_multidisciplinary,155,2,Size Q5 (largest),ANY,ANY,ANY,Q2,multidisciplinary,-0.0020342741020132836,0.47401920053233243,1.2726380281363363
+year_q2__discipline_other,29,2,Size Q2,ANY,ANY,ANY,Q2,other,0.04213026428147065,-0.1875482589714772,-0.5364908126280272
+year_q2__discipline_psych_social,193,2,Size Q5 (largest),ANY,ANY,ANY,Q2,psych_social,0.05633977317734464,0.08753226292997135,0.17132348345860202
+year_q3,650,1,Size Q5 (largest),ANY,ANY,ANY,Q3,ANY,0.02837322417819403,0.38090390059222307,0.998142585428003
+year_q3__discipline_bio_evo,75,2,Size Q4,ANY,ANY,ANY,Q3,bio_evo,-0.009869309624792086,0.40886708192894394,1.0570005826865072
+year_q3__discipline_economics,180,2,Size Q5 (largest),ANY,ANY,ANY,Q3,economics,0.06857611004435922,0.16684745841095383,0.4054647537782228
+year_q3__discipline_math_phys_cs,210,2,Size Q5 (largest),ANY,ANY,ANY,Q3,math_phys_cs,0.024944536526241966,-0.6852058957728789,-1.6128163086658283
+year_q3__discipline_multidisciplinary,108,2,Size Q4,ANY,ANY,ANY,Q3,multidisciplinary,-0.06357503668542795,0.19192034098376365,0.4374083134248292
+year_q3__discipline_other,22,2,Size Q2,ANY,ANY,ANY,Q3,other,0.012198868035514199,0.38746907405922343,0.9880124184205568
+year_q3__discipline_psych_social,167,2,Size Q5 (largest),ANY,ANY,ANY,Q3,psych_social,0.014507882435360603,0.506881665119226,1.3845074427837567
+year_q4_newest,658,1,Size Q5 (largest),ANY,ANY,ANY,Q4_newest,ANY,0.021578657268721917,0.23850013904640607,0.5785387608125245
+year_q4_newest__discipline_bio_evo,60,2,Size Q3,ANY,ANY,ANY,Q4_newest,bio_evo,0.018316301345069234,0.41885885688532914,1.0893469902589357
+year_q4_newest__discipline_economics,142,2,Size Q4,ANY,ANY,ANY,Q4_newest,economics,-0.00021005408044746585,0.52961158844699,1.4398799193615155
+year_q4_newest__discipline_math_phys_cs,258,2,Size Q5 (largest),ANY,ANY,ANY,Q4_newest,math_phys_cs,0.0037086582573642828,0.24340599867571922,0.5893024059846437
+year_q4_newest__discipline_multidisciplinary,104,2,Size Q4,ANY,ANY,ANY,Q4_newest,multidisciplinary,0.010845445234814349,0.30563837382067766,0.7595114958996013
+year_q4_newest__discipline_other,32,2,Size Q2,ANY,ANY,ANY,Q4_newest,other,0.050141327221432386,0.4444134741313212,1.2041024618063803
+year_q4_newest__discipline_psych_social,178,2,Size Q5 (largest),ANY,ANY,ANY,Q4_newest,psych_social,0.0116760160915445,0.14904068005948792,0.3598411334270672

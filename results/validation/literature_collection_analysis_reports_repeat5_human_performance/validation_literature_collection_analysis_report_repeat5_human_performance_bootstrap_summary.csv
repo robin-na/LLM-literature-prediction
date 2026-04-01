@@ -1,0 +1,3 @@
+comparison,mean_diff,ci_low_95,ci_high_95,prob_diff_gt_zero
+LLM pooled baseline mean corr minus experts individual mean corr,0.055541865815808576,-0.03587630380793034,0.11805230705996064,0.9075
+LLM pooled baseline mean corr minus laypeople individual mean corr,0.13084075428299588,-0.003917069219645707,0.2265065870892153,0.97275

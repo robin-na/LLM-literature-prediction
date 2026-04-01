@@ -1,0 +1,61 @@
+metric,spec,model,term,coef,std_err,p_value,term_label,model_label
+delta_correlation,model_specific_ols,GPT-4.1,empirical[T.True],-0.0139256287650991,0.0034173860855687,4.7879858000584826e-05,Empirical,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,empirical[T.True],-0.0174014286249257,0.0038422803597432,6.288169165916501e-06,Empirical,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,empirical[T.True],-0.0145724001692547,0.0044468231974893,0.0010675249606097,Empirical,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,empirical[T.True],-0.0203017561805793,0.0049841275300821,4.8218372428213945e-05,Empirical,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,empirical[T.True],-0.0142179285484011,0.0051702683461949,0.0060158689122158,Empirical,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,exactclose_domain[T.True],-0.0080848822057005,0.0021253337910766,0.00014674955647,Exact/close domain,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,exactclose_domain[T.True],-0.0215499722423214,0.0023895831723073,4.464415569586775e-19,Exact/close domain,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,exactclose_domain[T.True],-0.0092263121821986,0.0027655592221428,0.0008654915188265,Exact/close domain,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,exactclose_domain[T.True],-0.0029803323397334,0.0030997184378585,0.3364281328818865,Exact/close domain,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,exactclose_domain[T.True],-0.0107519217338282,0.0032154827549351,0.0008421097684495,Exact/close domain,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,show_other_summaries_discussed[T.True],-0.0010984934835629,0.0026280731824755,0.6760047649332542,Other summaries discussed,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,show_other_summaries_discussed[T.True],-0.0080969477599914,0.0029548297207727,0.0061955916068336,Other summaries discussed,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,show_other_summaries_discussed[T.True],-0.0033116330492165,0.0034197414339232,0.3329717288797112,Other summaries discussed,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,show_other_summaries_discussed[T.True],0.008374066356789,0.0038329447044808,0.0290255854506126,Other summaries discussed,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,show_other_summaries_discussed[T.True],-0.0229426810666597,0.0039760926177516,9.196749202305696e-09,Other summaries discussed,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,payoff_relevance_exactclose[T.True],-0.0047144034953314,0.004261705528826,0.268766332394031,Exact/close payoff relevance,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,payoff_relevance_exactclose[T.True],-0.0066018664733391,0.0047915766736353,0.1684217174790747,Exact/close payoff relevance,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,payoff_relevance_exactclose[T.True],-0.0090673431169722,0.0055454814094551,0.1021929288468436,Exact/close payoff relevance,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,payoff_relevance_exactclose[T.True],-0.0034777652297284,0.0062155353008028,0.5758660400044067,Exact/close payoff relevance,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,payoff_relevance_exactclose[T.True],0.0028722370407054,0.0064476651583328,0.6560302760260204,Exact/close payoff relevance,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,payoff_outcome_primary[T.True],-0.0033440124415014,0.004274610096315,0.4341357268940833,Payoff as primary outcome,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,payoff_outcome_primary[T.True],-0.0136181185972726,0.0048060857062621,0.0046514668969872,Payoff as primary outcome,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,payoff_outcome_primary[T.True],0.0022804798888045,0.0055622732874071,0.681858048315535,Payoff as primary outcome,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,payoff_outcome_primary[T.True],-0.006094860430809,0.0062343561212999,0.3283817496246101,Payoff as primary outcome,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,payoff_outcome_primary[T.True],0.0067832180466641,0.0064671888747462,0.2943700570258103,Payoff as primary outcome,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,log_citations_z,0.0011590376620023,0.0012528994140189,0.3550369597508743,Citations,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,log_citations_z,-0.0026465539250232,0.0014086763071774,0.0604279922467119,Citations,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,log_citations_z,-0.0006183332544494,0.0016303168675929,0.7045274845356919,Citations,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,log_citations_z,-0.0044870198905571,0.0018273061063266,0.0141544528370113,Citations,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,log_citations_z,-0.0045880323729529,0.0018955499961281,0.0155936836468758,Citations,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,pub_year_z,0.0011179628727689,0.0012484354961494,0.3706356016161368,Publication year,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,pub_year_z,-0.0024327461587397,0.0014036573764719,0.0832280781525947,Publication year,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,pub_year_z,-0.0008220963973065,0.0016245082603601,0.6128729426126123,Publication year,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,pub_year_z,-0.0058262809276745,0.0018207956520237,0.0013971584416673,Publication year,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,pub_year_z,-0.0030818926309333,0.0018887963977102,0.1029111347379059,Publication year,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,dimension_informative_direct_count_z,0.0049713113206529,0.0019941118434268,0.0127497632476375,Informative direct evidence,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,dimension_informative_direct_count_z,0.0002938755480766,0.0022420459904971,0.8957297764851024,Informative direct evidence,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,dimension_informative_direct_count_z,-0.0056815538681217,0.0025948085998198,0.0286729707512239,Informative direct evidence,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,dimension_informative_direct_count_z,-0.0064813473881064,0.0029083362219028,0.0259585138799736,Informative direct evidence,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,dimension_informative_direct_count_z,-0.0041423064627324,0.0030169530409164,0.169907773723755,Informative direct evidence,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,n_pages_z,-0.0025933499696572,0.0010210452716961,0.0111658519715695,Pages,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,n_pages_z,-0.0022573092174832,0.0011479950159608,0.0494055360741982,Pages,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,n_pages_z,-0.0003348227198303,0.0013286200874519,0.8010616462887632,Pages,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,n_pages_z,-0.0009958188703149,0.0014891556647964,0.5037575723785539,Pages,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,n_pages_z,0.0004465855952675,0.0015447707446857,0.7725394887089249,Pages,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,broad_only_count_z,0.0044414759275329,0.0015533876045041,0.0042921840515298,Broad-only evidence,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,broad_only_count_z,0.004354016531199,0.001746525131901,0.0127510399406298,Broad-only evidence,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,broad_only_count_z,0.0035464367653928,0.0020213226897516,0.0795003570416553,Broad-only evidence,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,broad_only_count_z,0.0003880913466778,0.002265556694689,0.8640052115039201,Broad-only evidence,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,broad_only_count_z,0.0015715766263081,0.0023501678065745,0.5037610745062363,Broad-only evidence,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,chat_discussed[T.True],0.0008413165258622,0.0032988732312593,0.7987257892570807,Chat discussed,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,chat_discussed[T.True],-0.0028061830856567,0.0037090324325004,0.4493927614508555,Chat discussed,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,chat_discussed[T.True],-0.001674089117965,0.0042926100952679,0.6965842792619723,Chat discussed,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,chat_discussed[T.True],0.0063889396342593,0.004811281043018,0.1843644822589403,Chat discussed,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,chat_discussed[T.True],0.0115938341140383,0.0049909666097475,0.0202839476711208,Chat discussed,GPT-5.1
+delta_correlation,model_specific_ols,GPT-4.1,show_punishment_id_discussed[T.True],-0.000183185334495,0.0026616525206089,0.9451368709179364,Punishment discussed,GPT-4.1
+delta_correlation,model_specific_ols,GPT-4.1 Mini,show_punishment_id_discussed[T.True],8.90139982638659e-05,0.0029925840827828,0.9762735900224606,Punishment discussed,GPT-4.1 Mini
+delta_correlation,model_specific_ols,GPT-5 Mini,show_punishment_id_discussed[T.True],0.0060280144325383,0.0034634360519818,0.0819345153372442,Punishment discussed,GPT-5 Mini
+delta_correlation,model_specific_ols,GPT-5 Nano,show_punishment_id_discussed[T.True],0.0111087714308914,0.0038819188910203,0.0042592777231698,Punishment discussed,GPT-5 Nano
+delta_correlation,model_specific_ols,GPT-5.1,show_punishment_id_discussed[T.True],0.0160818647274343,0.004026895829531,6.749792687440128e-05,Punishment discussed,GPT-5.1

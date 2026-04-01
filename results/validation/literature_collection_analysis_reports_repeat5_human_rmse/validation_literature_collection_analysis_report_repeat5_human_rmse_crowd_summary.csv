@@ -1,0 +1,8 @@
+group,rmse
+LLM baseline average of all 20 runs,7.343083480391599
+GPT-4.1 baseline average of 5 repeats,6.6663708267692385
+GPT-4.1 Mini baseline average of 5 repeats,8.002280924836366
+GPT-5 Mini baseline average of 5 repeats,8.55432639078028
+GPT-5.1 baseline average of 5 repeats,7.631153254915012
+Experts full crowd,6.629323241051759
+Laypeople full crowd,6.345677146027517

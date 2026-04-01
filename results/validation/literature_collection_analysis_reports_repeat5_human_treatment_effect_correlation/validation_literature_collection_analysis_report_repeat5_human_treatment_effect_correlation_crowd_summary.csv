@@ -1,0 +1,8 @@
+group,treatment_effect_correlation
+LLM baseline average of all 20 runs,0.48232567804788257
+GPT-4.1 baseline average of 5 repeats,0.32303739055903435
+GPT-4.1 Mini baseline average of 5 repeats,0.5040834678898506
+GPT-5 Mini baseline average of 5 repeats,0.2424063450791397
+GPT-5.1 baseline average of 5 repeats,0.6262297887276684
+Experts full crowd,0.682591958124895
+Laypeople full crowd,0.7179224817589098

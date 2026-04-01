@@ -1,13 +1,19 @@
 scope,feature_set,target,cv_r2,cv_spearman,model
-pooled,model_only,delta_correlation,0.11291095606378487,0.2515339665398064,
-pooled,model_only,delta_rmse,0.09881622564394421,0.44966202349914053,
-pooled,paper_only,delta_correlation,0.014930962460558916,0.1320448319817517,
-pooled,paper_only,delta_rmse,0.03405062284372007,0.18228258729110872,
-pooled,model_plus_paper,delta_correlation,0.12812536764743732,0.3082777313481006,
-pooled,model_plus_paper,delta_rmse,0.13282047391393648,0.5053781300792336,
-within_model_paper_only,paper_only,delta_correlation,0.014909510984811747,0.12500326272204748,GPT-4.1
-within_model_paper_only,paper_only,delta_rmse,0.11926165867733263,0.34182768023022675,GPT-4.1
-within_model_paper_only,paper_only,delta_correlation,0.10348135231002453,0.3445782215349029,GPT-4.1 Mini
-within_model_paper_only,paper_only,delta_rmse,0.011625508611954105,0.09648420436785073,GPT-4.1 Mini
-within_model_paper_only,paper_only,delta_correlation,0.0038573527525650464,0.04485136369492264,GPT-4.1 Nano
-within_model_paper_only,paper_only,delta_rmse,0.036135466274688666,0.1849137968068969,GPT-4.1 Nano
+pooled,model_only,delta_correlation,0.3192074194351515,0.6112718007451242,
+pooled,model_only,delta_rmse,0.2575295903346484,0.5535542524879795,
+pooled,paper_only,delta_correlation,0.020437945474082175,0.14389590484227582,
+pooled,paper_only,delta_rmse,0.03421924077467031,0.1758091961947594,
+pooled,model_plus_paper,delta_correlation,0.3396656725733712,0.6631553320290715,
+pooled,model_plus_paper,delta_rmse,0.2922210829019971,0.5736117859468016,
+within_model_paper_only,paper_only,delta_correlation,0.01793387682891945,0.17158550938864806,GPT-4.1
+within_model_paper_only,paper_only,delta_rmse,0.15167999511258878,0.3978673605447644,GPT-4.1
+within_model_paper_only,paper_only,delta_correlation,0.15922647885785612,0.4356106298647992,GPT-4.1 Mini
+within_model_paper_only,paper_only,delta_rmse,0.012853247732371065,0.0959692834202751,GPT-4.1 Mini
+within_model_paper_only,paper_only,delta_correlation,0.007433498687658635,0.06367434631373231,GPT-4.1 Nano
+within_model_paper_only,paper_only,delta_rmse,0.06377161244805263,0.26178018354817345,GPT-4.1 Nano
+within_model_paper_only,paper_only,delta_correlation,0.043169967486339056,0.2242386188888936,GPT-5.1
+within_model_paper_only,paper_only,delta_rmse,0.05572065959817507,0.20977996725431797,GPT-5.1
+within_model_paper_only,paper_only,delta_correlation,0.060101991612505956,0.31341661778925883,GPT-5 Mini
+within_model_paper_only,paper_only,delta_rmse,0.08282959853674055,0.2602212696375859,GPT-5 Mini
+within_model_paper_only,paper_only,delta_correlation,0.025561134484240244,0.19315489326592128,GPT-5 Nano
+within_model_paper_only,paper_only,delta_rmse,0.06073761909792663,0.3320319675284162,GPT-5 Nano

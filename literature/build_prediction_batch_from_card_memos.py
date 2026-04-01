@@ -133,6 +133,15 @@ def parse_args() -> argparse.Namespace:
         help="Starting repeat index to use in custom_id suffixes for repeated runs.",
     )
     parser.add_argument(
+        "--seed-base",
+        type=int,
+        default=None,
+        help=(
+            "Optional deterministic seed base for repeated explanation runs. "
+            "When set, repeat k uses seed (seed_base + k - 1) across all requests."
+        ),
+    )
+    parser.add_argument(
         "--max-papers",
         type=int,
         default=None,
@@ -449,6 +458,7 @@ def build_requests(
     modes: list[str],
     n_explanation_repeats: int,
     repeat_start_index: int,
+    seed_base: int | None,
 ) -> list[dict]:
     requests: list[dict] = []
     include_single = "single" in modes
@@ -478,6 +488,7 @@ def build_requests(
             for i, (_, row) in enumerate(df.iterrows(), start=1):
                 for rep_idx in range(repeat_start_index, repeat_start_index + n_explanation_repeats):
                     suffix = "" if n_explanation_repeats == 1 else f"_rep{rep_idx}"
+                    seed = None if seed_base is None else seed_base + rep_idx - 1
                     requests.append(
                         build_openai_request(
                             custom_id=f"paper_analysis_report{suffix}/{paper_id}/Q{i}",
@@ -490,6 +501,7 @@ def build_requests(
                             include_logprobs=False,
                             response_format_json=True,
                             include_explanation=True,
+                            seed=seed,
                         )
                     )
 
@@ -512,6 +524,7 @@ def build_requests(
         if include_joint_reasoning:
             for rep_idx in range(repeat_start_index, repeat_start_index + n_explanation_repeats):
                 suffix = "" if n_explanation_repeats == 1 else f"_rep{rep_idx}"
+                seed = None if seed_base is None else seed_base + rep_idx - 1
                 requests.append(
                     build_openai_request(
                         custom_id=f"paper_analysis_report_joint{suffix}/{paper_id}",
@@ -524,6 +537,7 @@ def build_requests(
                         include_logprobs=False,
                         response_format_json=True,
                         include_explanation=True,
+                        seed=seed,
                     )
                 )
 
@@ -554,6 +568,7 @@ def main() -> None:
             modes=args.modes,
             n_explanation_repeats=args.n_explanation_repeats,
             repeat_start_index=args.repeat_start_index,
+            seed_base=args.seed_base,
         )
         output_path = args.output_dir / f"{args.output_prefix}_{_model_tag(model)}.jsonl"
         count = write_jsonl(output_path, requests)

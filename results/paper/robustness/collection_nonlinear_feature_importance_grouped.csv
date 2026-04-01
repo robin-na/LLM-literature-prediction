@@ -1,0 +1,31 @@
+model,model_name,feature_group,group_mean_importance
+GPT-4.1,extra_trees,Citation,3.424106056855982
+GPT-4.1,extra_trees,Collection size,11.902506960819924
+GPT-4.1,extra_trees,Journal discipline mix,5.730210557595379
+GPT-4.1,extra_trees,Journal quality,1.4196595591861236
+GPT-4.1,extra_trees,Paper type,6.473122495696243
+GPT-4.1,extra_trees,Recency,2.818561976655781
+GPT-4.1 Mini,gradient_boosting,Citation,6.910604177642438
+GPT-4.1 Mini,gradient_boosting,Collection size,6.654553811943616
+GPT-4.1 Mini,gradient_boosting,Journal discipline mix,4.037884545858606
+GPT-4.1 Mini,gradient_boosting,Journal quality,7.499065844699226
+GPT-4.1 Mini,gradient_boosting,Paper type,2.8265058029613797
+GPT-4.1 Mini,gradient_boosting,Recency,1.5451783206324623
+GPT-5 Mini,gradient_boosting,Citation,11.523847954856425
+GPT-5 Mini,gradient_boosting,Collection size,2.8764448330447623
+GPT-5 Mini,gradient_boosting,Journal discipline mix,14.205733618544883
+GPT-5 Mini,gradient_boosting,Journal quality,4.402807899777391
+GPT-5 Mini,gradient_boosting,Paper type,2.15712460724587
+GPT-5 Mini,gradient_boosting,Recency,5.508762701694974
+GPT-5 Nano,random_forest,Citation,6.374931602481981
+GPT-5 Nano,random_forest,Collection size,3.2715720545123217
+GPT-5 Nano,random_forest,Journal discipline mix,6.762666784348649
+GPT-5 Nano,random_forest,Journal quality,4.674655342413281
+GPT-5 Nano,random_forest,Paper type,3.966111875955522
+GPT-5 Nano,random_forest,Recency,2.2427757214706494
+GPT-5.1,gradient_boosting,Citation,9.880427373496818
+GPT-5.1,gradient_boosting,Collection size,3.412726683575367
+GPT-5.1,gradient_boosting,Journal discipline mix,7.602502240906828
+GPT-5.1,gradient_boosting,Journal quality,6.645797837594904
+GPT-5.1,gradient_boosting,Paper type,2.8465031192403583
+GPT-5.1,gradient_boosting,Recency,4.465193428313428

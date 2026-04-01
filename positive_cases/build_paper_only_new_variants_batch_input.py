@@ -336,6 +336,7 @@ def build_openai_request(
     include_logprobs: bool,
     response_format_json: bool,
     include_explanation: bool,
+    seed: int | None = None,
 ) -> dict:
     body = {
         "model": model,
@@ -344,6 +345,8 @@ def build_openai_request(
             {"role": "user", "content": user_prompt},
         ],
     }
+    if seed is not None:
+        body["seed"] = int(seed)
     if include_logprobs:
         body["logprobs"] = True
         body["top_logprobs"] = 20

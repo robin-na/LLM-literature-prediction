@@ -1,0 +1,22 @@
+# Paper Set Evidence Digest
+
+Number of papers in this paper set: 2
+
+Each item below is a compact paper-level analysis digest. Use only this digest.
+
+- source: Chowdhury, S. N., Kundu, S., Banerjee, J., Perc, M., & Ghosh, D. (2021). Eco-evolutionary dynamics of cooperation in the presence of policing. *Journal of Theoretical Biology*.
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: punishment_cost, punishment_tech
+  findings: The model shows that the introduction of punishment (policing) as a third strategy in a repeated PD game can lead to stable coexistence or oscillatory dominance cycles among cooperators, defectors, and punishers, depending on ecological and game parameters. The strength of punishment, temptation to defect, and ecological benefits (from 'free space') all modulate which strategies persist. Moderate punishment can suppress defectors and promote cooperation, but high temptation to defect can still undermine cooperation. The model also demonstrates that initial conditions and parameter choices can lead to multistability, with different attractors (e.g., dominance by one strategy, coexistence, or extinction). The focus is on the eco-evolutionary dynamics of strategy frequencies, not on group efficiency or total welfare.
+  prediction_guidance: This paper provides theoretical evidence that punishment can promote the persistence of cooperation in social dilemma settings, but the results are framed in terms of population dynamics (strategy frequencies and coexistence) rather than efficiency or group payoff. The model is based on a repeated PD game, not a public goods game, and does not report efficiency as defined by total group payoff relative to full cooperation. Therefore, while the findings support the idea that punishment can help sustain cooperation under certain conditions, they do not provide direct quantitative guidance for predicting efficiency changes in PGG-like environments with or without punishment. The results may be useful for understanding qualitative moderators (e.g., the importance of punishment strength, temptation, ecological context), but are not directly transferable to the efficiency prediction task.
+
+- source: Fonseca, M. A., & Peters, K. (2018). Will any gossip do? Gossip does not need to be perfectly accurate to promote trust. *Games and Economic Behavior*.
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=adjacent | payoff=exact
+  outcomes: primary=efficiency_or_payoff | overall_effect=more_positive
+  dimensions: player_count, num_rounds, chat, all_or_nothing, mpcr, show_n_rounds
+  findings: The experiment demonstrates that enabling gossip (reputational information transmission) in a repeated trust game increases both trust and trustworthiness, leading to higher efficiency (joint payoffs) compared to a no-message baseline. Even when gossip is substantially inaccurate (either endogenously or exogenously), efficiency remains higher than in the absence of gossip, though it is lower than with accurate information. The effect is robust across treatments, with the largest efficiency gains observed when information is accurate, but meaningful gains persist even with high inaccuracy. The mechanism is reputational concern and discrimination, not direct costly punishment. The study provides direct evidence that non-monetary, reputation-based social sanctions (gossip) can substitute for formal punishment in promoting efficiency.
+  prediction_guidance: This paper provides strong evidence that enabling a reputational mechanism (gossip) in repeated trust-based interactions increases efficiency, even when the information is not perfectly accurate. For prediction tasks, the presence of a gossip/reputation channel should be expected to increase efficiency relative to a no-communication baseline, with the effect size depending on the accuracy of the information. However, the mechanism is not direct costly punishment, but rather indirect social sanctioning via reputation. The findings are most directly applicable to trust games and adjacent to public goods games, especially in settings where partner choice or discrimination is possible. The results suggest that even imperfect reputation systems can yield substantial efficiency gains, and that the absence of any reputational channel is particularly detrimental to efficiency.
+

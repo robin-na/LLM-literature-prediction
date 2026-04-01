@@ -25,6 +25,15 @@ Files:
   baseline. The current run includes the GPT-4.1 family plus any available
   GPT-5-family merged individual-paper outputs that have a matched baseline.
 
+- `analyze_validation_analysis_report_sources_repeat3.py`
+  Averages the extended `2011` single-paper augmentation outputs across the
+  original run plus `rep2` to `rep5`, then recomputes paired-bootstrap
+  significance against the 5-run no-augmentation baselines. It now writes the
+  repeat-5 significance table, summary counts, averaged per-paper prediction
+  vectors, averaged baselines, run-coverage diagnostics, a run-registry/input
+  manifest documenting which scattered `.jsonl` rows fed each average, and a
+  repeat-5 paper feature dataset for downstream plotting.
+
 - `analyze_validation_analysis_report_source_features.py`
   Merges the extended single-paper source deltas with evidence-card metadata
   and WoS bibliographic metadata, then fits pooled clustered OLS models,
@@ -40,24 +49,30 @@ Files:
   paired-bootstrap confidence intervals, and a marked benchmark-paper rank.
 
 - `plot_validation_analysis_report_source_overview.py`
-  Generates higher-level overview figures for the extended single-paper source
-  analysis: raw correlation and RMSE distributions versus model baselines,
-  pairwise rank-robustness scatterplots across models, within-model
-  correlation-vs-RMSE tradeoff plots, and grouped cross-validated brittleness
-  plots for predicting augmentation gains from paper-level features. It also
-  writes normalized "gap closed toward E-Net" datasets and summary CSVs plus a
-  comparison plot, so weaker-baseline models can be compared on a common
-  scale. The single-paper metric-distribution plots use a fixed 2x3 model grid
-  so pending GPT-5-family model panels can remain visibly empty until outputs
-  are ready.
+  Generates higher-level overview figures for the single-paper source
+  analysis using the repeat-5 averaged significance table: raw correlation,
+  RMSE, and `R²` distributions versus model baselines; pairwise
+  rank-robustness scatterplots across models; within-model
+  correlation-vs-RMSE tradeoff plots; grouped cross-validated brittleness
+  plots for predicting augmentation gains from paper-level features; and the
+  normalized "gap closed toward E-Net" datasets and summary CSVs. The
+  single-paper metric-distribution plots use a fixed 2x3 model grid so the
+  GPT-4.1 and GPT-5 families can be compared side by side.
 
 - `plot_validation_analysis_report_source_convergence.py`
   Analyzes whether augmenting the same paper report makes different models'
   predictions move closer together. It focuses on a trusted five-model subset
-  (`GPT-4.1`, `GPT-4.1 Mini`, `GPT-5.1`, `GPT-5 Mini`, `GPT-5 Nano`), rewrites
-  predictions in treatment-effect space by subtracting the observed
-  no-punishment efficiency, and writes per-paper convergence datasets plus a
-  composite PNG figure. The figure shows the distribution of agreement gains
-  over baseline, how those gains relate to changes in mean outcome accuracy,
-  and pairwise outcome-agreement heatmaps for the unaugmented baseline and the
-  benchmark `PGG_MS` report.
+  (`GPT-4.1`, `GPT-4.1 Mini`, `GPT-5.1`, `GPT-5 Mini`, `GPT-5 Nano`), now
+  using the repeat-5 averaged per-paper predictions plus the 5-run averaged
+  baseline and benchmark-report predictions. It writes per-paper convergence
+  datasets plus a composite PNG figure showing the distribution of agreement
+  gains over baseline, how those gains relate to changes in mean outcome
+  accuracy, and pairwise outcome-agreement heatmaps for the unaugmented
+  baseline and the benchmark `PGG_MS` report.
+
+- `plot_validation_analysis_report_source_convergence_repeat3_reference.py`
+  Builds a stricter matched-reference version of the same convergence figure,
+  using repeat-5 averaged individual-paper predictions, repeat-5 averaged
+  baselines, and repeat-5 averaged benchmark-report predictions. This isolates
+  the effect of averaging the single-paper augmentations from the separate
+  effect of comparing them against the stronger 5-run baseline.

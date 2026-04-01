@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 from itertools import combinations
 from pathlib import Path
 
@@ -15,6 +14,27 @@ ROOT = Path(__file__).resolve().parents[2]
 VAL_PROCESSED_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
 RESULTS_DIR = ROOT / "results" / "validation" / "literature_analysis_report_sources_overview"
 PLOTS_DIR = ROOT / "plots" / "validation" / "literature_analysis_report_sources_overview"
+SINGLE_REPEAT5_AVG_CSV = (
+    ROOT
+    / "results"
+    / "validation"
+    / "literature_analysis_report_sources_repeat5"
+    / "validation_literature_analysis_report_source_avg_predictions.csv"
+)
+SINGLE_REPEAT5_BASELINE_CSV = (
+    ROOT
+    / "results"
+    / "validation"
+    / "literature_analysis_report_sources_repeat5"
+    / "validation_literature_analysis_report_source_baseline_avg_predictions.csv"
+)
+BENCHMARK_REPEAT5_AVG_CSV = (
+    ROOT
+    / "results"
+    / "validation"
+    / "literature_collection_analysis_reports_repeat5"
+    / "validation_literature_collection_analysis_report_repeat5_avg_predictions.csv"
+)
 
 TRUSTED_MODELS = ["GPT-4.1", "GPT-4.1 Mini", "GPT-5.1", "GPT-5 Mini", "GPT-5 Nano"]
 MODEL_COLORS = {
@@ -25,91 +45,8 @@ MODEL_COLORS = {
     "GPT-5 Nano": "#9467bd",
 }
 
-RUN_SPECS = {
-    "GPT-4.1": {
-        "aug_path": ROOT / "openAI_batch_output" / "prediction_literature_analysis_report_extended2011_joint_41.jsonl",
-        "baseline_path": ROOT / "openAI_batch_output" / "prediction_positive_case_variations_41.jsonl",
-        "baseline_custom_id": "baseline_joint_reasoning",
-        "benchmark_path": ROOT / "openAI_batch_output" / "prediction_literature_analysis_report_strict243_joint_41.jsonl",
-        "benchmark_custom_id": "paper_analysis_report_joint/PGG_MS_202502",
-    },
-    "GPT-4.1 Mini": {
-        "aug_path": ROOT / "openAI_batch_output" / "prediction_literature_analysis_report_extended2011_joint_41mini.jsonl",
-        "baseline_path": ROOT / "openAI_batch_output" / "prediction_crosswave_variations_41mini.jsonl",
-        "baseline_custom_id": "validation/baseline_joint_reasoning",
-        "benchmark_path": ROOT / "openAI_batch_output" / "prediction_literature_analysis_report_strict243_joint_41mini.jsonl",
-        "benchmark_custom_id": "paper_analysis_report_joint/PGG_MS_202502",
-    },
-    "GPT-5.1": {
-        "aug_path": ROOT / "openAI_batch_output" / "prediction_literature_analysis_report_extended2011_joint_gpt51.jsonl",
-        "baseline_path": ROOT / "openAI_batch_output" / "prediction_literature_joint_suite_reps1to5_gpt51.jsonl",
-        "baseline_custom_id": "baseline_joint_reasoning_rep1",
-        "benchmark_path": ROOT / "openAI_batch_output" / "prediction_literature_joint_suite_reps1to5_gpt51.jsonl",
-        "benchmark_custom_id": "paper_analysis_report_joint_rep1/PGG_MS_202502",
-    },
-    "GPT-5 Mini": {
-        "aug_path": ROOT / "openAI_batch_output" / "prediction_literature_analysis_report_extended2011_joint_gpt5mini.jsonl",
-        "baseline_path": ROOT / "openAI_batch_output" / "prediction_literature_joint_suite_reps1to5_gpt5mini.jsonl",
-        "baseline_custom_id": "baseline_joint_reasoning_rep1",
-        "benchmark_path": ROOT / "openAI_batch_output" / "prediction_literature_joint_suite_reps1to5_gpt5mini.jsonl",
-        "benchmark_custom_id": "paper_analysis_report_joint_rep1/PGG_MS_202502",
-    },
-    "GPT-5 Nano": {
-        "aug_path": ROOT / "openAI_batch_output" / "prediction_literature_analysis_report_extended2011_joint_gpt5nano.jsonl",
-        "baseline_path": ROOT / "openAI_batch_output" / "prediction_literature_joint_suite_reps1to5_gpt5nano.jsonl",
-        "baseline_custom_id": "baseline_joint_reasoning_rep1",
-        "benchmark_path": ROOT / "openAI_batch_output" / "prediction_literature_joint_suite_reps1to5_gpt5nano.jsonl",
-        "benchmark_custom_id": "paper_analysis_report_joint_rep1/PGG_MS_202502",
-    },
-}
-
-
-def parse_prediction_vector(content: object) -> np.ndarray:
-    text = "".join(part.get("text", "") for part in content if isinstance(part, dict)) if isinstance(content, list) else str(content)
-    payload = json.loads(text.strip())
-    values: list[tuple[int, float]] = []
-    for key, item in payload.items():
-        if not str(key).startswith("Q"):
-            continue
-        try:
-            idx = int(str(key)[1:])
-        except ValueError:
-            continue
-        prediction = item["prediction"] if isinstance(item, dict) else item
-        values.append((idx, float(prediction)))
-    values.sort()
-    return np.array([pred for _, pred in values], dtype=float)
-
-
-def load_single_prediction(path: Path, custom_id: str) -> np.ndarray:
-    for line in path.open():
-        obj = json.loads(line)
-        if obj.get("custom_id") != custom_id:
-            continue
-        content = obj["response"]["body"]["choices"][0]["message"]["content"]
-        vec = parse_prediction_vector(content)
-        if len(vec) != 20:
-            raise ValueError(f"Expected 20 predictions for {custom_id} in {path}, found {len(vec)}")
-        return vec
-    raise KeyError(f"{custom_id} not found in {path}")
-
-
-def load_paper_predictions(path: Path) -> dict[str, np.ndarray]:
-    out: dict[str, np.ndarray] = {}
-    for line in path.open():
-        obj = json.loads(line)
-        custom_id = obj.get("custom_id", "")
-        if not custom_id.startswith("paper_analysis_report_joint/"):
-            continue
-        source_id = custom_id.split("/", 1)[1]
-        try:
-            vec = parse_prediction_vector(obj["response"]["body"]["choices"][0]["message"]["content"])
-        except Exception:
-            continue
-        if len(vec) != 20:
-            continue
-        out[source_id] = vec
-    return out
+def _row_to_vec(row: pd.Series) -> np.ndarray:
+    return row[[f"Q{i}" for i in range(1, 21)]].to_numpy(dtype=float)
 
 
 def mean_pairwise_correlation(arrays: list[np.ndarray]) -> float:
@@ -159,18 +96,28 @@ def build_convergence_outputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFram
     treatment = val_df["treatment_itt_efficiency"].to_numpy(dtype=float) * 100.0
     effect_truth = val_df["treatment_effect"].to_numpy(dtype=float) * 100.0
 
+    avg_df = pd.read_csv(SINGLE_REPEAT5_AVG_CSV)
+    baseline_df = pd.read_csv(SINGLE_REPEAT5_BASELINE_CSV)
+    benchmark_df = pd.read_csv(BENCHMARK_REPEAT5_AVG_CSV)
+    benchmark_df = benchmark_df.loc[benchmark_df["variant_id"] == "benchmark_pgg_ms"].copy()
+
     baselines = {
-        model: load_single_prediction(spec["baseline_path"], spec["baseline_custom_id"])
-        for model, spec in RUN_SPECS.items()
+        model: _row_to_vec(baseline_df.loc[baseline_df["model"] == model].iloc[0])
+        for model in TRUSTED_MODELS
+        if model in set(baseline_df["model"])
     }
     benchmarks = {
-        model: load_single_prediction(spec["benchmark_path"], spec["benchmark_custom_id"])
-        for model, spec in RUN_SPECS.items()
+        model: _row_to_vec(benchmark_df.loc[benchmark_df["model"] == model].iloc[0])
+        for model in TRUSTED_MODELS
+        if model in set(benchmark_df["model"])
     }
-    paper_predictions = {
-        model: load_paper_predictions(spec["aug_path"])
-        for model, spec in RUN_SPECS.items()
-    }
+    paper_predictions: dict[str, dict[str, np.ndarray]] = {}
+    for model in TRUSTED_MODELS:
+        part = avg_df.loc[avg_df["model"] == model].copy()
+        paper_predictions[model] = {
+            str(row["source_id"]): _row_to_vec(row)
+            for _, row in part.iterrows()
+        }
 
     common_sources = sorted(set.intersection(*(set(paper_predictions[model]) for model in TRUSTED_MODELS)))
     baseline_raw = [baselines[model] for model in TRUSTED_MODELS]
@@ -431,7 +378,7 @@ def plot_convergence_figure(
 
     fig.suptitle(
         "Same-paper augmentation tends to make trusted models agree more on the predicted outcome\n"
-        "Trusted models: GPT-4.1, GPT-4.1 Mini, GPT-5.1, GPT-5 Mini, GPT-5 Nano",
+        "Trusted models: GPT-4.1, GPT-4.1 Mini, GPT-5.1, GPT-5 Mini, GPT-5 Nano; paper augmentation is repeat-5 averaged",
         fontsize=15,
         y=0.98,
     )

@@ -1,0 +1,8 @@
+label,value,kind
+GPT-4.1 Nano,0.7397712244070808,llm_model
+GPT-5 Nano,0.7400395900423755,llm_model
+GPT-4.1,0.7750516515342499,llm_model
+GPT-5 Mini,0.8572338358229942,llm_model
+GPT-5.1,0.8844396372922505,llm_model
+GPT-4.1 Mini,0.9097140880571433,llm_model
+No treatment effect,0.75297756546308,null_baseline

@@ -58,6 +58,10 @@ Layout:
   Builds the agreed 8 switch-based collection-set CSVs, excluding
   `PGG_MS_202502`, and also writes the remaining broad set for individual-paper
   augmentation beyond the initial strict pool.
+  The switch definitions are:
+  - `A`: exact/close on both PGG relevance and punishment relevance
+  - `B`: payoff-like primary outcome (`efficiency_or_payoff` or `mixed`)
+  - `C`: empirical only
 
 - `build_collection_synthesis_batch_input.py`
   Builds hierarchical stage-1 batch input for collection synthesis. It
@@ -67,6 +71,27 @@ Layout:
   (2011 papers, excluding `PGG_MS_202502`) for long-context comparison.
   The script also writes `leaf_manifest.csv` and `leaf_legend.csv`, which map
   ids like `leaf_a1_b0_c1` to the underlying switch meanings and paper counts.
+
+- `build_collection_metadata_sets.py`
+  Builds metadata-based collection-set CSVs across up to 3 simultaneous
+  filters using:
+  - empirical vs. theoretical
+  - citation quartile
+  - JCR quartile
+  - publication-year quartile
+  - coarse journal-discipline category
+  It writes an enriched paper catalog plus one set CSV per retained
+  collection, dropping only collections below the configured minimum size.
+  See `literature/METADATA_COLLECTIONS.md` for the exact generation rules,
+  quartile cut points, exclusion rules, WoS/JCR matching logic, discipline
+  heuristics, and current retained collection counts.
+
+- `build_collection_metadata_synthesis_batch_input.py`
+  Builds batch input for the metadata-based collections. It renders
+  one evidence-digest bundle per retained collection and emits one synthesis
+  request per collection, without regenerating the already-existing
+  all-papers direct report. The prompt intentionally omits collection-id or
+  filter-derivation metadata and keeps only the paper count plus the digest.
 
 - `build_collection_synthesis_final_batch_input.py`
   Builds hierarchical stage-2 batch input for collection synthesis. It takes
@@ -104,6 +129,12 @@ Layout:
   and `paper_only_decision/agentic_report.md`, plus parsed evidence-card tables,
   per-paper analysis reports, collection-level analysis reports, and
   collection-synthesis input bundles.
+  The collection-specific output folders now also contain local `README.md`
+  files explaining:
+  - how the A/B/C filters were applied
+  - how the metadata-filter collections were generated
+  - which files are current versus legacy chunking artifacts
+  - which collection reports were actually used in the prediction experiments
 
 - `.cache/`
   Cached OpenAI file and vector-store ids used by the literature report pipeline.
@@ -148,12 +179,28 @@ Commands:
   This writes 9 requests total: 8 A/B/C paper-set reports plus 1 direct
   `broad_all` full-corpus report.
 
+- Build metadata-based collection-set manifests:
+  `python literature/build_collection_metadata_sets.py`
+
+- Build metadata-based synthesis requests:
+  `python literature/build_collection_metadata_synthesis_batch_input.py`
+
+- Build prediction batch files from the synthesized metadata-based collection
+  reports:
+  `python literature/build_prediction_batch_from_collection_reports.py --report-output-jsonl openAI_batch_output/synthesis_collection_metadata_filters.jsonl --leaf-legend-csv literature/output/collection_metadata_synthesis_inputs/leaf_legend.csv --direct-manifest-csv literature/output/collection_metadata_synthesis_inputs/request_manifest.csv --report-root literature/output/collection_analysis_reports/metadata_filters --models gpt-4.1-2025-04-14 gpt-4.1-mini-2025-04-14 gpt-5.1 gpt-5-mini gpt-5-nano --n-explanation-repeats 5 --output-prefix prediction_literature_collection_analysis_report_metadata_filters_joint_reps1to5`
+  The `--leaf-legend-csv` argument is unused for metadata collections and may
+  safely point to a nonexistent path because the CLI is shared with the older
+  switch-set workflow.
+
 - Build stage-2 final collection synthesis requests after stage-1 outputs return:
   `python literature/build_collection_synthesis_final_batch_input.py --leaf-output-jsonl <stage1-output.jsonl>`
 
 - Build prediction batch files directly from the 9 synthesized stage-1
   collection analysis reports:
   `python literature/build_prediction_batch_from_collection_reports.py`
+  This is the path used for the current collection-report augmentation
+  experiments; it uses the stage-1 reports directly, not stage-2 recombined
+  final collection reports.
 
 - Build only repeat continuations (`rep2`-`rep5`) for the 9 collection reports:
   `python literature/build_prediction_batch_from_collection_reports.py --n-explanation-repeats 4 --repeat-start-index 2 --output-prefix prediction_literature_collection_analysis_report_stage1_9variants_joint_reps2to5`
@@ -162,6 +209,10 @@ Commands:
   individual-paper augmentation set across the current 6 GPT-4.1 / GPT-5
   family models:
   `python literature/build_prediction_batch_from_card_memos.py --paper-set-csv literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/broad_all.csv --models gpt-4.1-2025-04-14 gpt-4.1-mini-2025-04-14 gpt-4.1-nano-2025-04-14 gpt-5.1 gpt-5-mini gpt-5-nano --modes joint_reasoning --n-explanation-repeats 2 --repeat-start-index 2 --output-prefix prediction_literature_analysis_report_extended2011_joint_reps2to3`
+
+- Build seeded repeat continuations (`rep4`-`rep5`) for the merged `2011`-paper
+  individual-paper augmentation set:
+  `python literature/build_prediction_batch_from_card_memos.py --paper-set-csv literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/broad_all.csv --models gpt-4.1-2025-04-14 gpt-4.1-mini-2025-04-14 gpt-4.1-nano-2025-04-14 gpt-5.1 gpt-5-mini gpt-5-nano --modes joint_reasoning --n-explanation-repeats 2 --repeat-start-index 4 --seed-base 20260329 --output-prefix prediction_literature_analysis_report_extended2011_joint_reps4to5`
 
 - Build 5-repeat full-paper benchmark augmentation files for the 6 current
   GPT-4.1 / GPT-5 family models:
