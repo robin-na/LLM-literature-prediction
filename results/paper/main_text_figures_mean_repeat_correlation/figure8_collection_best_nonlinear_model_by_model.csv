@@ -1,0 +1,6 @@
+dataset,scope,scope_name,target,target_label,model_name,n_rows,n_groups,cv_r2,cv_spearman,mean_fold_r2,mean_fold_spearman,sd_fold_r2,sd_fold_spearman
+metadata_filter_collections,within_model,GPT-4.1,delta_correlation,Correlation gain,extra_trees,715,715,0.19527707374885206,0.4550145422685641,0.18738269706231994,0.4511606610014395,0.08457630977944779,0.03569206439656367
+metadata_filter_collections,within_model,GPT-4.1 Mini,delta_correlation,Correlation gain,gradient_boosting,716,716,0.19283248659617858,0.3939837680376705,0.18711412028081512,0.3920578822181542,0.10403329539578378,0.1117992042805526
+metadata_filter_collections,within_model,GPT-5 Mini,delta_correlation,Correlation gain,extra_trees,716,716,0.1890309331233383,0.2402520281044974,0.19070828311323038,0.23882964803694745,0.11199085059300526,0.04446821738938632
+metadata_filter_collections,within_model,GPT-5 Nano,delta_correlation,Correlation gain,gradient_boosting,716,716,0.07938594546863931,0.2083597032729287,0.07026681770650103,0.20081925012736007,0.08007215174692041,0.07675174200426634
+metadata_filter_collections,within_model,GPT-5.1,delta_correlation,Correlation gain,gradient_boosting,716,716,0.12474129993457539,0.3032111013270874,0.11630524368479486,0.30493582667939145,0.05406848949249231,0.04638153619750138
