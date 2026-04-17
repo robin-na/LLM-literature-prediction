@@ -3,3 +3,14 @@ batch_processing/inputs/
 paper_collection/
 openAI_batch_input/
 .env
+.DS_Store
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv*/
+.python-version
+batch_processing/output_csv/
+batch_processing/output_xlsx/
