@@ -61,7 +61,7 @@ Return a JSON object with this structure (use actual values from the paper):
       "CONFIG_showPunishmentId": 1 or 0,
       "CONFIG_showPunishmentId_reason": "string",
       "CONFIG_showPunishmentId_confidence": number,
-      "CONFIG_showRewardId": 1 or 0,
+      "CONFIG_showRewardId": 1 or 0 or "N/A",
       "CONFIG_showRewardId_reason": "string",
       "CONFIG_showRewardId_confidence": number,
       "CONFIG_showNRounds": 1 or 0,
@@ -73,33 +73,30 @@ Return a JSON object with this structure (use actual values from the paper):
       "CONFIG_punishmentCost": number,
       "CONFIG_punishmentCost_reason": "string",
       "CONFIG_punishmentCost_confidence": number,
-      "CONFIG_punishmentTech": number,
+      "CONFIG_punishmentTech": number or "N/A",
       "CONFIG_punishmentTech_reason": "string",
       "CONFIG_punishmentTech_confidence": number,
-      "CONFIG_rewardExists": 1 or 0,
+      "CONFIG_rewardExists": 1 or 0 or "N/A",
       "CONFIG_rewardExists_reason": "string",
       "CONFIG_rewardExists_confidence": number,
       "CONFIG_rewardCost": number,
       "CONFIG_rewardCost_reason": "string",
       "CONFIG_rewardCost_confidence": number,
-      "CONFIG_rewardTech": number,
+      "CONFIG_rewardTech": number or "N/A",
       "CONFIG_rewardTech_reason": "string",
       "CONFIG_rewardTech_confidence": number,
       "CONFIG_endowment": number,
       "CONFIG_endowment_reason": "string",
       "CONFIG_endowment_confidence": number,
-      "DV_contributionRate": number,
-      "DV_contributionRate_reason": "string",
-      "DV_contributionRate_confidence": number,
-      "DV_contributionAmount": number,
-      "DV_contributionAmount_reason": "string",
-      "DV_contributionAmount_confidence": number,
-      "DV_efficiency": number,
-      "DV_efficiency_reason": "string",
-      "DV_efficiency_confidence": number,
-      "DV_groupPayoff": number,
-      "DV_groupPayoff_reason": "string",
-      "DV_groupPayoff_confidence": number,
+      "DVs": ["string", "..."],
+      "DVs_reason": "string",
+      "DVs_confidence": number,
+      "DVs_Definitions": {"dv_name": "definition", "...": "..."},
+      "DVs_Definitions_reason": "string",
+      "DVs_Definitions_confidence": number,
+      "DV_efficiencyReported": 1 or 0,
+      "DV_efficiencyReported_reason": "string",
+      "DV_efficiencyReported_confidence": number,
       "participant_country": "string",
       "participant_country_reason": "string",
       "participant_country_confidence": number,
@@ -128,6 +125,18 @@ You are given the full text of a paper. Extract every experiment, simulation, or
 condition described. Each object must be at the treatment/control (condition) level. If a
 paper groups multiple conditions under one study, create separate objects for each condition.
 
+STRICT NON-INFERENCE RULE (applies to every field):
+Only report a value when the paper explicitly states it or when it is directly and unambiguously
+computable from reported numbers. Do NOT infer values from silence, convention, or reasonable
+assumption. Specifically:
+  - CONFIG fields (design parameters): if a parameter is not explicitly described for this
+    condition, use N/A — not 0 or false. Absence of mention ≠ "the feature is absent".
+  - DV fields (outcome measures): if a value is not reported and cannot be computed from reported
+    numbers, use N/R.
+  - The only exception is when the field is inherently binary and one value is logically implied
+    by the other (e.g., CONFIG_allOrNothing: if the paper says "continuous contribution choice",
+    you may code 1; if it says "all-or-nothing", code 0). Even then, code N/A if neither is stated.
+
 Definitions and rules:
 - data_id: the name/description of the condition as the paper describes it (e.g., "Experiment 1 – Control").
 - indep_var: the independent variable(s) varied across conditions and the specific value(s) for this row.
@@ -136,28 +145,36 @@ Definitions and rules:
 - METHOD_lab: true if lab experiment; false if field experiment; false if not an experiment.
 - METHOD_simulation: true if the study uses a numerical/computer simulation with no human subjects (e.g., agent-based model).
 - METHOD_analytical: true if the study is a formal mathematical/closed-form model (e.g., proofs, analytical derivations) with no human subjects.
-- CONFIG_allOrNothing: 1 if players can contribute any amount; 0 if only all-or-nothing.
-- CONFIG_defaultContribProp: 0 if endowment starts in private account; 1 if starts in public fund; otherwise proportion in public fund. Use N/A if no humans.
+- CONFIG_allOrNothing: 1 if players can contribute any continuous amount; 0 if only all-or-nothing contributions are allowed. Use N/A if the paper does not describe the contribution choice structure.
+- CONFIG_defaultContribProp: 0 if endowment starts in private account; 1 if starts in public fund; otherwise proportion in public fund. Use N/A if no humans or if not explicitly stated.
 - CONFIG_MPCR: marginal per capita return (multiplier divided by group size). Use N/R if not reported.
-- CONFIG_chat: 1 if communication is allowed; 0 otherwise. Use N/A if no humans.
-- CONFIG_showOtherSummaries: 1 if participants see summaries of others' earnings/punishments/rewards; 0 otherwise.
-- CONFIG_showPunishmentId / CONFIG_showRewardId: 1 if identities are revealed; 0 otherwise. Use N/A if the mechanism does not exist.
-- CONFIG_showNRounds: 1 if total rounds or remaining rounds are displayed; 0 otherwise.
-- CONFIG_punishmentExists / CONFIG_rewardExists: 1 or 0.
-- CONFIG_punishmentCost / CONFIG_rewardCost: coins spent per unit. Use N/A if disabled.
-- CONFIG_punishmentTech / CONFIG_rewardTech: magnitude per coin spent. Use N/A if disabled.
-- DV_contributionRate: contribution as a normalized fraction (0–1) of endowment/max possible contribution. Do not report raw amounts here.
-- DV_contributionAmount: raw contribution amount (tokens/points/units).
-- DV_efficiency: group's total payoff divided by theoretical maximum group payoff if all fully contribute without punishing/rewarding (0–1). Use N/R if not reported.
-- DV_groupPayoff: raw group payoff amount.
+- CONFIG_playerCount: the number of strategic decision-makers in ONE group/match — not the total number of participants in the study. When teams send a representative, count the number of teams (not individuals per team). When there are third-party punishers or observers, count them as additional players in the group. Prefer the unit that governs the strategic interaction, not the prose headcount.
+- CONFIG_chat: 1 if the paper explicitly states that participants can communicate freely (including structured or numeric messages). N/A if communication is not mentioned anywhere in the paper — do NOT code 0 from silence; code 0 only if the paper explicitly states communication was prohibited.
+- CONFIG_showOtherSummaries: 1 if the paper explicitly states that participants see summaries of others' earnings, contributions, punishments, or rewards. N/A if this is not mentioned in the paper — do NOT code 0 from silence; code 0 only if the paper explicitly states this information was withheld.
+- CONFIG_showPunishmentId: 1 if punished players can identify punishers (when punishment exists); 0 only if the paper clearly states punishment is anonymous; N/A if punishment does not exist in this condition OR if the paper does not address whether identities are revealed.
+- CONFIG_showRewardId: 1 if reward recipients can identify rewarders; 0 only if the paper clearly states rewarding is anonymous; N/A if there is no reward mechanism in this condition, or if the paper does not address whether identities are visible — do not infer 0 from silence.
+- CONFIG_showNRounds: 1 ONLY if the paper explicitly states that the total number of rounds or remaining rounds is displayed to participants. Do NOT infer from rounds being fixed or "common knowledge". N/A if not explicitly stated.
+- CONFIG_punishmentExists: 1 only if this specific condition explicitly includes a punishment mechanism. N/A if punishment is not explicitly described for this condition — do NOT infer from other conditions in the paper or from the paper's general design.
+- CONFIG_rewardExists: 1 only if the paper clearly describes a reward mechanism for this condition. N/A if rewards are not mentioned or are ambiguous — do NOT default to 0 from silence (silence → N/A, not 0). Code 0 only if the paper explicitly states no reward mechanism exists.
+- CONFIG_punishmentCost: coins/tokens spent per unit of punishment assigned. N/A if punishment does not exist in this condition OR if the cost is not explicitly stated numerically.
+- CONFIG_punishmentTech: magnitude of payoff reduction per coin/token spent on punishment (e.g., 3 means each punishment token costs 1 and reduces target's payoff by 3). N/A if punishment does not exist in this condition OR if this ratio is not explicitly stated.
+- CONFIG_rewardCost: coins/tokens spent per unit of reward. N/A if reward does not exist in this condition OR if not explicitly stated numerically.
+- CONFIG_rewardTech: magnitude of payoff increase per coin/token spent on reward. N/A if reward does not exist OR if not explicitly stated.
+- DVs: a JSON array listing the primary dependent variables measured and analyzed in THIS specific condition/treatment — the outcomes the authors are trying to measure and explain for this row. Important distinctions:
+  * List BOTH individual-level and group-level contribution measures if the paper reports both (e.g., "individual_contribution" for each player's tokens contributed AND "group_contribution" for the group average or total — these are different DVs).
+  * Distinguish punishment assigned/received (points given to or received from others) from punishment expenditure (tokens spent on punishment) — only include whichever the paper actually reports for this condition.
+  * Do NOT include independent variables (parameters manipulated across conditions: endowment, group size, MPCR, punishment existence, etc.), nor auxiliary quantities reported only in passing.
+  * DVs may differ across conditions: a no-punishment condition should NOT list punishment-related DVs.
+  Use short snake_case names. Example: ["individual_contribution", "group_contribution", "efficiency"] for a no-punishment condition; ["individual_contribution", "group_contribution", "punishment_assigned", "punishment_received", "net_earnings"] for a punishment condition.
+- DVs_Definitions: a JSON object mapping each DV name from the DVs list for THIS condition to a brief plain-English definition of how that outcome is measured in this paper. Keys must exactly match the entries in DVs for this row. Example: {"individual_contribution": "tokens each player contributes to the public account per round", "group_contribution": "average contribution across all group members as a percentage of maximum possible", "efficiency": "actual group payoff divided by maximum possible cooperative payoff"}.
+- DV_efficiencyReported: 1 if the paper reports, computes, or analyzes an efficiency measure (actual group payoff as a fraction of the theoretical maximum cooperative payoff) for ANY condition in the paper. 0 if efficiency is never reported or computed anywhere in the paper. This is a PAPER-LEVEL field — use the same value in every row for a given paper. Do not code 0 for a row just because efficiency is not the focus of that specific condition; if efficiency appears anywhere in the paper, code 1 for all rows.
 - experiment_environment: one of "Online", "On site", "Field experiment", "Observational", "No human".
 - For every field above, provide a corresponding "<field>_reason" and "<field>_confidence".
   - reason: short rationale of how you inferred the value (can be empty if directly stated).
   - confidence: number from 0 to 1 reflecting certainty (1 if unambiguous).
-- If a value is not explicitly reported but can be computed from reported facts
+- If a DV value is not explicitly reported but can be computed from reported facts
   (e.g., endowment, contribution amounts, group size, multipliers), calculate it and explain
   the derivation briefly in the reason field.
-- Do not make up information. If a value cannot be inferred from the paper, use "N/R".
 - If there is heterogeneity within an experiment (e.g., different players have varying endowments),
   record it explicitly in the relevant field(s) rather than choosing one condition or averaging.
 
