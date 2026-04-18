@@ -2,11 +2,17 @@ from __future__ import annotations
 
 import argparse
 import os
-from pathlib import Path
 
 try:
     from batch_processing.agentic_workflow import make_openai_client
     from batch_processing.build_batch_input import SYSTEM_PROMPT, build_user_prompt as build_simple_user_prompt
+    from batch_processing.extraction_cli_common import (
+        DEFAULT_LOCAL_PAPER_DIR,
+        DEFAULT_PAPER_IDS,
+        RAW_PAPER_MARKDOWN_DIR_ENV_VAR,
+        default_paper_dir,
+        resolve_paper_dir,
+    )
     from batch_processing.extraction_logging import (
         DEFAULT_AGENT_OUTPUT_TOKENS,
         DEFAULT_CRITIC_OUTPUT_TOKENS,
@@ -24,6 +30,13 @@ try:
 except ImportError:  # pragma: no cover - allows direct script execution
     from agentic_workflow import make_openai_client  # type: ignore
     from build_batch_input import SYSTEM_PROMPT, build_user_prompt as build_simple_user_prompt  # type: ignore
+    from extraction_cli_common import (  # type: ignore
+        DEFAULT_LOCAL_PAPER_DIR,
+        DEFAULT_PAPER_IDS,
+        RAW_PAPER_MARKDOWN_DIR_ENV_VAR,
+        default_paper_dir,
+        resolve_paper_dir,
+    )
     from extraction_logging import (  # type: ignore
         DEFAULT_AGENT_OUTPUT_TOKENS,
         DEFAULT_CRITIC_OUTPUT_TOKENS,
@@ -40,20 +53,6 @@ except ImportError:  # pragma: no cover - allows direct script execution
     )
 
 
-DEFAULT_PAPER_IDS = [
-    "10.1007_s10645-008-9094-1",
-    "10.1177_0146167216684134",
-    "10.1016_j.jpubeco.2015.12.012",
-    "10.1007_s10640-025-00970-6",
-    "10.3390_g14050065",
-    "10.1111_apce.12343",
-    "10.1016_j.evolhumbehav.2006.06.001",
-]
-
-RAW_PAPER_MARKDOWN_DIR_ENV_VAR = "RAW_PAPER_MARKDOWN_DIR"
-DERIVED_MARKDOWN_DIR_NAMES = frozenset({"paper_analysis_reports", "paper_card_memos"})
-
-
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Run hybrid paper extraction with agentic overrides for selected fields."
@@ -66,10 +65,10 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--paper-dir",
-        default=os.getenv(RAW_PAPER_MARKDOWN_DIR_ENV_VAR),
+        default=default_paper_dir(),
         help=(
             "Directory containing raw paper markdown files. "
-            f"Required unless `{RAW_PAPER_MARKDOWN_DIR_ENV_VAR}` is set. "
+            f"Defaults to `{DEFAULT_LOCAL_PAPER_DIR}` or `{RAW_PAPER_MARKDOWN_DIR_ENV_VAR}` if set. "
             "Derived summary directories are rejected."
         ),
     )
@@ -88,6 +87,32 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=1,
         help="Maximum critic rounds for agentic fields.",
+    )
+    parser.add_argument(
+        "--max-tool-rounds",
+        type=int,
+        default=8,
+        help="Maximum tool-call rounds per agent step before aborting that field.",
+    )
+    parser.add_argument(
+        "--fail-on-agentic-error",
+        action="store_true",
+        help="Abort the whole run if any agentic field fails instead of falling back to simple extraction.",
+    )
+    parser.add_argument(
+        "--agentic-version",
+        choices=("v1", "v2"),
+        default="v2",
+        help=(
+            "v2 (default): per-field tool budgets, optional critic skip when validation+gate pass, "
+            "merge only on accept. v1: legacy extractor always runs critic/repair path."
+        ),
+    )
+    parser.add_argument(
+        "--min-review-confidence",
+        type=float,
+        default=0.85,
+        help="v2 only: confidences below this per experiment yield needs_review (agentic values not merged).",
     )
     parser.add_argument(
         "--price-input-per-1m",
@@ -120,30 +145,6 @@ def parse_args() -> argparse.Namespace:
         help="Estimated output tokens for critic steps.",
     )
     return parser.parse_args()
-
-
-def is_derived_markdown_dir(path: Path) -> bool:
-    return any(part.lower() in DERIVED_MARKDOWN_DIR_NAMES for part in path.parts)
-
-
-def resolve_paper_dir(paper_dir_arg: str | None) -> Path:
-    if not paper_dir_arg:
-        raise ValueError(
-            "Raw paper markdown directory is required. Pass --paper-dir or set "
-            f"{RAW_PAPER_MARKDOWN_DIR_ENV_VAR}."
-        )
-
-    paper_dir = Path(paper_dir_arg)
-    if not paper_dir.exists():
-        raise FileNotFoundError(f"Paper markdown directory not found: {paper_dir}")
-    if not paper_dir.is_dir():
-        raise NotADirectoryError(f"Paper markdown path is not a directory: {paper_dir}")
-    if is_derived_markdown_dir(paper_dir):
-        raise ValueError(
-            "Refusing to run hybrid extraction on derived markdown. Point --paper-dir "
-            "at raw paper markdown, not `paper_analysis_reports` or `paper_card_memos`."
-        )
-    return paper_dir
 
 
 def main() -> None:
@@ -190,6 +191,10 @@ def main() -> None:
             paper_path=str(paper_path),
             agentic_fields=agentic_fields,
             max_critic_rounds=args.max_critic_rounds,
+            max_tool_rounds=args.max_tool_rounds,
+            continue_on_agentic_error=not args.fail_on_agentic_error,
+            agentic_version=args.agentic_version,
+            min_review_confidence=args.min_review_confidence,
             progress_callback=tracker.callback,
         )
         extraction_rows.extend(result.rows)

@@ -14,3 +14,5 @@ __pycache__/
 .python-version
 batch_processing/output_csv/
 batch_processing/output_xlsx/
+batch_processing/gdrive_credentials.json
+batch_processing/gdrive_token.json

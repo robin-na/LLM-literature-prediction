@@ -38,9 +38,9 @@ def parse_args() -> argparse.Namespace:
         )
     )
     parser.add_argument(
-        "--batch-csv",
+        "--batch-table",
         type=Path,
-        default=Path("batch_processing/output_csv/batch_output_51.csv"),
+        default=Path("batch_processing/output_xlsx/agentic_extraction_7papers_rawmd.xlsx"),
     )
     parser.add_argument(
         "--learn-csv",
@@ -58,6 +58,12 @@ def parse_args() -> argparse.Namespace:
         default=Path("results/punishment_regression_comparison"),
     )
     return parser.parse_args()
+
+
+def load_table(path: Path, *, sheet_name: str | int | None = None) -> pd.DataFrame:
+    if path.suffix.lower() in {".xlsx", ".xls"}:
+        return pd.read_excel(path, sheet_name=sheet_name or "extractions")
+    return pd.read_csv(path)
 
 
 def is_config_column(col: str) -> bool:
@@ -252,7 +258,7 @@ def main() -> None:
     args = parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
-    batch_df = pd.read_csv(args.batch_csv)
+    batch_df = load_table(args.batch_table, sheet_name="extractions")
     learn_df = pd.read_csv(args.learn_csv)
     val_df = pd.read_csv(args.val_csv)
 

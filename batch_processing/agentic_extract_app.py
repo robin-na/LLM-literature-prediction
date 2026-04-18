@@ -9,6 +9,7 @@ try:
     from batch_processing.agentic_workflow import (
         make_openai_client,
         run_agentic_field_extraction,
+        run_agentic_field_extraction_v2,
         supported_fields,
     )
     from batch_processing.extraction_logging import (
@@ -20,7 +21,12 @@ try:
     )
     from batch_processing.extraction_pipeline import resolve_paper_text
 except ImportError:  # pragma: no cover - allows direct script execution
-    from agentic_workflow import make_openai_client, run_agentic_field_extraction, supported_fields  # type: ignore
+    from agentic_workflow import (  # type: ignore
+        make_openai_client,
+        run_agentic_field_extraction,
+        run_agentic_field_extraction_v2,
+        supported_fields,
+    )
     from extraction_logging import (  # type: ignore
         DEFAULT_AGENT_OUTPUT_TOKENS,
         DEFAULT_CRITIC_OUTPUT_TOKENS,
@@ -65,6 +71,18 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=8,
         help="Maximum number of tool-calling turns per agent step.",
+    )
+    parser.add_argument(
+        "--agentic-version",
+        choices=("v1", "v2"),
+        default="v2",
+        help="v2: efficient per-field budgets and enforced pipeline gate. v1: legacy workflow.",
+    )
+    parser.add_argument(
+        "--min-review-confidence",
+        type=float,
+        default=0.85,
+        help="v2 only: gate threshold on per-experiment confidence scores.",
     )
     parser.add_argument(
         "--temperature",
@@ -138,16 +156,29 @@ def main() -> None:
         progress_callback = tracker.callback
 
     try:
-        result = run_agentic_field_extraction(
-            client=client,
-            field=args.field,
-            paper_text=paper_text,
-            model=args.model,
-            max_critic_rounds=args.max_critic_rounds,
-            temperature=args.temperature,
-            max_tool_rounds=args.max_tool_rounds,
-            progress_callback=progress_callback,
-        )
+        if args.agentic_version == "v2":
+            result = run_agentic_field_extraction_v2(
+                client=client,
+                field=args.field,
+                paper_text=paper_text,
+                model=args.model,
+                max_critic_rounds=args.max_critic_rounds,
+                temperature=args.temperature,
+                max_tool_rounds=args.max_tool_rounds,
+                min_confidence=args.min_review_confidence,
+                progress_callback=progress_callback,
+            )
+        else:
+            result = run_agentic_field_extraction(
+                client=client,
+                field=args.field,
+                paper_text=paper_text,
+                model=args.model,
+                max_critic_rounds=args.max_critic_rounds,
+                temperature=args.temperature,
+                max_tool_rounds=args.max_tool_rounds,
+                progress_callback=progress_callback,
+            )
     except Exception as exc:
         print(f"Extraction failed: {exc}", file=sys.stderr)
         sys.exit(1)

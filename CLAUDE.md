@@ -10,6 +10,54 @@ Augmentation strategies tested: baseline (no literature), paper abstracts, full 
 
 ## Commands
 
+### Download paper Markdown files from Google Drive
+Papers are stored as `.md` files in a shared Google Drive folder (`Shared with me > PGG papers > papers_markdown`). Download them to `PGG_papers/papers/` before running extraction.
+
+```bash
+# Download using a hardcoded list (edit PDF_PATHS inside the script)
+python batch_processing/download_papers_md.py
+
+# Download from a text file (one PDF path per line)
+python batch_processing/download_papers_md.py --pdf-list my_papers.txt
+
+# Custom output dir or Drive folder name
+python batch_processing/download_papers_md.py \
+  --pdf-list my_papers.txt \
+  --output-dir PGG_papers/papers \
+  --drive-folder papers_markdown
+```
+
+**First-time setup** (one-time, per machine):
+1. `pip install google-api-python-client google-auth-oauthlib google-auth-httplib2`
+2. In [Google Cloud Console](https://console.cloud.google.com): enable Google Drive API → create OAuth 2.0 Desktop App credentials → download JSON → save as `batch_processing/gdrive_credentials.json`
+3. In the OAuth consent screen (Audience tab): set User Type to **External**, add your Gmail as a test user
+4. First run opens a browser for login; token cached in `batch_processing/gdrive_token.json` (both files are gitignored)
+
+### Run simple paper extraction via OpenAI Batch API (~50% cheaper, ≤24h turnaround)
+```bash
+# Step 1: submit (saves batch ID to console)
+python batch_processing/extract_papers.py batch-submit \
+  --paper-dir PGG_papers/papers \
+  --paper-ids $(ls PGG_papers/papers/*.md | xargs -n1 basename | sed 's/\.md$//') \
+  --save-jsonl batch_processing/inputs/batch_input_simple.jsonl
+
+# Step 2: check status
+python batch_processing/extract_papers.py batch-status <batch_id>
+
+# Step 3: collect results once completed
+python batch_processing/extract_papers.py batch-collect <batch_id> \
+  --output-xlsx batch_processing/output_xlsx/simple_batch.xlsx \
+  --save-jsonl batch_processing/inputs/batch_output_simple.jsonl
+```
+
+### Run simple extraction (real-time, instant but full price)
+```bash
+python batch_processing/extract_papers.py simple \
+  --paper-dir PGG_papers/papers \
+  --paper-ids $(ls PGG_papers/papers/*.md | xargs -n1 basename | sed 's/\.md$//') \
+  --output-xlsx batch_processing/output_xlsx/simple_extraction.xlsx
+```
+
 ### Build batch input JSONL for paper extraction
 ```bash
 python batch_processing/build_batch_input.py \
@@ -18,12 +66,6 @@ python batch_processing/build_batch_input.py \
   --output batch_processing/inputs/batch_input.jsonl
 ```
 Optional flags: `--model gpt-5.1`, `--temperature 0`, `--custom-ids <id1> <id2>`
-
-### Convert batch output JSONL to structured CSV
-```bash
-python batch_processing/batch_output_to_csv.py --input-jsonl <output.jsonl>
-# outputs to batch_processing/output_csv/<stem>.csv by default
-```
 
 ### Compute prediction metrics (RMSE, correlation, directional accuracy with bootstrap CIs)
 ```bash

@@ -19,6 +19,11 @@ SUPPORTED_AGENTIC_FIELDS = (
     "DV_efficiencyReported",
     "CONFIG_showNRounds",
     "CONFIG_showOtherSummaries",
+    "CONFIG_punishmentCost",
+    "CONFIG_punishmentTech",
+    "CONFIG_showPunishmentId",
+    "CONFIG_defaultContribProp",
+    "CONFIG_chat",
 )
 
 FIELD_DEFAULT_TERMS = {
@@ -111,6 +116,11 @@ FIELD_DEFAULT_TERMS = {
         "other members",
         "informed",
     ],
+    "CONFIG_punishmentCost": ["punishment", "cost", "token", "MU", "reduce", "assign", "point"],
+    "CONFIG_punishmentTech": ["punishment", "reduce", "deduct", "exchange", "point", "effectiveness"],
+    "CONFIG_showPunishmentId": ["anonymous", "identity", "punisher", "identified", "reshuffled", "who punished"],
+    "CONFIG_defaultContribProp": ["default", "endowment", "private account", "public fund", "opt-in", "opt-out", "starts"],
+    "CONFIG_chat": ["communication", "chat", "message", "talk", "unrestricted", "free-form"],
 }
 
 FIELD_TOOL_HINTS = {
@@ -164,6 +174,28 @@ FIELD_TOOL_HINTS = {
         "Code 1 if participants saw others' contributions, earnings, or punishment amounts after each round.",
         "N/A if not mentioned anywhere; 0 only if paper explicitly says information was withheld.",
     ],
+    "CONFIG_punishmentCost": [
+        "Report the punisher's cost per unit assigned, not the target's reduction.",
+        "N/A when punishment doesn't exist; N/R when cost not stated numerically.",
+    ],
+    "CONFIG_punishmentTech": [
+        "Report the target's payoff reduction per punishment unit received.",
+        "N/A when punishment doesn't exist; N/R when exchange rate not stated.",
+    ],
+    "CONFIG_showPunishmentId": [
+        "Code 1 if the punished player can identify who punished them.",
+        "Code 0 if punishment is anonymous or IDs are reshuffled.",
+        "N/A if no punishment exists in this condition.",
+    ],
+    "CONFIG_defaultContribProp": [
+        "0 = endowment starts in private account (standard VCM).",
+        "1 = endowment starts in public fund (opt-out game).",
+        "0 only when no contribution mechanism exists.",
+    ],
+    "CONFIG_chat": [
+        "1 only for unrestricted free-form text chat.",
+        "0 for no communication or structured/numeric messages only.",
+    ],
 }
 
 FIELD_EXTRA_KEYS = {
@@ -177,6 +209,11 @@ FIELD_EXTRA_KEYS = {
     "DV_efficiencyReported": [],
     "CONFIG_showNRounds": [],
     "CONFIG_showOtherSummaries": [],
+    "CONFIG_punishmentCost": [],
+    "CONFIG_punishmentTech": [],
+    "CONFIG_showPunishmentId": [],
+    "CONFIG_defaultContribProp": [],
+    "CONFIG_chat": [],
 }
 
 _ALLOWED_CALCULATOR_FUNCTIONS = {
@@ -980,6 +1017,33 @@ def validate_field_output(field: str, payload: dict[str, Any]) -> ValidationResu
         elif field == "CONFIG_showOtherSummaries":
             if value not in {0, 1, "N/A"} and not (isinstance(value, str) and value.lower().startswith("n/a")):
                 errors.append(f"{prefix}.CONFIG_showOtherSummaries must be 0, 1, or 'N/A'.")
+        elif field == "CONFIG_punishmentCost":
+            _validate_number_or_token(
+                prefix=f"{prefix}.CONFIG_punishmentCost",
+                value=value,
+                errors=errors,
+                allowed_tokens={"N/R", "N/A"},
+            )
+        elif field == "CONFIG_punishmentTech":
+            _validate_number_or_token(
+                prefix=f"{prefix}.CONFIG_punishmentTech",
+                value=value,
+                errors=errors,
+                allowed_tokens={"N/R", "N/A"},
+            )
+        elif field == "CONFIG_showPunishmentId":
+            if value not in {0, 1, "N/A"} and not (isinstance(value, str) and value.lower().startswith("n/a")):
+                errors.append(f"{prefix}.CONFIG_showPunishmentId must be 0, 1, or 'N/A'.")
+        elif field == "CONFIG_defaultContribProp":
+            _validate_number_or_token(
+                prefix=f"{prefix}.CONFIG_defaultContribProp",
+                value=value,
+                errors=errors,
+                allowed_tokens={"N/A"},
+            )
+        elif field == "CONFIG_chat":
+            if value not in {0, 1}:
+                errors.append(f"{prefix}.CONFIG_chat must be 0 or 1.")
 
         if isinstance(reason, str):
             _append_field_specific_warnings(

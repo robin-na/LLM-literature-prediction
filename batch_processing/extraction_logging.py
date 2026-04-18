@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import datetime
+from pathlib import Path
 from typing import Any, Sequence
 
 try:
@@ -164,3 +166,38 @@ class LiveCostTracker:
         if len(parts) >= 2:
             return f"agentic | {parts[0]} -> {':'.join(parts[1:]).replace('_', ' ')}"
         return label.replace("_", " ")
+
+    def total_cost(self) -> float:
+        return (
+            (self.total_input_tokens / 1_000_000) * self.price_input_per_1m
+            + (self.total_estimated_output_tokens / 1_000_000) * self.price_output_per_1m
+        )
+
+    def write_cost_summary(
+        self,
+        cost_md_path: str | Path,
+        *,
+        run_label: str,
+        paper_ids: Sequence[str],
+        output_xlsx: str = "",
+    ) -> None:
+        """Append a cost entry to cost.md so runs accumulate over time."""
+        path = Path(cost_md_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        cost = self.total_cost()
+        lines = [
+            f"\n## {timestamp} — {run_label}",
+            f"- **Model**: {self.model}",
+            f"- **Papers**: {len(list(paper_ids))} ({', '.join(paper_ids)})",
+            f"- **API calls**: {self.request_count}",
+            f"- **Input tokens** (estimated): {self.total_input_tokens:,}",
+            f"- **Output tokens** (estimated): {self.total_estimated_output_tokens:,}",
+            f"- **Input price**: ${self.price_input_per_1m}/1M tok",
+            f"- **Output price**: ${self.price_output_per_1m}/1M tok",
+            f"- **Total estimated cost**: **${cost:.4f}**",
+        ]
+        if output_xlsx:
+            lines.append(f"- **Output**: `{output_xlsx}`")
+        with open(path, "a", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")

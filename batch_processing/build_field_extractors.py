@@ -947,6 +947,96 @@ NEVER output 0.
 }
 
 
+# ── CONFIG_punishmentCost ─────────────────────────────────────────────────────
+
+FIELD_CONFIGS["CONFIG_punishmentCost"] = {
+    "system_prompt": _BASE_SYSTEM + """
+
+DEFINITION
+CONFIG_punishmentCost is the number of coins/tokens a punisher must spend to
+assign one unit of punishment to a target.
+
+CRITICAL RULES
+
+Rule 1 — PUNISHER'S COST, NOT TARGET'S REDUCTION
+  If the paper says "each punishment point costs the punisher 1 token and
+  reduces the target by 3", CONFIG_punishmentCost = 1 (the sender's cost, not 3).
+
+Rule 2 — CONDITION-LEVEL
+  Use N/A if no punishment mechanism exists in this specific condition.
+  Use N/R if punishment exists but the per-unit cost is never stated numerically.
+
+WORKED EXAMPLES
+
+"Assigning 1 punishment point costs the sender 1 MU." → 1
+"Each point of punishment costs 3 tokens to assign; it reduces target by 9." → 3 (punisher pays 3)
+No punishment in this condition → N/A
+Punishment exists but cost not specified → N/R
+""",
+    "instruction": """Extract CONFIG_punishmentCost for every experimental condition.
+
+STEP 1 — DOES THIS CONDITION HAVE PUNISHMENT?
+If no → CONFIG_punishmentCost = N/A. Stop.
+
+STEP 2 — FIND THE PUNISHMENT COST STATEMENT
+Quote every sentence describing what the PUNISHER pays per unit of punishment assigned.
+
+STEP 3 — ASSIGN
+Record the punisher's per-unit cost as a number.
+If cost is not stated numerically → N/R.
+""",
+    "schema": _SCHEMA_WRAPPER.format(
+        field_schema=_schema("CONFIG_punishmentCost", "number, 'N/R', or 'N/A'")
+    ),
+}
+
+
+# ── CONFIG_punishmentTech ─────────────────────────────────────────────────────
+
+FIELD_CONFIGS["CONFIG_punishmentTech"] = {
+    "system_prompt": _BASE_SYSTEM + """
+
+DEFINITION
+CONFIG_punishmentTech is the magnitude of payoff reduction imposed on the TARGET
+per unit of punishment assigned (the "exchange rate" or "effectiveness" of punishment).
+
+If spending 1 token reduces the target's payoff by 3, CONFIG_punishmentTech = 3.
+
+CRITICAL RULES
+
+Rule 1 — TARGET'S REDUCTION, NOT PUNISHER'S COST
+  CONFIG_punishmentTech is about what the TARGET loses, not what the punisher pays.
+  If the paper says "costs 1, reduces target by 3", CONFIG_punishmentTech = 3.
+
+Rule 2 — CONDITION-LEVEL
+  Use N/A if no punishment mechanism exists in this specific condition.
+  Use N/R if punishment exists but the exchange rate is never stated.
+
+WORKED EXAMPLES
+
+"1 punishment point deducts 3 MU from the target's earnings." → 3
+"Each point sent reduces target payoff by 1; costs sender 1." → 1
+"Punishment exists; costs 1 per point." (no target reduction stated) → N/R
+No punishment → N/A
+""",
+    "instruction": """Extract CONFIG_punishmentTech for every condition.
+
+STEP 1 — DOES THIS CONDITION HAVE PUNISHMENT?
+If no → CONFIG_punishmentTech = N/A. Stop.
+
+STEP 2 — FIND THE EXCHANGE RATE
+Quote the sentence describing how much the target's payoff falls per unit of punishment received.
+
+STEP 3 — ASSIGN
+Record the per-unit target reduction as a number.
+If not stated → N/R.
+""",
+    "schema": _SCHEMA_WRAPPER.format(
+        field_schema=_schema("CONFIG_punishmentTech", "number, 'N/R', or 'N/A'")
+    ),
+}
+
+
 # ---------------------------------------------------------------------------
 # Available field names
 # ---------------------------------------------------------------------------

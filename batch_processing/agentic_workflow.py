@@ -145,6 +145,11 @@ High-risk failure mode: coding 0 from silence when the paper does not mention wh
 post-round feedback was shown. Use N/A for silence; 0 only when the paper explicitly
 states that information about others was withheld.
 """.strip(),
+    "CONFIG_punishmentCost": "Risk: confusing punisher cost with target reduction. Report what the SENDER pays per unit, not what the target loses.",
+    "CONFIG_punishmentTech": "Risk: confusing target reduction with punisher cost. Report how much the TARGET's payoff falls per unit of punishment received.",
+    "CONFIG_showPunishmentId": "Risk: coding N/A instead of 0 when punishment exists but is anonymous. If punishment exists and is anonymous, code 0, not N/A.",
+    "CONFIG_defaultContribProp": "Risk: coding N/A when the paper describes a standard VCM (default = 0). Absence of a special default means 0.",
+    "CONFIG_chat": "Risk: coding 1 for structured/numeric messages. Only unrestricted free-form text qualifies as chat.",
 }
 
 
@@ -224,6 +229,41 @@ V2_FIELD_PROFILES: dict[str, V2FieldProfile] = {
         repair_max_tool_rounds=4,
     ),
     "CONFIG_showOtherSummaries": V2FieldProfile(
+        extractor_use_tools=False,
+        extractor_max_tool_rounds=0,
+        recovery_max_tool_rounds=4,
+        critic_max_tool_rounds=4,
+        repair_max_tool_rounds=4,
+    ),
+    "CONFIG_punishmentCost": V2FieldProfile(
+        extractor_use_tools=False,
+        extractor_max_tool_rounds=0,
+        recovery_max_tool_rounds=4,
+        critic_max_tool_rounds=4,
+        repair_max_tool_rounds=4,
+    ),
+    "CONFIG_punishmentTech": V2FieldProfile(
+        extractor_use_tools=False,
+        extractor_max_tool_rounds=0,
+        recovery_max_tool_rounds=4,
+        critic_max_tool_rounds=4,
+        repair_max_tool_rounds=4,
+    ),
+    "CONFIG_showPunishmentId": V2FieldProfile(
+        extractor_use_tools=False,
+        extractor_max_tool_rounds=0,
+        recovery_max_tool_rounds=4,
+        critic_max_tool_rounds=4,
+        repair_max_tool_rounds=4,
+    ),
+    "CONFIG_defaultContribProp": V2FieldProfile(
+        extractor_use_tools=False,
+        extractor_max_tool_rounds=0,
+        recovery_max_tool_rounds=4,
+        critic_max_tool_rounds=4,
+        repair_max_tool_rounds=4,
+    ),
+    "CONFIG_chat": V2FieldProfile(
         extractor_use_tools=False,
         extractor_max_tool_rounds=0,
         recovery_max_tool_rounds=4,

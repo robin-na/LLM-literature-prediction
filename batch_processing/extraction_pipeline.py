@@ -34,6 +34,10 @@ DEFAULT_HYBRID_AGENTIC_FIELDS = (
     # were evaluated with agentic extraction (hybrid_7papers_agentic5_v1.xlsx) and showed
     # no improvement vs simple extraction: DVs +3%, DVs_Definitions -12%, DV_efficiencyReported
     # 0%, CONFIG_showNRounds -27%, CONFIG_showOtherSummaries 0%. Kept out of default.
+    # CONFIG_punishmentCost, CONFIG_punishmentTech, CONFIG_showPunishmentId,
+    # CONFIG_defaultContribProp, CONFIG_chat were evaluated with agentic extraction
+    # (hybrid_7papers_agentic5_v2.xlsx) and showed no improvement vs simple extraction:
+    # all 0% delta. Kept out of default.
 )
 
 
