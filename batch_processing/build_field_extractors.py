@@ -497,26 +497,33 @@ FIELD_CONFIGS["CONFIG_showRewardId"] = {
 DEFINITION
 CONFIG_showRewardId = 1 if the identity of who rewarded whom is revealed to the
 reward recipient.
-= 0 if rewarding is anonymous.
-= N/A if the game has NO reward mechanism.
+= 0 if rewarding is anonymous and the paper says so explicitly.
+= N/A if the game has NO reward mechanism, OR rewards are present/possible but the
+  paper does not clearly state whether rewarders are identifiable.
 
 CRITICAL RULE — ABSENT REWARD = N/A, NOT 0
   If the paper simply does not include a reward mechanism, the correct value is N/A.
   Do NOT output 0 to mean "no reward exists"—that conflates absence with anonymity.
-  0 means a reward mechanism EXISTS but is anonymous.
-  N/A means the reward mechanism does not exist.
+  0 means a reward mechanism EXISTS and the text clearly indicates anonymity.
+  N/A means no reward mechanism, or identifiability is not described (do not infer).
+
+CRITICAL RULE — SILENCE ON IDENTITY = N/A, NOT 0
+  If the paper describes rewards (or you cannot rule them out) but never says whether
+  rewarders are anonymous or identified, output N/A. Do not guess "anonymous" as 0.
 """,
     "instruction": """Extract CONFIG_showRewardId for every condition.
 
 STEP 1 — DOES THIS CONDITION HAVE A REWARD MECHANISM?
 If no → CONFIG_showRewardId = N/A. Stop.
 
-STEP 2 — QUOTE THE ANONYMITY DESCRIPTION FOR REWARDS
+STEP 2 — QUOTE THE ANONYMITY / IDENTITY DESCRIPTION FOR REWARDS
 Find every sentence about whether reward recipients can identify the rewarder.
+If there is no such description → N/A (do not infer 0).
 
 STEP 3 — CLASSIFY
-Identity revealed → 1
-Anonymous → 0
+Clearly identified to recipient → 1
+Clearly anonymous per the paper → 0
+Otherwise → N/A
 """,
     "schema": _SCHEMA_WRAPPER.format(
         field_schema=_schema("CONFIG_showRewardId", "1, 0, or 'N/A'")
@@ -706,6 +713,236 @@ Do NOT output a raw payoff as the efficiency value.
             '"step2_max_payoff": <number or "N/R">,\n      '
             '"step3_computation": "<show arithmetic>"',
         )
+    ),
+}
+
+
+# ── DVs ──────────────────────────────────────────────────────────────────────
+
+FIELD_CONFIGS["DVs"] = {
+    "system_prompt": _BASE_SYSTEM + """
+
+DEFINITION
+DVs is a JSON array of short snake_case names of the primary dependent variables
+measured and analyzed in THIS specific condition/treatment.
+
+CRITICAL RULES
+
+Rule 1 — INDIVIDUAL vs GROUP CONTRIBUTION ARE DIFFERENT DVs
+  If the paper reports BOTH each player's contribution AND an average/total group
+  contribution, include BOTH:
+    "individual_contribution" — tokens/points each player contributes per round
+    "group_contribution"      — average or total across all group members
+
+Rule 2 — PUNISHMENT DVs ONLY FOR CONDITIONS WITH PUNISHMENT
+  No-punishment conditions must NOT list punishment_assigned, punishment_received,
+  punishment_expenditure, etc.
+  Include punishment DVs only for conditions where punishment exists.
+
+Rule 3 — DO NOT LIST INDEPENDENT VARIABLES
+  Do not include endowment, group_size, MPCR, punishment_existence, or any parameter
+  that the paper manipulates across conditions. These are independent variables, not DVs.
+
+Rule 4 — USE SHORT SNAKE_CASE NAMES
+  Examples: individual_contribution, group_contribution, punishment_assigned,
+  punishment_received, net_earnings, efficiency, self_reported_anger.
+
+WORKED EXAMPLES
+
+Baseline (no punishment) condition:
+  ["individual_contribution", "group_contribution"]
+
+Punishment condition (punishment assigned/received are reported):
+  ["individual_contribution", "group_contribution", "punishment_assigned",
+   "punishment_received", "net_earnings"]
+
+Wrong:
+  ["individual_contribution", "endowment", "MPCR"]  ← endowment/MPCR are IVs
+  Same DVs for all conditions when punishment only exists in some ← condition-mixing
+""",
+    "instruction": """Extract DVs for every experimental condition in the paper.
+
+STEP 1 — IDENTIFY THE CONDITION
+Note the condition label (data_id) for this row and whether it has punishment/reward.
+
+STEP 2 — LIST OUTCOMES FROM THE RESULTS SECTION
+For each condition, which outcomes does the paper's results section analyze?
+  - If both individual and group contributions are reported, include both.
+  - If punishment exists in this condition, include punishment DVs.
+  - If efficiency is computed or plotted, include "efficiency".
+
+STEP 3 — EXCLUDE INDEPENDENT VARIABLES
+Remove any parameters that are manipulated (endowment, group_size, MPCR, etc.).
+
+STEP 4 — RETURN AS ARRAY
+Return a JSON array of snake_case strings.
+""",
+    "schema": _SCHEMA_WRAPPER.format(
+        field_schema=_schema("DVs", '["string", "..."]')
+    ),
+}
+
+
+# ── DVs_Definitions ───────────────────────────────────────────────────────────
+
+FIELD_CONFIGS["DVs_Definitions"] = {
+    "system_prompt": _BASE_SYSTEM + """
+
+DEFINITION
+DVs_Definitions is a JSON object mapping each DV name (from the DVs list for this
+condition) to a brief plain-English definition of how that outcome is measured in
+THIS paper.
+
+CRITICAL RULES
+
+Rule 1 — KEYS MUST MATCH DVs EXACTLY
+  The keys of DVs_Definitions must exactly match the entries in the DVs array for
+  this same row (snake_case). No extra keys, no missing keys.
+
+Rule 2 — PAPER-SPECIFIC DEFINITIONS ONLY
+  Definitions must describe how the outcome is measured in THIS paper, not a
+  generic textbook description.
+  GOOD: "tokens each player contributes to the public account per round (0–20)"
+  BAD:  "a measure of how much a player cooperates with the group"
+
+Rule 3 — INCLUDE MEASUREMENT UNITS
+  If the paper states the unit (tokens, points, MUs, %) include it.
+  If contributions are normalized (e.g., as % of endowment), say so.
+  If group_contribution is a sum vs average vs %, specify which.
+
+WORKED EXAMPLE
+{
+  "individual_contribution": "tokens each player contributes to the public account per round (0–20)",
+  "group_contribution": "average contribution across all four group members per round",
+  "efficiency": "actual group payoff divided by the maximum possible cooperative payoff"
+}
+""",
+    "instruction": """Extract DVs_Definitions for every experimental condition in the paper.
+
+STEP 1 — READ THE DVs LIST FOR THIS ROW
+Note every DV name in the DVs array for this condition.
+
+STEP 2 — FIND PAPER-SPECIFIC OPERATIONALIZATIONS
+For each DV, locate where the paper defines or describes how it is measured.
+Quote the relevant sentence if helpful.
+
+STEP 3 — WRITE CONCISE DEFINITIONS
+For each DV, write a 1–2 sentence paper-specific definition.
+Include units and normalization details when stated.
+
+STEP 4 — RETURN AS OBJECT
+Return a JSON object with exactly the same keys as the DVs list.
+""",
+    "schema": _SCHEMA_WRAPPER.format(
+        field_schema=_schema("DVs_Definitions", '{"dv_name": "definition", "...": "..."}')
+    ),
+}
+
+
+# ── DV_efficiencyReported ─────────────────────────────────────────────────────
+
+FIELD_CONFIGS["DV_efficiencyReported"] = {
+    "system_prompt": _BASE_SYSTEM + """
+
+DEFINITION
+DV_efficiencyReported = 1 if the paper reports, computes, or analyzes an
+efficiency measure (actual group payoff as a fraction or percentage of the
+theoretical maximum cooperative payoff) ANYWHERE in the paper.
+= 0 if efficiency is never reported or computed anywhere in the paper.
+
+THIS IS A PAPER-LEVEL FIELD.
+
+CRITICAL RULES
+
+Rule 1 — SAME VALUE FOR ALL ROWS
+  Use the SAME value (0 or 1) for every experimental condition row in a paper.
+  Do NOT code 0 for a row just because efficiency is not that condition's main DV.
+
+Rule 2 — SEARCH THE ENTIRE PAPER
+  Check all conditions, tables, figures, and appendices. Code 1 if efficiency
+  appears anywhere—even as a secondary or supplementary measure.
+
+Rule 3 — TYPICAL MARKERS
+  "efficiency", "social welfare", "payoff efficiency", "group efficiency",
+  "ratio of actual to maximum payoff", "welfare ratio".
+
+WORKED EXAMPLES
+
+Paper has Table 3 showing "Efficiency (%)" for all conditions → code 1 for ALL rows
+Paper never mentions efficiency or welfare ratios anywhere → code 0 for ALL rows
+Paper reports efficiency only for control → still code 1 for all rows including treatment
+""",
+    "instruction": """Extract DV_efficiencyReported for every experimental condition.
+
+STEP 1 — SEARCH THE WHOLE PAPER
+Look for "efficiency", "social welfare", "payoff efficiency", "actual / max payoff",
+or any table column / figure axis measuring the ratio of actual to maximum payoff.
+
+STEP 2 — DECIDE ONCE FOR THE PAPER
+If found anywhere → set 1 for ALL rows.
+If completely absent → set 0 for ALL rows.
+
+STEP 3 — RETURN THE SAME VALUE IN EVERY ROW
+Do not vary this field across conditions.
+""",
+    "schema": _SCHEMA_WRAPPER.format(
+        field_schema=_schema("DV_efficiencyReported", "1 or 0")
+    ),
+}
+
+
+# ── CONFIG_showNRounds ────────────────────────────────────────────────────────
+
+FIELD_CONFIGS["CONFIG_showNRounds"] = {
+    "system_prompt": _BASE_SYSTEM + """
+
+DEFINITION
+CONFIG_showNRounds = 1 ONLY if the paper explicitly states that the total number
+of rounds OR the number of remaining rounds was DISPLAYED to participants (e.g.,
+on a screen, as a visible counter, or shown in instructions).
+= N/A in all other cases. NEVER use 0.
+
+CRITICAL RULES
+
+Rule 1 — NEVER CODE 0
+  The only valid values are 1 and N/A.
+  Do NOT infer 0 from silence or from the rounds being fixed.
+
+Rule 2 — FIXED ROUNDS ≠ DISPLAYED
+  If the paper says "the experiment consisted of 20 rounds" but does not describe
+  a display mechanism, code N/A—not 1 and not 0.
+
+Rule 3 — COMMON KNOWLEDGE ≠ DISPLAY
+  "Subjects knew there would be 10 rounds" ≠ rounds were shown on screen.
+  Code N/A unless the paper describes an explicit display.
+
+Rule 4 — EXPLICIT DISPLAY REQUIRED
+  Only code 1 when the paper says something like:
+  "subjects were shown the current period number",
+  "a counter displayed remaining rounds",
+  "participants saw 'round X of 20' on the screen".
+
+WORKED EXAMPLES
+
+"A counter at the top of the screen showed the current round number." → 1
+"The experiment consisted of 20 rounds." (no display mention) → N/A
+"Subjects knew there would be 10 rounds." → N/A
+Paper is silent on this → N/A
+""",
+    "instruction": """Extract CONFIG_showNRounds for every experimental condition.
+
+STEP 1 — SEARCH FOR DISPLAY STATEMENTS
+Find any sentence describing how round or period information was presented to
+participants. Keywords: counter, screen, shown, displayed, "round X of Y",
+"remaining rounds".
+
+STEP 2 — CLASSIFY
+If the paper explicitly says the count was shown/displayed on screen → 1
+In all other cases (fixed rounds, silent paper, common knowledge only) → N/A
+NEVER output 0.
+""",
+    "schema": _SCHEMA_WRAPPER.format(
+        field_schema=_schema("CONFIG_showNRounds", "1 or 'N/A'")
     ),
 }
 

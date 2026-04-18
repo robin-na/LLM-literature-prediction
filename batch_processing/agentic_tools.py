@@ -14,6 +14,11 @@ SUPPORTED_AGENTIC_FIELDS = (
     "DV_contributionRate",
     "DV_efficiency",
     "CONFIG_MPCR",
+    "DVs",
+    "DVs_Definitions",
+    "DV_efficiencyReported",
+    "CONFIG_showNRounds",
+    "CONFIG_showOtherSummaries",
 )
 
 FIELD_DEFAULT_TERMS = {
@@ -59,6 +64,53 @@ FIELD_DEFAULT_TERMS = {
         "sum of contributions",
         "group size",
     ],
+    "DVs": [
+        "dependent variable",
+        "outcome",
+        "measure",
+        "contribution",
+        "efficiency",
+        "punishment",
+        "earnings",
+        "payoff",
+    ],
+    "DVs_Definitions": [
+        "contribution",
+        "efficiency",
+        "punishment",
+        "earnings",
+        "tokens",
+        "payoff",
+        "per round",
+        "average",
+    ],
+    "DV_efficiencyReported": [
+        "efficiency",
+        "social welfare",
+        "payoff efficiency",
+        "group payoff",
+        "optimal",
+        "maximum possible",
+    ],
+    "CONFIG_showNRounds": [
+        "round",
+        "period",
+        "displayed",
+        "shown",
+        "screen",
+        "knew",
+        "informed",
+        "counter",
+    ],
+    "CONFIG_showOtherSummaries": [
+        "summary",
+        "feedback",
+        "contribution",
+        "others",
+        "other players",
+        "other members",
+        "informed",
+    ],
 }
 
 FIELD_TOOL_HINTS = {
@@ -87,6 +139,31 @@ FIELD_TOOL_HINTS = {
         "Do not divide a per-capita coefficient again.",
         "Heterogeneous MPCR values may be represented as a list or compact string.",
     ],
+    "DVs": [
+        "List snake_case names of outcomes the paper analyzes for THIS condition.",
+        "Separate individual_contribution from group_contribution — both if both reported.",
+        "Punishment-related DVs only for conditions where punishment exists.",
+        "Do not include independent variables (endowment, group_size, MPCR).",
+    ],
+    "DVs_Definitions": [
+        "Keys must exactly match the DVs list for this row.",
+        "Provide paper-specific definitions, not generic textbook definitions.",
+        "Include measurement units when stated (e.g., tokens 0–20).",
+    ],
+    "DV_efficiencyReported": [
+        "Search ALL conditions, tables, and figures. Code 1 if efficiency appears ANYWHERE.",
+        "This is a paper-level field — same value for all rows of a paper.",
+        "Typical markers: 'social welfare', 'payoff efficiency', ratio of actual to maximum payoff.",
+    ],
+    "CONFIG_showNRounds": [
+        "Code 1 ONLY if the paper explicitly says rounds/remaining rounds were displayed on screen.",
+        "Fixed/known rounds ≠ displayed. Never code 0; use N/A when not stated.",
+        "Look for: counter, screen, shown, displayed, 'round X of Y', 'remaining rounds'.",
+    ],
+    "CONFIG_showOtherSummaries": [
+        "Code 1 if participants saw others' contributions, earnings, or punishment amounts after each round.",
+        "N/A if not mentioned anywhere; 0 only if paper explicitly says information was withheld.",
+    ],
 }
 
 FIELD_EXTRA_KEYS = {
@@ -95,6 +172,11 @@ FIELD_EXTRA_KEYS = {
     "DV_contributionRate": ["step1_raw_quotes", "step2_endowment", "step3_computation"],
     "DV_efficiency": ["step2_max_payoff", "step3_computation"],
     "CONFIG_MPCR": [],
+    "DVs": [],
+    "DVs_Definitions": [],
+    "DV_efficiencyReported": [],
+    "CONFIG_showNRounds": [],
+    "CONFIG_showOtherSummaries": [],
 }
 
 _ALLOWED_CALCULATOR_FUNCTIONS = {
@@ -436,6 +518,7 @@ def execute_tool(name: str, arguments: dict[str, Any], paper_text: str) -> dict[
             field=field,
             candidate_json=candidate_json,
             min_confidence=min_confidence,
+            paper_text=paper_text,
         )
     if name == "field_rulebook":
         field = str(arguments.get("field", ""))
@@ -739,6 +822,7 @@ def needs_review_gate(
     field: str,
     candidate_json: str,
     min_confidence: float = 0.85,
+    paper_text: str | None = None,
 ) -> dict[str, Any]:
     parsed, parse_error = parse_json_object(candidate_json)
     if parse_error:
@@ -767,6 +851,7 @@ def needs_review_gate(
         reasons.append(
             f"One or more confidences fell below the review threshold of {min_confidence:.2f}."
         )
+    reasons.extend(_field_specific_gate_reasons(field=field, parsed=parsed, paper_text=paper_text))
     decision = "needs_review" if reasons else "auto_accept"
     return {
         "decision": decision,
@@ -869,6 +954,42 @@ def validate_field_output(field: str, payload: dict[str, Any]) -> ValidationResu
         elif field == "CONFIG_allOrNothing":
             if value not in {0, 1}:
                 errors.append(f"{prefix}.CONFIG_allOrNothing must be 0 or 1.")
+        elif field == "DVs":
+            if not isinstance(value, list):
+                errors.append(f"{prefix}.DVs must be a JSON array of strings.")
+            else:
+                for item in value:
+                    if not isinstance(item, str):
+                        errors.append(f"{prefix}.DVs entries must be strings.")
+                        break
+                iv_names = {"endowment", "group_size", "mpcr", "player_count", "num_rounds"}
+                flagged = [v for v in value if isinstance(v, str) and v.lower() in iv_names]
+                if flagged:
+                    warnings.append(f"{prefix}.DVs may contain independent variable names: {flagged}.")
+        elif field == "DVs_Definitions":
+            if not isinstance(value, dict):
+                errors.append(f"{prefix}.DVs_Definitions must be a JSON object.")
+        elif field == "DV_efficiencyReported":
+            if value not in {0, 1, "N/R", "N/A"}:
+                errors.append(f"{prefix}.DV_efficiencyReported must be 0 or 1.")
+        elif field == "CONFIG_showNRounds":
+            if value == 0 or value == "0":
+                errors.append(f"{prefix}.CONFIG_showNRounds must never be 0; use N/A when not stated.")
+            elif value not in {1, "N/A"} and not (isinstance(value, str) and value.lower().startswith("n/a")):
+                errors.append(f"{prefix}.CONFIG_showNRounds must be 1 or 'N/A'.")
+        elif field == "CONFIG_showOtherSummaries":
+            if value not in {0, 1, "N/A"} and not (isinstance(value, str) and value.lower().startswith("n/a")):
+                errors.append(f"{prefix}.CONFIG_showOtherSummaries must be 0, 1, or 'N/A'.")
+
+        if isinstance(reason, str):
+            _append_field_specific_warnings(
+                prefix=prefix,
+                field=field,
+                experiment=experiment,
+                value=value,
+                reason=reason,
+                warnings=warnings,
+            )
 
     return ValidationResult(ok=not errors, errors=errors, warnings=warnings)
 
@@ -931,6 +1052,158 @@ def _validate_mpcr_value(
     errors.append(
         f"{prefix}.CONFIG_MPCR must be a number, list of numbers, descriptive string, or 'N/R'."
     )
+
+
+def _append_field_specific_warnings(
+    *,
+    prefix: str,
+    field: str,
+    experiment: dict[str, Any],
+    value: Any,
+    reason: str,
+    warnings: list[str],
+) -> None:
+    reason_lower = reason.lower()
+    computation = experiment.get("step3_computation")
+    computation_lower = computation.lower() if isinstance(computation, str) else ""
+
+    if field == "DV_contributionRate":
+        if _has_partial_period_cue(" ".join([reason_lower, computation_lower])):
+            warnings.append(
+                f"{prefix}.DV_contributionRate appears to rely on a partial-period summary."
+            )
+    elif field == "DV_efficiency":
+        if _has_partial_period_cue(" ".join([reason_lower, computation_lower])):
+            warnings.append(
+                f"{prefix}.DV_efficiency appears to rely on a partial-period summary."
+            )
+    elif field == "CONFIG_MPCR":
+        if _looks_like_divided_mpcr(reason_lower):
+            warnings.append(
+                f"{prefix}.CONFIG_MPCR reasoning suggests the MPCR may have been divided by group size again."
+            )
+
+
+def _has_partial_period_cue(text: str) -> bool:
+    return bool(
+        re.search(
+            r"\b(first|last|early|final)\s+\d+\s+periods?\b|\b(first|last|early|final)\s+periods?\b",
+            text,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
+def _looks_like_divided_mpcr(text: str) -> bool:
+    return bool(
+        re.search(
+            r"mpcr\s*=\s*.*\/.*group size|divid(?:e|ed).*(group size|players)|marginal per .* return.*\/",
+            text,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
+def _field_specific_gate_reasons(
+    *,
+    field: str,
+    parsed: dict[str, Any],
+    paper_text: str | None,
+) -> list[str]:
+    if not paper_text:
+        return []
+
+    reasons: list[str] = []
+    experiments = parsed.get("experiments", [])
+    if not isinstance(experiments, list):
+        return reasons
+
+    if field == "CONFIG_playerCount":
+        team_size, team_count = _infer_team_structure(paper_text)
+        for experiment in experiments:
+            value = experiment.get("CONFIG_playerCount")
+            if not isinstance(value, int) or isinstance(value, bool):
+                continue
+            if (
+                team_size is not None
+                and team_count is not None
+                and value == team_size
+                and team_count != team_size
+                and ("representative" in paper_text.lower() or "team" in paper_text.lower())
+            ):
+                reasons.append(
+                    "CONFIG_playerCount may be counting members per team instead of strategic teams."
+                )
+                break
+            if value == 1 and re.search(r"third[- ]party|three[- ]player", paper_text, flags=re.IGNORECASE):
+                reasons.append(
+                    "CONFIG_playerCount = 1 is suspicious because the paper describes a multi-player or third-party interaction."
+                )
+                break
+
+    if field == "CONFIG_MPCR":
+        parsed_formula = payoff_formula_parser(field="CONFIG_MPCR", paper_text=paper_text, max_results=5)
+        candidate_mpcr = parsed_formula.get("candidate_mpcr")
+        candidate_player_count = parsed_formula.get("candidate_player_count")
+        if isinstance(candidate_mpcr, (int, float)) and isinstance(candidate_player_count, (int, float)):
+            double_divided = float(candidate_mpcr) / float(candidate_player_count)
+            for experiment in experiments:
+                value = experiment.get("CONFIG_MPCR")
+                if isinstance(value, (int, float)) and abs(float(value) - double_divided) < 1e-6:
+                    reasons.append(
+                        "CONFIG_MPCR may have been divided by player count even though MPCR is already the per-capita coefficient."
+                    )
+                    break
+
+    if field == "DV_efficiency":
+        has_derivation_cues = _paper_has_efficiency_derivation_cues(paper_text)
+        if has_derivation_cues:
+            for experiment in experiments:
+                if experiment.get("DV_efficiency") == "N/R":
+                    reasons.append(
+                        "DV_efficiency was left as N/R even though the paper appears to contain derivation cues."
+                    )
+                    break
+
+    return reasons
+
+
+def _infer_team_structure(paper_text: str) -> tuple[int | None, int | None]:
+    team_size = _extract_first_number(
+        paper_text,
+        patterns=[
+            r"teams? of (\d+(?:\.\d+)?)",
+            r"groups? of (\d+(?:\.\d+)?) members",
+            r"groups? of (\d+(?:\.\d+)?) people",
+        ],
+    )
+    team_count = _extract_first_number(
+        paper_text,
+        patterns=[
+            r"(\d+(?:\.\d+)?) teams",
+            r"formed into (\d+(?:\.\d+)?) groups",
+            r"(\d+(?:\.\d+)?) groups were formed",
+        ],
+    )
+    return (int(team_size) if team_size is not None else None, int(team_count) if team_count is not None else None)
+
+
+def _paper_has_efficiency_derivation_cues(paper_text: str) -> bool:
+    earnings_cue = re.search(
+        r"group (average )?(earnings|payoff)|average earnings|group earnings|mean earnings",
+        paper_text,
+        flags=re.IGNORECASE,
+    )
+    parsed_formula = payoff_formula_parser(field="DV_efficiency", paper_text=paper_text, max_results=5)
+    has_structure = (
+        isinstance(parsed_formula.get("candidate_player_count"), (int, float))
+        and (
+            isinstance(parsed_formula.get("candidate_endowment"), (int, float))
+            or isinstance(parsed_formula.get("candidate_mpcr"), (int, float))
+            or isinstance(parsed_formula.get("candidate_multiplier"), (int, float))
+        )
+    )
+    return bool(earnings_cue and has_structure)
 
 
 def _split_text_units(text: str) -> list[str]:
