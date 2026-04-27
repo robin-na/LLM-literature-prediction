@@ -32,6 +32,7 @@ try:
     from batch_processing.extraction_pipeline import (
         DEFAULT_HYBRID_AGENTIC_FIELDS,
         call_simple_extraction,
+        fill_paper_level_counts,
         make_simple_rows,
         run_hybrid_extraction_for_paper,
         simple_fields,
@@ -63,6 +64,7 @@ except ImportError:  # pragma: no cover - allows direct script execution
     from extraction_pipeline import (  # type: ignore
         DEFAULT_HYBRID_AGENTIC_FIELDS,
         call_simple_extraction,
+        fill_paper_level_counts,
         make_simple_rows,
         run_hybrid_extraction_for_paper,
         simple_fields,
@@ -371,6 +373,7 @@ def _run_simple_mode(args: argparse.Namespace) -> str:
             row["source_markdown"] = str(paper_path)
         extraction_rows.extend(rows)
 
+    fill_paper_level_counts(extraction_rows)
     output_path = write_hybrid_workbook(
         output_path=args.output_xlsx,
         extraction_rows=extraction_rows,
@@ -432,6 +435,7 @@ def _run_hybrid_mode(args: argparse.Namespace) -> str:
         extraction_rows.extend(result.rows)
         metadata_rows.extend(result.metadata_rows)
 
+    fill_paper_level_counts(extraction_rows)
     output_path = write_hybrid_workbook(
         output_path=args.output_xlsx,
         extraction_rows=extraction_rows,
@@ -665,6 +669,7 @@ def _run_batch_collect_mode(args: argparse.Namespace) -> None:
         rows = make_simple_rows(custom_id, experiments)
         extraction_rows.extend(rows)
 
+    fill_paper_level_counts(extraction_rows)
     output_path = write_hybrid_workbook(
         output_path=args.output_xlsx,
         extraction_rows=extraction_rows,

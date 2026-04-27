@@ -29,9 +29,13 @@ BASE_FIELDS = [
     # "DV_contributionAmount", # removed: same reason
     # "DV_efficiency",         # removed: replaced by DV_efficiencyReported (0/1 flag)
     # "DV_groupPayoff",        # removed: same reason
+    "IVs",
+    "number_IVs",
+    "number_DVs",
     "DVs",
     "DVs_Definitions",
     "DV_efficiencyReported",
+    "source_data",
     "participant_country",
     "participant_age",
     "participant_gender",
@@ -52,6 +56,8 @@ def coerce_row(custom_id: str, experiment: dict) -> dict:
     row = {"custom_id": custom_id}
     for field in BASE_FIELDS:
         value = experiment.get(field, "N/R")
+        if field == "IVs" and isinstance(value, list):
+            value = _json.dumps(value, ensure_ascii=False)
         if field == "DVs" and isinstance(value, list):
             value = _json.dumps(value, ensure_ascii=False)
         if field == "DVs_Definitions" and isinstance(value, dict):

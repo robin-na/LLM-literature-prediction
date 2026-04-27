@@ -117,6 +117,12 @@ High-risk failure modes: overconservative abstention and unsupported derivation.
 - If grounded payoff ingredients are incomplete, abstain rather than estimating.
 - Do not use partial-period earnings unless the target outcome is explicitly defined that way.
 """.strip(),
+    "IVs": """
+High-risk failure modes:
+- Listing fixed parameters (endowment, MPCR) as IVs when the paper never varies them across conditions.
+- Including DVs (contribution, efficiency) in the IVs list.
+- Using identical IVs for all conditions when some conditions have no punishment (punishment_mechanism should still appear as an IV because it IS being manipulated in the paper).
+""".strip(),
     "DVs": """
 High-risk failure modes:
 - Listing identical DVs for all conditions when punishment only exists in some conditions.
@@ -134,6 +140,11 @@ High-risk failure modes:
 High-risk failure mode: coding 0 for a condition row just because efficiency is not that condition's
 primary DV. This is a paper-level field — search all tables, figures, appendices, and sections.
 If efficiency appears anywhere in the paper, code 1 for all rows.
+""".strip(),
+    "source_data": """
+High-risk failure mode: coding 'External' for field experiments (data collected by the authors in another location still counts as Internal).
+External = the data pre-existed this paper and was not collected by these authors for this study.
+This is a paper-level field — same value for all rows.
 """.strip(),
     "CONFIG_showNRounds": """
 High-risk failure mode: coding 0 from silence or from rounds being fixed/known.
@@ -200,6 +211,13 @@ V2_FIELD_PROFILES: dict[str, V2FieldProfile] = {
         critic_max_tool_rounds=10,
         repair_max_tool_rounds=8,
     ),
+    "IVs": V2FieldProfile(
+        extractor_use_tools=False,
+        extractor_max_tool_rounds=0,
+        recovery_max_tool_rounds=4,
+        critic_max_tool_rounds=4,
+        repair_max_tool_rounds=4,
+    ),
     "DVs": V2FieldProfile(
         extractor_use_tools=False,
         extractor_max_tool_rounds=0,
@@ -215,6 +233,13 @@ V2_FIELD_PROFILES: dict[str, V2FieldProfile] = {
         repair_max_tool_rounds=4,
     ),
     "DV_efficiencyReported": V2FieldProfile(
+        extractor_use_tools=False,
+        extractor_max_tool_rounds=0,
+        recovery_max_tool_rounds=4,
+        critic_max_tool_rounds=4,
+        repair_max_tool_rounds=4,
+    ),
+    "source_data": V2FieldProfile(
         extractor_use_tools=False,
         extractor_max_tool_rounds=0,
         recovery_max_tool_rounds=4,

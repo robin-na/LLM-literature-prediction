@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -163,6 +164,51 @@ def run_agentic_overrides(
 
 def make_simple_rows(custom_id: str, experiments: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return [coerce_row(custom_id, experiment) for experiment in experiments if isinstance(experiment, dict)]
+
+
+def fill_paper_level_counts(rows: list[dict[str, Any]]) -> None:
+    """Compute number_IVs and number_DVs from the extracted IVs/DVs arrays.
+
+    For each paper (grouped by custom_id):
+      - number_IVs = len(union of all unique IV names across every condition)
+      - number_DVs = len(union of all unique DV names across every condition)
+
+    Both are paper-level: the same integer is written to every row in the paper.
+    This is more reliable than asking the LLM to count.
+    """
+    paper_indices: dict[str, list[int]] = defaultdict(list)
+    for i, row in enumerate(rows):
+        paper_indices[row.get("custom_id", "")].append(i)
+
+    def _parse_names(value: Any) -> list[str]:
+        if isinstance(value, list):
+            return [v for v in value if isinstance(v, str)]
+        if isinstance(value, str):
+            try:
+                parsed = json.loads(value)
+                if isinstance(parsed, list):
+                    return [v for v in parsed if isinstance(v, str)]
+            except (json.JSONDecodeError, ValueError):
+                pass
+        return []
+
+    for indices in paper_indices.values():
+        iv_union: set[str] = set()
+        dv_union: set[str] = set()
+        for i in indices:
+            iv_union.update(_parse_names(rows[i].get("IVs")))
+            dv_union.update(_parse_names(rows[i].get("DVs")))
+
+        n_ivs = len(iv_union) if iv_union else "N/R"
+        n_dvs = len(dv_union) if dv_union else "N/R"
+
+        for i in indices:
+            rows[i]["number_IVs"] = n_ivs
+            rows[i]["number_IVs_reason"] = "counted from union of IVs across all conditions"
+            rows[i]["number_IVs_confidence"] = 1
+            rows[i]["number_DVs"] = n_dvs
+            rows[i]["number_DVs_reason"] = "counted from union of DVs across all conditions"
+            rows[i]["number_DVs_confidence"] = 1
 
 
 def run_simple_extraction_for_paper(

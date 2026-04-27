@@ -88,6 +88,9 @@ Return a JSON object with this structure (use actual values from the paper):
       "CONFIG_endowment": number,
       "CONFIG_endowment_reason": "string",
       "CONFIG_endowment_confidence": number,
+      "IVs": ["string", "..."],
+      "IVs_reason": "string",
+      "IVs_confidence": number,
       "DVs": ["string", "..."],
       "DVs_reason": "string",
       "DVs_confidence": number,
@@ -97,6 +100,9 @@ Return a JSON object with this structure (use actual values from the paper):
       "DV_efficiencyReported": 1 or 0,
       "DV_efficiencyReported_reason": "string",
       "DV_efficiencyReported_confidence": number,
+      "source_data": "Internal" or "External",
+      "source_data_reason": "string",
+      "source_data_confidence": number,
       "participant_country": "string",
       "participant_country_reason": "string",
       "participant_country_confidence": number,
@@ -145,7 +151,7 @@ Definitions and rules:
 - METHOD_lab: true if lab experiment; false if field experiment; false if not an experiment.
 - METHOD_simulation: true if the study uses a numerical/computer simulation with no human subjects (e.g., agent-based model).
 - METHOD_analytical: true if the study is a formal mathematical/closed-form model (e.g., proofs, analytical derivations) with no human subjects.
-- CONFIG_allOrNothing: 1 if players can contribute any continuous amount; 0 if only all-or-nothing contributions are allowed. Use N/A if the paper does not describe the contribution choice structure.
+- CONFIG_allOrNothing: 1 if players can contribute any continuous amount (e.g., "between 0 and 20 tokens"); 0 if only all-or-nothing contributions are allowed (binary: full endowment or nothing). WARNING: the field name is counterintuitive — 1 means CONTINUOUS, not all-or-nothing. Use N/A if the paper does not describe the contribution choice structure.
 - CONFIG_defaultContribProp: 0 if endowment starts in private account; 1 if starts in public fund; otherwise proportion in public fund. Use N/A if no humans or if not explicitly stated.
 - CONFIG_MPCR: marginal per capita return (multiplier divided by group size). Use N/R if not reported.
 - CONFIG_playerCount: the number of strategic decision-makers in ONE group/match — not the total number of participants in the study. When teams send a representative, count the number of teams (not individuals per team). When there are third-party punishers or observers, count them as additional players in the group. Prefer the unit that governs the strategic interaction, not the prose headcount.
@@ -160,6 +166,7 @@ Definitions and rules:
 - CONFIG_punishmentTech: magnitude of payoff reduction per coin/token spent on punishment (e.g., 3 means each punishment token costs 1 and reduces target's payoff by 3). N/A if punishment does not exist in this condition OR if this ratio is not explicitly stated.
 - CONFIG_rewardCost: coins/tokens spent per unit of reward. N/A if reward does not exist in this condition OR if not explicitly stated numerically.
 - CONFIG_rewardTech: magnitude of payoff increase per coin/token spent on reward. N/A if reward does not exist OR if not explicitly stated.
+- IVs: a JSON array listing the independent variables (experimental factors) that are actually manipulated/varied across conditions in THIS paper, as applicable to THIS specific condition. Use short snake_case names (e.g., "punishment_mechanism", "communication", "group_size" only if varied). Include only factors that differ across conditions — not fixed parameters. Do NOT include outcome measures (those go in DVs). All conditions in a paper share the same set of IVs since the IVs define the paper's design.
 - DVs: a JSON array listing the primary dependent variables measured and analyzed in THIS specific condition/treatment — the outcomes the authors are trying to measure and explain for this row. Important distinctions:
   * List BOTH individual-level and group-level contribution measures if the paper reports both (e.g., "individual_contribution" for each player's tokens contributed AND "group_contribution" for the group average or total — these are different DVs).
   * Distinguish punishment assigned/received (points given to or received from others) from punishment expenditure (tokens spent on punishment) — only include whichever the paper actually reports for this condition.
@@ -168,6 +175,7 @@ Definitions and rules:
   Use short snake_case names. Example: ["individual_contribution", "group_contribution", "efficiency"] for a no-punishment condition; ["individual_contribution", "group_contribution", "punishment_assigned", "punishment_received", "net_earnings"] for a punishment condition.
 - DVs_Definitions: a JSON object mapping each DV name from the DVs list for THIS condition to a brief plain-English definition of how that outcome is measured in this paper. Keys must exactly match the entries in DVs for this row. Example: {"individual_contribution": "tokens each player contributes to the public account per round", "group_contribution": "average contribution across all group members as a percentage of maximum possible", "efficiency": "actual group payoff divided by maximum possible cooperative payoff"}.
 - DV_efficiencyReported: 1 if the paper reports, computes, or analyzes an efficiency measure (actual group payoff as a fraction of the theoretical maximum cooperative payoff) for ANY condition in the paper. 0 if efficiency is never reported or computed anywhere in the paper. This is a PAPER-LEVEL field — use the same value in every row for a given paper. Do not code 0 for a row just because efficiency is not the focus of that specific condition; if efficiency appears anywhere in the paper, code 1 for all rows.
+- source_data: PAPER-LEVEL field (same value for every row). "Internal" if the authors collected the experimental data themselves for this study (lab, online, or field experiment run by these authors). "External" if the data was borrowed from a different experiment or external source (reanalysis of another paper's data, archival data, data collected by other researchers for a different study).
 - experiment_environment: one of "Online", "On site", "Field experiment", "Observational", "No human".
 - For every field above, provide a corresponding "<field>_reason" and "<field>_confidence".
   - reason: short rationale of how you inferred the value (can be empty if directly stated).

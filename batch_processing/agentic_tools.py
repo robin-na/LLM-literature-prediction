@@ -8,15 +8,26 @@ from dataclasses import dataclass
 from typing import Any
 
 
+# Common DV/IV names used in cross-field validation warnings.
+_COMMON_DV_NAMES: frozenset[str] = frozenset(
+    {"individual_contribution", "group_contribution", "efficiency",
+     "punishment_assigned", "punishment_received", "net_earnings"}
+)
+_COMMON_IV_NAMES: frozenset[str] = frozenset(
+    {"endowment", "group_size", "mpcr", "player_count", "num_rounds"}
+)
+
 SUPPORTED_AGENTIC_FIELDS = (
     "CONFIG_playerCount",
     "CONFIG_allOrNothing",
     "DV_contributionRate",
     "DV_efficiency",
     "CONFIG_MPCR",
+    "IVs",
     "DVs",
     "DVs_Definitions",
     "DV_efficiencyReported",
+    "source_data",
     "CONFIG_showNRounds",
     "CONFIG_showOtherSummaries",
     "CONFIG_punishmentCost",
@@ -69,6 +80,15 @@ FIELD_DEFAULT_TERMS = {
         "sum of contributions",
         "group size",
     ],
+    "IVs": [
+        "independent variable",
+        "treatment",
+        "condition",
+        "manipulation",
+        "between",
+        "factor",
+        "varied",
+    ],
     "DVs": [
         "dependent variable",
         "outcome",
@@ -96,6 +116,16 @@ FIELD_DEFAULT_TERMS = {
         "group payoff",
         "optimal",
         "maximum possible",
+    ],
+    "source_data": [
+        "data",
+        "collected",
+        "experiment",
+        "reanalysis",
+        "archival",
+        "dataset",
+        "secondary",
+        "field experiment",
     ],
     "CONFIG_showNRounds": [
         "round",
@@ -130,9 +160,9 @@ FIELD_TOOL_HINTS = {
         "Use N/R only when group structure is truly absent.",
     ],
     "CONFIG_allOrNothing": [
-        "Return 1 when players can choose any contribution from 0 to endowment.",
-        "Return 0 for binary or no continuous contribution scale.",
-        "Do not confuse binary actions with flexible contribution choice.",
+        "WARNING: the field name is counterintuitive — 1 means CONTINUOUS (any amount 0 to endowment), NOT all-or-nothing.",
+        "Return 0 for binary all-or-nothing contributions or when there is no contribution scale.",
+        "Do not confuse binary actions (cooperate/defect) with the all-or-nothing contribution structure.",
     ],
     "DV_contributionRate": [
         "Normalize raw contributions to a 0-1 fraction.",
@@ -149,6 +179,11 @@ FIELD_TOOL_HINTS = {
         "Do not divide a per-capita coefficient again.",
         "Heterogeneous MPCR values may be represented as a list or compact string.",
     ],
+    "IVs": [
+        "List only factors that are actually varied across conditions in THIS paper.",
+        "Do not include fixed parameters (endowment, MPCR) unless the paper manipulates them.",
+        "Do not include DVs like contribution_rate or efficiency.",
+    ],
     "DVs": [
         "List snake_case names of outcomes the paper analyzes for THIS condition.",
         "Separate individual_contribution from group_contribution — both if both reported.",
@@ -164,6 +199,11 @@ FIELD_TOOL_HINTS = {
         "Search ALL conditions, tables, and figures. Code 1 if efficiency appears ANYWHERE.",
         "This is a paper-level field — same value for all rows of a paper.",
         "Typical markers: 'social welfare', 'payoff efficiency', ratio of actual to maximum payoff.",
+    ],
+    "source_data": [
+        "Internal: data collected in this paper's own lab/field experiment.",
+        "External: data re-used from another experiment or borrowed dataset.",
+        "This is a paper-level field — same value for all rows.",
     ],
     "CONFIG_showNRounds": [
         "Code 1 ONLY if the paper explicitly says rounds/remaining rounds were displayed on screen.",
@@ -204,9 +244,11 @@ FIELD_EXTRA_KEYS = {
     "DV_contributionRate": ["step1_raw_quotes", "step2_endowment", "step3_computation"],
     "DV_efficiency": ["step2_max_payoff", "step3_computation"],
     "CONFIG_MPCR": [],
+    "IVs": [],
     "DVs": [],
     "DVs_Definitions": [],
     "DV_efficiencyReported": [],
+    "source_data": [],
     "CONFIG_showNRounds": [],
     "CONFIG_showOtherSummaries": [],
     "CONFIG_punishmentCost": [],
@@ -999,8 +1041,7 @@ def validate_field_output(field: str, payload: dict[str, Any]) -> ValidationResu
                     if not isinstance(item, str):
                         errors.append(f"{prefix}.DVs entries must be strings.")
                         break
-                iv_names = {"endowment", "group_size", "mpcr", "player_count", "num_rounds"}
-                flagged = [v for v in value if isinstance(v, str) and v.lower() in iv_names]
+                flagged = [v for v in value if isinstance(v, str) and v.lower() in _COMMON_IV_NAMES]
                 if flagged:
                     warnings.append(f"{prefix}.DVs may contain independent variable names: {flagged}.")
         elif field == "DVs_Definitions":
@@ -1044,6 +1085,20 @@ def validate_field_output(field: str, payload: dict[str, Any]) -> ValidationResu
         elif field == "CONFIG_chat":
             if value not in {0, 1}:
                 errors.append(f"{prefix}.CONFIG_chat must be 0 or 1.")
+        elif field == "IVs":
+            if not isinstance(value, list):
+                errors.append(f"{prefix}.IVs must be a JSON array of strings.")
+            else:
+                for item in value:
+                    if not isinstance(item, str):
+                        errors.append(f"{prefix}.IVs entries must be strings.")
+                        break
+                flagged = [v for v in value if isinstance(v, str) and v.lower() in _COMMON_DV_NAMES]
+                if flagged:
+                    warnings.append(f"{prefix}.IVs may contain dependent variable names: {flagged}.")
+        elif field == "source_data":
+            if value not in {"Internal", "External", "N/R"}:
+                errors.append(f"{prefix}.source_data must be 'Internal', 'External', or 'N/R'.")
 
         if isinstance(reason, str):
             _append_field_specific_warnings(

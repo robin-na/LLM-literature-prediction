@@ -16,3 +16,5 @@ batch_processing/output_csv/
 batch_processing/output_xlsx/
 batch_processing/gdrive_credentials.json
 batch_processing/gdrive_token.json
+PGG_papers/papers/
+PGG_papers/7_papers/

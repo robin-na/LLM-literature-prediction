@@ -225,6 +225,13 @@ CONFIG_allOrNothing encodes the contribution FLEXIBILITY:
   1 = players can contribute ANY amount from 0 to their endowment (continuous/graded)
   0 = players must contribute either NOTHING or their FULL endowment (binary only)
 
+WARNING — THE FIELD NAME IS COUNTERINTUITIVE
+  Despite being called "allOrNothing", the value 1 does NOT mean all-or-nothing.
+  1 = CONTINUOUS (flexible, graded contribution).
+  0 = ALL-OR-NOTHING (binary: full endowment or nothing).
+  A paper saying "players chose to contribute between 0 and 20 tokens" → 1 (continuous).
+  A paper saying "players could contribute all or nothing" → 0 (binary).
+
 CRITICAL RULE — BINARY ACTIONS ≠ ALL-OR-NOTHING CONTRIBUTION
   A game where players choose between two non-contribution actions (e.g., R vs B in
   a coordination/punishment game, or "cooperate" vs "defect" in a prisoner's dilemma)
@@ -1033,6 +1040,129 @@ If not stated → N/R.
 """,
     "schema": _SCHEMA_WRAPPER.format(
         field_schema=_schema("CONFIG_punishmentTech", "number, 'N/R', or 'N/A'")
+    ),
+}
+
+
+# ── IVs ──────────────────────────────────────────────────────────────────────
+
+FIELD_CONFIGS["IVs"] = {
+    "system_prompt": _BASE_SYSTEM + """
+
+DEFINITION
+IVs is a JSON array of short snake_case names of the independent variables
+(experimental factors) that are actually varied/manipulated across conditions
+in THIS paper, as they apply to THIS specific condition/treatment.
+
+CRITICAL RULES
+
+Rule 1 — ONLY FACTORS VARIED IN THIS PAPER
+  Include only parameters that the paper explicitly manipulates across its
+  experimental conditions. Do NOT include factors that are fixed for all
+  conditions (e.g. endowment when it never changes across conditions).
+
+Rule 2 — DO NOT LIST DEPENDENT VARIABLES
+  Do not include contribution_rate, efficiency, group_payoff, punishment
+  amounts, or any outcome measure. These are DVs, not IVs.
+
+Rule 3 — USE SHORT SNAKE_CASE NAMES
+  Examples: punishment_mechanism, communication, group_size (only if varied),
+  mpcr (only if varied), endowment (only if varied), information_type,
+  reward_mechanism, partner_matching.
+
+Rule 4 — CONDITION-LEVEL APPLICATION
+  For a no-punishment control condition, the IVs list still includes
+  punishment_mechanism (the factor that distinguishes this condition from
+  others), because that factor is being manipulated across conditions.
+
+WORKED EXAMPLES
+
+Paper with 2 conditions: punishment vs no-punishment only:
+  Both rows → ["punishment_mechanism"]
+
+Paper with 2x2 design: punishment × communication:
+  All rows → ["punishment_mechanism", "communication"]
+
+Paper that varies group_size (4 vs 8 players) across sessions:
+  All rows → ["group_size"]
+
+Wrong:
+  ["individual_contribution", "efficiency"]  ← these are DVs
+  ["endowment"]  ← when endowment is fixed at 20 tokens for all conditions
+""",
+    "instruction": """Extract IVs for every experimental condition in the paper.
+
+STEP 1 — IDENTIFY THE EXPERIMENTAL DESIGN
+What factors does the paper manipulate? Look for between-condition or
+between-treatment comparisons described in the design section.
+
+STEP 2 — LIST VARIED FACTORS ONLY
+Which parameters actually differ across conditions in this paper?
+Exclude fixed parameters that do not change.
+
+STEP 3 — EXCLUDE DEPENDENT VARIABLES
+Remove any outcomes the paper measures (contribution, efficiency, payoffs).
+
+STEP 4 — RETURN AS ARRAY
+Return a JSON array of snake_case strings — the same IVs apply to all rows
+if the paper has a single design, or subset if some factors only apply to
+certain conditions.
+""",
+    "schema": _SCHEMA_WRAPPER.format(
+        field_schema=_schema("IVs", '["string", "..."]')
+    ),
+}
+
+
+# ── source_data ───────────────────────────────────────────────────────────────
+
+FIELD_CONFIGS["source_data"] = {
+    "system_prompt": _BASE_SYSTEM + """
+
+DEFINITION
+source_data classifies whether the experimental data analyzed in this paper
+was collected by the authors for this study ("Internal") or was borrowed from
+a pre-existing experiment or external dataset ("External").
+
+THIS IS A PAPER-LEVEL FIELD.
+
+CRITICAL RULES
+
+Rule 1 — INTERNAL: DATA COLLECTED IN THIS PAPER
+  "Internal" means the authors ran their own experiment and collected the
+  data themselves, whether in a lab, online, or in the field. Location does
+  not matter — field experiments run by the authors are Internal.
+
+Rule 2 — EXTERNAL: DATA FROM ANOTHER SOURCE
+  "External" means the data pre-existed this paper: reanalysis of data from
+  another published experiment, archival data, or data collected by other
+  researchers for a different study.
+
+Rule 3 — SAME VALUE FOR ALL ROWS
+  Use the SAME value for every experimental condition row in a paper.
+
+WORKED EXAMPLES
+
+"We recruited 200 participants and ran a lab experiment." → Internal
+"We use data from Smith et al. (2010)'s experiment." → External
+"We reanalyze the dataset from the AER replication archive." → External
+"We conducted a field experiment in rural Kenya." → Internal
+""",
+    "instruction": """Extract source_data for every experimental condition.
+
+STEP 1 — FIND THE DATA SOURCE
+Look for sentences describing where the data comes from: did the authors
+run their own experiment, or are they reanalyzing existing data?
+
+STEP 2 — CLASSIFY
+If the authors collected the data themselves (lab, field, online) → Internal
+If they use data from another experiment or external source → External
+
+STEP 3 — RETURN THE SAME VALUE IN EVERY ROW
+This is a paper-level field — do not vary it across conditions.
+""",
+    "schema": _SCHEMA_WRAPPER.format(
+        field_schema=_schema("source_data", '"Internal" or "External"')
     ),
 }
 
