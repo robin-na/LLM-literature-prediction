@@ -14,6 +14,26 @@
 \usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{tabularx}
+\usepackage{listings}
+
+% IDE-style code block for CLI commands
+\lstdefinestyle{clibox}{
+  backgroundcolor=\color{black!5},
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=flexible,
+  keepspaces=true,
+  frame=tb,
+  framesep=6pt,
+  framerule=0.4pt,
+  rulecolor=\color{black!20},
+  xleftmargin=10pt,
+  xrightmargin=10pt,
+  aboveskip=6pt,
+  belowskip=6pt,
+  postbreak=\mbox{\textcolor{black!40}{$\hookrightarrow$}\space},
+}
 
 \hypersetup{
   colorlinks=true,
@@ -157,7 +177,9 @@ The schema comprises 45 fields organised into five groups. The complete output h
 
 \paragraph{Granularity notation.} \textit{Condition} fields may differ across treatment arms within a paper. \textit{Paper} fields take the same value for every row belonging to the same paper; they are computed or extracted once and propagated.
 
-\renewcommand{\arraystretch}{1.35}
+% Allow \texttt field names to break at underscores within table columns
+\renewcommand{\_}{\textunderscore\allowbreak}
+\renewcommand{\arraystretch}{1.2}
 \begin{longtable}{p{3.9cm} p{1.2cm} p{2.1cm} >{\raggedright\arraybackslash}p{6.4cm}}
 \caption{Complete extraction schema. Fields marked \dag{} are computed programmatically after LLM extraction (not asked to the model).}
 \label{tab:schema}\\
@@ -229,6 +251,7 @@ The schema comprises 45 fields organised into five groups. The complete output h
 \texttt{other\_game\_info} & string & condition & Free-text field for additional design details not captured by other fields \\
 
 \end{longtable}
+\renewcommand{\_}{\textunderscore}
 \renewcommand{\arraystretch}{1.0}
 
 % ─────────────────────────────────────────────────────────────────────────────
@@ -300,23 +323,20 @@ The extraction can be reproduced by following these steps:
   \item \textbf{Obtain papers.} Download Markdown files from Google Drive using \texttt{download\_papers\_md.py} with the PDF path list \texttt{batch\_processing/inputs/pdf\_paths\_800.txt}.
 
   \item \textbf{Submit batch job.}
-\begin{verbatim}
+\begin{lstlisting}[style=clibox]
 python batch_processing/extract_papers.py batch-submit \
   --paper-dir PGG_papers/papers \
-  --paper-ids $(cat batch_processing/inputs/paper_ids_800.txt \
-                | tr '\n' ' ') \
+  --paper-ids $(cat batch_processing/inputs/paper_ids_800.txt | tr '\n' ' ') \
   --model gpt-4.1 \
   --save-jsonl batch_processing/inputs/batch_input_810papers.jsonl
-\end{verbatim}
+\end{lstlisting}
 
   \item \textbf{Collect results} (once the batch status reports \texttt{completed}).
-\begin{verbatim}
+\begin{lstlisting}[style=clibox]
 python batch_processing/extract_papers.py batch-collect <batch_id> \
-  --output-xlsx \
-    batch_processing/output_xlsx/simple_batch_810papers.xlsx \
-  --save-jsonl \
-    batch_processing/inputs/batch_output_810papers.jsonl
-\end{verbatim}
+  --output-xlsx batch_processing/output_xlsx/simple_batch_810papers.xlsx \
+  --save-jsonl batch_processing/inputs/batch_output_810papers.jsonl
+\end{lstlisting}
 \end{enumerate}
 
 \noindent The raw batch output JSONL (\texttt{batch\_output\_810papers.jsonl}) is retained alongside the Excel file for full traceability.
