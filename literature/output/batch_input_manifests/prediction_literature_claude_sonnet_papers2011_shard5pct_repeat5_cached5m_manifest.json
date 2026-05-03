@@ -1,0 +1,27 @@
+{
+  "output_path": "claude_batch_input/prediction_literature_papers2011_shard5pct_joint_reps1to5_reasoning_anthropic_sonnet46_cached5m.json",
+  "model": "claude-sonnet-4-6",
+  "max_tokens": 32768,
+  "temperature": 1.0,
+  "cache_ttl_mode": "default",
+  "cache_control": {
+    "type": "ephemeral"
+  },
+  "cache_breakpoint_strategy": [
+    "system_text",
+    "single_user_block"
+  ],
+  "n_repeats": 5,
+  "paper_sample_frac": 0.05,
+  "paper_sample_count": null,
+  "paper_sample_seed": 20260409,
+  "skip_collections": true,
+  "n_paper_reports": 101,
+  "n_collection_reports": 0,
+  "paper_request_count": 505,
+  "collection_request_count": 0,
+  "total_request_count": 505,
+  "all_papers_collection_id": "broad_all_2011",
+  "all_papers_collection_report": "literature/output/collection_analysis_reports/switch_sets_stage1/broad_all_2011.md",
+  "seed_note": "Anthropic Message Batches do not expose a request seed field; repeats are tracked by rep index only."
+}

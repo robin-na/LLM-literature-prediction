@@ -1,0 +1,35 @@
+{
+  "paper_set_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned/collection_switch_sets/sets/broad_all.csv",
+  "paper_report_index": "literature/output/paper_analysis_reports/broad_all/report_index.csv",
+  "collection_report_index": "literature/output/collection_analysis_reports/metadata_filters/report_index.csv",
+  "all_papers_collection_id": "broad_all_2011",
+  "all_papers_collection_report": "literature/output/collection_analysis_reports/switch_sets_stage1/broad_all_2011.md",
+  "n_paper_reports": 2011,
+  "n_collection_reports": 717,
+  "n_repeats": 5,
+  "temperature": 1.0,
+  "seed_base": 20260329,
+  "repeat_seed_map": {
+    "rep1": 20260329,
+    "rep2": 20260330,
+    "rep3": 20260331,
+    "rep4": 20260332,
+    "rep5": 20260333
+  },
+  "paper_output_prefix": "prediction_literature_analysis_report_extended2011_joint_reps1to5",
+  "collection_output_prefix": "prediction_literature_collection_analysis_report_metadata_filters_joint_reps1to5",
+  "models": {
+    "gemini-2.5-flash": {
+      "paper_output": "gemini_batch_input/prediction_literature_analysis_report_extended2011_joint_reps1to5_gemini25flash.jsonl",
+      "paper_request_count": 10055,
+      "collection_output": "gemini_batch_input/prediction_literature_collection_analysis_report_metadata_filters_joint_reps1to5_gemini25flash.jsonl",
+      "collection_request_count": 3585
+    },
+    "gemini-2.5-pro": {
+      "paper_output": "gemini_batch_input/prediction_literature_analysis_report_extended2011_joint_reps1to5_gemini25pro.jsonl",
+      "paper_request_count": 10055,
+      "collection_output": "gemini_batch_input/prediction_literature_collection_analysis_report_metadata_filters_joint_reps1to5_gemini25pro.jsonl",
+      "collection_request_count": 3585
+    }
+  }
+}

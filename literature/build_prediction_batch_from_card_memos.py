@@ -285,6 +285,12 @@ def load_metadata_map(path: Path) -> dict[str, dict[str, str]]:
         "Article Title": "Integrative Experiments Identify How Punishment Impacts Welfare in Public Goods Games",
         "Source Title": "",
     }
+    metadata_map["PGG_Science"] = {
+        "Authors": "Alsobay, M; Rand, DG; Watts, DJ; Almaatouq, A",
+        "Publication Year": "2026",
+        "Article Title": "Integrative experiments identify how punishment affects welfare in public goods games",
+        "Source Title": "Science",
+    }
     return metadata_map
 
 

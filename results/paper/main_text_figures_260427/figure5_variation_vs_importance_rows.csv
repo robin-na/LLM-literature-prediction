@@ -1,0 +1,13 @@
+parameter,label,short_label,category,importance_feature,predictive_importance_pct_rmse,plotted,n_papers_mentioned,percent_papers_mentioned,n_papers_varied,percent_papers_varied,n_papers_total
+CONFIG_numRounds,Game length,Game length,Game Structure,# of rounds,11.49266256681321,True,724,95.76719576719576,77,10.185185185185183,756
+CONFIG_playerCount,Group size,Group size,Game Structure,# of players,-0.2404258548022982,True,751,99.33862433862434,75,9.92063492063492,756
+CONFIG_punishmentTech,Punishment technology,Punish. tech.,Incentive Mechanisms,Punishment effectiveness,-1.0895233969713434,True,427,56.481481481481474,48,6.349206349206349,756
+CONFIG_punishmentCost,Punishment cost,Punish. cost,Incentive Mechanisms,Punishment cost,0.2482911151171314,True,460,60.84656084656085,45,5.952380952380952,756
+CONFIG_rewardExists,Reward exists,Reward,Incentive Mechanisms,Ability to reward,4.618892524635318,True,197,26.058201058201057,42,5.555555555555555,756
+CONFIG_chat,Communication,communication,Social Information,Ability to chat,59.95052135969729,True,230,30.423280423280424,28,3.7037037037037033,756
+CONFIG_MPCR,MPCR,MPCR,Game Structure,Marginal per capita return,0.8258708052433317,True,390,51.5873015873016,24,3.1746031746031744,756
+CONFIG_showAnyId,Actor anonymity,Actor anonymity,Social Information,Punisher/rewarder anonymity,-0.1869118783272908,True,201,26.58730158730159,14,1.8518518518518516,756
+CONFIG_allOrNothing,Contribution type,Contrib. type,Contribution Structure,"""All or Nothing"" contributions",14.579931279140416,True,728,96.29629629629628,12,1.5873015873015872,756
+CONFIG_showOtherSummaries,Peer outcome visibility,Peer outcomes,Social Information,Peer outcome visibility,5.819912300616935,True,407,53.835978835978835,9,1.1904761904761905,756
+CONFIG_defaultContribProp,Contribution framing,Contrib. framing,Contribution Structure,Default contribution vs withdrawal,17.925221014670008,True,493,65.21164021164022,7,0.9259259259259258,756
+CONFIG_showNRounds,Horizon knowledge,Horizon,Game Structure,Visibility of # of rounds,1.8904189074993376,True,125,16.534391534391535,1,0.1322751322751322,756

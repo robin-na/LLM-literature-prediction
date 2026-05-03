@@ -1,0 +1,28 @@
+estimator,estimator_label,model,model_display,feature_key,feature_label,feature_group,mean_importance,sd_importance,n_folds,n_total,se_importance
+ridge,Ridge regression,Claude Sonnet 4.6,Claude Sonnet 4.6,biology_share,Biology,Journal discipline,0.11975475216242577,0.21494666668913937,5,2011,0.09612707165078105
+ridge,Ridge regression,Claude Sonnet 4.6,Claude Sonnet 4.6,citation,Citation,Prestige / visibility,1.207545170706716,0.5553864848618796,5,2011,0.24837638678716412
+ridge,Ridge regression,Claude Sonnet 4.6,Claude Sonnet 4.6,economics_share,Economics,Journal discipline,1.5630544160006796e-05,0.09191475887562425,5,2011,0.04110552979627959
+ridge,Ridge regression,Claude Sonnet 4.6,Claude Sonnet 4.6,empirical_share,Empirical papers,Study type,0.7275710168526642,0.14418095534688988,5,2011,0.0644796834433015
+ridge,Ridge regression,Claude Sonnet 4.6,Claude Sonnet 4.6,journal_impact,Journal Impact Factor,Prestige / visibility,0.08002330314445764,0.18598449334114295,5,2011,0.08317479397433052
+ridge,Ridge regression,Claude Sonnet 4.6,Claude Sonnet 4.6,mathphysics_share,Math/Physics,Journal discipline,0.10512766432062352,0.0975841043857814,5,2011,0.04364093818600851
+ridge,Ridge regression,Claude Sonnet 4.6,Claude Sonnet 4.6,multidisciplinary_share,Multidisciplinary,Journal discipline,-0.08429526505561084,0.060822325113219555,5,2011,0.027200570700550302
+ridge,Ridge regression,Claude Sonnet 4.6,Claude Sonnet 4.6,psychology_share,Psychology,Journal discipline,-0.007896750293498567,0.15338348144581163,5,2011,0.0685951782276825
+ridge,Ridge regression,Claude Sonnet 4.6,Claude Sonnet 4.6,recent,Publication Year,Publication timing,0.7271999637860017,0.4577987377792164,5,2011,0.2047338195375858
+ridge,Ridge regression,GPT-4.1,GPT-4.1,biology_share,Biology,Journal discipline,-0.025106060398983054,0.05596065502592596,5,2010,0.02502636574067714
+ridge,Ridge regression,GPT-4.1,GPT-4.1,citation,Citation,Prestige / visibility,-0.03181303637732476,0.06105988448036723,5,2010,0.02730681047927711
+ridge,Ridge regression,GPT-4.1,GPT-4.1,economics_share,Economics,Journal discipline,0.35441979548135194,0.08854657438410922,5,2010,0.039599231899521956
+ridge,Ridge regression,GPT-4.1,GPT-4.1,empirical_share,Empirical papers,Study type,0.6061048419985664,0.27833354164456336,5,2010,0.12447454390710246
+ridge,Ridge regression,GPT-4.1,GPT-4.1,journal_impact,Journal Impact Factor,Prestige / visibility,-0.00814147862070921,0.046993329954092264,5,2010,0.021016056053285475
+ridge,Ridge regression,GPT-4.1,GPT-4.1,mathphysics_share,Math/Physics,Journal discipline,0.028700906133861115,0.07133695554279856,5,2010,0.0319028563803156
+ridge,Ridge regression,GPT-4.1,GPT-4.1,multidisciplinary_share,Multidisciplinary,Journal discipline,-0.003384890571622179,0.08110826789185974,5,2010,0.03627272010869238
+ridge,Ridge regression,GPT-4.1,GPT-4.1,psychology_share,Psychology,Journal discipline,0.04472177276770266,0.12108870982293564,5,2010,0.05415251729436612
+ridge,Ridge regression,GPT-4.1,GPT-4.1,recent,Publication Year,Publication timing,-0.04678017344681868,0.04605989276908213,5,2010,0.02059861025360373
+ridge,Ridge regression,Gemini 2.5 Pro,Gemini Pro 2.5,biology_share,Biology,Journal discipline,0.3270838937018898,0.22930504300350868,5,2011,0.10254833274787159
+ridge,Ridge regression,Gemini 2.5 Pro,Gemini Pro 2.5,citation,Citation,Prestige / visibility,0.4282908555207986,0.2503941496185703,5,2011,0.11197966794307525
+ridge,Ridge regression,Gemini 2.5 Pro,Gemini Pro 2.5,economics_share,Economics,Journal discipline,0.12444388326854738,0.2262929320558774,5,2011,0.10120127578093661
+ridge,Ridge regression,Gemini 2.5 Pro,Gemini Pro 2.5,empirical_share,Empirical papers,Study type,1.7535408657472764,1.1249210504598746,5,2011,0.50307998762975
+ridge,Ridge regression,Gemini 2.5 Pro,Gemini Pro 2.5,journal_impact,Journal Impact Factor,Prestige / visibility,-0.027200834754316127,0.037151229875532175,5,2011,0.0166145350898822
+ridge,Ridge regression,Gemini 2.5 Pro,Gemini Pro 2.5,mathphysics_share,Math/Physics,Journal discipline,-0.050592427904101664,0.08194608558636549,5,2011,0.03664740357222579
+ridge,Ridge regression,Gemini 2.5 Pro,Gemini Pro 2.5,multidisciplinary_share,Multidisciplinary,Journal discipline,0.0828135456678121,0.08973329690904619,5,2011,0.040129950346759806
+ridge,Ridge regression,Gemini 2.5 Pro,Gemini Pro 2.5,psychology_share,Psychology,Journal discipline,-0.02233888994893648,0.06426718293788224,5,2011,0.028741157954303865
+ridge,Ridge regression,Gemini 2.5 Pro,Gemini Pro 2.5,recent,Publication Year,Publication timing,-0.02808004716334549,0.033870783551789074,5,2011,0.015147474894596427

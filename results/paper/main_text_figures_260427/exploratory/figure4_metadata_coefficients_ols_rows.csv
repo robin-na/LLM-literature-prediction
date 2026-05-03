@@ -1,0 +1,28 @@
+panel,model,model_display,feature_key,feature_label,coef,ci_low,ci_high,p_value,n,panel_key,panel_display
+Individual papers,Claude Sonnet 4.6,Claude Sonnet 4.6,journal_impact,Journal Impact Factor,0.0011323224620842572,-0.00037122988035837544,0.00263587480452689,0.13993175381791928,2011,ols_coefficients,OLS coefficients
+Individual papers,Claude Sonnet 4.6,Claude Sonnet 4.6,citation,Citation,-0.0035457158099081237,-0.0051665219683844745,-0.0019249096514317727,1.805604004468857e-05,2011,ols_coefficients,OLS coefficients
+Individual papers,Claude Sonnet 4.6,Claude Sonnet 4.6,empirical_share,Empirical papers,-0.0024253868189154718,-0.003819652070405,-0.0010311215674259433,0.0006509518103979077,2011,ols_coefficients,OLS coefficients
+Individual papers,Claude Sonnet 4.6,Claude Sonnet 4.6,recent,Publication Year,-0.0027195954581726613,-0.004111159102481076,-0.0013280318138642465,0.0001279112943006782,2011,ols_coefficients,OLS coefficients
+Individual papers,Claude Sonnet 4.6,Claude Sonnet 4.6,biology_share,Biology,0.0011413954421768374,-5.337973966298721e-05,0.002336170624016662,0.06115164277757997,2011,ols_coefficients,OLS coefficients
+Individual papers,Claude Sonnet 4.6,Claude Sonnet 4.6,economics_share,Economics,0.0005334325267392754,-0.0011344613744987961,0.002201326427977347,0.530761790717009,2011,ols_coefficients,OLS coefficients
+Individual papers,Claude Sonnet 4.6,Claude Sonnet 4.6,psychology_share,Psychology,0.0006761399233084876,-0.000660106895754207,0.002012386742371182,0.32132419863332906,2011,ols_coefficients,OLS coefficients
+Individual papers,Claude Sonnet 4.6,Claude Sonnet 4.6,mathphysics_share,Math/Physics,-0.0011400539032950538,-0.002564704945969283,0.00028459713937917545,0.11678095255006588,2011,ols_coefficients,OLS coefficients
+Individual papers,Claude Sonnet 4.6,Claude Sonnet 4.6,multidisciplinary_share,Multidisciplinary,0.00035630275815669185,-0.0010756899910571852,0.001788295507370569,0.625783273296588,2011,ols_coefficients,OLS coefficients
+Individual papers,GPT-4.1,GPT-4.1,journal_impact,Journal Impact Factor,0.0008198622266553065,-0.0018398787300689292,0.003479603183379542,0.5457394363743814,2010,ols_coefficients,OLS coefficients
+Individual papers,GPT-4.1,GPT-4.1,citation,Citation,0.00016163745473777455,-0.0024761310387457188,0.0027994059482212676,0.9044016518991564,2010,ols_coefficients,OLS coefficients
+Individual papers,GPT-4.1,GPT-4.1,empirical_share,Empirical papers,-0.004225997125199083,-0.006770916918891934,-0.0016810773315062326,0.0011353549277807612,2010,ols_coefficients,OLS coefficients
+Individual papers,GPT-4.1,GPT-4.1,recent,Publication Year,0.00030970105048323983,-0.0027059877410008973,0.003325389841967377,0.8404783270179019,2010,ols_coefficients,OLS coefficients
+Individual papers,GPT-4.1,GPT-4.1,biology_share,Biology,-0.000713441168939284,-0.002897983143083638,0.00147110080520507,0.5221094701694368,2010,ols_coefficients,OLS coefficients
+Individual papers,GPT-4.1,GPT-4.1,economics_share,Economics,-0.003617946685389746,-0.006372199786811673,-0.0008636935839678194,0.010036184752172234,2010,ols_coefficients,OLS coefficients
+Individual papers,GPT-4.1,GPT-4.1,psychology_share,Psychology,-0.0016938534637912959,-0.003814530367180438,0.000426823439597846,0.1174688007041348,2010,ols_coefficients,OLS coefficients
+Individual papers,GPT-4.1,GPT-4.1,mathphysics_share,Math/Physics,-0.00024033098582664755,-0.002694865039327507,0.0022142030676742114,0.847815753062503,2010,ols_coefficients,OLS coefficients
+Individual papers,GPT-4.1,GPT-4.1,multidisciplinary_share,Multidisciplinary,-0.0024907784315361084,-0.004791741826566263,-0.00018981503650595394,0.03386724868385136,2010,ols_coefficients,OLS coefficients
+Individual papers,Gemini 2.5 Pro,Gemini 2.5 Pro,journal_impact,Journal Impact Factor,0.0007132346838027589,-0.004932763498420284,0.0063592328660258025,0.8044486879874412,2011,ols_coefficients,OLS coefficients
+Individual papers,Gemini 2.5 Pro,Gemini 2.5 Pro,citation,Citation,-0.007924800679324648,-0.013760543761880868,-0.0020890575967684273,0.007777379394824797,2011,ols_coefficients,OLS coefficients
+Individual papers,Gemini 2.5 Pro,Gemini 2.5 Pro,empirical_share,Empirical papers,-0.014233094414716593,-0.01942815845794224,-0.009038030371490945,7.883263013073019e-08,2011,ols_coefficients,OLS coefficients
+Individual papers,Gemini 2.5 Pro,Gemini 2.5 Pro,recent,Publication Year,-0.0006785557277704765,-0.005722661104616963,0.00436554964907601,0.792039481498743,2011,ols_coefficients,OLS coefficients
+Individual papers,Gemini 2.5 Pro,Gemini 2.5 Pro,biology_share,Biology,0.0058735209842189365,0.0016001973783725905,0.010146844590065283,0.007062218589230217,2011,ols_coefficients,OLS coefficients
+Individual papers,Gemini 2.5 Pro,Gemini 2.5 Pro,economics_share,Economics,-0.0030430982953868493,-0.008996367273253073,0.0029101706824793748,0.31640950979739435,2011,ols_coefficients,OLS coefficients
+Individual papers,Gemini 2.5 Pro,Gemini 2.5 Pro,psychology_share,Psychology,0.0017416509261959955,-0.0031348507772358545,0.006618152629627846,0.48392450027063627,2011,ols_coefficients,OLS coefficients
+Individual papers,Gemini 2.5 Pro,Gemini 2.5 Pro,mathphysics_share,Math/Physics,-0.00047835653403632215,-0.005817238544697194,0.00486052547662455,0.8606002707408457,2011,ols_coefficients,OLS coefficients
+Individual papers,Gemini 2.5 Pro,Gemini 2.5 Pro,multidisciplinary_share,Multidisciplinary,0.0032292048845866,-0.0016838751611465649,0.008142284930319765,0.19766958339954255,2011,ols_coefficients,OLS coefficients

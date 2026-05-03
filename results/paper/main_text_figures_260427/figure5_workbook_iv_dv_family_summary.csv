@@ -1,0 +1,835 @@
+kind,family_label,n_unique_raw_labels,total_mentions,example_raw_labels
+DV,contribution,92,3929,allocator_assigned_contribution; allocator_contribution; allocator_own_contribution; average_contribution; belief_about_contribution; belief_about_others_contribution; belief_about_partner_contribution; belief_others_contribution; belief_others_unconditional_contribution; change_in_contribution; citizen_contribution; conditional_contribution
+DV,punishment,208,2237,action_punishment; altruistic_punishment; amount_of_punishment; amount_spent_on_punishment; antisocial_punishment; antisocial_punishment_assigned; antisocial_punishment_probability; antisocial_punishment_share; antisocial_punishment_tokens_used; assigned_punishment; authority_punishment_assigned; average_third_party_punishment_block
+DV,payoff,107,1555,a_earnings; accumulated_earnings; actual_earnings; adversary_payoff; agent_earnings_per_period; agents_payoff; authority_earnings; average_earnings; average_payoff; b_earnings; citizen_earnings; citizen_payoff
+DV,cooperation,85,479,adversary_cooperation; approval_rate_cooperation; belief_in_group_cooperation; belief_opponent_cooperation; belief_out_group_cooperation; belief_partner_cooperation; central_nonpunishing_cooperation; class_cooperation; column_cooperation_rate; cooperation_after_punishment; cooperation_choice; cooperation_decision
+DV,rate,88,440,accept_endorsement_rate; accept_rate; actual_disconnection_rate; agreement_formation_rate; agreement_rate; altruistic_lie_rate; altruistic_voting_rate; bonus_payment_rate; buy_rate; cc_outcome_rate; cd_outcome_rate; cheating_rate
+DV,efficiency,11,358,efficiency; efficiency_choices; group_efficiency; group_efficiency_gain; group_efficiency_gross; group_efficiency_net; group_welfare; infrastructure_efficiency; market_efficiency; net_efficiency; welfare
+DV,reward,32,229,column_accept_reward_propensity; first_order_reward_assigned; individual_reward_given; individual_reward_received; large_reward_choice_rate; officer_reward; prob_reward; received_monetary_reward; received_social_reward; receiver_reward_rate; reward_assigned; reward_cost
+DV,choice,54,198,a_choice_distribution; average_choice; chance_choice; choice_SFI; choice_SI; choice_distribution; choice_of_information; choice_to_sanction; competitive_spiteful_choices; contract_choice; delegation_choice; dictator_choice
+DV,investment,35,173,A_profit_if_investment; average_investment; central_investor_investment; cumulative_investment_trajectories; entrant_investment; gini_investment; group_cpr_investment; group_investment; group_investment_X; group_investment_Y; group_investment_Z; group_investment_asset_b
+DV,offer,44,171,accepted_offer; average_wage_offer; bribe_offer; dictator_offer; equal_offer_rate; equal_split_offer; expected_offer_ingroup; expected_offer_outgroup; group_offer; group_offer_mean; group_offer_sd; individual_offer
+DV,transfer,30,146,actual_back_transfer; amount_sent; amount_transferred; appeal_sent; back_transfer; back_transfer_minus_sent; compensation_transfer; desired_back_transfer; dictator_transfer; disapproval_points_sent; disapproval_sent; expected_back_transfer
+DV,return,28,131,allocator_return; amount_returned; discretionary_return_rate; entrant_returned; expected_return_ratio; fraction_returned; group_return; incumbent_returned; individual_return; percent_returned; player_b_return; proportion_returned
+DV,received,30,128,advice_received; appeal_received; approval_points_received; approval_received; counterpunishment_received; disapproval_points_received; disapproval_received; donation_received; entrant_received; evaluation_received; exclusion_received; explicit_threats_received
+DV,frequency,34,125,abuse_frequency; agreement_frequency; altruism_frequency; approval_frequency; asp_frequency; audit_frequency; collective_sanction_frequency; compensation_frequency; defection_frequency; disapproval_frequency; efficient_coordination_frequency; exchange_frequency
+DV,trust,19,103,allocation_to_trust_giver; honored_trust; individual_trust; investor_trust; perceived_trust; trust; trust_amount_returned; trust_amount_sent; trust_decision; trust_external; trust_game_1st_mover_transfer; trust_game_2nd_mover_return
+DV,effort,16,87,actual_effort; desired_effort; effort; effort_frequency_induced_experts; employee_effort; group_average_effort; group_minimum_effort; individual_effort; individual_fishing_effort; no_effort_share_noninduced_experts; nonverifiable_effort; subordinate_effort
+DV,extraction,7,78,expected_others_extraction; extraction_gini; gini_extraction; group_extraction; individual_extraction; rent_extraction; revealed_extraction
+DV,income,13,74,agent_income; allocator_income; citizen_income; gini_income; income; income_reduction; individual_income; nonallocator_income; official_income; post_tax_income; pre_tax_income; principal_income
+DV,belief,15,69,belief; belief_about_others; belief_about_return; belief_accuracy; belief_audit_probability; belief_error; belief_interval_width; belief_lower_bound; beliefs_about_contributions; beliefs_about_others; beliefs_about_others_contributions; investor_belief
+DV,profit,16,68,A_profit; A_second_stage_profit; B_profit; B_second_stage_profit; buyer_profit; final_profit; firm_profit; first_mover_profit; follower_profit; intermediary_profit; leader_profit; mean_investor_profit
+DV,rejection,13,67,impunity_rejection_frequency; overall_rejection_rate; rejection_attempted; rejection_decision; rejection_likelihood; rejection_rate; rejection_rate_8_2; rejection_rate_below_equal_split; rejection_rate_fair; rejection_rate_medium; rejection_rate_unfair; responder_rejection
+DV,anger,7,66,anger; anger_expression; anger_index; anger_like_emotions; anger_rating; anger_toward_each_player; self_reported_anger
+DV,decision,16,65,a_send_decision; allocator_decision; citizen_support_decision; destruction_decision; divide_decision; exit_decision; individual_decision; inform_decision; migration_decision; reasonableness_of_decision; repayment_decision; sanctioning_decision
+DV,assigned,15,63,allocator_share_assigned; approval_assigned; approval_points_assigned; counterpunishment_assigned; disapproval_assigned; disapproval_points_assigned; donation_assigned; evaluation_assigned; exclusion_assigned; expropriation_assigned; legal_fine_assigned; rating_assigned
+DV,compliance,10,61,agreement_compliance_rate; compliance; compliance_rate; group_compliance_rate; individual_compliance_hours; individual_compliance_rate; perfect_compliance_indicator; sanction_induced_norm_compliance; voluntary_norm_compliance; zero_compliance_indicator
+DV,acceptance,16,58,acceptance_decision; acceptance_rate; acceptance_rate_AI; acceptance_rate_DI; acceptance_rate_FE; acceptance_rate_fair; acceptance_rate_medium_fair; acceptance_rate_unfair; agent_acceptance; agreement_acceptance_rate; central_max_acceptance_level; contract_acceptance
+DV,size,10,57,coalition_size; delta_resource_size; group_resource_size; group_size; largest_group_size; organization_size; public_account_size; public_good_size; resource_size; sanction_size
+DV,harvest,7,55,expected_harvest; group_harvest; group_harvest_ratio; harvest_fraction_myopic; individual_harvest; individual_harvest_ratio; insider_harvest
+DV,allocation,12,53,allocation_choice; allocation_share_to_poor; allocation_to_higher_contributor; allocation_to_higher_effort; blue_pool_allocation; dictator_allocation; group_allocation; group_allocation_alpha_beta; individual_allocation; leader_allocation_to_self; leader_allocation_to_shirker; leader_allocation_to_worker
+DV,bribe,8,52,bribe_accept; bribe_accepted; bribe_amount; bribe_offered; bribe_size; bribe_success; firm_bribe_rate; percent_paid_bribe
+DV,vote,17,49,affirmative_vote; citizen_vote_discrimination; entry_vote_success; entry_vote_yes_share; exit_vote_success; exit_vote_yes_share; individual_vote_disapproval; individual_vote_for_candidate; sanction_vote; vote; vote_for_IS; vote_for_institution
+DV,amount,7,46,abuse_amount; compensation_amount; counterpunishment_amount; policing_amount; reciprocity_amount; sharing_amount; support_amount
+DV,type,10,46,attitude_type; behavior_type; contributor_type; group_personality_type; individual_strategy_type; personality_type; punisher_type; solution_type; strategy_type; subject_type
+DV,behavior,6,40,conforming_behavior; cooperating_behavior; defecting_behavior; intended_behavior; preemptive_behavior; prosocial_behavior
+DV,fairness,5,40,fairness; fairness_perception; fairness_rating; global_fairness_offer; perceived_fairness
+DV,time,7,39,decision_time; individual_game_time; invader_extinction_time; reaction_time; resource_depletion_time; response_time; waiting_time
+DV,rating,11,37,contempt_rating; disgust_rating; explicit_wrongness_rating; future_donation_rating; guilt_rating; healthier_rating; manipulative_rating; maxjoint_goal_rating; responsibility_rating; selfish_rating; subjective_feeling_rating
+DV,emotion,7,36,individual_emotion_ratings; message_emotion; negative_emotion; partner_negative_emotion; partner_positive_emotion; positive_emotion; self_reported_emotion
+DV,enforcement,5,36,conceptual_understanding_enforcement; norm_enforcement; perverse_enforcement; predatory_enforcement; resolute_enforcement
+DV,satisfaction,8,34,satisfaction; satisfaction_rating; subjective_satisfaction_AC; subjective_satisfaction_AI; subjective_satisfaction_DC; subjective_satisfaction_DI; subjective_satisfaction_EC; subjective_satisfaction_FE
+DV,count,11,33,cheaters_count; feuds_count; free_agent_count; individual_reports_count; noncontributor_count; onlooker_count; punisher_count; punishers_count; rewarder_count; vendetta_count; whistleblower_count
+DV,protection,4,33,group_collective_protection; group_private_protection; individual_collective_protection; individual_private_protection
+DV,affect,4,30,affect; anticipated_negative_affect; negative_affect; positive_affect
+DV,preference,5,30,copying_of_demonstrator_preference; leader_preference; leader_type_preference; plate_preference; side_preference
+DV,surplus,5,30,surplus; surplus_sharing; surplus_taken_by_outsiders; system_surplus; total_surplus
+DV,expenditure,6,29,conflict_expenditure; group_contest_expenditure; group_expenditure; individual_contest_expenditure; individual_expenditure; safe_option_expenditure
+DV,inequality,3,29,group_inequality; inequality; trustee_selection_inequality
+DV,norm,6,29,descriptive_norm; imposed_norm; injunctive_norm; moral_norm; norm_other; social_norm
+DV,probability,6,29,audit_probability; conditional_cooperator_probability; donor_giving_probability; failure_probability; free_rider_probability; sanction_probability
+DV,withdrawal,2,28,group_withdrawal; individual_withdrawal
+DV,production,4,27,group_production; individual_production; individual_production_quantity; team_production
+DV,score,10,27,appropriateness_score; conflict_score; crt_score; eating_against_preference_score; feedback_score; final_image_score; guilt_score; partner_motive_score; reputation_score; role_taking_score
+DV,ratio,5,25,exclusion_ratio; female_flake_to_prawn_ratio; flake_to_prawn_ratio; male_flake_to_prawn_ratio; prawn_per_flake_ratio
+DV,theft,4,25,group_theft; individual_theft; theft_rate; tokens_invested_in_theft
+DV,trustworthiness,6,25,agent_trustworthiness; expected_trustworthiness; individual_trustworthiness; likert_trustworthiness; perceived_trustworthiness; trustworthiness
+DV,plate,7,24,flake_to_prawn_ratio_first_plate; flake_to_prawn_ratio_second_plate; num_flake_only_trials_first_plate; percent_flake_items_eaten_first_plate; percent_flake_items_eaten_second_plate; percent_flake_items_eaten_single_plate; success_to_bystander_plate
+DV,action,5,23,group_average_action; group_minimum_action; individual_action; individual_stage1_action; stage2_action
+DV,given,6,22,amount_given; feedback_given; help_given; points_given; rating_given; tokens_given
+DV,use,3,22,group_use; individual_use; sanction_use
+DV,support,3,21,authority_support; net_support; voting_support
+DV,b2,2,20,b1_plus_b2; b2
+DV,fear,4,20,early_fear; fear; late_fear; middle_fear
+DV,justice,4,20,distributive_justice; perceived_restorative_justice; procedural_justice_1; procedural_justice_2
+DV,outcome,3,20,collective_outcome; group_outcome; prob_efficient_outcome
+DV,performance,4,20,group_performance; individual_task_performance; performance; team_task_performance
+DV,reciprocity,6,20,estimated_negative_reciprocity; estimated_reciprocity; negative_reciprocity; positive_reciprocity; reciprocity; trustee_reciprocity
+DV,resources,2,20,kept_resources; wasted_resources
+DV,retaliation,4,20,retaliation; retaliation_assigned; retaliation_motive; retaliation_votes
+DV,coefficient,3,19,envy_coefficient; gini_coefficient; guilt_coefficient
+DV,happiness,2,19,happiness; self_reported_happiness
+DV,taken,2,19,amount_taken; lottery_tickets_taken
+DV,expectation,8,18,cooperative_expectation; expectation_evaluation; expectation_gap; expectation_partner_reciprocity; expectation_sanction; ingroup_outgroup_expectation_gap; normative_expectation; sender_expectation
+DV,output,5,18,firm_high_rental_fee_given_high_output; firm_high_rental_fee_given_low_output; group_output; individual_output; team_output
+DV,split,3,18,change_from_original_split; equal_split; fair_split
+DV,success,5,18,aggressor_success; enforcement_success; entry_application_success; exit_application_success; expected_success
+DV,guilt,4,17,guilt; judged_guilt; self_reported_guilt; subjective_guilt
+DV,parameter,4,17,charity_parameter; enforcement_parameter; envy_parameter; temperature_parameter
+DV,conviction,1,16,conviction_rate
+DV,dispersion,2,16,bid_dispersion; within_group_dispersion
+DV,error,4,16,feeling_norm_prediction_error; feeling_variance_prediction_error; norm_prediction_error; variance_prediction_error
+DV,level,4,16,individual_activity_level; individual_monitoring_level; mcr_level; stock_level
+DV,play,3,16,left_branch_play; opportunistic_play; right_branch_play
+DV,pollution,2,16,group_pollution; individual_pollution
+DV,quantity,2,16,group_quantity; individual_quantity
+DV,accept,3,14,individual_min_accept; responder_accept; willingness_to_accept
+DV,appropriation,3,14,group_appropriation; individual_appropriation; total_group_appropriation
+DV,latency,5,14,ERP_LPC_latency; ERP_MFN_latency; ERP_N1_latency; ERP_P2_latency; decision_latency
+DV,made,1,14,responses_made
+DV,punish,7,14,amount_spent_punish; decision_to_punish; desire_to_punish; fraction_punish; prob_punish; scr_punish; valence_punish
+DV,purchase,3,14,buyer_purchase; group_purchase; individual_purchase
+DV,report,3,14,briber_report; buyer_report; truthful_report
+DV,round,7,14,amount_claimed_self_round; flakes_per_round; group_per_capita_catch_per_round; group_total_catch_per_round; individual_catch_per_round; peer_reports_per_round; stock_size_per_group_per_round
+DV,sadness,2,14,sadness; self_reported_sadness
+DV,share,4,14,allocated_share; final_stock_share; long_term_relation_share; receiving_share
+DV,defection,6,13,approval_rate_defection; defection_after_defection; expected_approval_defection; expected_defection_others; frequency_defection; mutual_defection
+DV,distribution,3,13,behavior_class_distribution; group_action_distribution; ticket_holdings_distribution
+DV,propensity,3,13,column_accept_punish_propensity; punish_propensity; row_punish_propensity
+DV,system,2,13,enforcement_system; support_for_system
+DV,yield,2,13,net_yield; yield
+DV,benefit,2,12,expected_group_benefit; expected_personal_benefit
+DV,claim,3,12,coin_claim; group_claim; individual_claim
+DV,cooperate,2,12,always_cooperate; incentive_to_cooperate
+DV,cooperators,2,12,fraction_cooperators; proportion_cooperators
+DV,creation,1,12,public_good_creation
+DV,disgust,1,12,self_reported_disgust
+DV,earning,2,12,buyer_earning; seller_earning
+DV,imposed,2,12,fines_imposed; sanctions_imposed
+DV,index,5,12,DG_selfishness_index; UG_altruism_index; coordination_index; deterrence_index; gini_index
+DV,overharvest,2,12,group_overharvest; individual_overharvest
+DV,percent,3,12,group_average_declaration_percent; individual_declaration_percent; message_percent
+DV,player,3,12,accepted_links_per_round_per_player; broken_links_per_round_per_player; proposed_links_per_round_per_player
+DV,proportion,2,12,exit_proportion; helping_proportion
+DV,quality,3,12,average_quality; group_quality; individual_quality
+DV,sanctioning,3,12,efficient_sanctioning; group_sanctioning; individual_sanctioning
+DV,solidarity,3,12,affective_solidarity; behavioral_solidarity; solidarity
+DV,target,2,12,prob_reach_final_target; sanction_target
+DV,term,2,12,female_repeat_cheat_long_term; female_repeat_cheat_short_term
+DV,waste,1,12,resource_waste
+DV,bouts,2,11,counterpunishment_bouts; policing_bouts
+DV,giving,1,11,dictator_giving
+DV,judgment,2,11,moral_judgment; normative_judgment
+DV,sanction,5,11,direct_social_sanction; indirect_social_sanction; internal_sanction; received_monetary_sanction; received_social_sanction
+DV,amplitude,5,10,ERP_LPC_amplitude; ERP_MFN_amplitude; ERP_N1_amplitude; ERP_P2_amplitude; MFN_amplitude
+DV,attempt,2,10,enforcement_attempt; rule_change_attempt
+DV,attempts,2,10,peaceful_attempts; team_attempts
+DV,b1,1,10,b1
+DV,disap,2,10,giv_disap; rec_disap
+DV,forgiveness,1,10,forgiveness
+DV,identification,2,10,group_identification; subjective_identification
+DV,indicator,2,10,noncompliance_indicator; zero_endowment_indicator
+DV,kept,2,10,points_kept; tokens_kept
+DV,leniency,1,10,leniency
+DV,monitoring,3,10,individual_poaching_probability_monitoring; individual_poaching_probability_no_monitoring; prob_group_invests_monitoring
+DV,period,2,10,first_free_rider_period; total_welfare_per_period
+DV,prop,2,10,actual_payback_prop; desired_payback_prop
+DV,sanctions,2,10,giv_sanctions; rec_sanctions
+DV,status,3,10,expelled_status; ostracized_status; punished_status
+DV,volunteering,2,10,group_volunteering; individual_volunteering
+DV,win,1,10,round_win
+DV,agreement,3,9,nonquantitative_agreement; provision_if_no_agreement; quantitative_agreement
+DV,completed,3,9,civic_tasks_completed; tables_completed; type1_tasks_completed
+DV,demand,2,9,dictator_demand; principal_demand
+DV,downloaded,3,9,gini_files_downloaded; group_files_downloaded; individual_files_downloaded
+DV,incidence,3,9,conflict_incidence; feud_incidence; free_rider_incidence
+DV,pledge,3,9,group_pledge; individual_pledge; pledge
+DV,strategy,3,9,conditional_strategy; representative_strategy; stable_free_riding_strategy
+DV,value,2,9,group_value; information_value
+DV,activation,3,8,brain_activation; caudate_activation; neural_activation
+DV,active,1,8,damages_assessed_active
+DV,all,2,8,norm_all; percent_gave_all
+DV,alpha,1,8,inequality_aversion_alpha
+DV,announcement,2,8,announcement; lie_on_announcement
+DV,apprehension,1,8,subjective_apprehension
+DV,b,1,8,second_mover_punish_B
+DV,beta,1,8,inequality_aversion_beta
+DV,cast,2,8,expulsion_votes_cast; votes_cast
+DV,coalition,2,8,group_time_harvesting_coalition; group_time_harvesting_no_coalition
+DV,collapse,1,8,resource_collapse
+DV,competitiveness,1,8,subjective_competitiveness
+DV,damages,1,8,prob_pay_damages
+DV,deliberative,2,8,evaluation_nonpunisher_deliberative; evaluation_punisher_deliberative
+DV,delivered,1,8,pellets_delivered
+DV,fished,2,8,group_months_fished; individual_months_fished
+DV,frame,1,8,decision_frame
+DV,intuitive,2,8,evaluation_nonpunisher_intuitive; evaluation_punisher_intuitive
+DV,liable,1,8,liable
+DV,negative,2,8,feedback_received_negative; reciprocity_negative
+DV,out,2,8,opt_out; opted_out
+DV,paid,2,8,individual_fine_paid; tax_paid
+DV,passive,1,8,damages_paid_passive
+DV,piracy,2,8,group_piracy; individual_piracy
+DV,player2,2,8,amount_claimed_self_player2; escalation_indicator_player2
+DV,point,2,8,subjects_destroyed_more_than_one_point; subjects_destroyed_one_point
+DV,positive,2,8,feedback_received_positive; reciprocity_positive
+DV,preferred,1,8,less_preferred_items_eaten_before_preferred
+DV,retained,1,8,proportion_slack_retained
+DV,roi,2,8,percent_positive_roi; roi
+DV,rule,1,8,principal_sharing_rule
+DV,self,1,8,chips_kept_to_self
+DV,unfairness,3,8,appraised_unfairness; perceived_unfairness; sense_of_unfairness
+DV,wealth,2,8,final_wealth; wealth
+DV,welfare,2,8,sender_receiver_welfare; social_welfare
+DV,back,1,7,amount_sent_back
+DV,chosen,3,7,mcr_chosen; sanction_type_chosen; treaty_strategy_chosen
+DV,deal,1,7,prob_taking_given_no_deal
+DV,defector,1,7,evaluation_cooperator_vs_defector
+DV,exit,2,7,average_node_exit; double_exit
+DV,investors,3,7,proportion_investors; revenge_frequency_induced_investors; revenge_share_noninduced_investors
+DV,motive,2,7,collective_interest_motive; collective_outcome_motive
+DV,participation,3,7,coalition_participation; group_participation; individual_participation
+DV,partner,2,7,burning_per_partner; proportion_given_to_partner
+DV,pay,1,7,willingness_to_pay
+DV,survival,2,7,group_survival; relationship_survival
+DV,x2,1,7,right_move_x2
+DV,x3,1,7,defection_x3
+DV,x6,1,7,right_move_x6
+DV,allocations,2,6,period1_private_allocations; period2_private_allocations
+DV,avoidance,1,6,probability_loss_avoidance
+DV,b3,1,6,b3
+DV,b4,1,6,b4
+DV,backtransfer,2,6,relative_backtransfer; trustee_backtransfer
+DV,baseline,1,6,individual_transfer_baseline
+DV,continuation,1,6,cascade_continuation
+DV,contributors,3,6,exclusion_rate_high_contributors; exclusion_rate_low_contributors; exclusion_rate_medium_contributors
+DV,damage,2,6,environmental_damage; perceived_environmental_damage
+DV,defect,1,6,always_defect
+DV,defectors,1,6,fraction_defectors
+DV,destroyed,2,6,amount_destroyed; individual_points_destroyed
+DV,disapproval,2,6,perceived_experimenter_disapproval; social_disapproval
+DV,earned,1,6,points_earned
+DV,empathy,1,6,empathy
+DV,entry,2,6,double_entry; individual_entry
+DV,excluded,1,6,excluded
+DV,exclusion,2,6,length_of_exclusion; votes_for_exclusion
+DV,favor,1,6,recipient_grant_favor
+DV,frequencies,1,6,strategy_frequencies
+DV,gap,1,6,inequality_gap
+DV,giver,3,6,giving_rate_to_giver; giving_rate_to_non_signalling_non_giver; giving_rate_to_signalling_non_giver
+DV,helping,2,6,citizen_helping; reputation_effect_on_helping
+DV,leader,2,6,ejected_by_leader; ejects_other_when_leader
+DV,loners,1,6,fraction_loners
+DV,met,2,6,group_target_met; target_met
+DV,outcomes,1,6,temptation_outcomes
+DV,participate,1,6,willingness_to_participate
+DV,periods,1,6,peaceful_periods
+DV,recommendation,1,6,leader_recommendation
+DV,request,2,6,actual_back_transfer_percent_request; investor_request
+DV,requested,1,6,inspections_requested
+DV,secrecy,1,6,willingness_to_pay_for_secrecy
+DV,sentiment,1,6,punitive_sentiment
+DV,ship,1,6,seller_ship
+DV,stage,2,6,worker_high_output_first_stage; worker_high_output_second_stage
+DV,switching,1,6,strategy_switching
+DV,taxpayers,1,6,fraction_taxpayers
+DV,threshold,3,6,acceptability_threshold; motivation_threshold; penalty_threshold
+DV,trade,1,6,efficient_trade
+DV,vmpfc,2,6,bold_response_vmPFC; neural_activation_vmpfc
+DV,whistleblower,1,6,group_whistleblower
+DV,won,2,6,dispute_won; tickets_won
+DV,adherence,1,5,covenant_adherence
+DV,asymmetry,1,5,conflict_asymmetry
+DV,aversion,2,5,inequality_aversion; loss_aversion
+DV,communication,3,5,benevolent_communication; contingent_strategy_communication; deceptive_communication
+DV,continue,1,5,willingness_to_continue
+DV,difference,2,5,gender_difference; utility_difference
+DV,dissipation,1,5,rent_dissipation
+DV,evaluation,2,5,message_evaluation; partner_positive_evaluation
+DV,generosity,2,5,individual_generosity; perceived_generosity
+DV,interest,1,5,perceived_motive_self_interest
+DV,limit,1,5,audit_limit
+DV,monitor,1,5,willingness_to_pay_monitor
+DV,monitored,1,5,number_monitored
+DV,pattern,3,5,matching_common_pattern; matching_free_rider_pattern; matching_success_pattern
+DV,provided,1,5,public_good_provided
+DV,punished,2,5,peripheral_punish_after_punished; probability_punished
+DV,punishments,1,5,total_punishments
+DV,response,2,5,best_response; emotional_response
+DV,slack,1,5,relative_slack
+DV,strength,4,5,approval_strength; disapproval_strength; reputation_strength; social_norm_strength
+DV,than,1,5,fraction_contributing_less_than_20
+DV,units,1,5,facial_action_units
+DV,usage,1,5,termination_usage
+DV,variance,1,5,within_group_variance
+DV,violated,1,5,contracts_violated
+DV,zero,1,5,percent_gave_zero
+DV,account,1,4,final_account
+DV,achieved,1,4,subgroup_target_achieved
+DV,actions,1,4,fraction_cooperative_actions
+DV,adoption,1,4,strategy_adoption
+DV,agreements,1,4,defection_on_group_agreements
+DV,answers,1,4,team_correct_answers
+DV,approval,2,4,fourth_party_approval; voting_approval
+DV,assistance,1,4,net_assistance
+DV,auc,1,4,mouse_trajectory_auc
+DV,behaviour,1,4,punishing_behaviour
+DV,betrayal,1,4,expected_betrayal
+DV,bid,1,4,individual_bid
+DV,centrality,1,4,centrality
+DV,cingulate,1,4,bold_response_posterior_cingulate
+DV,classification,2,4,strategy_classification; type_classification
+DV,cleaner,2,4,client_time_near_cooperative_cleaner; client_time_near_unknown_cleaner
+DV,collected,1,4,group_tokens_collected
+DV,commit,1,4,willingness_to_commit
+DV,concern,1,4,perceived_partner_concern
+DV,conflict,1,4,conflict
+DV,consumption,1,4,individual_consumption
+DV,content,1,4,message_content
+DV,control,1,4,perceived_control
+DV,correlation,1,4,within_pair_correlation
+DV,dacc,1,4,bold_response_dACC
+DV,effectiveness,1,4,cost_effectiveness
+DV,end,1,4,fraction_links_at_end
+DV,entities,1,4,number_of_entities
+DV,equality,1,4,equality
+DV,established,1,4,covenant_established
+DV,esteem,1,4,self_esteem
+DV,existence,1,4,norm_existence
+DV,exploitation,1,4,individual_exploitation
+DV,feedback,1,4,eventual_feedback
+DV,financial,1,4,motivation_financial
+DV,fined,1,4,percent_fined
+DV,forms,1,4,prob_coalition_forms
+DV,growth,1,4,group_growth
+DV,hindering,1,4,citizen_hindering
+DV,homophily,1,4,inbreeding_homophily
+DV,hope,1,4,hope
+DV,identity,1,4,excluded_villager_identity
+DV,inferred,1,4,strategy_inferred
+DV,initial,1,4,trials_to_criterion_initial
+DV,insula,1,4,bold_response_anterior_insula
+DV,intervention,1,4,third_party_intervention
+DV,legitimacy,1,4,leader_legitimacy
+DV,lifetime,1,4,mean_link_lifetime
+DV,litigates,1,4,victim_litigates
+DV,litigation,1,4,offender_restores_to_avoid_litigation
+DV,mean,1,4,group_min_accept_mean
+DV,member,2,4,burning_per_ingroup_member; burning_per_outgroup_member
+DV,migration,1,4,migration
+DV,money,1,4,offender_takes_money
+DV,moves,1,4,percent_cooperative_moves
+DV,noncompliance,1,4,binary_noncompliance
+DV,obligation,1,4,fraction_undercutting_obligation
+DV,observe,2,4,scr_observe_others; valence_observe_others
+DV,origin,1,4,offender_restores_after_origin
+DV,payment,1,4,average_payment
+DV,player1,1,4,amount_claimed_self_player1
+DV,players,1,4,motivation_other_players
+DV,poaching,1,4,outsider_poaching
+DV,pool,1,4,chips_to_blue_pool
+DV,predation,1,4,authority_predation
+DV,presence,1,4,scheme_presence
+DV,productivity,1,4,team_productivity
+DV,promise,2,4,lie_on_promise; promise
+DV,rank,2,4,elected_high_rank; group_rank
+DV,repayment,2,4,normalized_trustee_repayment; trustee_repayment
+DV,resoluteness,1,4,authority_resoluteness
+DV,reversal,1,4,trials_to_criterion_reversal
+DV,risk,1,4,value_at_risk
+DV,round5,1,4,pair_escalation_between_round1_and_round5
+DV,sd,1,4,group_min_accept_sd
+DV,sensitivity,2,4,intent_sensitivity; outcome_sensitivity
+DV,speed,1,4,average_speed
+DV,steals,1,4,number_of_steals
+DV,striatum,1,4,bold_response_striatum
+DV,subjects,1,4,sanctioned_subjects
+DV,transmitted,1,4,fraction_transmitted
+DV,tripled,1,4,actual_back_transfer_percent_tripled
+DV,work,2,4,first_period_work; second_period_work
+DV,x5,1,4,punish_x5
+DV,angle,1,3,svo_angle
+DV,assortment,1,3,assortment
+DV,attachment,1,3,group_attachment
+DV,attack,1,3,probability_attack
+DV,attitude,1,3,risk_attitude
+DV,competition,1,3,proposer_motivation_competition
+DV,concerns,1,3,moral_concerns
+DV,coplayer,1,3,selection_as_coplayer
+DV,delays,1,3,delays
+DV,discounting,1,3,temporal_discounting
+DV,donation,1,3,charitable_donation
+DV,doubt,1,3,proposer_motivation_benefit_of_doubt
+DV,endorsement,3,3,accept_endorsement; compensate_endorsement; reverse_endorsement
+DV,endowment,1,3,kept_endowment
+DV,envy,1,3,self_reported_envy
+DV,expulsions,1,3,expulsions
+DV,friendliness,1,3,perceived_friendliness
+DV,gains,1,3,net_gains
+DV,harvested,1,3,fraction_harvested
+DV,hours,1,3,group_cooperative_hours
+DV,icc,1,3,icc
+DV,incidents,1,3,free_riding_incidents
+DV,mao,1,3,ultimatum_mao
+DV,members,1,3,excluded_members
+DV,mwc,1,3,proposal_type_MWC
+DV,nonsanctioner,3,3,evaluation_fair_sanctioner_vs_nonsanctioner; evaluation_punisher_vs_nonsanctioner; evaluation_rewarder_vs_nonsanctioner
+DV,own,1,3,norm_own
+DV,parameters,2,3,institution_parameters; penalty_parameters
+DV,prevalence,1,3,strategy_prevalence
+DV,proxy,1,3,behavioral_proxy
+DV,punisher,3,3,amount_sent_to_punisher; dictator_valuation_punisher; punisher_inference_valuation_punisher
+DV,quits,1,3,quits
+DV,reject,1,3,positive_attitude_reject
+DV,restraint,1,3,commons_restraint
+DV,stock,1,3,resource_stock
+DV,take,1,3,dictator_take
+DV,taking,1,3,perspective_taking
+DV,valence,1,3,valence
+DV,wage,1,3,wage
+DV,wtp,1,3,gossiper_wtp
+DV,advice,1,2,deviation_from_advice
+DV,amygdala,1,2,neural_activation_amygdala
+DV,annoyance,1,2,state_annoyance
+DV,attribution,1,2,sanction_attribution
+DV,bonus,2,2,group_bonus; individual_bonus
+DV,catch,2,2,cumulative_individual_catch; group_cumulative_per_capita_catch
+DV,caught,1,2,perceived_likelihood_caught
+DV,centralisation,1,2,power_centralisation
+DV,ch10,1,2,brain_activation_ch10
+DV,ch13,1,2,brain_activation_ch13
+DV,ch17,1,2,brain_activation_ch17
+DV,ch19,1,2,brain_activation_ch19
+DV,class,1,2,justification_class
+DV,coherence,1,2,message_action_coherence
+DV,counterpunishment,1,2,counterpunishment
+DV,crickets,1,2,motivation_crickets
+DV,discovered,1,2,taxes_reported_and_discovered
+DV,disparity,1,2,wealth_disparity
+DV,dlpfc,1,2,neural_activation_dlpfc
+DV,expression,2,2,disgust_expression; positive_affect_expression
+DV,extent,1,2,deterrence_extent
+DV,filed,1,2,dispute_filed
+DV,fines,1,2,taxes_reported_and_discovered_plus_fines
+DV,fitness,1,2,evolutionary_fitness
+DV,gain,1,2,welfare_gain
+DV,generation,1,2,sustained_generation
+DV,gg,1,2,giving_rate_to_GG
+DV,gn,1,2,giving_rate_to_GN
+DV,gratitude,1,2,state_gratitude
+DV,help,1,2,perceived_low_cost_of_help
+DV,helpfulness,1,2,perceived_partner_genuine_helpfulness
+DV,implemented,1,2,organization_implemented
+DV,inaccuracy,1,2,message_inaccuracy
+DV,incurred,1,2,fine_incurred
+DV,indebtedness,1,2,state_indebtedness
+DV,ingroup,1,2,total_burning_ingroup
+DV,institution,1,2,frequency_of_institution
+DV,intensity,2,2,asp_intensity; psp_intensity
+DV,joy,1,2,joy
+DV,lofc,1,2,neural_activation_lofc
+DV,loss,2,2,helping_frequency_large_loss; helping_frequency_small_loss
+DV,m1,1,2,proportion_m1
+DV,manipulation,1,2,threat_manipulation
+DV,mediation,1,2,reciprocity_mediation
+DV,morality,1,2,perceived_morality
+DV,neutral,1,2,feedback_received_neutral
+DV,ng,1,2,giving_rate_to_NG
+DV,nn,1,2,giving_rate_to_NN
+DV,nonpunisher,1,2,evaluation_punisher_vs_nonpunisher
+DV,nonrewarder,1,2,evaluation_rewarder_vs_nonrewarder
+DV,occurrence,1,2,feud_occurrence
+DV,orientation,1,2,negative_reciprocity_orientation
+DV,outgroup,1,2,total_burning_outgroup
+DV,outsiders,1,2,sanctions_on_outsiders
+DV,p2,2,2,individual_mao_p2; mean_mao_p2
+DV,p3,2,2,individual_mao_p3; mean_mao_p3
+DV,parietal,1,2,neural_activation_parietal
+DV,pcc,1,2,neural_activation_pcc
+DV,penalties,1,2,frequency_of_penalties
+DV,person,1,2,burning_per_person
+DV,points,1,2,monitoring_points
+DV,probabilities,1,2,transition_probabilities
+DV,q,1,2,risk_perception_q
+DV,rebate,1,2,seller_rebate
+DV,recipient,2,2,dictator_valuation_recipient; punisher_inference_valuation_recipient
+DV,redemption,1,2,redemption
+DV,relatedness,1,2,relatedness
+DV,repay,1,2,obligation_to_repay
+DV,reported,1,2,taxes_reported
+DV,reporting,1,2,normative_unacceptability_reporting
+DV,responsibility,1,2,perceived_responsibility
+DV,s1,1,2,proportion_s1
+DV,schedule,1,2,conditional_stealing_schedule
+DV,shared,1,2,information_shared
+DV,spending,1,2,contest_spending
+DV,successful,1,2,exclusion_successful
+DV,suggested,1,2,exclusion_suggested
+DV,surprise,1,2,surprise
+DV,synchronization,1,2,inter_brain_synchronization
+DV,targeting,1,2,gossip_targeting
+DV,tendency,1,2,reciprocating_tendency
+DV,transformation,1,2,matrix_transformation
+DV,upset,1,2,negative_affect_upset
+DV,utility,1,2,utility
+DV,violation,1,2,mcr_violation
+DV,agent,1,1,ecu_sent_to_agent
+DV,arousal,1,1,emotional_arousal
+DV,compensate,1,1,amount_spent_compensate
+DV,connectivity,1,1,functional_connectivity
+DV,cortisol,1,1,basal_cortisol
+DV,cost,1,1,counterpunishment_cost
+DV,dc,1,1,save_rate_DC
+DV,delta,1,1,response_delta
+DV,disagreement,1,1,trustee_selection_disagreement
+DV,duration,1,1,group_duration
+DV,ec,1,1,save_rate_EC
+DV,elected,1,1,candidate_elected
+DV,events,1,1,aggression_events
+DV,female,1,1,prawn_items_eaten_female
+DV,focus,1,1,likert_group_focus
+DV,gossiper,1,1,ecu_sent_to_gossiper
+DV,harvesting,1,1,group_time_harvesting
+DV,helper,1,1,amount_sent_to_helper
+DV,likelihood,1,1,model_fit_posterior_likelihood
+DV,male,1,1,prawn_items_eaten_male
+DV,methods,1,1,difference_in_behavior_across_methods
+DV,niceness,1,1,likert_niceness
+DV,offers,1,1,proportion_p3_punishing_low_offers
+DV,opinion,1,1,bystander_opinion
+DV,ostracised,1,1,ostracised
+DV,ostracized,1,1,ostracized
+DV,participated,1,1,number_of_groups_participated
+DV,payout,1,1,main_stage_payout
+DV,pdn,1,1,amount_sent_to_pdn
+DV,post,1,1,message_accuracy_rating_post
+DV,pre,1,1,message_accuracy_rating_pre
+DV,punishes,1,1,high_contributor_punishes
+DV,punishing,1,1,probability_punishing
+DV,rated,1,1,num_peers_rated
+DV,reached,1,1,consensus_reached
+DV,respect,1,1,likert_respect
+DV,topology,1,1,network_topology
+DV,votes,1,1,ostracism_votes
+IV,punishment,60,909,higher_order_punishment; others_punishment; peer_punishment; personal_punishment; pool_punishment_type; punishment; punishment_ability; punishment_approval; punishment_availability; punishment_condition; punishment_cost; punishment_cost_known
+IV,type,55,569,agreement_type; appeal_message_type; authority_type; buyer_group_type; communication_type; community_type; competition_type; conflict_type; dilemma_type; error_type; explicit_incentive_type; farmer_type
+IV,mechanism,21,138,admin_benefit_mechanism; audit_mechanism; conflict_mechanism; control_mechanism; coverage_mechanism; decision_mechanism; edge_rules_mechanism; exclusion_mechanism; expulsion_mechanism; feedback_mechanism; incentive_mechanism; institutional_mechanism
+IV,structure,13,129,communication_structure; endowment_structure; group_structure; information_structure; interaction_structure; move_structure; mpcr_structure; network_structure; organizational_structure; post_conflict_structure; sanctioning_structure; second_stage_structure
+IV,condition,24,127,audience_condition; blame_condition; condition; conflict_condition; cost_condition; democracy_condition; exclusion_condition; feeding_condition; game_condition; hunger_condition; information_condition; institutional_condition
+IV,communication,2,124,communication; two_way_leader_follower_communication
+IV,treatment,7,123,central_investor_treatment; central_player_treatment; central_responder_treatment; complexity_treatment; priming_treatment; round1_treatment; treatment
+IV,size,7,122,audience_size; endowment_size; group_size; penalty_size; relative_female_size; resource_pool_size; sanction_size
+IV,level,12,84,accuracy_level; asymmetry_level; enforcement_level; incentive_level; inequity_level; information_level; interdependence_level; milestone_level; monitoring_level; sanction_level; serotonin_level; threshold_level
+IV,protocol,3,61,matching_protocol; order_protocol; protocol
+IV,scheme,7,55,attribution_scheme; communication_scheme; competition_scheme; incentive_scheme; penalty_scheme; sanction_scheme; tax_scheme
+IV,phase,1,46,phase
+IV,frame,3,45,frame; leadership_frame; legal_frame
+IV,option,8,45,exit_option; outside_option; promise_option; responder_option; sanction_option; sanctioning_option; signalling_option; termination_option
+IV,rule,7,42,enforcement_rule; group_formation_rule; institution_rule; liability_rule; reassignment_rule; team_rule; voting_rule
+IV,cost,8,41,cost; direct_transfer_cost; feedback_cost; formal_sanction_cost; monitoring_cost; opportunity_cost; partner_switching_cost; rating_cost
+IV,payoff,7,41,base_payoff; disagreement_payoff_structure; first_stage_payoff; payoff_information; payoff_observability; payoff_spec; payoff_structure
+IV,allocation,9,40,allocation; allocation_decision; allocation_information; allocation_mechanism; allocation_rule; allocation_split; benefit_allocation; dictator_allocation; other_other_allocation
+IV,country,1,40,country
+IV,identity,5,40,dictator_group_identity; group_identity; identity; recipient_group_identity; recipient_identity
+IV,matching,3,39,group_matching; matching; partner_matching
+IV,order,5,39,game_order; grouping_order; order; phase_order; protocol_order
+IV,environment,4,38,contest_environment; environment; initial_regulatory_environment; stage_a_environment
+IV,information,5,37,evaluation_information; information; out_group_information; pre_play_information; social_information
+IV,composition,3,35,ethnic_composition; group_composition; party_composition
+IV,game,2,35,game; initial_game
+IV,probability,4,35,detection_probability; error_probability; exclusion_probability; intervention_probability
+IV,endowment,4,34,endowment; initial_endowment; origin_of_endowment; round1_endowment
+IV,feedback,3,33,feedback; group_feedback; recipient_feedback
+IV,institution,2,33,institution; voting_institution
+IV,role,5,31,group_role; participant_role; punisher_role; role; self_resemblance_role
+IV,competition,4,30,competition; group_competition; intergroup_competition; scale_of_competition
+IV,mpcr,2,30,MPCR; mpcr
+IV,heterogeneity,4,29,endowment_heterogeneity; group_heterogeneity; heterogeneity; productivity_heterogeneity
+IV,method,5,29,authority_selection_method; elicitation_method; group_assignment_method; leader_selection_method; payment_method
+IV,timing,5,29,decision_timing; information_timing; play_timing; sanction_feedback_timing; timing
+IV,context,4,28,context; feeding_context; interaction_context; social_context
+IV,options,3,28,available_options; options; third_party_action_options
+IV,choice,6,26,choice; choice_pair; institution_choice; institutional_choice; neighbourhood_choice; social_information_choice
+IV,presence,5,26,administrator_presence; authority_presence; observer_presence; police_presence; third_party_presence
+IV,reward,9,26,leader_reward_power; officer_reward; reward_cost; reward_exists; reward_impact_ratio; reward_mechanism; reward_probability; reward_source; reward_symmetry
+IV,trust,5,26,dispositional_trust; general_trust_in_authorities; manipulated_trust; trust_giver_expectation; trust_problem
+IV,cooperation,5,23,cleaner_cooperation_displayed; cooperation_enforcement; cooperation_payoff; cooperation_strategy; prior_cooperation
+IV,observability,4,23,destruction_observability; m_observability; observability; outsider_observability
+IV,ratio,3,22,b_c_ratio; benefit_to_cost_ratio; cost_to_benefit_ratio
+IV,sanction,3,22,external_sanction; legal_sanction; sanction
+IV,emotion,7,21,emotion_expression; emotion_venting; eye_emotion; incidental_emotion; moral_emotion; opponent_emotion_expression; received_emotion_expression
+IV,identification,1,20,group_identification
+IV,regime,3,20,competition_regime; institutional_regime; regime
+IV,stage,4,20,chat_stage; expropriation_stage; feedback_stage; review_stage
+IV,strength,2,20,disconnecting_strength; leader_strength
+IV,distribution,2,19,access_distribution; endowment_distribution
+IV,pool,2,19,participant_pool; subject_pool
+IV,return,5,19,group_return_function; marginal_return; minimum_return_rule; return_to_public_good; returns_structure
+IV,distance,1,18,social_distance
+IV,enforcement,4,18,contract_enforcement; current_enforcement; enforcement; norm_enforcement
+IV,gender,4,18,gender; participant_gender; partner_gender; proposer_gender
+IV,intensity,2,18,harm_intensity; incentive_intensity
+IV,period,2,18,period; stages_per_period
+IV,strategy,4,18,computer_strategy; partner_strategy; trigger_strategy; zd_strategy
+IV,visibility,5,18,feedback_visibility; information_visibility; intentions_visibility; plate_position_visibility; wealth_visibility
+IV,ability,2,17,audit_ability; cognitive_ability
+IV,culture,1,17,culture
+IV,experience,4,17,authority_experience; experience; part1_experience; type_of_unfair_experience
+IV,incentive,1,17,incentive
+IV,production,1,17,production_function
+IV,accountability,1,16,accountability
+IV,density,2,16,kin_density; network_density
+IV,ethnicity,2,16,scapegoat_ethnicity; wrongdoer_ethnicity
+IV,exit,2,16,barriers_to_exit; exit
+IV,nationality,3,16,nationality; partner_nationality; third_party_nationality
+IV,noise,1,16,noise
+IV,opportunity,2,16,feedback_opportunity; messaging_opportunity
+IV,potential,1,16,economic_potential
+IV,sanctions,1,16,sanctions
+IV,selection,4,16,allocator_selection; authority_selection; leader_selection; manager_selection
+IV,symmetry,1,16,symmetry
+IV,behavior,4,15,common_behavior; others_behavior; partner_behavior; rated_behavior
+IV,contribution,6,15,contribution_rule; minimum_contribution; minimum_contribution_obligation; outgroup_contribution; punisher_contribution_level; target_contribution_level
+IV,repetition,1,15,repetition
+IV,fee,3,14,litigation_fee; monitoring_fee; show_up_fee
+IV,policy,2,14,distribution_policy; enforcement_policy
+IV,productivity,2,14,productivity; worker_productivity
+IV,sex,1,14,sex
+IV,threat,1,14,exclusion_threat
+IV,unit,1,14,decision_unit
+IV,endogeneity,2,13,endogeneity; monitoring_endogeneity
+IV,expectation,4,13,expectation_elicitation; expectation_model; expectation_probability; normative_expectation
+IV,reputation,4,13,partner_1st_party_reputation; partner_3rd_party_reputation; subordinate_reputation; superior_reputation
+IV,risk,2,13,reputation_risk; risk
+IV,severity,1,13,sanction_severity
+IV,system,3,13,feedback_system; rating_system; sanctioning_system
+IV,transparency,2,13,information_transparency; transparency
+IV,voting,2,13,democratic_voting; voting
+IV,complexity,1,12,social_identity_complexity
+IV,control,2,12,stage1_control; victim_control
+IV,expectations,2,12,initial_expectations; situational_expectations
+IV,info,4,12,info; partner_info; second_order_info; social_info
+IV,maker,1,12,decision_maker
+IV,monitoring,1,12,monitoring
+IV,penalty,1,12,penalty
+IV,responsibility,1,12,responsibility
+IV,revealed,2,12,information_revealed; nationality_revealed
+IV,accuracy,1,11,signal_accuracy
+IV,format,3,11,communication_format; feedback_format; instruction_format
+IV,frequency,2,11,audit_frequency; selection_frequency
+IV,gossip,1,11,gossip
+IV,mode,2,11,communication_mode; stimulation_mode
+IV,procedure,3,11,grievance_procedure; implementation_procedure; matching_procedure
+IV,affiliation,1,10,group_affiliation
+IV,group,3,10,cheater_group; group; participant_group
+IV,rate,2,10,error_rate; updating_rate
+IV,setting,2,10,institutional_setting; setting
+IV,source,2,10,advice_source; inequality_source
+IV,uncertainty,2,10,environmental_uncertainty; reputational_uncertainty
+IV,viscosity,1,10,population_viscosity
+IV,vote,2,10,vote_inequality; vote_source
+IV,activity,2,9,identity_building_activity; parallel_activity
+IV,assignment,3,9,class_assignment; id_assignment; role_assignment
+IV,belief,1,9,belief_elicitation
+IV,direction,1,9,social_comparison_direction
+IV,exposure,1,9,corruption_exposure
+IV,implementation,2,9,minimum_level_implementation; rule_implementation
+IV,interaction,2,9,social_interaction; targeted_interaction
+IV,investment,2,9,authority_investment; investment_expected_return
+IV,offer,5,9,alternative_offer; offer_source; offer_split; offer_type; offer_unfairness
+IV,power,2,9,mediator_power; third_party_decision_power
+IV,sanctioning,1,9,sanctioning
+IV,sharing,1,9,information_sharing
+IV,anonymity,1,8,anonymity
+IV,apples,1,8,number_bad_apples
+IV,architecture,1,8,network_architecture
+IV,bribe,1,8,bribe_treatment
+IV,delay,1,8,time_delay
+IV,disclosure,2,8,disclosure; public_disclosure
+IV,display,1,8,history_display
+IV,domain,1,8,domain
+IV,duration,1,8,team_duration
+IV,enforceability,1,8,agreement_enforceability
+IV,expectancy,1,8,evaluation_expectancy
+IV,fine,1,8,fine
+IV,identifier,1,8,identifier
+IV,implemented,1,8,institution_implemented
+IV,instrument,1,8,leadership_instrument
+IV,justice,1,8,procedural_justice
+IV,orientation,1,8,social_value_orientation
+IV,outcome,1,8,MDG_outcome
+IV,point,1,8,provision_point
+IV,process,1,8,institution_generation_process
+IV,profile,1,8,opponent_profile
+IV,relation,2,8,B1_A1_group_relation; intergroup_relation
+IV,relationship,1,8,relationship
+IV,sample,1,8,sample
+IV,scenario,2,8,plate_scenario; scenario
+IV,species,1,8,species
+IV,temptation,1,8,temptation
+IV,trustworthiness,1,8,leader_trustworthiness
+IV,coefficient,1,7,sanction_coefficient
+IV,expropriation,1,7,minimum_group_size_for_expropriation
+IV,fairness,2,7,allocation_fairness; perceptions_of_economic_fairness
+IV,instruction,2,7,coin_flip_instruction; thinking_style_instruction
+IV,amount,2,6,fine_amount; penalty_amount
+IV,announcement,1,6,policy_announcement
+IV,asymmetry,2,6,pair_size_asymmetry; value_asymmetry
+IV,block,1,6,block
+IV,count,1,6,third_party_count
+IV,design,1,6,within_between_design
+IV,effectiveness,1,6,average_effectiveness
+IV,enactment,1,6,law_enactment
+IV,error,1,6,error
+IV,facilitation,1,6,facilitation
+IV,focus,2,6,decision_focus; similarity_focus
+IV,formation,1,6,institution_formation
+IV,harvest,1,6,feedback_of_harvest
+IV,imposed,1,6,rule_imposed
+IV,intentionality,1,6,intentionality
+IV,label,1,6,role_label
+IV,law,1,6,law
+IV,leadership,1,6,leadership
+IV,load,1,6,cognitive_load
+IV,mapping,1,6,response_mapping
+IV,messages,1,6,messages
+IV,number,1,6,game_number
+IV,parameter,1,6,discount_parameter
+IV,parameterization,1,6,parameterization
+IV,party,1,6,party
+IV,precision,1,6,feedback_precision
+IV,priming,2,6,moral_priming; priming
+IV,reciprocity,1,6,reciprocity
+IV,representation,1,6,representation
+IV,stimulation,1,6,tDCS_stimulation
+IV,value,2,6,client_value; resource_value
+IV,appointment,1,5,leader_appointment
+IV,commitment,1,5,commitment
+IV,determination,1,5,determination
+IV,framing,1,5,framing
+IV,fs,1,5,fixed_cost_FS
+IV,history,1,5,feedback_history
+IV,immunity,1,5,immunity
+IV,index,1,5,friendship_index
+IV,leverage,1,5,leverage
+IV,ostracism,1,5,ostracism
+IV,ownership,1,5,ownership
+IV,action,1,4,ease_of_collective_action
+IV,advice,1,4,advice
+IV,allowed,1,4,voting_allowed
+IV,authority,1,4,decision_authority
+IV,comments,1,4,comments
+IV,competitiveness,1,4,outgroup_competitiveness
+IV,concern,1,4,partner_concern
+IV,conduct,1,4,code_of_conduct
+IV,decision,1,4,membership_decision
+IV,defect,1,4,temptation_to_defect
+IV,delegation,1,4,power_delegation
+IV,disturbance,1,4,working_memory_disturbance
+IV,emphasis,1,4,inefficiency_emphasis
+IV,exchange,1,4,social_exchange
+IV,familiarity,1,4,new_group_familiarity
+IV,fear,1,4,fear
+IV,global,1,4,MPCR_global
+IV,governance,1,4,governance
+IV,homogeneity,1,4,homogeneity
+IV,horizon,1,4,game_horizon
+IV,individual,1,4,MPCR_individual
+IV,intent,1,4,defection_intent
+IV,jury,1,4,jury
+IV,justification,1,4,justification
+IV,local,1,4,MPCR_local
+IV,making,1,4,decision_making
+IV,membership,1,4,group_membership
+IV,memory,1,4,memory
+IV,message,2,4,partner_message; trustee_message
+IV,morality,1,4,proposer_morality
+IV,network,1,4,communication_network
+IV,niceness,1,4,niceness
+IV,origin,1,4,endowment_origin
+IV,part,1,4,part
+IV,periods,1,4,num_periods
+IV,possibility,1,4,ostracism_possibility
+IV,possible,1,4,exclusion_possible
+IV,price,1,4,relative_price
+IV,punishers,1,4,number_of_punishers
+IV,recipient,1,4,recipient
+IV,regrouping,1,4,regrouping
+IV,requirement,1,4,reporting_requirement
+IV,resource,1,4,self_regulatory_resource
+IV,revelation,1,4,label_revelation
+IV,rights,1,4,property_rights
+IV,round,2,4,announcement_after_round_16; round
+IV,style,1,4,leadership_style
+IV,tax,1,4,group_tax
+IV,theft,1,4,theft
+IV,transferability,1,4,identity_transferability
+IV,verifiability,1,4,coin_flip_verifiability
+IV,withdrawal,1,4,feedback_withdrawal
+IV,activation,1,3,concept_activation
+IV,approval,1,3,social_approval
+IV,centrality,1,3,centrality
+IV,cue,1,3,reputation_cue
+IV,download,1,3,interrupted_download
+IV,exclusion,1,3,exclusion
+IV,function,1,3,resilience_function
+IV,intervention,1,3,third_party_intervention
+IV,introduction,1,3,sanction_introduction
+IV,knowledge,1,3,feedback_knowledge
+IV,location,1,3,rTMS_location
+IV,moves,1,3,timing_of_moves
+IV,part2,1,3,admin_identity_part2
+IV,relations,1,3,long_term_relations
+IV,replacement,1,3,partner_replacement
+IV,response,1,3,client_response
+IV,restriction,1,3,contract_restriction
+IV,rounds,1,3,num_rounds
+IV,session,1,3,session
+IV,site,1,3,tms_site
+IV,split,1,3,initial_split
+IV,stages,1,3,number_of_stages
+IV,status,3,3,blood_donor_status; organ_donor_status; punisher_status
+IV,svo,1,3,leader_svo
+IV,switching,1,3,partner_switching
+IV,agreement,1,2,group_norm_agreement
+IV,characteristic,1,2,group_characteristic
+IV,compensation,1,2,authority_compensation
+IV,crime,1,2,committing_violent_crime
+IV,cues,1,2,eye_cues
+IV,currency,1,2,currency
+IV,dd,1,2,incentive_dd
+IV,designation,1,2,grid_group_designation
+IV,disagreement,1,2,normative_disagreement
+IV,efficiency,1,2,efficiency_factor
+IV,gamma,1,2,gamma
+IV,induction,1,2,mood_induction
+IV,informed,1,2,informed
+IV,iterations,1,2,iterations
+IV,onymity,1,2,onymity
+IV,payment,1,2,participant_payment
+IV,poll,1,2,opinion_poll
+IV,prime,1,2,pride_prime
+IV,sequence,1,2,game_sequence
+IV,situation,1,2,experimental_situation
+IV,specification,1,2,partner_specification
+IV,stochasticity,1,2,loss_stochasticity
+IV,target,1,2,target
+IV,violence,1,2,exposure_to_violence
+IV,agreeableness,1,1,agreeableness
+IV,appearance,1,1,plate_appearance
+IV,breakoff,1,1,exogenous_provision_after_breakoff
+IV,city,1,1,city
+IV,combination,1,1,social_role_combination
+IV,emotionality,1,1,emotionality
+IV,factor,1,1,gain_factor
+IV,fit,1,1,model_fit
+IV,humility,1,1,honesty_humility
+IV,labels,1,1,responder_labels
+IV,loss,1,1,info_loss
+IV,money,1,1,donated_money
+IV,position,1,1,participant_position
+IV,protection,1,1,self_protection
+IV,randomization,1,1,plate_position_randomization
+IV,retaliation,1,1,retaliation_ability
+IV,transfer,1,1,dictator_transfer
+IV,volunteering,1,1,volunteering

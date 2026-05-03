@@ -1,0 +1,4 @@
+model_a,model_b,n_shared_papers,pearson_r,pearson_p_two_sided
+Claude Sonnet 4.6,GPT-4.1,2010,0.2970324100776244,3.170813499907548e-42
+Claude Sonnet 4.6,Gemini 2.5 Pro,2011,0.3041466882446504,2.628206972388055e-44
+GPT-4.1,Gemini 2.5 Pro,2010,0.31934682727297625,6.955830137430212e-49

@@ -1,0 +1,165 @@
+{
+  "overall": {
+    "rows": 505,
+    "input_tokens": 1371,
+    "cache_read_input_tokens": 1043040,
+    "cache_creation_input_tokens": 502303,
+    "ephemeral_5m_input_tokens": 502303,
+    "ephemeral_1h_input_tokens": 0,
+    "read_hit_rows": 320,
+    "write_rows": 154,
+    "accounted_rows": 474,
+    "zero_accounting_rows": 31,
+    "accounted_token_total": 1546714,
+    "cache_read_token_share": 0.6743586726440699,
+    "cache_write_token_share": 0.3247549320688893,
+    "read_hit_row_share_all": 0.6336633663366337,
+    "write_row_share_all": 0.30495049504950494,
+    "read_hit_row_share_accounted": 0.6751054852320675,
+    "write_row_share_accounted": 0.32489451476793246
+  },
+  "zero_accounting_examples": [
+    {
+      "custom_id": "paper_analysis_report_joint_rep4_10_1016_j_amc_2019_06_038",
+      "output_tokens": 2171
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep4_10_1016_j_joep_2022_102573",
+      "output_tokens": 1728
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep1_10_1098_rspb_2025_0973",
+      "output_tokens": 1503
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep3_10_1098_rspb_2025_0973",
+      "output_tokens": 1554
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep4_10_1016_j_copsyc_2021_08_033",
+      "output_tokens": 1919
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep4_10_1093_esr_jcx072",
+      "output_tokens": 1390
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep2_10_1111_jems_12570",
+      "output_tokens": 1737
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep4_10_1177_1043463119872566",
+      "output_tokens": 2020
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep2_10_1016_j_jet_2015_07_002",
+      "output_tokens": 1449
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep4_10_1523_jneurosci_0595-16_2016",
+      "output_tokens": 1860
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep4_10_1073_pnas_2302475120",
+      "output_tokens": 1496
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep3_10_15244_pjoes_186441",
+      "output_tokens": 1642
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep5_10_1016_s0167-2681_03_00094-5",
+      "output_tokens": 1646
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep2_10_1257_aer_99_3_979",
+      "output_tokens": 1717
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep5_10_1007_s10458-025-09698-5",
+      "output_tokens": 1663
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep1_10_1016_j_jeem_2018_06_008",
+      "output_tokens": 1966
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep1_10_1016_j_amc_2022_127578",
+      "output_tokens": 1733
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep5_10_1209_0295-5075_111_58004",
+      "output_tokens": 1482
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep1_10_1086_425623",
+      "output_tokens": 2073
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep5_10_1016_s0167-2681_02_00098-7",
+      "output_tokens": 1543
+    }
+  ],
+  "cache_hit_examples": [
+    {
+      "custom_id": "paper_analysis_report_joint_rep2_10_1016_j_amc_2019_06_038",
+      "input_tokens": 3,
+      "cache_read_input_tokens": 3223,
+      "cache_creation_input_tokens": 0
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep3_10_1016_j_amc_2019_06_038",
+      "input_tokens": 3,
+      "cache_read_input_tokens": 3223,
+      "cache_creation_input_tokens": 0
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep5_10_1016_j_amc_2019_06_038",
+      "input_tokens": 3,
+      "cache_read_input_tokens": 3223,
+      "cache_creation_input_tokens": 0
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep1_10_1016_j_joep_2022_102573",
+      "input_tokens": 3,
+      "cache_read_input_tokens": 3025,
+      "cache_creation_input_tokens": 0
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep5_10_1016_j_joep_2022_102573",
+      "input_tokens": 3,
+      "cache_read_input_tokens": 3025,
+      "cache_creation_input_tokens": 0
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep1_10_1038_s41598-021-95130-3",
+      "input_tokens": 3,
+      "cache_read_input_tokens": 3146,
+      "cache_creation_input_tokens": 0
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep2_10_1038_s41598-021-95130-3",
+      "input_tokens": 3,
+      "cache_read_input_tokens": 3146,
+      "cache_creation_input_tokens": 0
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep3_10_1038_s41598-021-95130-3",
+      "input_tokens": 3,
+      "cache_read_input_tokens": 3146,
+      "cache_creation_input_tokens": 0
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep4_10_1038_s41598-021-95130-3",
+      "input_tokens": 3,
+      "cache_read_input_tokens": 3146,
+      "cache_creation_input_tokens": 0
+    },
+    {
+      "custom_id": "paper_analysis_report_joint_rep1_10_1016_j_amc_2020_125705",
+      "input_tokens": 3,
+      "cache_read_input_tokens": 2978,
+      "cache_creation_input_tokens": 0
+    }
+  ]
+}

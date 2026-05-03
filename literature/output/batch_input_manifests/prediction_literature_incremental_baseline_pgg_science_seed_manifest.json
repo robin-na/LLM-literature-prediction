@@ -1,0 +1,76 @@
+{
+  "seed_formula_openai_gemini": "seed = 20260329 + repeat_index - 1",
+  "baseline_incremental_repeats": {
+    "repeat_start": 6,
+    "repeat_end": 30,
+    "seed_start": 20260334,
+    "seed_end": 20260358
+  },
+  "new_pgg_science_variants": {
+    "repeat_start": 1,
+    "repeat_end": 30,
+    "seed_start": 20260329,
+    "seed_end": 20260358,
+    "variant_ids": [
+      "PGG_Science_gpt41",
+      "PGG_Science_gpt51"
+    ]
+  },
+  "claude_seed_note": "Anthropic batch payloads in this repo keep repeat indices in custom_id but do not include a provider-supported seed field. Claude requests therefore track repeat identity without a deterministic API seed.",
+  "files": [
+    {
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "path": "openAI_batch_input/prediction_literature_incremental_baseline_reps6to30_pgg_science_gpt41-gpt51_joint_41.jsonl",
+      "request_count": 85
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4.1-mini",
+      "path": "openAI_batch_input/prediction_literature_incremental_baseline_reps6to30_pgg_science_gpt41-gpt51_joint_41mini.jsonl",
+      "request_count": 85
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "path": "openAI_batch_input/prediction_literature_incremental_baseline_reps6to30_pgg_science_gpt41-gpt51_joint_41nano.jsonl",
+      "request_count": 85
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.1",
+      "path": "openAI_batch_input/prediction_literature_incremental_baseline_reps6to30_pgg_science_gpt41-gpt51_joint_gpt51.jsonl",
+      "request_count": 85
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5-mini",
+      "path": "openAI_batch_input/prediction_literature_incremental_baseline_reps6to30_pgg_science_gpt41-gpt51_joint_gpt5mini.jsonl",
+      "request_count": 85
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5-nano",
+      "path": "openAI_batch_input/prediction_literature_incremental_baseline_reps6to30_pgg_science_gpt41-gpt51_joint_gpt5nano.jsonl",
+      "request_count": 85
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "path": "gemini_batch_input/prediction_literature_incremental_baseline_reps6to30_pgg_science_gpt41-gpt51_joint_gemini25flash.jsonl",
+      "request_count": 85
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-pro",
+      "path": "gemini_batch_input/prediction_literature_incremental_baseline_reps6to30_pgg_science_gpt41-gpt51_joint_gemini25pro.jsonl",
+      "request_count": 85
+    },
+    {
+      "provider": "claude",
+      "model": "allmodels",
+      "path": "claude_batch_input/prediction_literature_incremental_baseline_reps6to30_pgg_science_gpt41-gpt51_reasoning_anthropic_merged_allmodels.json",
+      "request_count": 255
+    }
+  ]
+}

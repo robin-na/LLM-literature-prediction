@@ -1,0 +1,3 @@
+label,value,kind
+No treatment effect,0.5414748692062454,null_baseline
+Estimated ceiling,0.7765353937484988,noise_ceiling

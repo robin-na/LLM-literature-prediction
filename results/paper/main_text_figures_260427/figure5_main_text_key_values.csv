@@ -1,0 +1,47 @@
+section,value_name,value,notes
+corpus,n_corpus_papers,2011,"Unique source_id values in the 2,011-paper main-text corpus."
+corpus,n_corpus_papers_with_workbook_rows,943,Corpus papers with at least one extraction-workbook row.
+corpus,n_corpus_papers_missing_from_workbook,1068,Corpus papers with no extraction-workbook row in the two workbook files.
+corpus,n_empirical_papers_workbook_strict,938,Strict workbook-based empirical-paper count: a paper is empirical if any workbook row is marked METHOD_empirical.
+corpus,n_empirical_papers_workbook_inclusive,940,Inclusive workbook-based empirical-paper count: a paper is empirical if any workbook row is marked METHOD_empirical or METHOD_lab.
+corpus,n_lab_papers_workbook,756,Workbook-based lab-paper count: a paper includes lab experiments if any workbook row is marked METHOD_lab.
+corpus,share_lab_within_empirical_pct_workbook,80.42553191489363,Percent of inclusive workbook-based empirical papers that include at least one lab row.
+causal_density,n_lab_experiment_rows_workbook,3630,"Workbook rows marked METHOD_lab within the 2,011-paper corpus."
+causal_density,n_lab_rows_with_nonmissing_iv_count,2983,Lab rows with a numeric number_IVs value in the workbook.
+causal_density,mean_number_IVs,2.124371438149514,Mean number_IVs across lab rows with nonmissing IV counts.
+causal_density,median_number_IVs,2.0,Median number_IVs across lab rows with nonmissing IV counts.
+causal_density,n_lab_rows_with_nonmissing_dv_count,2987,Lab rows with a numeric number_DVs value in the workbook.
+causal_density,mean_number_DVs,5.108135252761969,Mean number_DVs across lab rows with nonmissing DV counts.
+causal_density,median_number_DVs,5.0,Median number_DVs across lab rows with nonmissing DV counts.
+causal_density,n_unique_iv_labels,757,Unique IV labels parsed from workbook IVs JSON lists across lab rows.
+causal_density,n_unique_dv_labels,1968,Unique DV labels parsed from workbook DVs JSON lists across lab rows.
+causal_density,n_unique_iv_labels_conservative_harmonized,756,IV labels after conservative lexical harmonization only.
+causal_density,n_unique_dv_labels_conservative_harmonized,1968,DV labels after conservative lexical harmonization only.
+causal_density,n_unique_iv_labels_family_harmonized,322,IV labels after broader exploratory family-level harmonization.
+causal_density,n_unique_dv_labels_family_harmonized,512,DV labels after broader exploratory family-level harmonization.
+panel_a,n_lab_experiments,3630,Filtered lab-experiment rows used in Figure 5 Panel A.
+panel_a,n_design_parameters,12,Number of benchmark-comparable design parameters in Figure 5.
+panel_a,mean_parameters_reported,6.2214876033057855,Mean number of the 12 displayed design parameters reported per lab experiment.
+panel_a,median_parameters_reported,6.0,Median number of the 12 displayed design parameters reported per lab experiment.
+panel_a,n_experiments_reporting_7_or_fewer,2625,Lab experiments reporting 7 or fewer of the 12 displayed parameters.
+panel_a,share_experiments_reporting_7_or_fewer_pct,72.31404958677686,Percent of lab experiments reporting 7 or fewer of the 12 displayed parameters.
+panel_a,n_experiments_reporting_all_parameters,41,Lab experiments reporting all 12 displayed parameters.
+panel_a,share_experiments_reporting_all_parameters_pct,1.1294765840220387,Percent of lab experiments reporting all 12 displayed parameters.
+panel_b,n_lab_papers_panel_b,756,Lab papers used in the parameter-variation analysis.
+coverage,n_papers_reporting_group_size,751,Lab papers that reported group size in the canonical Figure 5 parameter table.
+coverage,n_papers_reporting_contribution_type,728,Lab papers that reported contribution type in the canonical Figure 5 parameter table.
+coverage,n_papers_reporting_game_length,724,Lab papers that reported game length in the canonical Figure 5 parameter table.
+coverage,n_papers_reporting_contribution_framing,493,Lab papers that reported contribution framing in the canonical Figure 5 parameter table.
+coverage,n_papers_reporting_punishment_cost,460,Lab papers that reported punishment cost in the canonical Figure 5 parameter table.
+coverage,n_papers_reporting_punishment_technology,427,Lab papers that reported punishment technology in the canonical Figure 5 parameter table.
+coverage,n_papers_reporting_reward,197,Lab papers that reported reward availability in the canonical Figure 5 parameter table.
+coverage,n_papers_reporting_communication,230,Lab papers that reported communication in the canonical Figure 5 parameter table.
+coverage,n_papers_with_contribution_outcomes,396,Lab papers with at least one contribution-related DV label.
+coverage,n_papers_with_punishment_outcomes,428,Lab papers with at least one punishment-related DV label.
+coverage,n_papers_with_cooperation_outcomes,110,Lab papers with at least one cooperation-related DV label.
+coverage,n_papers_with_earnings_payoff_outcomes,308,Lab papers with at least one earnings/payoff/profit/income DV label.
+coverage,n_papers_with_efficiency_outcomes,78,Lab papers with at least one efficiency/welfare DV label.
+panel_b,pearson_r_variation_vs_importance,-0.12747374121782085,Pearson r between percent of lab papers varying a parameter and benchmark predictive importance.
+panel_b,p_value_variation_vs_importance,0.693,P value shown in the canonical Figure 5 documentation for the same correlation.
+panel_c,mean_literature_evenness,0.6278555973974332,Mean normalized evenness across the 12 displayed parameters in the literature.
+panel_c,mean_benchmark_evenness,0.9900195312751805,Mean normalized evenness across the same parameters in the benchmark experiments.

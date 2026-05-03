@@ -1,0 +1,7 @@
+kind,scheme,n_unique_labels,notes
+IV,raw,757,Exact raw labels from workbook JSON lists.
+IV,conservative,756,Lowercasing plus punctuation/separator normalization only.
+IV,family,322,Broader exploratory family heuristic: strips wrappers such as individual/group/net and maps common payoff/cooperation/punishment variants to shared concept labels.
+DV,raw,1968,Exact raw labels from workbook JSON lists.
+DV,conservative,1968,Lowercasing plus punctuation/separator normalization only.
+DV,family,512,Broader exploratory family heuristic: strips wrappers such as individual/group/net and maps common payoff/cooperation/punishment variants to shared concept labels.

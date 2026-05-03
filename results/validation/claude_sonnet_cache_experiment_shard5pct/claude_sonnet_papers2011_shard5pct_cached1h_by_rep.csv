@@ -1,0 +1,6 @@
+rep,rows,accounted_rows,zero_accounting_rows,read_hit_rows,write_rows,input_tokens,cache_read_input_tokens,cache_creation_input_tokens
+1,101,87,14,52,35,246,169309,113837
+2,101,89,12,61,28,258,198703,90998
+3,101,94,7,63,31,258,205352,100709
+4,101,91,10,60,31,258,195411,100648
+5,101,87,14,56,31,255,182754,100418

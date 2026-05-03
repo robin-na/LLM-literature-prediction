@@ -1,0 +1,21 @@
+model,moderator_key,moderator_title,p_value,f_stat,df_constraint,sig_raw_0_05
+Claude Sonnet 4.6,paper_type_group,Paper type,0.0024485632493494516,9.178636834609069,1,True
+Claude Sonnet 4.6,citation_quartile,Citation,0.09536296147667848,6.3596979461763,3,False
+Claude Sonnet 4.6,journal_impact_quartile,Journal impact factor,0.9232137298956372,0.4802258382916849,3,False
+Claude Sonnet 4.6,year_quartile,Publication year,0.8821227956185559,0.6619167997385613,3,False
+Claude Sonnet 4.6,discipline_group,Journal discipline,0.1254876298556199,8.613981793012004,5,False
+GPT-5.1,paper_type_group,Paper type,7.198641637675578e-08,29.010517083615728,1,True
+GPT-5.1,citation_quartile,Citation,0.25765099310924217,4.035548858925536,3,False
+GPT-5.1,journal_impact_quartile,Journal impact factor,0.15694027701992586,5.211632844474202,3,False
+GPT-5.1,year_quartile,Publication year,0.13275459497937322,5.600413961012274,3,False
+GPT-5.1,discipline_group,Journal discipline,0.058240983060362315,10.673989237428907,5,False
+GPT-4.1,paper_type_group,Paper type,7.939673474480744e-09,33.28983100723418,1,True
+GPT-4.1,citation_quartile,Citation,0.9146855701614458,0.51905516124033,3,False
+GPT-4.1,journal_impact_quartile,Journal impact factor,0.02643929620239564,9.22541128749237,3,True
+GPT-4.1,year_quartile,Publication year,0.6826795115844561,1.4982273753490523,3,False
+GPT-4.1,discipline_group,Journal discipline,1.3506497764636673e-10,54.9280001774879,5,True
+Gemini 2.5 Pro,paper_type_group,Paper type,5.352150586311763e-14,56.59596681502827,1,True
+Gemini 2.5 Pro,citation_quartile,Citation,0.07294544106372829,6.96735962416218,3,False
+Gemini 2.5 Pro,journal_impact_quartile,Journal impact factor,0.26072744820776644,4.00683101196048,3,False
+Gemini 2.5 Pro,year_quartile,Publication year,0.34059245706787095,3.351108113702732,3,False
+Gemini 2.5 Pro,discipline_group,Journal discipline,1.3372185898624812e-06,35.25664591078621,5,True

@@ -1,0 +1,11 @@
+subset,model,n_rows,n_unique_items
+individual_empirical_only,GPT-4.1,947,947
+individual_empirical_only,GPT-4.1 Mini,947,947
+individual_empirical_only,GPT-5 Mini,947,947
+individual_empirical_only,GPT-5 Nano,947,947
+individual_empirical_only,GPT-5.1,947,947
+collection_empirical_filter_only,GPT-4.1,133,133
+collection_empirical_filter_only,GPT-4.1 Mini,133,133
+collection_empirical_filter_only,GPT-5.1,133,133
+collection_empirical_filter_only,GPT-5 Mini,133,133
+collection_empirical_filter_only,GPT-5 Nano,133,133

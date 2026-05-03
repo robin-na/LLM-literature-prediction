@@ -1,0 +1,10 @@
+feature_key,feature_label,mean_importance,sd_importance,n_folds,se_importance,feature_group
+recent,Publication Year,5.382015058137293,1.2199662896114856,5,0.5455855107658955,Journal Quality / Attention
+mathphysics_share,Math/Physics Journals,5.04245221886743,8.692226506727344,5,3.8872818689735746,Journal Discipline
+biology_share,Biology Journals,0.8584326163608568,2.7253621534015995,5,1.2188190076622372,Journal Discipline
+multidisciplinary_share,Multidisciplinary Journals,0.8501391886780547,0.9318208620301782,5,0.41672295807038623,Journal Discipline
+journal_impact,Journal Impact Factor,0.41219477582059005,2.607681121290184,5,1.166190450169545,Journal Quality / Attention
+citation,Citation,0.18465545373330436,0.6117050376731129,5,0.27356280928323,Journal Quality / Attention
+economics_share,Economics Journals,-0.1902922355248286,2.1644228641013212,5,0.9679593312370687,Journal Discipline
+collection_size,Number of Papers,-0.3822153532506431,2.6552626301970657,5,1.187469547847105,Collection Characteristics
+psychology_share,Psychology Journals,-0.6060661364036161,4.336004507331819,5,1.9391201658278865,Journal Discipline

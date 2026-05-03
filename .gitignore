@@ -2,6 +2,11 @@ openAI_batch_output/
 batch_processing/inputs/
 paper_collection/
 openAI_batch_input/
+claude_batch_input/
+claude_batch_output/
+gemini_batch_input/
+gemini_batch_output/
+.api_keys.env
 .env
 .DS_Store
 __pycache__/
@@ -10,6 +15,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+tmp/
 .venv*/
 .python-version
 batch_processing/output_csv/

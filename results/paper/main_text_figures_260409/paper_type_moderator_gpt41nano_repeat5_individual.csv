@@ -1,0 +1,2 @@
+model,dataset,n_papers,theoretical_n,empirical_n,theoretical_mean,empirical_mean,empirical_minus_theoretical,p_value,f_stat,n_aug_runs,n_baseline_runs
+GPT-4.1 Nano,individual_papers_repeat5,2011,1064,947,0.5196932317212897,0.5049292583182285,-0.014763973403061126,3.7335883670304696e-05,17.00223296616875,5,5

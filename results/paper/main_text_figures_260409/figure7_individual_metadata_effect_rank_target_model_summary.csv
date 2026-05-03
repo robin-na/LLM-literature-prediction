@@ -1,0 +1,8 @@
+model,coef_vector_corr,n_sign_flips,top_feature_value_target,top_feature_rank_target
+Claude Sonnet 4.6,0.9935199406973534,0,Citation,Citation
+GPT-4.1,0.9484090297144375,2,Empirical papers,Empirical papers
+GPT-4.1 Mini,0.9850986744011413,1,Empirical papers,Empirical papers
+GPT-5 Mini,0.9918556674985467,1,Empirical papers,Empirical papers
+GPT-5 Nano,0.9460954502513891,3,Empirical papers,Empirical papers
+GPT-5.1,0.9877699715154774,0,Empirical papers,Empirical papers
+Gemini 2.5 Pro,0.9576841575875533,2,Empirical papers,Empirical papers

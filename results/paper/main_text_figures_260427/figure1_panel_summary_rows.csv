@@ -1,0 +1,4 @@
+panel,panel_title,summary
+A,Prediction benchmark,"20 public goods game benchmark experiments sampled across 14 design parameters; forecasters predict treatment-condition group efficiency from the design description and observed control-condition outcome."
+B,Literature augmentation,"2,011 individual papers and 717 curated multi-paper collections are converted into prediction-focused reports for prompting."
+C,Forecasting and evaluation,"8 LLMs generate predictions under no augmentation or with benchmark-paper, individual-paper, or collection-report augmentation; performance is evaluated by correlation with observed treatment outcomes."

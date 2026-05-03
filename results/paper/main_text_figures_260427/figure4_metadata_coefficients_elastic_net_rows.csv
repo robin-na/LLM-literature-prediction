@@ -1,0 +1,28 @@
+model,model_display,feature_key,feature_label,feature_group,coef,ci_low,ci_high,n,panel_key,panel_display
+Claude Sonnet 4.6,Claude Sonnet 4.6,journal_impact,Journal Impact Factor,Prestige / visibility,0.0007896512324962305,-0.00024082295447031243,0.0023719249390644717,2011,elastic_net_coefficients,Elastic net coefficients
+Claude Sonnet 4.6,Claude Sonnet 4.6,citation,Citation,Prestige / visibility,-0.00299985211373886,-0.004780038496786612,-0.0013857474780715716,2011,elastic_net_coefficients,Elastic net coefficients
+Claude Sonnet 4.6,Claude Sonnet 4.6,empirical_share,Empirical,Study type,-0.002093531448977759,-0.0036317500065573115,-0.0007552034331162189,2011,elastic_net_coefficients,Elastic net coefficients
+Claude Sonnet 4.6,Claude Sonnet 4.6,recent,Publication Year,Publication timing,-0.002349911341864939,-0.003760121170103977,-0.0010344889524330275,2011,elastic_net_coefficients,Elastic net coefficients
+Claude Sonnet 4.6,Claude Sonnet 4.6,biology_share,Biology,Journal discipline,0.0008650724979589013,0.0,0.002221907848032187,2011,elastic_net_coefficients,Elastic net coefficients
+Claude Sonnet 4.6,Claude Sonnet 4.6,economics_share,Economics,Journal discipline,8.262522549885946e-05,-0.0008016783702444435,0.002065455010012475,2011,elastic_net_coefficients,Elastic net coefficients
+Claude Sonnet 4.6,Claude Sonnet 4.6,psychology_share,Psychology,Journal discipline,0.00036886529111361283,-0.00043713591625339744,0.001917827829723722,2011,elastic_net_coefficients,Elastic net coefficients
+Claude Sonnet 4.6,Claude Sonnet 4.6,mathphysics_share,Math/Physics,Journal discipline,-0.0011001182532429132,-0.0023389578531499587,2.7667055364336165e-07,2011,elastic_net_coefficients,Elastic net coefficients
+Claude Sonnet 4.6,Claude Sonnet 4.6,multidisciplinary_share,Multidisciplinary,Journal discipline,4.346668053667804e-05,-0.0010287743396557199,0.0015272409807889611,2011,elastic_net_coefficients,Elastic net coefficients
+GPT-4.1,GPT-4.1,journal_impact,Journal Impact Factor,Prestige / visibility,0.0,-0.0011231347936953074,0.0028169510810699926,2010,elastic_net_coefficients,Elastic net coefficients
+GPT-4.1,GPT-4.1,citation,Citation,Prestige / visibility,0.0,-0.001782561063098739,0.00192362314148584,2010,elastic_net_coefficients,Elastic net coefficients
+GPT-4.1,GPT-4.1,empirical_share,Empirical,Study type,-0.0031896337214827523,-0.006011733467985884,-0.001547822839373043,2010,elastic_net_coefficients,Elastic net coefficients
+GPT-4.1,GPT-4.1,recent,Publication Year,Publication timing,0.0,-0.0017953890878697361,0.002629363242339293,2010,elastic_net_coefficients,Elastic net coefficients
+GPT-4.1,GPT-4.1,biology_share,Biology,Journal discipline,0.0,-0.002342754637495334,0.0011424474161884992,2010,elastic_net_coefficients,Elastic net coefficients
+GPT-4.1,GPT-4.1,economics_share,Economics,Journal discipline,-0.0011875897261114,-0.005111881611350732,0.0,2010,elastic_net_coefficients,Elastic net coefficients
+GPT-4.1,GPT-4.1,psychology_share,Psychology,Journal discipline,-0.0,-0.003043159860775614,0.0,2010,elastic_net_coefficients,Elastic net coefficients
+GPT-4.1,GPT-4.1,mathphysics_share,Math/Physics,Journal discipline,0.0,-0.0021599187870131992,0.002055971502747977,2010,elastic_net_coefficients,Elastic net coefficients
+GPT-4.1,GPT-4.1,multidisciplinary_share,Multidisciplinary,Journal discipline,-0.0,-0.0037935892737399283,0.0,2010,elastic_net_coefficients,Elastic net coefficients
+Gemini 2.5 Pro,Gemini 2.5 Pro,journal_impact,Journal Impact Factor,Prestige / visibility,0.0,-0.004110218363286766,0.0046954387706469375,2011,elastic_net_coefficients,Elastic net coefficients
+Gemini 2.5 Pro,Gemini 2.5 Pro,citation,Citation,Prestige / visibility,-0.005652900014350942,-0.011590140302962501,0.0,2011,elastic_net_coefficients,Elastic net coefficients
+Gemini 2.5 Pro,Gemini 2.5 Pro,empirical_share,Empirical,Study type,-0.012675551716666705,-0.017317471699171014,-0.00821698248302525,2011,elastic_net_coefficients,Elastic net coefficients
+Gemini 2.5 Pro,Gemini 2.5 Pro,recent,Publication Year,Publication timing,0.0,-0.0038217833457501326,0.0038353373404526173,2011,elastic_net_coefficients,Elastic net coefficients
+Gemini 2.5 Pro,Gemini 2.5 Pro,biology_share,Biology,Journal discipline,0.004287363942499604,0.0,0.008764763847220101,2011,elastic_net_coefficients,Elastic net coefficients
+Gemini 2.5 Pro,Gemini 2.5 Pro,economics_share,Economics,Journal discipline,-0.00327741662173187,-0.008219016037752968,8.878324414228621e-07,2011,elastic_net_coefficients,Elastic net coefficients
+Gemini 2.5 Pro,Gemini 2.5 Pro,psychology_share,Psychology,Journal discipline,0.0,-0.002078913068556794,0.004930840176897708,2011,elastic_net_coefficients,Elastic net coefficients
+Gemini 2.5 Pro,Gemini 2.5 Pro,mathphysics_share,Math/Physics,Journal discipline,-0.0,-0.003971883799302816,0.003500224973254955,2011,elastic_net_coefficients,Elastic net coefficients
+Gemini 2.5 Pro,Gemini 2.5 Pro,multidisciplinary_share,Multidisciplinary,Journal discipline,0.0015042505215463848,0.0,0.006227587706253053,2011,elastic_net_coefficients,Elastic net coefficients

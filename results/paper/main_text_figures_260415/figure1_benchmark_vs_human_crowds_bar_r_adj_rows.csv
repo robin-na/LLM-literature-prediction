@@ -1,0 +1,19 @@
+group,label,condition,value,ci_low,ci_high,n_complete_participants,n_questions,ci_method,n_runs
+human_crowd,Laypeople WoC,Laypeople WoC,0.8181999554070939,0.44319154066725086,0.9821904837609013,468.0,20,profile_likelihood,
+human_crowd,Experts WoC,Experts WoC,0.8442821906674809,0.4845575684336694,0.9958310388667984,38.0,20,profile_likelihood,
+llm,Claude Sonnet 4.6,baseline,0.9119994517544622,0.6199259494414525,0.999,,20,profile_likelihood,30.0
+llm,Claude Sonnet 4.6,science_gpt41,0.9923008867462451,0.7972173185703583,0.999,,20,profile_likelihood,30.0
+llm,GPT-5.1,baseline,0.9056259196035755,0.6096794056911736,0.999,,20,profile_likelihood,30.0
+llm,GPT-5.1,science_gpt41,0.9777677755073377,0.7556194104080827,0.999,,20,profile_likelihood,30.0
+llm,GPT-4.1 Mini,baseline,0.8906481798154963,0.566868075893303,0.999,,20,profile_likelihood,30.0
+llm,GPT-4.1 Mini,science_gpt41,0.9407315353649637,0.6796473142865599,0.999,,20,profile_likelihood,30.0
+llm,GPT-4.1,baseline,0.8865619053283685,0.5440897717568166,0.999,,20,profile_likelihood,30.0
+llm,GPT-4.1,science_gpt41,0.9852365006570603,0.7698243618927256,0.999,,20,profile_likelihood,30.0
+llm,GPT-5 Nano,baseline,0.8635426991216106,0.504442994640146,0.999,,20,profile_likelihood,30.0
+llm,GPT-5 Nano,science_gpt41,0.9436695852772846,0.6867095114025386,0.999,,20,profile_likelihood,30.0
+llm,GPT-5 Mini,baseline,0.8908157179919325,0.5491698043195108,0.999,,20,profile_likelihood,30.0
+llm,GPT-5 Mini,science_gpt41,0.9999998876530709,0.8827797402623813,0.9999998876530709,,20,profile_likelihood,30.0
+llm,GPT-4.1 Nano,baseline,0.7415438341075682,0.3133974169929465,0.9472748087684996,,20,profile_likelihood,30.0
+llm,GPT-4.1 Nano,science_gpt41,0.8782258722517393,0.5396199586358886,0.999,,20,profile_likelihood,30.0
+llm,Gemini 2.5 Pro,baseline,0.6232427263299349,0.13154876998305692,0.8825753344545343,,20,profile_likelihood,30.0
+llm,Gemini 2.5 Pro,science_gpt41,0.9999999181689345,0.8820798889653573,0.9999999181689345,,20,profile_likelihood,30.0

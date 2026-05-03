@@ -37,6 +37,13 @@ Layout:
   markdown papers, plus a small random smoke-test file and a token-estimate
   summary.
 
+- `run_direct_evidence_card.py`
+  Calls the OpenAI API synchronously for one cleaned markdown paper, writes a
+  batch-like raw JSONL, parses it into the standard evidence-card CSV tables,
+  and can also materialize a merged `existing corpus + new paper` output
+  directory per model. By default it targets `PGG_Science.md` and runs both
+  `gpt-4.1-2025-04-14` and `gpt-5.1`.
+
 - `parse_evidence_card_batch_output.py`
   Parses evidence-card batch outputs into flat CSV tables, including a single
   denormalized `combined.csv` that downstream scripts use.
@@ -167,6 +174,10 @@ Commands:
 
 - Build full and smoke-test evidence-card extraction batch files from markdown papers:
   `python literature/build_evidence_card_batch_input.py`
+
+- Run direct single-paper evidence-card extraction for `PGG_Science.md` with
+  both requested models:
+  `python literature/run_direct_evidence_card.py`
 
 - Parse evidence-card outputs into CSVs:
   `python literature/parse_evidence_card_batch_output.py --input <batch-output.jsonl>`

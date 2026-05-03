@@ -1,0 +1,43 @@
+kind,model_a,model_b,epsilon,informative_pair_coverage
+papers,GPT-5.1,GPT-4.1 Mini,0.06,0.1710449819504347
+papers,GPT-5.1,GPT-4.1,0.06,0.14489527045805184
+papers,GPT-5.1,GPT-5 Nano,0.06,0.16742956062615894
+papers,GPT-5.1,GPT-5 Mini,0.06,0.19560631166434067
+papers,GPT-5.1,Claude Sonnet 4.6,0.06,0.054721054220804095
+papers,GPT-5.1,Gemini 2.5 Pro,0.06,0.282634310148067
+papers,GPT-4.1 Mini,GPT-4.1,0.06,0.12177009425633738
+papers,GPT-4.1 Mini,GPT-5 Nano,0.06,0.1319183115081064
+papers,GPT-4.1 Mini,GPT-5 Mini,0.06,0.15317418468994257
+papers,GPT-4.1 Mini,Claude Sonnet 4.6,0.06,0.0438507542059318
+papers,GPT-4.1 Mini,Gemini 2.5 Pro,0.06,0.19631687715729737
+papers,GPT-4.1,GPT-5 Nano,0.06,0.11467745884954489
+papers,GPT-4.1,GPT-5 Mini,0.06,0.132027475199061
+papers,GPT-4.1,Claude Sonnet 4.6,0.06,0.036902335051409586
+papers,GPT-4.1,Gemini 2.5 Pro,0.06,0.1619177957347042
+papers,GPT-5 Nano,GPT-5 Mini,0.06,0.15568745333627776
+papers,GPT-5 Nano,Claude Sonnet 4.6,0.06,0.03891084681479879
+papers,GPT-5 Nano,Gemini 2.5 Pro,0.06,0.1968601918576906
+papers,GPT-5 Mini,Claude Sonnet 4.6,0.06,0.04593688235509146
+papers,GPT-5 Mini,Gemini 2.5 Pro,0.06,0.23296933752161367
+papers,Claude Sonnet 4.6,Gemini 2.5 Pro,0.06,0.06273106523231586
+collections,GPT-5.1,GPT-4.1 Mini,0.06,0.24513796460001192
+collections,GPT-5.1,GPT-4.1,0.06,0.27037088539700826
+collections,GPT-5.1,GPT-5 Nano,0.06,0.20938834700729056
+collections,GPT-5.1,GPT-5 Mini,0.06,0.22443433520729456
+collections,GPT-5.1,Claude Sonnet 4.6,0.06,0.14366197183098592
+collections,GPT-5.1,Gemini 2.5 Pro,0.06,0.3443691769800751
+collections,GPT-4.1 Mini,GPT-4.1,0.06,0.2399570909235384
+collections,GPT-4.1 Mini,GPT-5 Nano,0.06,0.1717753630385983
+collections,GPT-4.1 Mini,GPT-5 Mini,0.06,0.17928842448201196
+collections,GPT-4.1 Mini,Claude Sonnet 4.6,0.06,0.1270188124515783
+collections,GPT-4.1 Mini,Gemini 2.5 Pro,0.06,0.2508313633564433
+collections,GPT-4.1,GPT-5 Nano,0.06,0.1813742823655615
+collections,GPT-4.1,GPT-5 Mini,0.06,0.1972307753431733
+collections,GPT-4.1,Claude Sonnet 4.6,0.06,0.14047160253481397
+collections,GPT-4.1,Gemini 2.5 Pro,0.06,0.27923081507379965
+collections,GPT-5 Nano,GPT-5 Mini,0.06,0.1489143606348954
+collections,GPT-5 Nano,Claude Sonnet 4.6,0.06,0.10553248971970043
+collections,GPT-5 Nano,Gemini 2.5 Pro,0.06,0.21497447307256798
+collections,GPT-5 Mini,Claude Sonnet 4.6,0.06,0.114896998351179
+collections,GPT-5 Mini,Gemini 2.5 Pro,0.06,0.2318878007111782
+collections,Claude Sonnet 4.6,Gemini 2.5 Pro,0.06,0.15365819742148235

@@ -1,0 +1,17 @@
+subset,model,n_rows,n_unique_items
+figure6_individual_empirical_only,Claude Sonnet 4.6,908,908
+figure6_collection_empirical_only,Claude Sonnet 4.6,133,133
+figure7_individual_empirical_only,Claude Sonnet 4.6,947,947
+figure8_collection_empirical_only,Claude Sonnet 4.6,133,133
+figure6_individual_empirical_only,GPT-5.1,908,908
+figure6_collection_empirical_only,GPT-5.1,133,133
+figure7_individual_empirical_only,GPT-5.1,947,947
+figure8_collection_empirical_only,GPT-5.1,133,133
+figure6_individual_empirical_only,GPT-4.1,908,908
+figure6_collection_empirical_only,GPT-4.1,133,133
+figure7_individual_empirical_only,GPT-4.1,947,947
+figure8_collection_empirical_only,GPT-4.1,133,133
+figure6_individual_empirical_only,Gemini 2.5 Pro,908,908
+figure6_collection_empirical_only,Gemini 2.5 Pro,133,133
+figure7_individual_empirical_only,Gemini 2.5 Pro,947,947
+figure8_collection_empirical_only,Gemini 2.5 Pro,133,133
