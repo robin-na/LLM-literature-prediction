@@ -212,14 +212,18 @@ def export_csv():
     for paper_id, data in sorted(extractions.items()):
         m = meta.get(paper_id, {})
         for cond in data.get("conditions", []):
+            empirical = cond.get("Empirical") == "1"
             row = {
                 "paper_id":        paper_id,
                 "title":           m.get("title", ""),
                 "authors":         m.get("authors", ""),
                 "year":            m.get("year", ""),
-                "condition_label": cond.get("label", ""),
+                "condition_label": cond.get("label", "") if empirical else "",
             }
             row.update(cond)
+            if not empirical:
+                row["Controlled_Or_Observational"] = "N/A"
+                row["Lab_Or_Field"]                = "N/A"
             writer.writerow(row)
 
     output.seek(0)

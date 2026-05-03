@@ -362,12 +362,12 @@ const FIELDS = [
     hint:"1 = has human participants · 0 = theory / simulation" },
   { key:"Controlled_Or_Observational",
     label:"Observational / Experimental",
-    type:"bin",
-    hint:"1 = controlled experiment with manipulation · 0 = observational" },
+    type:"bin_na",
+    hint:"1 = controlled experiment with manipulation · 0 = observational · N/A = non-empirical" },
   { key:"Lab_Or_Field",
     label:"Lab / Field",
-    type:"bin",
-    hint:"1 = field experiment · 0 = lab or online" },
+    type:"bin_na",
+    hint:"1 = field experiment · 0 = lab or online · N/A = non-empirical" },
 
   { sec: "Game Configuration (CONFIG_)" },
   { key:"CONFIG_playerCount",
@@ -649,6 +649,11 @@ function curCondObj() {
 function renderTabs() {
   const d = curData();
   if (!d) return;
+  if (isNonEmpirical()) {
+    document.getElementById("condition-tabs").innerHTML =
+      `<span style="font-size:11px;color:#a1a1aa;font-style:italic">non-empirical — single entry</span>`;
+    return;
+  }
   document.getElementById("condition-tabs").innerHTML =
     d.conditions.map((c, i) => `
       <span class="cond-tab ${i === curCond ? "active" : ""}" onclick="switchCond(${i})"
@@ -680,27 +685,39 @@ function delCond() {
 /* ═══════════════════════════════════════════════════
    FORM RENDERING
 ═══════════════════════════════════════════════════ */
+function isNonEmpirical() {
+  return curCondObj()["Empirical"] === "0";
+}
+
 function shouldLockParams() {
   const c = curCondObj();
   return c["Empirical"] === "0" || c["Lab_Or_Field"] === "1";
 }
 
 function renderForm() {
-  const c       = curCondObj();
-  const locked  = shouldLockParams();
-  let html = fieldHTML({ key: "label", label: "Condition Label", type: "text", hint: "" }, c.label || "");
+  const c        = curCondObj();
+  const nonEmp   = isNonEmpirical();
+  const lockCfg  = shouldLockParams();
+
+  // Condition label is meaningless for non-empirical papers
+  let html = nonEmp
+    ? ""
+    : fieldHTML({ key: "label", label: "Condition Label", type: "text", hint: "" }, c.label || "");
 
   for (const f of FIELDS) {
     if (f.sec) {
-      const badge = (locked && f.sec.startsWith("Game"))
-        ? `<span class="na-badge">auto N/A</span>`
-        : "";
+      const isGameSec  = f.sec.startsWith("Game");
+      const isStudySec = f.sec.startsWith("Study");
+      const badge =
+        (lockCfg && isGameSec) || (nonEmp && isStudySec)
+          ? `<span class="na-badge">auto N/A</span>` : "";
       html += `<div class="section-label">${f.sec}${badge}</div>`;
       continue;
     }
-    const val     = c[f.key] !== undefined ? c[f.key] : "";
-    const isParam = f.key.startsWith("CONFIG_") || f.key.startsWith("DV_");
-    html += fieldHTML(f, val, locked && isParam);
+    const val          = c[f.key] !== undefined ? c[f.key] : "";
+    const isConfigField = f.key.startsWith("CONFIG_") || f.key.startsWith("DV_");
+    const isStudyField  = f.key === "Controlled_Or_Observational" || f.key === "Lab_Or_Field";
+    html += fieldHTML(f, val, (isConfigField && lockCfg) || (isStudyField && nonEmp));
   }
   document.getElementById("form-body").innerHTML = html;
 }
@@ -797,8 +814,10 @@ function setVal(key, value) {
   const d = curData(); if (!d || !d.conditions[curCond]) return;
   d.conditions[curCond][key] = value;
   if (key === "label") renderTabs();
-  if ((key === "Empirical" || key === "Lab_Or_Field") && shouldLockParams()) autoFillNA();
-  else if (key === "Empirical" || key === "Lab_Or_Field") renderForm();
+  if (key === "Empirical" || key === "Lab_Or_Field") {
+    if (shouldLockParams()) autoFillNA(); else renderForm();
+    if (key === "Empirical") renderTabs();
+  }
   markDirty();
 }
 
@@ -806,6 +825,10 @@ function autoFillNA() {
   const d = curData(); if (!d || !d.conditions[curCond]) return;
   const c = d.conditions[curCond];
   for (const key of AUTO_NA_KEYS) c[key] = "N/A";
+  if (c["Empirical"] === "0") {
+    c["Controlled_Or_Observational"] = "N/A";
+    c["Lab_Or_Field"] = "N/A";
+  }
   renderForm();
 }
 
