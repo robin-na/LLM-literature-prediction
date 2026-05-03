@@ -1,0 +1,28 @@
+model,input_role,input_group,path,exists
+GPT-4.1,augmentation,rep1,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_41.jsonl,True
+GPT-4.1,augmentation,rep2to3,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps2to3_41.jsonl,True
+GPT-4.1,augmentation,rep4to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps4to5_41.jsonl,True
+GPT-4.1,baseline,rep1,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_positive_case_variations_41.jsonl,True
+GPT-4.1,baseline,reps2to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_positive_case_reasoning_repeats_41.jsonl,True
+GPT-4.1 Mini,augmentation,rep1,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_41mini.jsonl,True
+GPT-4.1 Mini,augmentation,rep2to3,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps2to3_41mini.jsonl,True
+GPT-4.1 Mini,augmentation,rep4to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps4to5_41mini.jsonl,True
+GPT-4.1 Mini,baseline,rep1,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_crosswave_variations_41mini.jsonl,True
+GPT-4.1 Mini,baseline,reps2to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_positive_case_reasoning_repeats_41mini.jsonl,True
+GPT-4.1 Nano,augmentation,rep1,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_41nano.jsonl,True
+GPT-4.1 Nano,augmentation,rep2to3,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps2to3_41nano.jsonl,True
+GPT-4.1 Nano,augmentation,rep4to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps4to5_41nano.jsonl,True
+GPT-4.1 Nano,baseline,rep1,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_crosswave_variations_41nano.jsonl,True
+GPT-4.1 Nano,baseline,reps2to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_positive_case_reasoning_repeats_41nano.jsonl,True
+GPT-5 Mini,augmentation,rep1,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_gpt5mini.jsonl,True
+GPT-5 Mini,augmentation,rep2to3,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps2to3_gpt5mini.jsonl,True
+GPT-5 Mini,augmentation,rep4to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps4to5_gpt5mini.jsonl,True
+GPT-5 Mini,baseline,reps1to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_joint_suite_reps1to5_gpt5mini.jsonl,True
+GPT-5 Nano,augmentation,rep1,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_gpt5nano.jsonl,True
+GPT-5 Nano,augmentation,rep2to3,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps2to3_gpt5nano.jsonl,True
+GPT-5 Nano,augmentation,rep4to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps4to5_gpt5nano.jsonl,True
+GPT-5 Nano,baseline,reps1to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_joint_suite_reps1to5_gpt5nano.jsonl,True
+GPT-5.1,augmentation,rep1,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_gpt51.jsonl,True
+GPT-5.1,augmentation,rep2to3,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps2to3_gpt51.jsonl,True
+GPT-5.1,augmentation,rep4to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_analysis_report_extended2011_joint_reps4to5_gpt51.jsonl,True
+GPT-5.1,baseline,reps1to5,/Users/robinna/Documents/projects/academic-llm/LLM-literature-prediction/openAI_batch_output/prediction_literature_joint_suite_reps1to5_gpt51.jsonl,True

@@ -1,0 +1,3 @@
+comparison,mean_diff,ci_low_95,ci_high_95,prob_diff_lt_zero
+LLM pooled baseline mean RMSE minus experts individual mean RMSE,-2.9700775083317867,-3.996272817138023,-1.95563299894877,1.0
+LLM pooled baseline mean RMSE minus laypeople individual mean RMSE,-6.058958018547107,-7.454492266425768,-4.4083003083091405,1.0

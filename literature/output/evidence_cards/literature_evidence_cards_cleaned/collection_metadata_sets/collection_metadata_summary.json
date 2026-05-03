@@ -1,0 +1,57 @@
+{
+  "max_filters": 3,
+  "min_papers": 2,
+  "excluded_ids": [
+    "PGG_MS_202502"
+  ],
+  "catalog_summary": {
+    "n_papers": 2850,
+    "n_wos_matches": 2756,
+    "n_jcr_matches": 2667,
+    "citation_source_column": "Times Cited, All Databases",
+    "discipline_source_column": "WoS Categories",
+    "year_split_upper_bounds": [
+      2012.0,
+      2017.0,
+      2021.0
+    ],
+    "citation_split_upper_bounds": [
+      4.0,
+      14.0,
+      44.0
+    ],
+    "year_bucket_counts": {
+      "Q1_oldest": 705,
+      "Q2": 743,
+      "Q3": 650,
+      "Q4_newest": 658
+    },
+    "citation_bucket_counts": {
+      "Q1_lowest": 698,
+      "Q2": 681,
+      "Q3": 693,
+      "Q4_highest": 684
+    }
+  },
+  "theoretical_by_n_filters": {
+    "1": 20,
+    "2": 156,
+    "3": 592
+  },
+  "nonempty_by_n_filters": {
+    "1": 20,
+    "2": 154,
+    "3": 556
+  },
+  "kept_by_n_filters": {
+    "1": 20,
+    "2": 154,
+    "3": 542
+  },
+  "dropped_too_small_by_n_filters": {
+    "1": 0,
+    "2": 0,
+    "3": 14
+  },
+  "n_collections_kept": 716
+}

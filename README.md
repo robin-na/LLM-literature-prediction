@@ -14,6 +14,11 @@ Evaluating whether augmenting LLM prompts with academic literature improves pred
 | `plots/` | Jupyter notebooks for paper figures |
 | `docs/` | Academic documentation (SI LaTeX) |
 
+## Paper Figures
+
+- Narrative overview: [analysis/paper_figures/README.md](analysis/paper_figures/README.md)
+- Detailed derivations and data sources: [analysis/paper_figures/figure_derivation_notes.md](analysis/paper_figures/figure_derivation_notes.md)
+
 ## Data Extraction
 
 Structured experimental parameters were extracted from **810 PGG papers** using a fully automated LLM pipeline. The pipeline converts each paper's full text into condition-level rows, capturing experimental design, independent and dependent variables, participant characteristics, and data provenance.

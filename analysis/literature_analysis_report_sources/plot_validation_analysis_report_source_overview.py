@@ -21,15 +21,15 @@ SIGNIFICANCE_CSV = (
     ROOT
     / "results"
     / "validation"
-    / "literature_analysis_report_sources_extended2011"
+    / "literature_analysis_report_sources_repeat5"
     / "validation_literature_analysis_report_source_significance.csv"
 )
 FEATURE_DATASET_CSV = (
     ROOT
     / "results"
     / "validation"
-    / "literature_analysis_report_source_features"
-    / "paper_feature_analysis_dataset.csv"
+    / "literature_analysis_report_sources_repeat5"
+    / "paper_feature_analysis_dataset_repeat5.csv"
 )
 VAL_PROCESSED_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
 BENCHMARK_REPEAT5_CSV = (
@@ -260,7 +260,10 @@ def plot_gap_closed(df: pd.DataFrame, benchmark: pd.DataFrame) -> None:
         plt.Line2D([0], [0], color="#6b7280", linestyle=":", linewidth=1.2, label="E-Net matched"),
     ]
     fig.legend(handles=handles, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.02))
-    fig.suptitle("Single-paper gains normalized by each model's baseline-to-E-Net gap", fontsize=15)
+    fig.suptitle(
+        "Single-paper gains normalized by each model's baseline-to-E-Net gap\nRepeat-3 averaged paper augmentation vs 5-run baseline",
+        fontsize=15,
+    )
     fig.tight_layout(rect=[0, 0.05, 1, 0.92])
     fig.savefig(
         PLOTS_DIR / "validation_literature_analysis_report_source_gap_closed.png",
@@ -396,7 +399,7 @@ def plot_metric_distributions(df: pd.DataFrame, enet: dict[str, float], benchmar
         axes[0, 0].set_ylabel(METRIC_LABELS[metric])
         axes[1, 0].set_ylabel(METRIC_LABELS[metric])
         fig.suptitle(
-            f"Single-paper augmentation on validation {metric}\nPoints are individual paper reports; dashed line is no augmentation",
+            f"Single-paper augmentation on validation {metric}\nPoints are repeat-5 averaged paper reports; dashed line is no augmentation",
             fontsize=15,
         )
         handles = [
@@ -447,7 +450,7 @@ def plot_rank_robustness(df: pd.DataFrame) -> None:
             if row_idx == 1:
                 ax.set_xlabel(f"{left} rank percentile\n0=best, 1=worst")
 
-    fig.suptitle("Single-paper rank robustness across models", fontsize=15)
+    fig.suptitle("Single-paper rank robustness across models\nRepeat-3 averaged paper augmentation", fontsize=15)
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     fig.savefig(
         PLOTS_DIR / "validation_literature_analysis_report_source_rank_robustness.png",
@@ -480,7 +483,7 @@ def plot_metric_tradeoff(df: pd.DataFrame) -> None:
         ax.set_xlabel("Correlation rank percentile\n0=best, 1=worst")
 
     axes[0].set_ylabel("RMSE rank percentile\n0=best, 1=worst")
-    fig.suptitle("What helps correlation is not always what helps RMSE", fontsize=15)
+    fig.suptitle("What helps correlation is not always what helps RMSE\nRepeat-3 averaged paper augmentation", fontsize=15)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     fig.savefig(
         PLOTS_DIR / "validation_literature_analysis_report_source_metric_tradeoff.png",
@@ -509,6 +512,7 @@ def compute_feature_cv(df: pd.DataFrame) -> pd.DataFrame:
         ],
     }
     feature_sets["model_plus_paper"] = feature_sets["model_only"] + feature_sets["paper_only"]
+    df = df.loc[~df[feature_sets["paper_only"]].isna().all(axis=1)].copy()
 
     numeric_cols = {
         "pub_year_z",
@@ -584,6 +588,8 @@ def compute_feature_cv(df: pd.DataFrame) -> pd.DataFrame:
         if part.empty:
             continue
         X = part[paper_cols].copy()
+        if X.isna().all(axis=1).all():
+            continue
         for col in X.columns:
             if col not in numeric_cols:
                 X[col] = X[col].astype(str)
@@ -648,7 +654,7 @@ def plot_feature_brittleness(cv_results: pd.DataFrame) -> None:
     axes[1].set_title("Within-model prediction from paper features only")
     axes[1].legend(title="", frameon=False, loc="upper right")
 
-    fig.suptitle("Paper-level metadata is brittle for predicting augmentation gains", fontsize=15)
+    fig.suptitle("Paper-level metadata is brittle for predicting augmentation gains\nRepeat-3 averaged paper augmentation", fontsize=15)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     fig.savefig(
         PLOTS_DIR / "validation_literature_analysis_report_source_feature_brittleness.png",

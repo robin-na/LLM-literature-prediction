@@ -1,0 +1,871 @@
+condition,left_model,left_repeat,right_model,right_repeat,pair_type,prediction_corr
+baseline,GPT-4.1,1,GPT-4.1,2,within_model,0.9334361373056999
+baseline,GPT-4.1,1,GPT-4.1,3,within_model,0.9043357308299522
+baseline,GPT-4.1,1,GPT-4.1,4,within_model,0.9348054013392523
+baseline,GPT-4.1,1,GPT-4.1,5,within_model,0.9431377744267201
+baseline,GPT-4.1,1,GPT-4.1 Mini,1,between_model,0.8953057117893771
+baseline,GPT-4.1,1,GPT-4.1 Mini,2,between_model,0.7526902569611803
+baseline,GPT-4.1,1,GPT-4.1 Mini,3,between_model,0.8921595108208952
+baseline,GPT-4.1,1,GPT-4.1 Mini,4,between_model,0.8982950327774444
+baseline,GPT-4.1,1,GPT-4.1 Mini,5,between_model,0.8702979727341352
+baseline,GPT-4.1,1,GPT-4.1 Nano,1,between_model,0.8213437362864796
+baseline,GPT-4.1,1,GPT-4.1 Nano,2,between_model,0.8899471652980908
+baseline,GPT-4.1,1,GPT-4.1 Nano,3,between_model,0.7927140293340004
+baseline,GPT-4.1,1,GPT-4.1 Nano,4,between_model,0.8077303554381451
+baseline,GPT-4.1,1,GPT-4.1 Nano,5,between_model,0.9118873954341984
+baseline,GPT-4.1,1,GPT-5.1,1,between_model,0.7705808680939711
+baseline,GPT-4.1,1,GPT-5.1,2,between_model,0.817800788695855
+baseline,GPT-4.1,1,GPT-5.1,3,between_model,0.8341867415864471
+baseline,GPT-4.1,1,GPT-5.1,4,between_model,0.8238317689537045
+baseline,GPT-4.1,1,GPT-5.1,5,between_model,0.5975152998243025
+baseline,GPT-4.1,1,GPT-5 Mini,1,between_model,0.8462927325910761
+baseline,GPT-4.1,1,GPT-5 Mini,2,between_model,0.887274715562105
+baseline,GPT-4.1,1,GPT-5 Mini,3,between_model,0.8174445364439067
+baseline,GPT-4.1,1,GPT-5 Mini,4,between_model,0.848642728124835
+baseline,GPT-4.1,1,GPT-5 Mini,5,between_model,0.7526004831039459
+baseline,GPT-4.1,1,GPT-5 Nano,1,between_model,0.7669681301558627
+baseline,GPT-4.1,1,GPT-5 Nano,2,between_model,0.9032975403972908
+baseline,GPT-4.1,1,GPT-5 Nano,3,between_model,0.9034987464282188
+baseline,GPT-4.1,1,GPT-5 Nano,4,between_model,0.7906873156828397
+baseline,GPT-4.1,1,GPT-5 Nano,5,between_model,0.8988364666957055
+baseline,GPT-4.1,2,GPT-4.1,3,within_model,0.9793636579239784
+baseline,GPT-4.1,2,GPT-4.1,4,within_model,0.969367602384474
+baseline,GPT-4.1,2,GPT-4.1,5,within_model,0.980905240991184
+baseline,GPT-4.1,2,GPT-4.1 Mini,1,between_model,0.9605672579399229
+baseline,GPT-4.1,2,GPT-4.1 Mini,2,between_model,0.8118925138842077
+baseline,GPT-4.1,2,GPT-4.1 Mini,3,between_model,0.9640620797045878
+baseline,GPT-4.1,2,GPT-4.1 Mini,4,between_model,0.9122095880954746
+baseline,GPT-4.1,2,GPT-4.1 Mini,5,between_model,0.9187813839883212
+baseline,GPT-4.1,2,GPT-4.1 Nano,1,between_model,0.8732132380988101
+baseline,GPT-4.1,2,GPT-4.1 Nano,2,between_model,0.9588055003776427
+baseline,GPT-4.1,2,GPT-4.1 Nano,3,between_model,0.8523692504866865
+baseline,GPT-4.1,2,GPT-4.1 Nano,4,between_model,0.888260249434234
+baseline,GPT-4.1,2,GPT-4.1 Nano,5,between_model,0.961664976581365
+baseline,GPT-4.1,2,GPT-5.1,1,between_model,0.7407775670423147
+baseline,GPT-4.1,2,GPT-5.1,2,between_model,0.8997950281159584
+baseline,GPT-4.1,2,GPT-5.1,3,between_model,0.8746427200787125
+baseline,GPT-4.1,2,GPT-5.1,4,between_model,0.8819395275306973
+baseline,GPT-4.1,2,GPT-5.1,5,between_model,0.5803765052263047
+baseline,GPT-4.1,2,GPT-5 Mini,1,between_model,0.8544564985124444
+baseline,GPT-4.1,2,GPT-5 Mini,2,between_model,0.8677057510479066
+baseline,GPT-4.1,2,GPT-5 Mini,3,between_model,0.8290215671853535
+baseline,GPT-4.1,2,GPT-5 Mini,4,between_model,0.8754311152254566
+baseline,GPT-4.1,2,GPT-5 Mini,5,between_model,0.7551870324970549
+baseline,GPT-4.1,2,GPT-5 Nano,1,between_model,0.8094980030951698
+baseline,GPT-4.1,2,GPT-5 Nano,2,between_model,0.9529760240639468
+baseline,GPT-4.1,2,GPT-5 Nano,3,between_model,0.9305277082028949
+baseline,GPT-4.1,2,GPT-5 Nano,4,between_model,0.8791016336778877
+baseline,GPT-4.1,2,GPT-5 Nano,5,between_model,0.9577468905483421
+baseline,GPT-4.1,3,GPT-4.1,4,within_model,0.944100433419811
+baseline,GPT-4.1,3,GPT-4.1,5,within_model,0.9593182185191423
+baseline,GPT-4.1,3,GPT-4.1 Mini,1,between_model,0.929420246801222
+baseline,GPT-4.1,3,GPT-4.1 Mini,2,between_model,0.7725504673142156
+baseline,GPT-4.1,3,GPT-4.1 Mini,3,between_model,0.9515073668735617
+baseline,GPT-4.1,3,GPT-4.1 Mini,4,between_model,0.8750720473347156
+baseline,GPT-4.1,3,GPT-4.1 Mini,5,between_model,0.8802179728020131
+baseline,GPT-4.1,3,GPT-4.1 Nano,1,between_model,0.8179699241228138
+baseline,GPT-4.1,3,GPT-4.1 Nano,2,between_model,0.9396665449101378
+baseline,GPT-4.1,3,GPT-4.1 Nano,3,between_model,0.8182868785774999
+baseline,GPT-4.1,3,GPT-4.1 Nano,4,between_model,0.8686786688173305
+baseline,GPT-4.1,3,GPT-4.1 Nano,5,between_model,0.9375386891704426
+baseline,GPT-4.1,3,GPT-5.1,1,between_model,0.6714457654351685
+baseline,GPT-4.1,3,GPT-5.1,2,between_model,0.8806473201236031
+baseline,GPT-4.1,3,GPT-5.1,3,between_model,0.8202436249834362
+baseline,GPT-4.1,3,GPT-5.1,4,between_model,0.841922802184608
+baseline,GPT-4.1,3,GPT-5.1,5,between_model,0.5245959197096992
+baseline,GPT-4.1,3,GPT-5 Mini,1,between_model,0.8251605633373092
+baseline,GPT-4.1,3,GPT-5 Mini,2,between_model,0.8398752457182536
+baseline,GPT-4.1,3,GPT-5 Mini,3,between_model,0.8010141288299607
+baseline,GPT-4.1,3,GPT-5 Mini,4,between_model,0.8437900933849694
+baseline,GPT-4.1,3,GPT-5 Mini,5,between_model,0.7365844017760139
+baseline,GPT-4.1,3,GPT-5 Nano,1,between_model,0.7993097719858673
+baseline,GPT-4.1,3,GPT-5 Nano,2,between_model,0.9357182603849223
+baseline,GPT-4.1,3,GPT-5 Nano,3,between_model,0.8975547030835838
+baseline,GPT-4.1,3,GPT-5 Nano,4,between_model,0.8691321396317264
+baseline,GPT-4.1,3,GPT-5 Nano,5,between_model,0.945623312631168
+baseline,GPT-4.1,4,GPT-4.1,5,within_model,0.9427098826707364
+baseline,GPT-4.1,4,GPT-4.1 Mini,1,between_model,0.8999353586717707
+baseline,GPT-4.1,4,GPT-4.1 Mini,2,between_model,0.7756777419276384
+baseline,GPT-4.1,4,GPT-4.1 Mini,3,between_model,0.9132547250440293
+baseline,GPT-4.1,4,GPT-4.1 Mini,4,between_model,0.8547606574786446
+baseline,GPT-4.1,4,GPT-4.1 Mini,5,between_model,0.837412322281948
+baseline,GPT-4.1,4,GPT-4.1 Nano,1,between_model,0.8611329738799729
+baseline,GPT-4.1,4,GPT-4.1 Nano,2,between_model,0.904678281950059
+baseline,GPT-4.1,4,GPT-4.1 Nano,3,between_model,0.8422937952307376
+baseline,GPT-4.1,4,GPT-4.1 Nano,4,between_model,0.7960729281384549
+baseline,GPT-4.1,4,GPT-4.1 Nano,5,between_model,0.9386286642688126
+baseline,GPT-4.1,4,GPT-5.1,1,between_model,0.6713737362866301
+baseline,GPT-4.1,4,GPT-5.1,2,between_model,0.8383210253068618
+baseline,GPT-4.1,4,GPT-5.1,3,between_model,0.8531284532711692
+baseline,GPT-4.1,4,GPT-5.1,4,between_model,0.7987995762967149
+baseline,GPT-4.1,4,GPT-5.1,5,between_model,0.566554401625001
+baseline,GPT-4.1,4,GPT-5 Mini,1,between_model,0.844489207615922
+baseline,GPT-4.1,4,GPT-5 Mini,2,between_model,0.8805171633434541
+baseline,GPT-4.1,4,GPT-5 Mini,3,between_model,0.7976072978722359
+baseline,GPT-4.1,4,GPT-5 Mini,4,between_model,0.8386362808931951
+baseline,GPT-4.1,4,GPT-5 Mini,5,between_model,0.7482075269190421
+baseline,GPT-4.1,4,GPT-5 Nano,1,between_model,0.7691603168372224
+baseline,GPT-4.1,4,GPT-5 Nano,2,between_model,0.9110714322468748
+baseline,GPT-4.1,4,GPT-5 Nano,3,between_model,0.8772209505584959
+baseline,GPT-4.1,4,GPT-5 Nano,4,between_model,0.8308550119719458
+baseline,GPT-4.1,4,GPT-5 Nano,5,between_model,0.9270173957568804
+baseline,GPT-4.1,5,GPT-4.1 Mini,1,between_model,0.9657588460669174
+baseline,GPT-4.1,5,GPT-4.1 Mini,2,between_model,0.7888709537355785
+baseline,GPT-4.1,5,GPT-4.1 Mini,3,between_model,0.967005115603285
+baseline,GPT-4.1,5,GPT-4.1 Mini,4,between_model,0.9492659544940897
+baseline,GPT-4.1,5,GPT-4.1 Mini,5,between_model,0.9396788661594884
+baseline,GPT-4.1,5,GPT-4.1 Nano,1,between_model,0.8623720340509998
+baseline,GPT-4.1,5,GPT-4.1 Nano,2,between_model,0.9741837745546676
+baseline,GPT-4.1,5,GPT-4.1 Nano,3,between_model,0.8538827886624305
+baseline,GPT-4.1,5,GPT-4.1 Nano,4,between_model,0.916048602402408
+baseline,GPT-4.1,5,GPT-4.1 Nano,5,between_model,0.9616366304255823
+baseline,GPT-4.1,5,GPT-5.1,1,between_model,0.7390482188923347
+baseline,GPT-4.1,5,GPT-5.1,2,between_model,0.8712092399103729
+baseline,GPT-4.1,5,GPT-5.1,3,between_model,0.8819143834324009
+baseline,GPT-4.1,5,GPT-5.1,4,between_model,0.887585162366663
+baseline,GPT-4.1,5,GPT-5.1,5,between_model,0.5604750131783318
+baseline,GPT-4.1,5,GPT-5 Mini,1,between_model,0.8489116931130256
+baseline,GPT-4.1,5,GPT-5 Mini,2,between_model,0.8512229794016781
+baseline,GPT-4.1,5,GPT-5 Mini,3,between_model,0.8384384902343998
+baseline,GPT-4.1,5,GPT-5 Mini,4,between_model,0.8739265833546581
+baseline,GPT-4.1,5,GPT-5 Mini,5,between_model,0.735717678624151
+baseline,GPT-4.1,5,GPT-5 Nano,1,between_model,0.8170025465739276
+baseline,GPT-4.1,5,GPT-5 Nano,2,between_model,0.970660615294891
+baseline,GPT-4.1,5,GPT-5 Nano,3,between_model,0.9682762235819464
+baseline,GPT-4.1,5,GPT-5 Nano,4,between_model,0.8936648185759958
+baseline,GPT-4.1,5,GPT-5 Nano,5,between_model,0.9682758549026367
+baseline,GPT-4.1 Mini,1,GPT-4.1 Mini,2,within_model,0.7961840906188844
+baseline,GPT-4.1 Mini,1,GPT-4.1 Mini,3,within_model,0.986248669781051
+baseline,GPT-4.1 Mini,1,GPT-4.1 Mini,4,within_model,0.9630242714672502
+baseline,GPT-4.1 Mini,1,GPT-4.1 Mini,5,within_model,0.9732809031240499
+baseline,GPT-4.1 Mini,1,GPT-4.1 Nano,1,between_model,0.8658584237462763
+baseline,GPT-4.1 Mini,1,GPT-4.1 Nano,2,between_model,0.9742027685603024
+baseline,GPT-4.1 Mini,1,GPT-4.1 Nano,3,between_model,0.8414860394283878
+baseline,GPT-4.1 Mini,1,GPT-4.1 Nano,4,between_model,0.9522684329734119
+baseline,GPT-4.1 Mini,1,GPT-4.1 Nano,5,between_model,0.9280649620059269
+baseline,GPT-4.1 Mini,1,GPT-5.1,1,between_model,0.7728101658145065
+baseline,GPT-4.1 Mini,1,GPT-5.1,2,between_model,0.8923968456723889
+baseline,GPT-4.1 Mini,1,GPT-5.1,3,between_model,0.839072556541901
+baseline,GPT-4.1 Mini,1,GPT-5.1,4,between_model,0.9291707071983163
+baseline,GPT-4.1 Mini,1,GPT-5.1,5,between_model,0.5551449794105414
+baseline,GPT-4.1 Mini,1,GPT-5 Mini,1,between_model,0.8549244836090378
+baseline,GPT-4.1 Mini,1,GPT-5 Mini,2,between_model,0.8341006968432454
+baseline,GPT-4.1 Mini,1,GPT-5 Mini,3,between_model,0.8570847191900939
+baseline,GPT-4.1 Mini,1,GPT-5 Mini,4,between_model,0.9210831447868383
+baseline,GPT-4.1 Mini,1,GPT-5 Mini,5,between_model,0.7610755519594677
+baseline,GPT-4.1 Mini,1,GPT-5 Nano,1,between_model,0.84317727377806
+baseline,GPT-4.1 Mini,1,GPT-5 Nano,2,between_model,0.9637811911150614
+baseline,GPT-4.1 Mini,1,GPT-5 Nano,3,between_model,0.9627613364245449
+baseline,GPT-4.1 Mini,1,GPT-5 Nano,4,between_model,0.9110137198612079
+baseline,GPT-4.1 Mini,1,GPT-5 Nano,5,between_model,0.9629177617411886
+baseline,GPT-4.1 Mini,2,GPT-4.1 Mini,3,within_model,0.7939067162613433
+baseline,GPT-4.1 Mini,2,GPT-4.1 Mini,4,within_model,0.8003647771794247
+baseline,GPT-4.1 Mini,2,GPT-4.1 Mini,5,within_model,0.8170942679856203
+baseline,GPT-4.1 Mini,2,GPT-4.1 Nano,1,between_model,0.8437691034748924
+baseline,GPT-4.1 Mini,2,GPT-4.1 Nano,2,between_model,0.7318367949522323
+baseline,GPT-4.1 Mini,2,GPT-4.1 Nano,3,between_model,0.7701515320994398
+baseline,GPT-4.1 Mini,2,GPT-4.1 Nano,4,between_model,0.6890366217805158
+baseline,GPT-4.1 Mini,2,GPT-4.1 Nano,5,between_model,0.7027525309674478
+baseline,GPT-4.1 Mini,2,GPT-5.1,1,between_model,0.6978838858505837
+baseline,GPT-4.1 Mini,2,GPT-5.1,2,between_model,0.891224005704917
+baseline,GPT-4.1 Mini,2,GPT-5.1,3,between_model,0.8138735612756727
+baseline,GPT-4.1 Mini,2,GPT-5.1,4,between_model,0.8663587538074632
+baseline,GPT-4.1 Mini,2,GPT-5.1,5,between_model,0.724104202376759
+baseline,GPT-4.1 Mini,2,GPT-5 Mini,1,between_model,0.8228032860902676
+baseline,GPT-4.1 Mini,2,GPT-5 Mini,2,between_model,0.8711064024836688
+baseline,GPT-4.1 Mini,2,GPT-5 Mini,3,between_model,0.8298748384050677
+baseline,GPT-4.1 Mini,2,GPT-5 Mini,4,between_model,0.8646114026296038
+baseline,GPT-4.1 Mini,2,GPT-5 Mini,5,between_model,0.8561815745417473
+baseline,GPT-4.1 Mini,2,GPT-5 Nano,1,between_model,0.6587399657238097
+baseline,GPT-4.1 Mini,2,GPT-5 Nano,2,between_model,0.708958824450246
+baseline,GPT-4.1 Mini,2,GPT-5 Nano,3,between_model,0.7184687390553757
+baseline,GPT-4.1 Mini,2,GPT-5 Nano,4,between_model,0.5952472402311928
+baseline,GPT-4.1 Mini,2,GPT-5 Nano,5,between_model,0.7013713486502587
+baseline,GPT-4.1 Mini,3,GPT-4.1 Mini,4,within_model,0.9589329843186292
+baseline,GPT-4.1 Mini,3,GPT-4.1 Mini,5,within_model,0.9530737123428255
+baseline,GPT-4.1 Mini,3,GPT-4.1 Nano,1,between_model,0.8607659382907885
+baseline,GPT-4.1 Mini,3,GPT-4.1 Nano,2,between_model,0.9757387418897563
+baseline,GPT-4.1 Mini,3,GPT-4.1 Nano,3,between_model,0.8693942755311702
+baseline,GPT-4.1 Mini,3,GPT-4.1 Nano,4,between_model,0.9422523170585074
+baseline,GPT-4.1 Mini,3,GPT-4.1 Nano,5,between_model,0.9401188697188603
+baseline,GPT-4.1 Mini,3,GPT-5.1,1,between_model,0.7518833725894135
+baseline,GPT-4.1 Mini,3,GPT-5.1,2,between_model,0.8720328157018641
+baseline,GPT-4.1 Mini,3,GPT-5.1,3,between_model,0.8320522662558134
+baseline,GPT-4.1 Mini,3,GPT-5.1,4,between_model,0.9135311178542789
+baseline,GPT-4.1 Mini,3,GPT-5.1,5,between_model,0.5623464884375892
+baseline,GPT-4.1 Mini,3,GPT-5 Mini,1,between_model,0.8506345025951331
+baseline,GPT-4.1 Mini,3,GPT-5 Mini,2,between_model,0.8369699336376625
+baseline,GPT-4.1 Mini,3,GPT-5 Mini,3,between_model,0.8697147090745945
+baseline,GPT-4.1 Mini,3,GPT-5 Mini,4,between_model,0.9107970362910751
+baseline,GPT-4.1 Mini,3,GPT-5 Mini,5,between_model,0.7428593781625732
+baseline,GPT-4.1 Mini,3,GPT-5 Nano,1,between_model,0.8312751135887202
+baseline,GPT-4.1 Mini,3,GPT-5 Nano,2,between_model,0.9694572587054825
+baseline,GPT-4.1 Mini,3,GPT-5 Nano,3,between_model,0.9605445825031256
+baseline,GPT-4.1 Mini,3,GPT-5 Nano,4,between_model,0.9147455459055911
+baseline,GPT-4.1 Mini,3,GPT-5 Nano,5,between_model,0.9779158202895852
+baseline,GPT-4.1 Mini,4,GPT-4.1 Mini,5,within_model,0.9752396040449153
+baseline,GPT-4.1 Mini,4,GPT-4.1 Nano,1,between_model,0.8226504247327163
+baseline,GPT-4.1 Mini,4,GPT-4.1 Nano,2,between_model,0.9357566227943981
+baseline,GPT-4.1 Mini,4,GPT-4.1 Nano,3,between_model,0.8433237584048354
+baseline,GPT-4.1 Mini,4,GPT-4.1 Nano,4,between_model,0.9084198197424639
+baseline,GPT-4.1 Mini,4,GPT-4.1 Nano,5,between_model,0.8912858749294116
+baseline,GPT-4.1 Mini,4,GPT-5.1,1,between_model,0.82197784136851
+baseline,GPT-4.1 Mini,4,GPT-5.1,2,between_model,0.8438199000210297
+baseline,GPT-4.1 Mini,4,GPT-5.1,3,between_model,0.8506648338593578
+baseline,GPT-4.1 Mini,4,GPT-5.1,4,between_model,0.9311041593538217
+baseline,GPT-4.1 Mini,4,GPT-5.1,5,between_model,0.6369326577570386
+baseline,GPT-4.1 Mini,4,GPT-5 Mini,1,between_model,0.8440133973089179
+baseline,GPT-4.1 Mini,4,GPT-5 Mini,2,between_model,0.8502294913841338
+baseline,GPT-4.1 Mini,4,GPT-5 Mini,3,between_model,0.8874146323884721
+baseline,GPT-4.1 Mini,4,GPT-5 Mini,4,between_model,0.9189830263271879
+baseline,GPT-4.1 Mini,4,GPT-5 Mini,5,between_model,0.7657595401927237
+baseline,GPT-4.1 Mini,4,GPT-5 Nano,1,between_model,0.770486175917737
+baseline,GPT-4.1 Mini,4,GPT-5 Nano,2,between_model,0.9343414597598128
+baseline,GPT-4.1 Mini,4,GPT-5 Nano,3,between_model,0.9663422183698316
+baseline,GPT-4.1 Mini,4,GPT-5 Nano,4,between_model,0.8530475749502224
+baseline,GPT-4.1 Mini,4,GPT-5 Nano,5,between_model,0.9275927627469774
+baseline,GPT-4.1 Mini,5,GPT-4.1 Nano,1,between_model,0.8287892155183977
+baseline,GPT-4.1 Mini,5,GPT-4.1 Nano,2,between_model,0.9305600761676118
+baseline,GPT-4.1 Mini,5,GPT-4.1 Nano,3,between_model,0.8150616054281117
+baseline,GPT-4.1 Mini,5,GPT-4.1 Nano,4,between_model,0.9333877980418276
+baseline,GPT-4.1 Mini,5,GPT-4.1 Nano,5,between_model,0.8775675689270257
+baseline,GPT-4.1 Mini,5,GPT-5.1,1,between_model,0.7995005287689242
+baseline,GPT-4.1 Mini,5,GPT-5.1,2,between_model,0.8767012447772604
+baseline,GPT-4.1 Mini,5,GPT-5.1,3,between_model,0.8543828022702632
+baseline,GPT-4.1 Mini,5,GPT-5.1,4,between_model,0.9559264983774907
+baseline,GPT-4.1 Mini,5,GPT-5.1,5,between_model,0.6028445977782826
+baseline,GPT-4.1 Mini,5,GPT-5 Mini,1,between_model,0.8315694224649057
+baseline,GPT-4.1 Mini,5,GPT-5 Mini,2,between_model,0.846313240092778
+baseline,GPT-4.1 Mini,5,GPT-5 Mini,3,between_model,0.8821663071876855
+baseline,GPT-4.1 Mini,5,GPT-5 Mini,4,between_model,0.9375265249874906
+baseline,GPT-4.1 Mini,5,GPT-5 Mini,5,between_model,0.7891471661560756
+baseline,GPT-4.1 Mini,5,GPT-5 Nano,1,between_model,0.7812774820017756
+baseline,GPT-4.1 Mini,5,GPT-5 Nano,2,between_model,0.9273857767644594
+baseline,GPT-4.1 Mini,5,GPT-5 Nano,3,between_model,0.9541604942016244
+baseline,GPT-4.1 Mini,5,GPT-5 Nano,4,between_model,0.8659057755421274
+baseline,GPT-4.1 Mini,5,GPT-5 Nano,5,between_model,0.9172500893221752
+baseline,GPT-4.1 Nano,1,GPT-4.1 Nano,2,within_model,0.8438015300630356
+baseline,GPT-4.1 Nano,1,GPT-4.1 Nano,3,within_model,0.8749903396583724
+baseline,GPT-4.1 Nano,1,GPT-4.1 Nano,4,within_model,0.8347247764720092
+baseline,GPT-4.1 Nano,1,GPT-4.1 Nano,5,within_model,0.8204096299299378
+baseline,GPT-4.1 Nano,1,GPT-5.1,1,between_model,0.6607714340454734
+baseline,GPT-4.1 Nano,1,GPT-5.1,2,between_model,0.8634139523677947
+baseline,GPT-4.1 Nano,1,GPT-5.1,3,between_model,0.830167043393141
+baseline,GPT-4.1 Nano,1,GPT-5.1,4,between_model,0.8418284879881924
+baseline,GPT-4.1 Nano,1,GPT-5.1,5,between_model,0.6020349900476601
+baseline,GPT-4.1 Nano,1,GPT-5 Mini,1,between_model,0.8538970634324223
+baseline,GPT-4.1 Nano,1,GPT-5 Mini,2,between_model,0.8500350629835354
+baseline,GPT-4.1 Nano,1,GPT-5 Mini,3,between_model,0.8220307973735704
+baseline,GPT-4.1 Nano,1,GPT-5 Mini,4,between_model,0.8548614002133801
+baseline,GPT-4.1 Nano,1,GPT-5 Mini,5,between_model,0.8136270320948654
+baseline,GPT-4.1 Nano,1,GPT-5 Nano,1,between_model,0.7893636070230478
+baseline,GPT-4.1 Nano,1,GPT-5 Nano,2,between_model,0.825681696317968
+baseline,GPT-4.1 Nano,1,GPT-5 Nano,3,between_model,0.8029636613500085
+baseline,GPT-4.1 Nano,1,GPT-5 Nano,4,between_model,0.7396212743181028
+baseline,GPT-4.1 Nano,1,GPT-5 Nano,5,between_model,0.8221315137546176
+baseline,GPT-4.1 Nano,2,GPT-4.1 Nano,3,within_model,0.8557838339073021
+baseline,GPT-4.1 Nano,2,GPT-4.1 Nano,4,within_model,0.9497386860553755
+baseline,GPT-4.1 Nano,2,GPT-4.1 Nano,5,within_model,0.9556076988946652
+baseline,GPT-4.1 Nano,2,GPT-5.1,1,between_model,0.7199430829711078
+baseline,GPT-4.1 Nano,2,GPT-5.1,2,between_model,0.843399108537435
+baseline,GPT-4.1 Nano,2,GPT-5.1,3,between_model,0.8199329237443281
+baseline,GPT-4.1 Nano,2,GPT-5.1,4,between_model,0.8643783614730173
+baseline,GPT-4.1 Nano,2,GPT-5.1,5,between_model,0.4762311619358587
+baseline,GPT-4.1 Nano,2,GPT-5 Mini,1,between_model,0.810164545705982
+baseline,GPT-4.1 Nano,2,GPT-5 Mini,2,between_model,0.7719164978369639
+baseline,GPT-4.1 Nano,2,GPT-5 Mini,3,between_model,0.7880663864716366
+baseline,GPT-4.1 Nano,2,GPT-5 Mini,4,between_model,0.8553185122788489
+baseline,GPT-4.1 Nano,2,GPT-5 Mini,5,between_model,0.6625545047691672
+baseline,GPT-4.1 Nano,2,GPT-5 Nano,1,between_model,0.8510063736773018
+baseline,GPT-4.1 Nano,2,GPT-5 Nano,2,between_model,0.9847602750274919
+baseline,GPT-4.1 Nano,2,GPT-5 Nano,3,between_model,0.977522944389234
+baseline,GPT-4.1 Nano,2,GPT-5 Nano,4,between_model,0.9510032690963699
+baseline,GPT-4.1 Nano,2,GPT-5 Nano,5,between_model,0.9753337918268454
+baseline,GPT-4.1 Nano,3,GPT-4.1 Nano,4,within_model,0.805816456383382
+baseline,GPT-4.1 Nano,3,GPT-4.1 Nano,5,within_model,0.8391913217665936
+baseline,GPT-4.1 Nano,3,GPT-5.1,1,between_model,0.6784104611756776
+baseline,GPT-4.1 Nano,3,GPT-5.1,2,between_model,0.7688185781456115
+baseline,GPT-4.1 Nano,3,GPT-5.1,3,between_model,0.7939421512694432
+baseline,GPT-4.1 Nano,3,GPT-5.1,4,between_model,0.8066993751193072
+baseline,GPT-4.1 Nano,3,GPT-5.1,5,between_model,0.5468855443043869
+baseline,GPT-4.1 Nano,3,GPT-5 Mini,1,between_model,0.7940514159742221
+baseline,GPT-4.1 Nano,3,GPT-5 Mini,2,between_model,0.8030373664694412
+baseline,GPT-4.1 Nano,3,GPT-5 Mini,3,between_model,0.7826688607455882
+baseline,GPT-4.1 Nano,3,GPT-5 Mini,4,between_model,0.799509983646108
+baseline,GPT-4.1 Nano,3,GPT-5 Mini,5,between_model,0.6809380076934453
+baseline,GPT-4.1 Nano,3,GPT-5 Nano,1,between_model,0.6704912064907695
+baseline,GPT-4.1 Nano,3,GPT-5 Nano,2,between_model,0.858803776016371
+baseline,GPT-4.1 Nano,3,GPT-5 Nano,3,between_model,0.8408974161298466
+baseline,GPT-4.1 Nano,3,GPT-5 Nano,4,between_model,0.8042970596316555
+baseline,GPT-4.1 Nano,3,GPT-5 Nano,5,between_model,0.8415046491969568
+baseline,GPT-4.1 Nano,4,GPT-4.1 Nano,5,within_model,0.8794017871788982
+baseline,GPT-4.1 Nano,4,GPT-5.1,1,between_model,0.7205778430671906
+baseline,GPT-4.1 Nano,4,GPT-5.1,2,between_model,0.8029857974506518
+baseline,GPT-4.1 Nano,4,GPT-5.1,3,between_model,0.7756155748933248
+baseline,GPT-4.1 Nano,4,GPT-5.1,4,between_model,0.896989877994003
+baseline,GPT-4.1 Nano,4,GPT-5.1,5,between_model,0.4760770921243083
+baseline,GPT-4.1 Nano,4,GPT-5 Mini,1,between_model,0.7810686644121013
+baseline,GPT-4.1 Nano,4,GPT-5 Mini,2,between_model,0.7258749413651641
+baseline,GPT-4.1 Nano,4,GPT-5 Mini,3,between_model,0.7652054777920135
+baseline,GPT-4.1 Nano,4,GPT-5 Mini,4,between_model,0.8373045087766432
+baseline,GPT-4.1 Nano,4,GPT-5 Mini,5,between_model,0.6627405258491315
+baseline,GPT-4.1 Nano,4,GPT-5 Nano,1,between_model,0.803007504261456
+baseline,GPT-4.1 Nano,4,GPT-5 Nano,2,between_model,0.9239742082819272
+baseline,GPT-4.1 Nano,4,GPT-5 Nano,3,between_model,0.9328478311674293
+baseline,GPT-4.1 Nano,4,GPT-5 Nano,4,between_model,0.9000403232711293
+baseline,GPT-4.1 Nano,4,GPT-5 Nano,5,between_model,0.9362341944127909
+baseline,GPT-4.1 Nano,5,GPT-5.1,1,between_model,0.7008061782320261
+baseline,GPT-4.1 Nano,5,GPT-5.1,2,between_model,0.7830375902755005
+baseline,GPT-4.1 Nano,5,GPT-5.1,3,between_model,0.7806580577195593
+baseline,GPT-4.1 Nano,5,GPT-5.1,4,between_model,0.81757437332595
+baseline,GPT-4.1 Nano,5,GPT-5.1,5,between_model,0.4962422734796003
+baseline,GPT-4.1 Nano,5,GPT-5 Mini,1,between_model,0.7306821262978219
+baseline,GPT-4.1 Nano,5,GPT-5 Mini,2,between_model,0.7631980554436412
+baseline,GPT-4.1 Nano,5,GPT-5 Mini,3,between_model,0.778360413068541
+baseline,GPT-4.1 Nano,5,GPT-5 Mini,4,between_model,0.8024685833623053
+baseline,GPT-4.1 Nano,5,GPT-5 Mini,5,between_model,0.6075303938944666
+baseline,GPT-4.1 Nano,5,GPT-5 Nano,1,between_model,0.7495930392181728
+baseline,GPT-4.1 Nano,5,GPT-5 Nano,2,between_model,0.9697573779942041
+baseline,GPT-4.1 Nano,5,GPT-5 Nano,3,between_model,0.9416852902847656
+baseline,GPT-4.1 Nano,5,GPT-5 Nano,4,between_model,0.8965646694334789
+baseline,GPT-4.1 Nano,5,GPT-5 Nano,5,between_model,0.9651580744606504
+baseline,GPT-5.1,1,GPT-5.1,2,within_model,0.7073891583822886
+baseline,GPT-5.1,1,GPT-5.1,3,within_model,0.7773908583174616
+baseline,GPT-5.1,1,GPT-5.1,4,within_model,0.8539643917540721
+baseline,GPT-5.1,1,GPT-5.1,5,within_model,0.799298999259233
+baseline,GPT-5.1,1,GPT-5 Mini,1,between_model,0.6739192140794077
+baseline,GPT-5.1,1,GPT-5 Mini,2,between_model,0.741339175238985
+baseline,GPT-5.1,1,GPT-5 Mini,3,between_model,0.7038031274306673
+baseline,GPT-5.1,1,GPT-5 Mini,4,between_model,0.726831230835963
+baseline,GPT-5.1,1,GPT-5 Mini,5,between_model,0.6154626329637275
+baseline,GPT-5.1,1,GPT-5 Nano,1,between_model,0.4760520468180873
+baseline,GPT-5.1,1,GPT-5 Nano,2,between_model,0.678165843360835
+baseline,GPT-5.1,1,GPT-5 Nano,3,between_model,0.7430357626012861
+baseline,GPT-5.1,1,GPT-5 Nano,4,between_model,0.5746749631692079
+baseline,GPT-5.1,1,GPT-5 Nano,5,between_model,0.7023754440870483
+baseline,GPT-5.1,2,GPT-5.1,3,within_model,0.8595878657526883
+baseline,GPT-5.1,2,GPT-5.1,4,within_model,0.907886043783945
+baseline,GPT-5.1,2,GPT-5.1,5,within_model,0.6798727716650411
+baseline,GPT-5.1,2,GPT-5 Mini,1,between_model,0.8875357586831631
+baseline,GPT-5.1,2,GPT-5 Mini,2,between_model,0.8620370465745639
+baseline,GPT-5.1,2,GPT-5 Mini,3,between_model,0.8183915226407911
+baseline,GPT-5.1,2,GPT-5 Mini,4,between_model,0.9025347680298907
+baseline,GPT-5.1,2,GPT-5 Mini,5,between_model,0.8753446672728854
+baseline,GPT-5.1,2,GPT-5 Nano,1,between_model,0.7638723118663907
+baseline,GPT-5.1,2,GPT-5 Nano,2,between_model,0.8075236293663279
+baseline,GPT-5.1,2,GPT-5 Nano,3,between_model,0.7949874181658511
+baseline,GPT-5.1,2,GPT-5 Nano,4,between_model,0.7151333630130855
+baseline,GPT-5.1,2,GPT-5 Nano,5,between_model,0.8085639151888323
+baseline,GPT-5.1,3,GPT-5.1,4,within_model,0.8743166673081483
+baseline,GPT-5.1,3,GPT-5.1,5,within_model,0.7358281502334649
+baseline,GPT-5.1,3,GPT-5 Mini,1,between_model,0.8470825324223403
+baseline,GPT-5.1,3,GPT-5 Mini,2,between_model,0.8799038565827775
+baseline,GPT-5.1,3,GPT-5 Mini,3,between_model,0.7941357881462203
+baseline,GPT-5.1,3,GPT-5 Mini,4,between_model,0.8186574120301674
+baseline,GPT-5.1,3,GPT-5 Mini,5,between_model,0.7838129055791708
+baseline,GPT-5.1,3,GPT-5 Nano,1,between_model,0.6599321567824133
+baseline,GPT-5.1,3,GPT-5 Nano,2,between_model,0.7817647783932864
+baseline,GPT-5.1,3,GPT-5 Nano,3,between_model,0.8193991564063267
+baseline,GPT-5.1,3,GPT-5 Nano,4,between_model,0.6998924957992735
+baseline,GPT-5.1,3,GPT-5 Nano,5,between_model,0.8121369764389169
+baseline,GPT-5.1,4,GPT-5.1,5,within_model,0.7651707581101943
+baseline,GPT-5.1,4,GPT-5 Mini,1,between_model,0.839113996824798
+baseline,GPT-5.1,4,GPT-5 Mini,2,between_model,0.8555756040009894
+baseline,GPT-5.1,4,GPT-5 Mini,3,between_model,0.866915126774725
+baseline,GPT-5.1,4,GPT-5 Mini,4,between_model,0.9241001364021583
+baseline,GPT-5.1,4,GPT-5 Mini,5,between_model,0.8194733143981345
+baseline,GPT-5.1,4,GPT-5 Nano,1,between_model,0.6670082554586397
+baseline,GPT-5.1,4,GPT-5 Nano,2,between_model,0.8356816263314314
+baseline,GPT-5.1,4,GPT-5 Nano,3,between_model,0.8679712114856055
+baseline,GPT-5.1,4,GPT-5 Nano,4,between_model,0.740877131103389
+baseline,GPT-5.1,4,GPT-5 Nano,5,between_model,0.8628737281042269
+baseline,GPT-5.1,5,GPT-5 Mini,1,between_model,0.6481009341466037
+baseline,GPT-5.1,5,GPT-5 Mini,2,between_model,0.7212608147240112
+baseline,GPT-5.1,5,GPT-5 Mini,3,between_model,0.6262320118499914
+baseline,GPT-5.1,5,GPT-5 Mini,4,between_model,0.6458125043430714
+baseline,GPT-5.1,5,GPT-5 Mini,5,between_model,0.7004267825521084
+baseline,GPT-5.1,5,GPT-5 Nano,1,between_model,0.22990200872032635
+baseline,GPT-5.1,5,GPT-5 Nano,2,between_model,0.42594875775236346
+baseline,GPT-5.1,5,GPT-5 Nano,3,between_model,0.48750572047330776
+baseline,GPT-5.1,5,GPT-5 Nano,4,between_model,0.2492965806884873
+baseline,GPT-5.1,5,GPT-5 Nano,5,between_model,0.5087389378746973
+baseline,GPT-5 Mini,1,GPT-5 Mini,2,within_model,0.8959158002217464
+baseline,GPT-5 Mini,1,GPT-5 Mini,3,within_model,0.7790165742785053
+baseline,GPT-5 Mini,1,GPT-5 Mini,4,within_model,0.8679584891191756
+baseline,GPT-5 Mini,1,GPT-5 Mini,5,within_model,0.8862882540978567
+baseline,GPT-5 Mini,1,GPT-5 Nano,1,between_model,0.7955628480521955
+baseline,GPT-5 Mini,1,GPT-5 Nano,2,between_model,0.7814898674461305
+baseline,GPT-5 Mini,1,GPT-5 Nano,3,between_model,0.7949490990239938
+baseline,GPT-5 Mini,1,GPT-5 Nano,4,between_model,0.6971092905367843
+baseline,GPT-5 Mini,1,GPT-5 Nano,5,between_model,0.8105525106658409
+baseline,GPT-5 Mini,2,GPT-5 Mini,3,within_model,0.8990835095091038
+baseline,GPT-5 Mini,2,GPT-5 Mini,4,within_model,0.9068938263609079
+baseline,GPT-5 Mini,2,GPT-5 Mini,5,within_model,0.9273574545685143
+baseline,GPT-5 Mini,2,GPT-5 Nano,1,between_model,0.6864615204656858
+baseline,GPT-5 Mini,2,GPT-5 Nano,2,between_model,0.7784737875924396
+baseline,GPT-5 Mini,2,GPT-5 Nano,3,between_model,0.784597825501132
+baseline,GPT-5 Mini,2,GPT-5 Nano,4,between_model,0.6783840633314968
+baseline,GPT-5 Mini,2,GPT-5 Nano,5,between_model,0.7983470278859213
+baseline,GPT-5 Mini,3,GPT-5 Mini,4,within_model,0.9342684371661001
+baseline,GPT-5 Mini,3,GPT-5 Mini,5,within_model,0.8187223502423089
+baseline,GPT-5 Mini,3,GPT-5 Nano,1,between_model,0.6928708359240497
+baseline,GPT-5 Mini,3,GPT-5 Nano,2,between_model,0.8192438307144151
+baseline,GPT-5 Mini,3,GPT-5 Nano,3,between_model,0.8230207270146699
+baseline,GPT-5 Mini,3,GPT-5 Nano,4,between_model,0.7296033070845672
+baseline,GPT-5 Mini,3,GPT-5 Nano,5,between_model,0.8118945916415496
+baseline,GPT-5 Mini,4,GPT-5 Mini,5,within_model,0.8840019837800713
+baseline,GPT-5 Mini,4,GPT-5 Nano,1,between_model,0.751556261162532
+baseline,GPT-5 Mini,4,GPT-5 Nano,2,between_model,0.8579644158638896
+baseline,GPT-5 Mini,4,GPT-5 Nano,3,between_model,0.8688790133664597
+baseline,GPT-5 Mini,4,GPT-5 Nano,4,between_model,0.7853526530525257
+baseline,GPT-5 Mini,4,GPT-5 Nano,5,between_model,0.8556298090807362
+baseline,GPT-5 Mini,5,GPT-5 Nano,1,between_model,0.6701196220719554
+baseline,GPT-5 Mini,5,GPT-5 Nano,2,between_model,0.6553784328552795
+baseline,GPT-5 Mini,5,GPT-5 Nano,3,between_model,0.6586979239498091
+baseline,GPT-5 Mini,5,GPT-5 Nano,4,between_model,0.5475860148060907
+baseline,GPT-5 Mini,5,GPT-5 Nano,5,between_model,0.6720252065456255
+baseline,GPT-5 Nano,1,GPT-5 Nano,2,within_model,0.8415789462945803
+baseline,GPT-5 Nano,1,GPT-5 Nano,3,within_model,0.8138278930479385
+baseline,GPT-5 Nano,1,GPT-5 Nano,4,within_model,0.8434079370074433
+baseline,GPT-5 Nano,1,GPT-5 Nano,5,within_model,0.80135992522084
+baseline,GPT-5 Nano,2,GPT-5 Nano,3,within_model,0.982127853353159
+baseline,GPT-5 Nano,2,GPT-5 Nano,4,within_model,0.9604173067964263
+baseline,GPT-5 Nano,2,GPT-5 Nano,5,within_model,0.9766003602008114
+baseline,GPT-5 Nano,3,GPT-5 Nano,4,within_model,0.9401189939757741
+baseline,GPT-5 Nano,3,GPT-5 Nano,5,within_model,0.9649857573653945
+baseline,GPT-5 Nano,4,GPT-5 Nano,5,within_model,0.9327022535340513
+benchmark,GPT-4.1,1,GPT-4.1,2,within_model,0.9753826105849918
+benchmark,GPT-4.1,1,GPT-4.1,3,within_model,0.9817447781376927
+benchmark,GPT-4.1,1,GPT-4.1,4,within_model,0.9801293594924496
+benchmark,GPT-4.1,1,GPT-4.1,5,within_model,0.9726306935041654
+benchmark,GPT-4.1,1,GPT-4.1 Mini,1,between_model,0.9715365751865253
+benchmark,GPT-4.1,1,GPT-4.1 Mini,2,between_model,0.9712802751061321
+benchmark,GPT-4.1,1,GPT-4.1 Mini,3,between_model,0.9707518958991574
+benchmark,GPT-4.1,1,GPT-4.1 Mini,4,between_model,0.9636469918548991
+benchmark,GPT-4.1,1,GPT-4.1 Mini,5,between_model,0.9571356165869062
+benchmark,GPT-4.1,1,GPT-4.1 Nano,1,between_model,0.93577446233924
+benchmark,GPT-4.1,1,GPT-4.1 Nano,2,between_model,0.7074660934162149
+benchmark,GPT-4.1,1,GPT-4.1 Nano,3,between_model,0.5743529509744595
+benchmark,GPT-4.1,1,GPT-4.1 Nano,4,between_model,0.9026723348855656
+benchmark,GPT-4.1,1,GPT-4.1 Nano,5,between_model,0.5143238061476717
+benchmark,GPT-4.1,1,GPT-5.1,1,between_model,0.8586630544352636
+benchmark,GPT-4.1,1,GPT-5.1,2,between_model,0.7788491609761521
+benchmark,GPT-4.1,1,GPT-5.1,3,between_model,0.9359820007928434
+benchmark,GPT-4.1,1,GPT-5.1,4,between_model,0.852072987194926
+benchmark,GPT-4.1,1,GPT-5.1,5,between_model,0.8864402073676523
+benchmark,GPT-4.1,1,GPT-5 Mini,1,between_model,0.9064531513246662
+benchmark,GPT-4.1,1,GPT-5 Mini,2,between_model,0.9251827626288681
+benchmark,GPT-4.1,1,GPT-5 Mini,3,between_model,0.8443311745433553
+benchmark,GPT-4.1,1,GPT-5 Mini,4,between_model,0.8016663966160348
+benchmark,GPT-4.1,1,GPT-5 Mini,5,between_model,0.8757536438248985
+benchmark,GPT-4.1,1,GPT-5 Nano,1,between_model,0.9392513410779938
+benchmark,GPT-4.1,1,GPT-5 Nano,2,between_model,0.9571479309953409
+benchmark,GPT-4.1,1,GPT-5 Nano,3,between_model,0.8953975154899169
+benchmark,GPT-4.1,1,GPT-5 Nano,4,between_model,0.9481123792221948
+benchmark,GPT-4.1,1,GPT-5 Nano,5,between_model,0.9287484942582397
+benchmark,GPT-4.1,2,GPT-4.1,3,within_model,0.9832255484029099
+benchmark,GPT-4.1,2,GPT-4.1,4,within_model,0.9448094173734534
+benchmark,GPT-4.1,2,GPT-4.1,5,within_model,0.9216789693990785
+benchmark,GPT-4.1,2,GPT-4.1 Mini,1,between_model,0.9302274255261787
+benchmark,GPT-4.1,2,GPT-4.1 Mini,2,between_model,0.9550021398817238
+benchmark,GPT-4.1,2,GPT-4.1 Mini,3,between_model,0.9245046615113152
+benchmark,GPT-4.1,2,GPT-4.1 Mini,4,between_model,0.939073387930928
+benchmark,GPT-4.1,2,GPT-4.1 Mini,5,between_model,0.9288921882320564
+benchmark,GPT-4.1,2,GPT-4.1 Nano,1,between_model,0.8666293135023415
+benchmark,GPT-4.1,2,GPT-4.1 Nano,2,between_model,0.6495612644854695
+benchmark,GPT-4.1,2,GPT-4.1 Nano,3,between_model,0.4990599880099672
+benchmark,GPT-4.1,2,GPT-4.1 Nano,4,between_model,0.8172346526639396
+benchmark,GPT-4.1,2,GPT-4.1 Nano,5,between_model,0.4217578353361622
+benchmark,GPT-4.1,2,GPT-5.1,1,between_model,0.8828268387211501
+benchmark,GPT-4.1,2,GPT-5.1,2,between_model,0.8368144766735693
+benchmark,GPT-4.1,2,GPT-5.1,3,between_model,0.9639498080705775
+benchmark,GPT-4.1,2,GPT-5.1,4,between_model,0.9040051475976332
+benchmark,GPT-4.1,2,GPT-5.1,5,between_model,0.9128576718679408
+benchmark,GPT-4.1,2,GPT-5 Mini,1,between_model,0.9074505541937307
+benchmark,GPT-4.1,2,GPT-5 Mini,2,between_model,0.9052305602265802
+benchmark,GPT-4.1,2,GPT-5 Mini,3,between_model,0.8536767573464296
+benchmark,GPT-4.1,2,GPT-5 Mini,4,between_model,0.8473615755708703
+benchmark,GPT-4.1,2,GPT-5 Mini,5,between_model,0.8999259542513591
+benchmark,GPT-4.1,2,GPT-5 Nano,1,between_model,0.894642073392035
+benchmark,GPT-4.1,2,GPT-5 Nano,2,between_model,0.8852680555041429
+benchmark,GPT-4.1,2,GPT-5 Nano,3,between_model,0.839612684957506
+benchmark,GPT-4.1,2,GPT-5 Nano,4,between_model,0.9058246068971623
+benchmark,GPT-4.1,2,GPT-5 Nano,5,between_model,0.842846279487544
+benchmark,GPT-4.1,3,GPT-4.1,4,within_model,0.9571088833803814
+benchmark,GPT-4.1,3,GPT-4.1,5,within_model,0.9570128735621801
+benchmark,GPT-4.1,3,GPT-4.1 Mini,1,between_model,0.9411991575495715
+benchmark,GPT-4.1,3,GPT-4.1 Mini,2,between_model,0.9676348290175861
+benchmark,GPT-4.1,3,GPT-4.1 Mini,3,between_model,0.9570566735813222
+benchmark,GPT-4.1,3,GPT-4.1 Mini,4,between_model,0.9651615772095306
+benchmark,GPT-4.1,3,GPT-4.1 Mini,5,between_model,0.9375561941497856
+benchmark,GPT-4.1,3,GPT-4.1 Nano,1,between_model,0.8870349140402094
+benchmark,GPT-4.1,3,GPT-4.1 Nano,2,between_model,0.6360898814458786
+benchmark,GPT-4.1,3,GPT-4.1 Nano,3,between_model,0.49648257371016546
+benchmark,GPT-4.1,3,GPT-4.1 Nano,4,between_model,0.8421489312473412
+benchmark,GPT-4.1,3,GPT-4.1 Nano,5,between_model,0.4132363734740223
+benchmark,GPT-4.1,3,GPT-5.1,1,between_model,0.9109880472142524
+benchmark,GPT-4.1,3,GPT-5.1,2,between_model,0.8436727426376203
+benchmark,GPT-4.1,3,GPT-5.1,3,between_model,0.9664390716597067
+benchmark,GPT-4.1,3,GPT-5.1,4,between_model,0.9129356148326607
+benchmark,GPT-4.1,3,GPT-5.1,5,between_model,0.9348137960599333
+benchmark,GPT-4.1,3,GPT-5 Mini,1,between_model,0.940359584001204
+benchmark,GPT-4.1,3,GPT-5 Mini,2,between_model,0.9402598172667154
+benchmark,GPT-4.1,3,GPT-5 Mini,3,between_model,0.8902199955765595
+benchmark,GPT-4.1,3,GPT-5 Mini,4,between_model,0.8659815126300154
+benchmark,GPT-4.1,3,GPT-5 Mini,5,between_model,0.9191035016173433
+benchmark,GPT-4.1,3,GPT-5 Nano,1,between_model,0.9281232722971551
+benchmark,GPT-4.1,3,GPT-5 Nano,2,between_model,0.9172330981903499
+benchmark,GPT-4.1,3,GPT-5 Nano,3,between_model,0.8834431486594698
+benchmark,GPT-4.1,3,GPT-5 Nano,4,between_model,0.9276799420004505
+benchmark,GPT-4.1,3,GPT-5 Nano,5,between_model,0.8810106780884382
+benchmark,GPT-4.1,4,GPT-4.1,5,within_model,0.9754537701977163
+benchmark,GPT-4.1,4,GPT-4.1 Mini,1,between_model,0.988327422964063
+benchmark,GPT-4.1,4,GPT-4.1 Mini,2,between_model,0.9590579296695425
+benchmark,GPT-4.1,4,GPT-4.1 Mini,3,between_model,0.9732140230305217
+benchmark,GPT-4.1,4,GPT-4.1 Mini,4,between_model,0.9587892835769806
+benchmark,GPT-4.1,4,GPT-4.1 Mini,5,between_model,0.9668353210527932
+benchmark,GPT-4.1,4,GPT-4.1 Nano,1,between_model,0.9647021590079033
+benchmark,GPT-4.1,4,GPT-4.1 Nano,2,between_model,0.7254879678433277
+benchmark,GPT-4.1,4,GPT-4.1 Nano,3,between_model,0.5786227928929749
+benchmark,GPT-4.1,4,GPT-4.1 Nano,4,between_model,0.9479995700815336
+benchmark,GPT-4.1,4,GPT-4.1 Nano,5,between_model,0.6074817567090288
+benchmark,GPT-4.1,4,GPT-5.1,1,between_model,0.7940520584561113
+benchmark,GPT-4.1,4,GPT-5.1,2,between_model,0.7222490286077644
+benchmark,GPT-4.1,4,GPT-5.1,3,between_model,0.8918168568909659
+benchmark,GPT-4.1,4,GPT-5.1,4,between_model,0.7908428777294368
+benchmark,GPT-4.1,4,GPT-5.1,5,between_model,0.8427281841146094
+benchmark,GPT-4.1,4,GPT-5 Mini,1,between_model,0.9072678082010244
+benchmark,GPT-4.1,4,GPT-5 Mini,2,between_model,0.934494519090319
+benchmark,GPT-4.1,4,GPT-5 Mini,3,between_model,0.8127103180580199
+benchmark,GPT-4.1,4,GPT-5 Mini,4,between_model,0.7837999963975674
+benchmark,GPT-4.1,4,GPT-5 Mini,5,between_model,0.8490502247852462
+benchmark,GPT-4.1,4,GPT-5 Nano,1,between_model,0.9580728744415419
+benchmark,GPT-4.1,4,GPT-5 Nano,2,between_model,0.9582817798219445
+benchmark,GPT-4.1,4,GPT-5 Nano,3,between_model,0.9260975718210983
+benchmark,GPT-4.1,4,GPT-5 Nano,4,between_model,0.9736712715799413
+benchmark,GPT-4.1,4,GPT-5 Nano,5,between_model,0.951105983623029
+benchmark,GPT-4.1,5,GPT-4.1 Mini,1,between_model,0.9742109187933817
+benchmark,GPT-4.1,5,GPT-4.1 Mini,2,between_model,0.9601890135500064
+benchmark,GPT-4.1,5,GPT-4.1 Mini,3,between_model,0.9822465643913073
+benchmark,GPT-4.1,5,GPT-4.1 Mini,4,between_model,0.9749145516634575
+benchmark,GPT-4.1,5,GPT-4.1 Mini,5,between_model,0.9654242444568554
+benchmark,GPT-4.1,5,GPT-4.1 Nano,1,between_model,0.9497304689979399
+benchmark,GPT-4.1,5,GPT-4.1 Nano,2,between_model,0.7058796861245168
+benchmark,GPT-4.1,5,GPT-4.1 Nano,3,between_model,0.6044196848121581
+benchmark,GPT-4.1,5,GPT-4.1 Nano,4,between_model,0.9345250395363186
+benchmark,GPT-4.1,5,GPT-4.1 Nano,5,between_model,0.5678634059979888
+benchmark,GPT-4.1,5,GPT-5.1,1,between_model,0.8459193545271857
+benchmark,GPT-4.1,5,GPT-5.1,2,between_model,0.7243598555512734
+benchmark,GPT-4.1,5,GPT-5.1,3,between_model,0.8914454035203245
+benchmark,GPT-4.1,5,GPT-5.1,4,between_model,0.796276792998467
+benchmark,GPT-4.1,5,GPT-5.1,5,between_model,0.8650508839610374
+benchmark,GPT-4.1,5,GPT-5 Mini,1,between_model,0.9134920989982794
+benchmark,GPT-4.1,5,GPT-5 Mini,2,between_model,0.9409619572991
+benchmark,GPT-4.1,5,GPT-5 Mini,3,between_model,0.8368130788973606
+benchmark,GPT-4.1,5,GPT-5 Mini,4,between_model,0.7811615660723409
+benchmark,GPT-4.1,5,GPT-5 Mini,5,between_model,0.8428517012068659
+benchmark,GPT-4.1,5,GPT-5 Nano,1,between_model,0.9481447705338576
+benchmark,GPT-4.1,5,GPT-5 Nano,2,between_model,0.9620279180040094
+benchmark,GPT-4.1,5,GPT-5 Nano,3,between_model,0.9243059106182436
+benchmark,GPT-4.1,5,GPT-5 Nano,4,between_model,0.9577509373490658
+benchmark,GPT-4.1,5,GPT-5 Nano,5,between_model,0.9534705458636623
+benchmark,GPT-4.1 Mini,1,GPT-4.1 Mini,2,within_model,0.9549811013059494
+benchmark,GPT-4.1 Mini,1,GPT-4.1 Mini,3,within_model,0.9689767493834701
+benchmark,GPT-4.1 Mini,1,GPT-4.1 Mini,4,within_model,0.9646822476974634
+benchmark,GPT-4.1 Mini,1,GPT-4.1 Mini,5,within_model,0.983290714815063
+benchmark,GPT-4.1 Mini,1,GPT-4.1 Nano,1,between_model,0.9770238175110169
+benchmark,GPT-4.1 Mini,1,GPT-4.1 Nano,2,between_model,0.7059806428554624
+benchmark,GPT-4.1 Mini,1,GPT-4.1 Nano,3,between_model,0.5646695739672323
+benchmark,GPT-4.1 Mini,1,GPT-4.1 Nano,4,between_model,0.9624774631389433
+benchmark,GPT-4.1 Mini,1,GPT-4.1 Nano,5,between_model,0.5985700694943267
+benchmark,GPT-4.1 Mini,1,GPT-5.1,1,between_model,0.7651107773199131
+benchmark,GPT-4.1 Mini,1,GPT-5.1,2,between_model,0.684545153127261
+benchmark,GPT-4.1 Mini,1,GPT-5.1,3,between_model,0.8673324265310467
+benchmark,GPT-4.1 Mini,1,GPT-5.1,4,between_model,0.7624760287206215
+benchmark,GPT-4.1 Mini,1,GPT-5.1,5,between_model,0.8333158842208765
+benchmark,GPT-4.1 Mini,1,GPT-5 Mini,1,between_model,0.9031460168704664
+benchmark,GPT-4.1 Mini,1,GPT-5 Mini,2,between_model,0.9280029826384476
+benchmark,GPT-4.1 Mini,1,GPT-5 Mini,3,between_model,0.799579137375285
+benchmark,GPT-4.1 Mini,1,GPT-5 Mini,4,between_model,0.7687498402863089
+benchmark,GPT-4.1 Mini,1,GPT-5 Mini,5,between_model,0.833031062800806
+benchmark,GPT-4.1 Mini,1,GPT-5 Nano,1,between_model,0.9380033546331962
+benchmark,GPT-4.1 Mini,1,GPT-5 Nano,2,between_model,0.9655922500372589
+benchmark,GPT-4.1 Mini,1,GPT-5 Nano,3,between_model,0.914791590920415
+benchmark,GPT-4.1 Mini,1,GPT-5 Nano,4,between_model,0.9727031806880253
+benchmark,GPT-4.1 Mini,1,GPT-5 Nano,5,between_model,0.9431741987376874
+benchmark,GPT-4.1 Mini,2,GPT-4.1 Mini,3,within_model,0.947239926172256
+benchmark,GPT-4.1 Mini,2,GPT-4.1 Mini,4,within_model,0.9803623207779728
+benchmark,GPT-4.1 Mini,2,GPT-4.1 Mini,5,within_model,0.962736038002584
+benchmark,GPT-4.1 Mini,2,GPT-4.1 Nano,1,between_model,0.9118433660122617
+benchmark,GPT-4.1 Mini,2,GPT-4.1 Nano,2,between_model,0.6433695077106769
+benchmark,GPT-4.1 Mini,2,GPT-4.1 Nano,3,between_model,0.5440742127334915
+benchmark,GPT-4.1 Mini,2,GPT-4.1 Nano,4,between_model,0.8813261061928717
+benchmark,GPT-4.1 Mini,2,GPT-4.1 Nano,5,between_model,0.46089448023678575
+benchmark,GPT-4.1 Mini,2,GPT-5.1,1,between_model,0.8392303573118767
+benchmark,GPT-4.1 Mini,2,GPT-5.1,2,between_model,0.7563642583143797
+benchmark,GPT-4.1 Mini,2,GPT-5.1,3,between_model,0.9248682043803924
+benchmark,GPT-4.1 Mini,2,GPT-5.1,4,between_model,0.8448177673278261
+benchmark,GPT-4.1 Mini,2,GPT-5.1,5,between_model,0.896954715614266
+benchmark,GPT-4.1 Mini,2,GPT-5 Mini,1,between_model,0.9194905430829262
+benchmark,GPT-4.1 Mini,2,GPT-5 Mini,2,between_model,0.9306242532252343
+benchmark,GPT-4.1 Mini,2,GPT-5 Mini,3,between_model,0.8416040799440317
+benchmark,GPT-4.1 Mini,2,GPT-5 Mini,4,between_model,0.8264594976014931
+benchmark,GPT-4.1 Mini,2,GPT-5 Mini,5,between_model,0.8752140991676218
+benchmark,GPT-4.1 Mini,2,GPT-5 Nano,1,between_model,0.9315908925681836
+benchmark,GPT-4.1 Mini,2,GPT-5 Nano,2,between_model,0.9348232310783694
+benchmark,GPT-4.1 Mini,2,GPT-5 Nano,3,between_model,0.8922715108651225
+benchmark,GPT-4.1 Mini,2,GPT-5 Nano,4,between_model,0.9359230522616033
+benchmark,GPT-4.1 Mini,2,GPT-5 Nano,5,between_model,0.9119930353205609
+benchmark,GPT-4.1 Mini,3,GPT-4.1 Mini,4,within_model,0.9609522584888311
+benchmark,GPT-4.1 Mini,3,GPT-4.1 Mini,5,within_model,0.9380303551130541
+benchmark,GPT-4.1 Mini,3,GPT-4.1 Nano,1,between_model,0.9539451161708703
+benchmark,GPT-4.1 Mini,3,GPT-4.1 Nano,2,between_model,0.6863955923097839
+benchmark,GPT-4.1 Mini,3,GPT-4.1 Nano,3,between_model,0.5738561904791656
+benchmark,GPT-4.1 Mini,3,GPT-4.1 Nano,4,between_model,0.9230693522478611
+benchmark,GPT-4.1 Mini,3,GPT-4.1 Nano,5,between_model,0.5649197834445197
+benchmark,GPT-4.1 Mini,3,GPT-5.1,1,between_model,0.8108671760538364
+benchmark,GPT-4.1 Mini,3,GPT-5.1,2,between_model,0.6994938797018306
+benchmark,GPT-4.1 Mini,3,GPT-5.1,3,between_model,0.897060321766567
+benchmark,GPT-4.1 Mini,3,GPT-5.1,4,between_model,0.7974204763011916
+benchmark,GPT-4.1 Mini,3,GPT-5.1,5,between_model,0.8526977828338452
+benchmark,GPT-4.1 Mini,3,GPT-5 Mini,1,between_model,0.9185436823399145
+benchmark,GPT-4.1 Mini,3,GPT-5 Mini,2,between_model,0.9450291156614442
+benchmark,GPT-4.1 Mini,3,GPT-5 Mini,3,between_model,0.8253235464067116
+benchmark,GPT-4.1 Mini,3,GPT-5 Mini,4,between_model,0.7510092128917881
+benchmark,GPT-4.1 Mini,3,GPT-5 Mini,5,between_model,0.8307269940404777
+benchmark,GPT-4.1 Mini,3,GPT-5 Nano,1,between_model,0.9361907586958798
+benchmark,GPT-4.1 Mini,3,GPT-5 Nano,2,between_model,0.9616882420164028
+benchmark,GPT-4.1 Mini,3,GPT-5 Nano,3,between_model,0.8990509183116924
+benchmark,GPT-4.1 Mini,3,GPT-5 Nano,4,between_model,0.940486647232415
+benchmark,GPT-4.1 Mini,3,GPT-5 Nano,5,between_model,0.9429338756165836
+benchmark,GPT-4.1 Mini,4,GPT-4.1 Mini,5,within_model,0.9708163030679033
+benchmark,GPT-4.1 Mini,4,GPT-4.1 Nano,1,between_model,0.9260622184698414
+benchmark,GPT-4.1 Mini,4,GPT-4.1 Nano,2,between_model,0.6623154882183786
+benchmark,GPT-4.1 Mini,4,GPT-4.1 Nano,3,between_model,0.5292349173893727
+benchmark,GPT-4.1 Mini,4,GPT-4.1 Nano,4,between_model,0.8995603391277381
+benchmark,GPT-4.1 Mini,4,GPT-4.1 Nano,5,between_model,0.5009956641895335
+benchmark,GPT-4.1 Mini,4,GPT-5.1,1,between_model,0.8495914603109983
+benchmark,GPT-4.1 Mini,4,GPT-5.1,2,between_model,0.7620812454401784
+benchmark,GPT-4.1 Mini,4,GPT-5.1,3,between_model,0.9060342379289769
+benchmark,GPT-4.1 Mini,4,GPT-5.1,4,between_model,0.831252229886049
+benchmark,GPT-4.1 Mini,4,GPT-5.1,5,between_model,0.9017731957124094
+benchmark,GPT-4.1 Mini,4,GPT-5 Mini,1,between_model,0.9500120807517337
+benchmark,GPT-4.1 Mini,4,GPT-5 Mini,2,between_model,0.9448559002013835
+benchmark,GPT-4.1 Mini,4,GPT-5 Mini,3,between_model,0.8750220648503008
+benchmark,GPT-4.1 Mini,4,GPT-5 Mini,4,between_model,0.8282072680048738
+benchmark,GPT-4.1 Mini,4,GPT-5 Mini,5,between_model,0.882374195416335
+benchmark,GPT-4.1 Mini,4,GPT-5 Nano,1,between_model,0.9139778203848112
+benchmark,GPT-4.1 Mini,4,GPT-5 Nano,2,between_model,0.930308794254257
+benchmark,GPT-4.1 Mini,4,GPT-5 Nano,3,between_model,0.8983027160376797
+benchmark,GPT-4.1 Mini,4,GPT-5 Nano,4,between_model,0.9454211059553772
+benchmark,GPT-4.1 Mini,4,GPT-5 Nano,5,between_model,0.9065109863672944
+benchmark,GPT-4.1 Mini,5,GPT-4.1 Nano,1,between_model,0.9492999029877445
+benchmark,GPT-4.1 Mini,5,GPT-4.1 Nano,2,between_model,0.6794870457390392
+benchmark,GPT-4.1 Mini,5,GPT-4.1 Nano,3,between_model,0.5569217261825458
+benchmark,GPT-4.1 Mini,5,GPT-4.1 Nano,4,between_model,0.9367925305845158
+benchmark,GPT-4.1 Mini,5,GPT-4.1 Nano,5,between_model,0.5479364210093141
+benchmark,GPT-4.1 Mini,5,GPT-5.1,1,between_model,0.7915651774809059
+benchmark,GPT-4.1 Mini,5,GPT-5.1,2,between_model,0.7046152170914278
+benchmark,GPT-4.1 Mini,5,GPT-5.1,3,between_model,0.8613851548315951
+benchmark,GPT-4.1 Mini,5,GPT-5.1,4,between_model,0.7606882389867058
+benchmark,GPT-4.1 Mini,5,GPT-5.1,5,between_model,0.8422430759982863
+benchmark,GPT-4.1 Mini,5,GPT-5 Mini,1,between_model,0.8952651633471062
+benchmark,GPT-4.1 Mini,5,GPT-5 Mini,2,between_model,0.9137705405280376
+benchmark,GPT-4.1 Mini,5,GPT-5 Mini,3,between_model,0.8008106982123692
+benchmark,GPT-4.1 Mini,5,GPT-5 Mini,4,between_model,0.7957253083511534
+benchmark,GPT-4.1 Mini,5,GPT-5 Mini,5,between_model,0.8401731729393607
+benchmark,GPT-4.1 Mini,5,GPT-5 Nano,1,between_model,0.9250828088275291
+benchmark,GPT-4.1 Mini,5,GPT-5 Nano,2,between_model,0.9377640339648914
+benchmark,GPT-4.1 Mini,5,GPT-5 Nano,3,between_model,0.8960862014225
+benchmark,GPT-4.1 Mini,5,GPT-5 Nano,4,between_model,0.9596975116989269
+benchmark,GPT-4.1 Mini,5,GPT-5 Nano,5,between_model,0.9160409296011758
+benchmark,GPT-4.1 Nano,1,GPT-4.1 Nano,2,within_model,0.7412284721827006
+benchmark,GPT-4.1 Nano,1,GPT-4.1 Nano,3,within_model,0.6382512674152326
+benchmark,GPT-4.1 Nano,1,GPT-4.1 Nano,4,within_model,0.9861650979689044
+benchmark,GPT-4.1 Nano,1,GPT-4.1 Nano,5,within_model,0.6664323123796759
+benchmark,GPT-4.1 Nano,1,GPT-5.1,1,between_model,0.6780523390920343
+benchmark,GPT-4.1 Nano,1,GPT-5.1,2,between_model,0.5894864191199287
+benchmark,GPT-4.1 Nano,1,GPT-5.1,3,between_model,0.7968074488187032
+benchmark,GPT-4.1 Nano,1,GPT-5.1,4,between_model,0.6798949799872372
+benchmark,GPT-4.1 Nano,1,GPT-5.1,5,between_model,0.7589816321261511
+benchmark,GPT-4.1 Nano,1,GPT-5 Mini,1,between_model,0.8508303708638745
+benchmark,GPT-4.1 Nano,1,GPT-5 Mini,2,between_model,0.8669571312503952
+benchmark,GPT-4.1 Nano,1,GPT-5 Mini,3,between_model,0.7503954732605134
+benchmark,GPT-4.1 Nano,1,GPT-5 Mini,4,between_model,0.6905994892853514
+benchmark,GPT-4.1 Nano,1,GPT-5 Mini,5,between_model,0.763048901237132
+benchmark,GPT-4.1 Nano,1,GPT-5 Nano,1,between_model,0.9186482120206252
+benchmark,GPT-4.1 Nano,1,GPT-5 Nano,2,between_model,0.9506167852757603
+benchmark,GPT-4.1 Nano,1,GPT-5 Nano,3,between_model,0.9072590165123489
+benchmark,GPT-4.1 Nano,1,GPT-5 Nano,4,between_model,0.9660468391644049
+benchmark,GPT-4.1 Nano,1,GPT-5 Nano,5,between_model,0.9477365548820598
+benchmark,GPT-4.1 Nano,2,GPT-4.1 Nano,3,within_model,0.7512141050966316
+benchmark,GPT-4.1 Nano,2,GPT-4.1 Nano,4,within_model,0.7405530535310878
+benchmark,GPT-4.1 Nano,2,GPT-4.1 Nano,5,within_model,0.7938066081880056
+benchmark,GPT-4.1 Nano,2,GPT-5.1,1,between_model,0.5728867460159637
+benchmark,GPT-4.1 Nano,2,GPT-5.1,2,between_model,0.4200289739084273
+benchmark,GPT-4.1 Nano,2,GPT-5.1,3,between_model,0.5981218379991776
+benchmark,GPT-4.1 Nano,2,GPT-5.1,4,between_model,0.48152550989622295
+benchmark,GPT-4.1 Nano,2,GPT-5.1,5,between_model,0.4941283369401004
+benchmark,GPT-4.1 Nano,2,GPT-5 Mini,1,between_model,0.5544311412369227
+benchmark,GPT-4.1 Nano,2,GPT-5 Mini,2,between_model,0.5788361263565086
+benchmark,GPT-4.1 Nano,2,GPT-5 Mini,3,between_model,0.5339495106788896
+benchmark,GPT-4.1 Nano,2,GPT-5 Mini,4,between_model,0.46242299194116343
+benchmark,GPT-4.1 Nano,2,GPT-5 Mini,5,between_model,0.510892442863891
+benchmark,GPT-4.1 Nano,2,GPT-5 Nano,1,between_model,0.6807289744850948
+benchmark,GPT-4.1 Nano,2,GPT-5 Nano,2,between_model,0.6597416414802181
+benchmark,GPT-4.1 Nano,2,GPT-5 Nano,3,between_model,0.6250454703994862
+benchmark,GPT-4.1 Nano,2,GPT-5 Nano,4,between_model,0.7027983116487713
+benchmark,GPT-4.1 Nano,2,GPT-5 Nano,5,between_model,0.7279068628946245
+benchmark,GPT-4.1 Nano,3,GPT-4.1 Nano,4,within_model,0.6481843120104183
+benchmark,GPT-4.1 Nano,3,GPT-4.1 Nano,5,within_model,0.611658664525497
+benchmark,GPT-4.1 Nano,3,GPT-5.1,1,between_model,0.45139934343886545
+benchmark,GPT-4.1 Nano,3,GPT-5.1,2,between_model,0.2407083112179139
+benchmark,GPT-4.1 Nano,3,GPT-5.1,3,between_model,0.4517599701005342
+benchmark,GPT-4.1 Nano,3,GPT-5.1,4,between_model,0.37801176070242687
+benchmark,GPT-4.1 Nano,3,GPT-5.1,5,between_model,0.4249053242681423
+benchmark,GPT-4.1 Nano,3,GPT-5 Mini,1,between_model,0.3407272587127817
+benchmark,GPT-4.1 Nano,3,GPT-5 Mini,2,between_model,0.41982699835822607
+benchmark,GPT-4.1 Nano,3,GPT-5 Mini,3,between_model,0.47019714011626657
+benchmark,GPT-4.1 Nano,3,GPT-5 Mini,4,between_model,0.32027900873207066
+benchmark,GPT-4.1 Nano,3,GPT-5 Mini,5,between_model,0.40609402255114924
+benchmark,GPT-4.1 Nano,3,GPT-5 Nano,1,between_model,0.5970963217009995
+benchmark,GPT-4.1 Nano,3,GPT-5 Nano,2,between_model,0.5378380542673262
+benchmark,GPT-4.1 Nano,3,GPT-5 Nano,3,between_model,0.5627344342652252
+benchmark,GPT-4.1 Nano,3,GPT-5 Nano,4,between_model,0.6178439739787901
+benchmark,GPT-4.1 Nano,3,GPT-5 Nano,5,between_model,0.6156661810973337
+benchmark,GPT-4.1 Nano,4,GPT-4.1 Nano,5,within_model,0.7068600546897614
+benchmark,GPT-4.1 Nano,4,GPT-5.1,1,between_model,0.6326002461236676
+benchmark,GPT-4.1 Nano,4,GPT-5.1,2,between_model,0.5316974506974376
+benchmark,GPT-4.1 Nano,4,GPT-5.1,3,between_model,0.7315341084549914
+benchmark,GPT-4.1 Nano,4,GPT-5.1,4,between_model,0.6045927606086876
+benchmark,GPT-4.1 Nano,4,GPT-5.1,5,between_model,0.6992284989036679
+benchmark,GPT-4.1 Nano,4,GPT-5 Mini,1,between_model,0.812326019806806
+benchmark,GPT-4.1 Nano,4,GPT-5 Mini,2,between_model,0.844759559778718
+benchmark,GPT-4.1 Nano,4,GPT-5 Mini,3,between_model,0.7110663257006962
+benchmark,GPT-4.1 Nano,4,GPT-5 Mini,4,between_model,0.6532238540318777
+benchmark,GPT-4.1 Nano,4,GPT-5 Mini,5,between_model,0.7256017514110347
+benchmark,GPT-4.1 Nano,4,GPT-5 Nano,1,between_model,0.908520268902173
+benchmark,GPT-4.1 Nano,4,GPT-5 Nano,2,between_model,0.9335769565494101
+benchmark,GPT-4.1 Nano,4,GPT-5 Nano,3,between_model,0.9070072452748231
+benchmark,GPT-4.1 Nano,4,GPT-5 Nano,4,between_model,0.9557577974399706
+benchmark,GPT-4.1 Nano,4,GPT-5 Nano,5,between_model,0.9488445403062947
+benchmark,GPT-4.1 Nano,5,GPT-5.1,1,between_model,0.23530446395361343
+benchmark,GPT-4.1 Nano,5,GPT-5.1,2,between_model,0.11930242356405624
+benchmark,GPT-4.1 Nano,5,GPT-5.1,3,between_model,0.34255835857316536
+benchmark,GPT-4.1 Nano,5,GPT-5.1,4,between_model,0.13806887775330642
+benchmark,GPT-4.1 Nano,5,GPT-5.1,5,between_model,0.20719769769355867
+benchmark,GPT-4.1 Nano,5,GPT-5 Mini,1,between_model,0.42565391045442236
+benchmark,GPT-4.1 Nano,5,GPT-5 Mini,2,between_model,0.44662990383959206
+benchmark,GPT-4.1 Nano,5,GPT-5 Mini,3,between_model,0.27650554907248726
+benchmark,GPT-4.1 Nano,5,GPT-5 Mini,4,between_model,0.1559863242847297
+benchmark,GPT-4.1 Nano,5,GPT-5 Mini,5,between_model,0.2046052357776685
+benchmark,GPT-4.1 Nano,5,GPT-5 Nano,1,between_model,0.494647386740295
+benchmark,GPT-4.1 Nano,5,GPT-5 Nano,2,between_model,0.5461758639044054
+benchmark,GPT-4.1 Nano,5,GPT-5 Nano,3,between_model,0.6011389143655425
+benchmark,GPT-4.1 Nano,5,GPT-5 Nano,4,between_model,0.5909202040514291
+benchmark,GPT-4.1 Nano,5,GPT-5 Nano,5,between_model,0.6196204186529822
+benchmark,GPT-5.1,1,GPT-5.1,2,within_model,0.9109664087226099
+benchmark,GPT-5.1,1,GPT-5.1,3,within_model,0.9274883711050579
+benchmark,GPT-5.1,1,GPT-5.1,4,within_model,0.9191188596932507
+benchmark,GPT-5.1,1,GPT-5.1,5,within_model,0.9033472778164182
+benchmark,GPT-5.1,1,GPT-5 Mini,1,between_model,0.8212379802659289
+benchmark,GPT-5.1,1,GPT-5 Mini,2,between_model,0.8149145516859881
+benchmark,GPT-5.1,1,GPT-5 Mini,3,between_model,0.8758865454138471
+benchmark,GPT-5.1,1,GPT-5 Mini,4,between_model,0.8690796270599975
+benchmark,GPT-5.1,1,GPT-5 Mini,5,between_model,0.8854874684130033
+benchmark,GPT-5.1,1,GPT-5 Nano,1,between_model,0.8098163556441575
+benchmark,GPT-5.1,1,GPT-5 Nano,2,between_model,0.7588301729497139
+benchmark,GPT-5.1,1,GPT-5 Nano,3,between_model,0.7281829741590548
+benchmark,GPT-5.1,1,GPT-5 Nano,4,between_model,0.7592710924014745
+benchmark,GPT-5.1,1,GPT-5 Nano,5,between_model,0.7227046864957557
+benchmark,GPT-5.1,2,GPT-5.1,3,within_model,0.8896273861319648
+benchmark,GPT-5.1,2,GPT-5.1,4,within_model,0.9183749985720803
+benchmark,GPT-5.1,2,GPT-5.1,5,within_model,0.8467183254641687
+benchmark,GPT-5.1,2,GPT-5 Mini,1,between_model,0.7794160808941486
+benchmark,GPT-5.1,2,GPT-5 Mini,2,between_model,0.7063665418412358
+benchmark,GPT-5.1,2,GPT-5 Mini,3,between_model,0.8289191493471718
+benchmark,GPT-5.1,2,GPT-5 Mini,4,between_model,0.8918922243404257
+benchmark,GPT-5.1,2,GPT-5 Mini,5,between_model,0.8682872322884169
+benchmark,GPT-5.1,2,GPT-5 Nano,1,between_model,0.7348746042949232
+benchmark,GPT-5.1,2,GPT-5 Nano,2,between_model,0.6762039434467739
+benchmark,GPT-5.1,2,GPT-5 Nano,3,between_model,0.6559328203366456
+benchmark,GPT-5.1,2,GPT-5 Nano,4,between_model,0.6845888392921873
+benchmark,GPT-5.1,2,GPT-5 Nano,5,between_model,0.5982121783209278
+benchmark,GPT-5.1,3,GPT-5.1,4,within_model,0.9484418268777127
+benchmark,GPT-5.1,3,GPT-5.1,5,within_model,0.9321547826755091
+benchmark,GPT-5.1,3,GPT-5 Mini,1,between_model,0.8876076235395525
+benchmark,GPT-5.1,3,GPT-5 Mini,2,between_model,0.881197706560785
+benchmark,GPT-5.1,3,GPT-5 Mini,3,between_model,0.8789475447397106
+benchmark,GPT-5.1,3,GPT-5 Mini,4,between_model,0.8832260966301387
+benchmark,GPT-5.1,3,GPT-5 Mini,5,between_model,0.905173540101788
+benchmark,GPT-5.1,3,GPT-5 Nano,1,between_model,0.8775972837446506
+benchmark,GPT-5.1,3,GPT-5 Nano,2,between_model,0.8604456765196189
+benchmark,GPT-5.1,3,GPT-5 Nano,3,between_model,0.8064717748517878
+benchmark,GPT-5.1,3,GPT-5 Nano,4,between_model,0.8446167676114232
+benchmark,GPT-5.1,3,GPT-5 Nano,5,between_model,0.7981257786195665
+benchmark,GPT-5.1,4,GPT-5.1,5,within_model,0.9549859784800203
+benchmark,GPT-5.1,4,GPT-5 Mini,1,between_model,0.8277910267798343
+benchmark,GPT-5.1,4,GPT-5 Mini,2,between_model,0.8038969817545748
+benchmark,GPT-5.1,4,GPT-5 Mini,3,between_model,0.8959114015858104
+benchmark,GPT-5.1,4,GPT-5 Mini,4,between_model,0.8906565305844751
+benchmark,GPT-5.1,4,GPT-5 Mini,5,between_model,0.910578795628289
+benchmark,GPT-5.1,4,GPT-5 Nano,1,between_model,0.7920423617797777
+benchmark,GPT-5.1,4,GPT-5 Nano,2,between_model,0.7413987482425561
+benchmark,GPT-5.1,4,GPT-5 Nano,3,between_model,0.7344937109959886
+benchmark,GPT-5.1,4,GPT-5 Nano,4,between_model,0.777364274336206
+benchmark,GPT-5.1,4,GPT-5 Nano,5,between_model,0.6595858769953198
+benchmark,GPT-5.1,5,GPT-5 Mini,1,between_model,0.883264763056051
+benchmark,GPT-5.1,5,GPT-5 Mini,2,between_model,0.8959261778717191
+benchmark,GPT-5.1,5,GPT-5 Mini,3,between_model,0.9474011688358066
+benchmark,GPT-5.1,5,GPT-5 Mini,4,between_model,0.8942866387279281
+benchmark,GPT-5.1,5,GPT-5 Mini,5,between_model,0.9449724313252045
+benchmark,GPT-5.1,5,GPT-5 Nano,1,between_model,0.8249241149001918
+benchmark,GPT-5.1,5,GPT-5 Nano,2,between_model,0.799161094239291
+benchmark,GPT-5.1,5,GPT-5 Nano,3,between_model,0.8036350326987711
+benchmark,GPT-5.1,5,GPT-5 Nano,4,between_model,0.8506843172169891
+benchmark,GPT-5.1,5,GPT-5 Nano,5,between_model,0.7335778878790686
+benchmark,GPT-5 Mini,1,GPT-5 Mini,2,within_model,0.9409553168941599
+benchmark,GPT-5 Mini,1,GPT-5 Mini,3,within_model,0.8600538976836762
+benchmark,GPT-5 Mini,1,GPT-5 Mini,4,within_model,0.8273946363766916
+benchmark,GPT-5 Mini,1,GPT-5 Mini,5,within_model,0.8628872172308776
+benchmark,GPT-5 Mini,1,GPT-5 Nano,1,between_model,0.8434792242695982
+benchmark,GPT-5 Mini,1,GPT-5 Nano,2,between_model,0.8557940235168751
+benchmark,GPT-5 Mini,1,GPT-5 Nano,3,between_model,0.8662586159678421
+benchmark,GPT-5 Mini,1,GPT-5 Nano,4,between_model,0.8821945462946731
+benchmark,GPT-5 Mini,1,GPT-5 Nano,5,between_model,0.8393695015340341
+benchmark,GPT-5 Mini,2,GPT-5 Mini,3,within_model,0.8546730381708848
+benchmark,GPT-5 Mini,2,GPT-5 Mini,4,within_model,0.7952940883456656
+benchmark,GPT-5 Mini,2,GPT-5 Mini,5,within_model,0.8730823022577107
+benchmark,GPT-5 Mini,2,GPT-5 Nano,1,between_model,0.8989535747339417
+benchmark,GPT-5 Mini,2,GPT-5 Nano,2,between_model,0.9043753365827519
+benchmark,GPT-5 Mini,2,GPT-5 Nano,3,between_model,0.865808470478006
+benchmark,GPT-5 Mini,2,GPT-5 Nano,4,between_model,0.8984105018399836
+benchmark,GPT-5 Mini,2,GPT-5 Nano,5,between_model,0.8833921674471529
+benchmark,GPT-5 Mini,3,GPT-5 Mini,4,within_model,0.9030877331297634
+benchmark,GPT-5 Mini,3,GPT-5 Mini,5,within_model,0.9520913983569388
+benchmark,GPT-5 Mini,3,GPT-5 Nano,1,between_model,0.8102915194033949
+benchmark,GPT-5 Mini,3,GPT-5 Nano,2,between_model,0.760180073329706
+benchmark,GPT-5 Mini,3,GPT-5 Nano,3,between_model,0.8072560042110414
+benchmark,GPT-5 Mini,3,GPT-5 Nano,4,between_model,0.842356345056106
+benchmark,GPT-5 Mini,3,GPT-5 Nano,5,between_model,0.7099008575515962
+benchmark,GPT-5 Mini,4,GPT-5 Mini,5,within_model,0.9597419785401903
+benchmark,GPT-5 Mini,4,GPT-5 Nano,1,between_model,0.8316318330802064
+benchmark,GPT-5 Mini,4,GPT-5 Nano,2,between_model,0.724570330924
+benchmark,GPT-5 Mini,4,GPT-5 Nano,3,between_model,0.7253455457566609
+benchmark,GPT-5 Mini,4,GPT-5 Nano,4,between_model,0.7876076959660374
+benchmark,GPT-5 Mini,4,GPT-5 Nano,5,between_model,0.680415351006871
+benchmark,GPT-5 Mini,5,GPT-5 Nano,1,between_model,0.8679677982625825
+benchmark,GPT-5 Mini,5,GPT-5 Nano,2,between_model,0.7963571929498099
+benchmark,GPT-5 Mini,5,GPT-5 Nano,3,between_model,0.7709884452966647
+benchmark,GPT-5 Mini,5,GPT-5 Nano,4,between_model,0.8462632414946402
+benchmark,GPT-5 Mini,5,GPT-5 Nano,5,between_model,0.7571582578528222
+benchmark,GPT-5 Nano,1,GPT-5 Nano,2,within_model,0.9443417431304773
+benchmark,GPT-5 Nano,1,GPT-5 Nano,3,within_model,0.8836406065011115
+benchmark,GPT-5 Nano,1,GPT-5 Nano,4,within_model,0.9334370464862097
+benchmark,GPT-5 Nano,1,GPT-5 Nano,5,within_model,0.942032954363561
+benchmark,GPT-5 Nano,2,GPT-5 Nano,3,within_model,0.8897488302950192
+benchmark,GPT-5 Nano,2,GPT-5 Nano,4,within_model,0.9231129991834034
+benchmark,GPT-5 Nano,2,GPT-5 Nano,5,within_model,0.9625474715229064
+benchmark,GPT-5 Nano,3,GPT-5 Nano,4,within_model,0.9608064325407967
+benchmark,GPT-5 Nano,3,GPT-5 Nano,5,within_model,0.8796907600645242
+benchmark,GPT-5 Nano,4,GPT-5 Nano,5,within_model,0.9124243522471088

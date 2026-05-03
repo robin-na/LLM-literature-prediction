@@ -1,0 +1,241 @@
+model,variant_id,variant_kind,repeat,row_id,n,rmse,correlation,r2,directional_accuracy
+GPT-4.1,baseline,baseline,1,baseline_joint_reasoning,20,6.659046308229082,0.5504489095313153,-0.014476164354762178,0.6
+GPT-4.1,baseline,baseline,2,baseline_joint_reasoning_rep1,20,6.599983329785428,0.558907624283579,0.0034399927749780845,0.7
+GPT-4.1,baseline,baseline,3,baseline_joint_reasoning_rep2,20,7.451261046120122,0.49473114443680055,-0.2702152856615323,0.65
+GPT-4.1,baseline,baseline,4,baseline_joint_reasoning_rep3,20,6.819448358587047,0.5039690637359443,-0.06393786947078861,0.65
+GPT-4.1,baseline,baseline,5,baseline_joint_reasoning_rep4,20,6.61579560101239,0.5751415389442401,-0.0013408537023764655,0.7
+GPT-4.1,benchmark_pgg_ms,benchmark_paper,1,paper_analysis_report_joint/PGG_MS_202502,20,5.991958757692078,0.802778591428998,0.17859865748694315,0.6
+GPT-4.1,benchmark_pgg_ms,benchmark_paper,2,paper_analysis_report_joint_rep2/PGG_MS_202502,20,6.262342689495045,0.8178926004302669,0.1027955139791934,0.6
+GPT-4.1,benchmark_pgg_ms,benchmark_paper,3,paper_analysis_report_joint_rep3/PGG_MS_202502,20,6.257662212136519,0.8264544752160783,0.10413615475686366,0.7
+GPT-4.1,benchmark_pgg_ms,benchmark_paper,4,paper_analysis_report_joint_rep4/PGG_MS_202502,20,6.327356139836445,0.73859244852923,0.08406988847635244,0.65
+GPT-4.1,benchmark_pgg_ms,benchmark_paper,5,paper_analysis_report_joint_rep5/PGG_MS_202502,20,5.620336260340623,0.7563867928189209,0.27732608835325134,0.75
+GPT-4.1,benchmark_pgg_ms_full,benchmark_paper_full_text,1,paper_full_text_joint_rep1/PGG_MS_202502,20,7.284632668630969,0.6306331326953577,-0.2140402672668349,0.5
+GPT-4.1,benchmark_pgg_ms_full,benchmark_paper_full_text,2,paper_full_text_joint_rep2/PGG_MS_202502,20,6.407553107813091,0.7217155950385583,0.06070457667334139,0.65
+GPT-4.1,benchmark_pgg_ms_full,benchmark_paper_full_text,3,paper_full_text_joint_rep3/PGG_MS_202502,20,6.8728418101519155,0.681342877390442,-0.08066347569523535,0.55
+GPT-4.1,benchmark_pgg_ms_full,benchmark_paper_full_text,4,paper_full_text_joint_rep4/PGG_MS_202502,20,6.404285737845851,0.7527215945393929,0.06166227241735944,0.5
+GPT-4.1,benchmark_pgg_ms_full,benchmark_paper_full_text,5,paper_full_text_joint_rep5/PGG_MS_202502,20,7.020148859610035,0.6691343678959748,-0.12748408403353784,0.5
+GPT-4.1,broad_all_2011,collection_direct,1,collection_analysis_report_joint/broad_all_2011,20,7.309444317361477,0.504611790022699,-0.22232445694869263,0.55
+GPT-4.1,broad_all_2011,collection_direct,2,collection_analysis_report_joint_rep2/broad_all_2011,20,7.024641262070796,0.570292783574195,-0.12892756708013708,0.55
+GPT-4.1,broad_all_2011,collection_direct,3,collection_analysis_report_joint_rep3/broad_all_2011,20,7.226147800028999,0.5112893678233269,-0.1946246113128598,0.55
+GPT-4.1,broad_all_2011,collection_direct,4,collection_analysis_report_joint_rep4/broad_all_2011,20,6.998224042326553,0.5558830399719596,-0.12045252918810934,0.65
+GPT-4.1,broad_all_2011,collection_direct,5,collection_analysis_report_joint_rep5/broad_all_2011,20,6.7528807837834055,0.6030259332996906,-0.043268135098108784,0.6
+GPT-4.1,leaf_a0_b0_c0,subset_summary,1,collection_analysis_report_joint/leaf_a0_b0_c0,20,6.847241661545753,0.6060568639852731,-0.07262789961492544,0.55
+GPT-4.1,leaf_a0_b0_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b0_c0,20,6.890307080176324,0.6045344566910591,-0.08616281973425566,0.55
+GPT-4.1,leaf_a0_b0_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b0_c0,20,6.473658048031183,0.644395643739534,0.041223704634328784,0.7
+GPT-4.1,leaf_a0_b0_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b0_c0,20,6.133774272103585,0.6448403410638819,0.13925728343083987,0.65
+GPT-4.1,leaf_a0_b0_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b0_c0,20,6.694103330878042,0.6145391234537693,-0.02518584504349386,0.45
+GPT-4.1,leaf_a0_b0_c1,subset_summary,1,collection_analysis_report_joint/leaf_a0_b0_c1,20,6.185450819932982,0.6289873607998825,0.12469281422823153,0.8
+GPT-4.1,leaf_a0_b0_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b0_c1,20,6.453702528032613,0.5554250937927417,0.04712558890156704,0.65
+GPT-4.1,leaf_a0_b0_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b0_c1,20,6.707884582424271,0.5385144630972053,-0.029411321236683996,0.6
+GPT-4.1,leaf_a0_b0_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b0_c1,20,6.913823103159052,0.586357545781738,-0.093589431130922,0.45
+GPT-4.1,leaf_a0_b0_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b0_c1,20,6.450595265400943,0.6022240989198294,0.048042928448008726,0.55
+GPT-4.1,leaf_a0_b1_c0,subset_summary,1,collection_analysis_report_joint/leaf_a0_b1_c0,20,5.300080302812882,0.7203932676086844,0.3573379176626482,0.7
+GPT-4.1,leaf_a0_b1_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b1_c0,20,6.107452840039459,0.6472835094064433,0.14662872193868504,0.6
+GPT-4.1,leaf_a0_b1_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b1_c0,20,7.972004962813079,0.49592759248371165,-0.45396147099040185,0.7
+GPT-4.1,leaf_a0_b1_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b1_c0,20,6.388300155461128,0.6615750154218237,0.06634075031480424,0.65
+GPT-4.1,leaf_a0_b1_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b1_c0,20,5.880422217551842,0.6821777571418606,0.20889378398668368,0.7
+GPT-4.1,leaf_a0_b1_c1,subset_summary,1,collection_analysis_report_joint/leaf_a0_b1_c1,20,6.1144838882375,0.6676947894504754,0.14466274742476048,0.6
+GPT-4.1,leaf_a0_b1_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b1_c1,20,6.792137721917008,0.5632243100302818,-0.05543318244740414,0.55
+GPT-4.1,leaf_a0_b1_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b1_c1,20,6.531211569421001,0.6074350910032487,0.024100080724352213,0.6
+GPT-4.1,leaf_a0_b1_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b1_c1,20,6.610724447858974,0.6002840803467929,0.00019365762555345611,0.6
+GPT-4.1,leaf_a0_b1_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b1_c1,20,5.764701329117378,0.6695237350665332,0.23972379196225624,0.75
+GPT-4.1,leaf_a1_b0_c0,subset_summary,1,collection_analysis_report_joint/leaf_a1_b0_c0,20,6.519539008232218,0.6098424757678147,0.027585214285283488,0.65
+GPT-4.1,leaf_a1_b0_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b0_c0,20,6.124383868140117,0.6714405101938805,0.14189074674456392,0.7
+GPT-4.1,leaf_a1_b0_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b0_c0,20,5.8901367509956,0.6773939276135225,0.20627778957123166,0.85
+GPT-4.1,leaf_a1_b0_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b0_c0,20,6.697004499597891,0.605504093567074,-0.026074651643405167,0.55
+GPT-4.1,leaf_a1_b0_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b0_c0,20,6.553904438336499,0.5928552448781883,0.01730671870046141,0.6
+GPT-4.1,leaf_a1_b0_c1,subset_summary,1,collection_analysis_report_joint/leaf_a1_b0_c1,20,5.7594072712357836,0.7346566599832797,0.24111956178673266,0.75
+GPT-4.1,leaf_a1_b0_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b0_c1,20,6.14715218527663,0.6566404365621976,0.1354985867455939,0.7
+GPT-4.1,leaf_a1_b0_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b0_c1,20,6.215881353575089,0.5995024499823449,0.11605913943131918,0.7
+GPT-4.1,leaf_a1_b0_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b0_c1,20,6.157469372773806,0.6510117382048632,0.13259424737824743,0.7
+GPT-4.1,leaf_a1_b0_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b0_c1,20,5.851024500025168,0.647156766032927,0.2167838922507357,0.7
+GPT-4.1,leaf_a1_b1_c0,subset_summary,1,collection_analysis_report_joint/leaf_a1_b1_c0,20,6.947246381405018,0.6274714534762924,-0.10418839867885832,0.55
+GPT-4.1,leaf_a1_b1_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b1_c0,20,6.241773117870618,0.7239121868393786,0.10867983031459216,0.75
+GPT-4.1,leaf_a1_b1_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b1_c0,20,5.8149678043025865,0.7386779802702547,0.22640722245493938,0.75
+GPT-4.1,leaf_a1_b1_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b1_c0,20,6.266789136831196,0.6407289981804682,0.10152097855991737,0.6
+GPT-4.1,leaf_a1_b1_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b1_c0,20,6.834432262887504,0.6315126977759079,-0.06861844081487156,0.7
+GPT-4.1,leaf_a1_b1_c1,subset_summary,1,collection_analysis_report_joint/leaf_a1_b1_c1,20,7.6377129648740825,0.6897628187029246,-0.33457948110153835,0.7
+GPT-4.1,leaf_a1_b1_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b1_c1,20,7.160079589723081,0.5956591187623685,-0.1728797200422021,0.7
+GPT-4.1,leaf_a1_b1_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b1_c1,20,7.387359871083269,0.5907122856937476,-0.2485222584212361,0.7
+GPT-4.1,leaf_a1_b1_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b1_c1,20,7.548943427456344,0.5498686031861525,-0.3037373839382138,0.7
+GPT-4.1,leaf_a1_b1_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b1_c1,20,7.368191830899684,0.6081980936312121,-0.2420515632553759,0.65
+GPT-4.1 Mini,baseline,baseline,1,baseline_joint_reasoning,20,8.694978182468683,0.5994195279383704,-0.7296362176190383,0.4
+GPT-4.1 Mini,baseline,baseline,2,baseline_joint_reasoning_rep1,20,8.326424835524689,0.520869352474212,-0.5861158653814582,0.65
+GPT-4.1 Mini,baseline,baseline,3,baseline_joint_reasoning_rep2,20,8.158521808451901,0.587222411426571,-0.5227925202130426,0.45
+GPT-4.1 Mini,baseline,baseline,4,baseline_joint_reasoning_rep3,20,8.617328579464926,0.6197047600949798,-0.6988814849781124,0.4
+GPT-4.1 Mini,baseline,baseline,5,baseline_joint_reasoning_rep4,20,8.122862732009855,0.6421931099221534,-0.5095100392524818,0.45
+GPT-4.1 Mini,benchmark_pgg_ms,benchmark_paper,1,paper_analysis_report_joint/PGG_MS_202502,20,7.350930866176295,0.7190091110140443,-0.23623903913763633,0.55
+GPT-4.1 Mini,benchmark_pgg_ms,benchmark_paper,2,paper_analysis_report_joint_rep2/PGG_MS_202502,20,6.338451935182816,0.8061580097296409,0.08085468014782737,0.75
+GPT-4.1 Mini,benchmark_pgg_ms,benchmark_paper,3,paper_analysis_report_joint_rep3/PGG_MS_202502,20,7.232680244383588,0.7920766366045677,-0.19678547110809697,0.55
+GPT-4.1 Mini,benchmark_pgg_ms,benchmark_paper,4,paper_analysis_report_joint_rep4/PGG_MS_202502,20,7.701800686386131,0.7618027975739504,-0.3570702446213312,0.6
+GPT-4.1 Mini,benchmark_pgg_ms,benchmark_paper,5,paper_analysis_report_joint_rep5/PGG_MS_202502,20,7.098740086278029,0.683656797382078,-0.15286997246291945,0.6
+GPT-4.1 Mini,benchmark_pgg_ms_full,benchmark_paper_full_text,1,paper_full_text_joint_rep1/PGG_MS_202502,20,6.593076045500623,0.6290028879694465,0.005524822666191032,0.65
+GPT-4.1 Mini,benchmark_pgg_ms_full,benchmark_paper_full_text,2,paper_full_text_joint_rep2/PGG_MS_202502,20,7.647353120178984,0.5960592525091227,-0.3379505616422027,0.5
+GPT-4.1 Mini,benchmark_pgg_ms_full,benchmark_paper_full_text,3,paper_full_text_joint_rep3/PGG_MS_202502,20,7.703446045162402,0.620450340354574,-0.3576501365284368,0.45
+GPT-4.1 Mini,benchmark_pgg_ms_full,benchmark_paper_full_text,4,paper_full_text_joint_rep4/PGG_MS_202502,20,7.533112341323153,0.6589607748280569,-0.29827491435718856,0.5
+GPT-4.1 Mini,benchmark_pgg_ms_full,benchmark_paper_full_text,5,paper_full_text_joint_rep5/PGG_MS_202502,20,7.105230928240159,0.6975287695165389,-0.15497922504728234,0.65
+GPT-4.1 Mini,broad_all_2011,collection_direct,1,collection_analysis_report_joint/broad_all_2011,20,7.411113968085648,0.5326359920119832,-0.2565644281038937,0.7
+GPT-4.1 Mini,broad_all_2011,collection_direct,2,collection_analysis_report_joint_rep2/broad_all_2011,20,7.516589017669944,0.5873804984044997,-0.2925858208869523,0.4
+GPT-4.1 Mini,broad_all_2011,collection_direct,3,collection_analysis_report_joint_rep3/broad_all_2011,20,8.073514156868503,0.6139195206182706,-0.4912243948758328,0.5
+GPT-4.1 Mini,broad_all_2011,collection_direct,4,collection_analysis_report_joint_rep4/broad_all_2011,20,7.672068249191174,0.5809735132355895,-0.3466126582092435,0.5
+GPT-4.1 Mini,broad_all_2011,collection_direct,5,collection_analysis_report_joint_rep5/broad_all_2011,20,7.835417702593757,0.5791246366697635,-0.40456578321343195,0.6
+GPT-4.1 Mini,leaf_a0_b0_c0,subset_summary,1,collection_analysis_report_joint/leaf_a0_b0_c0,20,7.326595638132041,0.6109915349588801,-0.2280674584940896,0.65
+GPT-4.1 Mini,leaf_a0_b0_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b0_c0,20,7.988338574424997,0.5569729822112948,-0.45992553419068627,0.45
+GPT-4.1 Mini,leaf_a0_b0_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b0_c0,20,7.2620258692111666,0.6202382431571112,-0.20651676419010223,0.65
+GPT-4.1 Mini,leaf_a0_b0_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b0_c0,20,8.14541997221902,0.6273865360636559,-0.5179055177278811,0.45
+GPT-4.1 Mini,leaf_a0_b0_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b0_c0,20,7.5988481782538875,0.6664587442859113,-0.32103192295128125,0.45
+GPT-4.1 Mini,leaf_a0_b0_c1,subset_summary,1,collection_analysis_report_joint/leaf_a0_b0_c1,20,7.173561136958036,0.649883414497295,-0.1773006540252502,0.55
+GPT-4.1 Mini,leaf_a0_b0_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b0_c1,20,6.528372911212606,0.6408078948428395,0.024948206457652833,0.7
+GPT-4.1 Mini,leaf_a0_b0_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b0_c1,20,6.847185682975185,0.6866640503685609,-0.07261036147793587,0.6
+GPT-4.1 Mini,leaf_a0_b0_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b0_c1,20,7.071503596248189,0.612573683967498,-0.14404026662215585,0.55
+GPT-4.1 Mini,leaf_a0_b0_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b0_c1,20,7.028529611882556,0.658671590600593,-0.130177703573914,0.55
+GPT-4.1 Mini,leaf_a0_b1_c0,subset_summary,1,collection_analysis_report_joint/leaf_a0_b1_c0,20,7.249528959312095,0.6484477799554657,-0.20236785085559195,0.65
+GPT-4.1 Mini,leaf_a0_b1_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b1_c0,20,6.660691301457914,0.6878851492705824,-0.014977441104517597,0.65
+GPT-4.1 Mini,leaf_a0_b1_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b1_c0,20,6.415469175988231,0.7346605094646602,0.05838227999940493,0.7
+GPT-4.1 Mini,leaf_a0_b1_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b1_c0,20,6.503432243170313,0.6511174623595372,0.03238405332407712,0.6
+GPT-4.1 Mini,leaf_a0_b1_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b1_c0,20,7.042115478869139,0.688409020760234,-0.13455110300852358,0.5
+GPT-4.1 Mini,leaf_a0_b1_c1,subset_summary,1,collection_analysis_report_joint/leaf_a0_b1_c1,20,6.453013091065428,0.6541810898811514,0.04732916560843903,0.75
+GPT-4.1 Mini,leaf_a0_b1_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b1_c1,20,6.683048615291152,0.6870721796008477,-0.021802634612802185,0.65
+GPT-4.1 Mini,leaf_a0_b1_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b1_c1,20,6.853873603846699,0.6819091942264203,-0.0747067078878707,0.6
+GPT-4.1 Mini,leaf_a0_b1_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b1_c1,20,6.777171951649304,0.6202100283520984,-0.050787231656094445,0.65
+GPT-4.1 Mini,leaf_a0_b1_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b1_c1,20,7.345772986253262,0.6311561393431495,-0.23450480014066288,0.55
+GPT-4.1 Mini,leaf_a1_b0_c0,subset_summary,1,collection_analysis_report_joint/leaf_a1_b0_c0,20,6.9009570013732535,0.6214506896959382,-0.08952304386486065,0.7
+GPT-4.1 Mini,leaf_a1_b0_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b0_c0,20,6.4739568593837475,0.7017034162692489,0.04113519212672245,0.75
+GPT-4.1 Mini,leaf_a1_b0_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b0_c0,20,5.86841219196453,0.7032392816224025,0.2121219546976164,0.85
+GPT-4.1 Mini,leaf_a1_b0_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b0_c0,20,6.773790266492036,0.650239248638599,-0.04973884596916833,0.7
+GPT-4.1 Mini,leaf_a1_b0_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b0_c0,20,6.823752126080369,0.6297790340031448,-0.06528119985945668,0.6
+GPT-4.1 Mini,leaf_a1_b0_c1,subset_summary,1,collection_analysis_report_joint/leaf_a1_b0_c1,20,6.988687263510604,0.6004052729103397,-0.11740083290602077,0.65
+GPT-4.1 Mini,leaf_a1_b0_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b0_c1,20,6.756877055945666,0.6577240699092713,-0.04450328708003792,0.55
+GPT-4.1 Mini,leaf_a1_b0_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b0_c1,20,7.43868788758177,0.6004560994857999,-0.2659322136387918,0.55
+GPT-4.1 Mini,leaf_a1_b0_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b0_c1,20,7.789956807324882,0.5561274837306707,-0.38831455471015297,0.6
+GPT-4.1 Mini,leaf_a1_b0_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b0_c1,20,8.091570747286998,0.5620904918370289,-0.4979021657617997,0.6
+GPT-4.1 Mini,leaf_a1_b1_c0,subset_summary,1,collection_analysis_report_joint/leaf_a1_b1_c0,20,9.722366493300903,0.5896389852361799,-1.1625280715945983,0.45
+GPT-4.1 Mini,leaf_a1_b1_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b1_c0,20,7.868058210125212,0.6553003197489929,-0.41629233897726947,0.45
+GPT-4.1 Mini,leaf_a1_b1_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b1_c0,20,8.158849732903889,0.6784269057466462,-0.5229149372268316,0.5
+GPT-4.1 Mini,leaf_a1_b1_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b1_c0,20,8.168134122541723,0.6407590379975479,-0.526382921336646,0.45
+GPT-4.1 Mini,leaf_a1_b1_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b1_c0,20,6.820393800226949,0.6453759679379087,-0.06423289652841935,0.65
+GPT-4.1 Mini,leaf_a1_b1_c1,subset_summary,1,collection_analysis_report_joint/leaf_a1_b1_c1,20,10.565272457224559,0.55571552614322,-1.5537547040495001,0.5
+GPT-4.1 Mini,leaf_a1_b1_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b1_c1,20,7.824123928117525,0.6518889631194263,-0.4005196895301322,0.55
+GPT-4.1 Mini,leaf_a1_b1_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b1_c1,20,10.12595467065442,0.6302865267287501,-1.345793265867722,0.55
+GPT-4.1 Mini,leaf_a1_b1_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b1_c1,20,8.205110851668374,0.5789797335707616,-0.5402339181378744,0.6
+GPT-4.1 Mini,leaf_a1_b1_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b1_c1,20,7.650155722536591,0.7311060789900804,-0.3389314057179389,0.6
+GPT-5.1,baseline,baseline,1,baseline_joint_reasoning_rep1,20,6.534181126022271,0.6311749649891302,0.02321245096880642,0.65
+GPT-5.1,baseline,baseline,2,baseline_joint_reasoning_rep2,20,8.275444325328769,0.530755954052544,-0.5667525846626795,0.6
+GPT-5.1,baseline,baseline,3,baseline_joint_reasoning_rep3,20,12.35921502658687,0.6111393111566699,-2.4946167465775,0.4
+GPT-5.1,baseline,baseline,4,baseline_joint_reasoning_rep4,20,9.067689197264018,0.6802429975866384,-0.8810962999178122,0.4
+GPT-5.1,baseline,baseline,5,baseline_joint_reasoning_rep5,20,7.94372740764293,0.6299560130444035,-0.4436650506597828,0.65
+GPT-5.1,benchmark_pgg_ms,benchmark_paper,1,paper_analysis_report_joint_rep1/PGG_MS_202502,20,5.9298732680091435,0.7651188123055689,0.19553231947993044,0.7
+GPT-5.1,benchmark_pgg_ms,benchmark_paper,2,paper_analysis_report_joint_rep2/PGG_MS_202502,20,8.586210235581781,0.6940768431380028,-0.6866338553458933,0.5
+GPT-5.1,benchmark_pgg_ms,benchmark_paper,3,paper_analysis_report_joint_rep3/PGG_MS_202502,20,6.2941597540641645,0.8734734723635716,0.09365550605646233,0.7
+GPT-5.1,benchmark_pgg_ms,benchmark_paper,4,paper_analysis_report_joint_rep4/PGG_MS_202502,20,6.757678664165946,0.8350853136740445,-0.04475113296504607,0.7
+GPT-5.1,benchmark_pgg_ms,benchmark_paper,5,paper_analysis_report_joint_rep5/PGG_MS_202502,20,7.209195072117639,0.8568272443214582,-0.18902594642947967,0.7
+GPT-5.1,benchmark_pgg_ms_full,benchmark_paper_full_text,1,paper_full_text_joint_rep1/PGG_MS_202502,20,6.957871891894847,0.7102231329155353,-0.10756859767914384,0.65
+GPT-5.1,benchmark_pgg_ms_full,benchmark_paper_full_text,2,paper_full_text_joint_rep2/PGG_MS_202502,20,10.296983213466062,0.6136381868991747,-1.4257039022611298,0.5
+GPT-5.1,benchmark_pgg_ms_full,benchmark_paper_full_text,3,paper_full_text_joint_rep3/PGG_MS_202502,20,6.526126656800493,0.803546452276078,0.025619074259875974,0.75
+GPT-5.1,benchmark_pgg_ms_full,benchmark_paper_full_text,4,paper_full_text_joint_rep4/PGG_MS_202502,20,7.768822242600047,0.6954868356475413,-0.3807916320232756,0.65
+GPT-5.1,benchmark_pgg_ms_full,benchmark_paper_full_text,5,paper_full_text_joint_rep5/PGG_MS_202502,20,6.8644828634608785,0.7405628359313496,-0.07803640659906819,0.65
+GPT-5.1,broad_all_2011,collection_direct,1,collection_analysis_report_joint_rep1/broad_all_2011,20,8.737749525880513,0.5414494973231202,-0.7466945281231097,0.7
+GPT-5.1,broad_all_2011,collection_direct,2,collection_analysis_report_joint_rep2/broad_all_2011,20,8.290168497644506,0.42846068308592,-0.5723328670322774,0.6
+GPT-5.1,broad_all_2011,collection_direct,3,collection_analysis_report_joint_rep3/broad_all_2011,20,8.639049523020848,0.4087299864662952,-0.7074567215952019,0.7
+GPT-5.1,broad_all_2011,collection_direct,4,collection_analysis_report_joint_rep4/broad_all_2011,20,7.460301155795478,0.48605233663865455,-0.27329928745013476,0.7
+GPT-5.1,broad_all_2011,collection_direct,5,collection_analysis_report_joint_rep5/broad_all_2011,20,8.380385566466561,0.5185407966251855,-0.6067406368614996,0.65
+GPT-5.1,leaf_a0_b0_c0,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a0_b0_c0,20,7.482361206948626,0.5587095173148123,-0.2808406926486122,0.7
+GPT-5.1,leaf_a0_b0_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b0_c0,20,7.046615019964888,0.6020886181027802,-0.13600140305789798,0.75
+GPT-5.1,leaf_a0_b0_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b0_c0,20,7.287710042414333,0.5487053492479379,-0.2150662201195972,0.7
+GPT-5.1,leaf_a0_b0_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b0_c0,20,8.611787121229407,0.5532276356256632,-0.6966972224804713,0.6
+GPT-5.1,leaf_a0_b0_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b0_c0,20,8.395009145676648,0.5445607355844868,-0.6123529798822693,0.55
+GPT-5.1,leaf_a0_b0_c1,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a0_b0_c1,20,7.013252117169195,0.46959955474118487,-0.12526984389364282,0.65
+GPT-5.1,leaf_a0_b0_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b0_c1,20,5.927531452761895,0.5831185540976151,0.19616759197189626,0.75
+GPT-5.1,leaf_a0_b0_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b0_c1,20,7.325754141323559,0.48692854299201777,-0.22778537509506425,0.65
+GPT-5.1,leaf_a0_b0_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b0_c1,20,7.004750498935202,0.5059408973200418,-0.12254334382402954,0.75
+GPT-5.1,leaf_a0_b0_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b0_c1,20,6.596370194631257,0.4678784874041582,0.004530819893545868,0.75
+GPT-5.1,leaf_a0_b1_c0,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a0_b1_c0,20,7.263926753268077,0.6272734986250406,-0.20714847459310204,0.65
+GPT-5.1,leaf_a0_b1_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b1_c0,20,8.394169681665744,0.5355066410953031,-0.612030539583907,0.6
+GPT-5.1,leaf_a0_b1_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b1_c0,20,5.80120613330317,0.7108945443948596,0.23006445061197778,0.75
+GPT-5.1,leaf_a0_b1_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b1_c0,20,7.653668755523429,0.5547088369030774,-0.34016139118828703,0.6
+GPT-5.1,leaf_a0_b1_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b1_c0,20,8.034613090837897,0.46346642051618525,-0.4768885157079268,0.7
+GPT-5.1,leaf_a0_b1_c1,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a0_b1_c1,20,6.786300937220952,0.6131356458489051,-0.05362000092068331,0.7
+GPT-5.1,leaf_a0_b1_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b1_c1,20,5.862221014301595,0.6909685210593426,0.21378350119640221,0.75
+GPT-5.1,leaf_a0_b1_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b1_c1,20,7.674000164414161,0.6352014734957105,-0.3472909287768191,0.6
+GPT-5.1,leaf_a0_b1_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b1_c1,20,7.5542639522475135,0.45745055128267165,-0.30557578996122214,0.7
+GPT-5.1,leaf_a0_b1_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b1_c1,20,7.337860298858429,0.5341337413507974,-0.2318466756577422,0.7
+GPT-5.1,leaf_a1_b0_c0,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a1_b0_c0,20,7.9395635387135775,0.5579640780299222,-0.4421519935558136,0.55
+GPT-5.1,leaf_a1_b0_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b0_c0,20,7.066067368580429,0.5098575189668726,-0.14228197781344698,0.7
+GPT-5.1,leaf_a1_b0_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b0_c0,20,4.610775889959395,0.744156366903749,0.5136310915974666,0.85
+GPT-5.1,leaf_a1_b0_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b0_c0,20,7.8387039965868,0.571981344627987,-0.4057442230218433,0.7
+GPT-5.1,leaf_a1_b0_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b0_c0,20,7.577151784820493,0.43203722172044845,-0.31349901532615454,0.65
+GPT-5.1,leaf_a1_b0_c1,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a1_b0_c1,20,7.427040988082292,0.4136285514579739,-0.26197112725956795,0.65
+GPT-5.1,leaf_a1_b0_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b0_c1,20,7.610306461615025,0.45496271269959343,-0.32501888784016475,0.65
+GPT-5.1,leaf_a1_b0_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b0_c1,20,8.24311495537089,0.35229288140467613,-0.5545349485884989,0.65
+GPT-5.1,leaf_a1_b0_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b0_c1,20,7.907653133831742,0.5067410954431328,-0.4305827999768195,0.55
+GPT-5.1,leaf_a1_b0_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b0_c1,20,8.063265129721923,0.6154046556549003,-0.48744068978127886,0.55
+GPT-5.1,leaf_a1_b1_c0,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a1_b1_c0,20,7.188097235584791,0.5579215113131768,-0.18207671904067824,0.7
+GPT-5.1,leaf_a1_b1_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b1_c0,20,7.149365722546338,0.5500058402819794,-0.16937230762984168,0.7
+GPT-5.1,leaf_a1_b1_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b1_c0,20,8.377825757701212,0.5417392088293719,-0.6057592212504259,0.7
+GPT-5.1,leaf_a1_b1_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b1_c0,20,7.260837657888197,0.5285309042394429,-0.20612197639288077,0.7
+GPT-5.1,leaf_a1_b1_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b1_c0,20,7.520417068216555,0.583101609436035,-0.2939027330734014,0.6
+GPT-5.1,leaf_a1_b1_c1,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a1_b1_c1,20,6.777409422876287,0.6163585239604911,-0.05086087184311028,0.75
+GPT-5.1,leaf_a1_b1_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b1_c1,20,8.52718058180643,0.47895828927707385,-0.6635225709517256,0.6
+GPT-5.1,leaf_a1_b1_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b1_c1,20,7.851566281397167,0.4394090023663232,-0.41036129158752166,0.7
+GPT-5.1,leaf_a1_b1_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b1_c1,20,7.598546744135752,0.594958595676915,-0.3209271185953251,0.75
+GPT-5.1,leaf_a1_b1_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b1_c1,20,8.286168961941904,0.3567428832788933,-0.5708161102876472,0.65
+GPT-5 Mini,baseline,baseline,1,baseline_joint_reasoning_rep1,20,10.835834538511088,0.4037802080299411,-1.6862257443098092,0.5
+GPT-5 Mini,baseline,baseline,2,baseline_joint_reasoning_rep2,20,8.307159351911238,0.49417298991900843,-0.5787845224696571,0.5
+GPT-5 Mini,baseline,baseline,3,baseline_joint_reasoning_rep3,20,8.989475330828354,0.6021703158126074,-0.8487852486851513,0.55
+GPT-5 Mini,baseline,baseline,4,baseline_joint_reasoning_rep4,20,8.17686567820723,0.5744703536767511,-0.5296480050760033,0.6
+GPT-5 Mini,baseline,baseline,5,baseline_joint_reasoning_rep5,20,8.81867982016999,0.4571359882168512,-0.7792006448153677,0.65
+GPT-5 Mini,benchmark_pgg_ms,benchmark_paper,1,paper_analysis_report_joint_rep1/PGG_MS_202502,20,8.500202145247988,0.7766751134035549,-0.6530130613026881,0.55
+GPT-5 Mini,benchmark_pgg_ms,benchmark_paper,2,paper_analysis_report_joint_rep2/PGG_MS_202502,20,7.906952272754331,0.8210105325759407,-0.43032922401611384,0.65
+GPT-5 Mini,benchmark_pgg_ms,benchmark_paper,3,paper_analysis_report_joint_rep3/PGG_MS_202502,20,4.971932168600242,0.7960651646481633,0.43445369748306306,0.8
+GPT-5 Mini,benchmark_pgg_ms,benchmark_paper,4,paper_analysis_report_joint_rep4/PGG_MS_202502,20,5.009737666699884,0.7439270332075616,0.42582041517910996,0.7
+GPT-5 Mini,benchmark_pgg_ms,benchmark_paper,5,paper_analysis_report_joint_rep5/PGG_MS_202502,20,6.024838215329078,0.8067701301819988,0.16955943354127945,0.65
+GPT-5 Mini,benchmark_pgg_ms_full,benchmark_paper_full_text,1,paper_full_text_joint_rep1/PGG_MS_202502,20,6.501562049820312,0.7097022463726211,0.03294048833977192,0.65
+GPT-5 Mini,benchmark_pgg_ms_full,benchmark_paper_full_text,2,paper_full_text_joint_rep2/PGG_MS_202502,20,9.065708869350857,0.8024008524581139,-0.880274749763204,0.5
+GPT-5 Mini,benchmark_pgg_ms_full,benchmark_paper_full_text,3,paper_full_text_joint_rep3/PGG_MS_202502,20,7.267888210300829,0.755691649052295,-0.20846549524910452,0.65
+GPT-5 Mini,benchmark_pgg_ms_full,benchmark_paper_full_text,4,paper_full_text_joint_rep4/PGG_MS_202502,20,9.17450435460247,0.773437355695461,-0.9256750329474708,0.55
+GPT-5 Mini,benchmark_pgg_ms_full,benchmark_paper_full_text,5,paper_full_text_joint_rep5/PGG_MS_202502,20,7.909785871302343,0.6669094374892057,-0.4313545761116979,0.55
+GPT-5 Mini,broad_all_2011,collection_direct,1,collection_analysis_report_joint_rep1/broad_all_2011,20,8.06893811645702,0.5051834267132813,-0.489534432096691,0.6
+GPT-5 Mini,broad_all_2011,collection_direct,2,collection_analysis_report_joint_rep2/broad_all_2011,20,7.5175325847710885,0.5061572045264513,-0.29291036118168123,0.6
+GPT-5 Mini,broad_all_2011,collection_direct,3,collection_analysis_report_joint_rep3/broad_all_2011,20,8.03760374305152,0.45525158176597386,-0.47798817835078733,0.55
+GPT-5 Mini,broad_all_2011,collection_direct,4,collection_analysis_report_joint_rep4/broad_all_2011,20,6.944166515497289,0.5397357863639376,-0.10320959406928742,0.7
+GPT-5 Mini,broad_all_2011,collection_direct,5,collection_analysis_report_joint_rep5/broad_all_2011,20,7.245130092593776,0.5672780459581914,-0.20090914883337696,0.7
+GPT-5 Mini,leaf_a0_b0_c0,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a0_b0_c0,20,7.2493467464056325,0.6379173384553166,-0.20230740991145457,0.65
+GPT-5 Mini,leaf_a0_b0_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b0_c0,20,11.347811674469483,0.5342260476501797,-1.9460629124448152,0.4
+GPT-5 Mini,leaf_a0_b0_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b0_c0,20,11.866649391377468,0.6117929506011043,-2.221617675757604,0.5
+GPT-5 Mini,leaf_a0_b0_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b0_c0,20,7.429270274438113,0.5626644939230646,-0.2627288226153812,0.65
+GPT-5 Mini,leaf_a0_b0_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b0_c0,20,8.952125704239661,0.5924950985333579,-0.8334544339060679,0.55
+GPT-5 Mini,leaf_a0_b0_c1,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a0_b0_c1,20,7.942311635084384,0.4551058642886155,-0.44315050147645985,0.7
+GPT-5 Mini,leaf_a0_b0_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b0_c1,20,12.117402628151483,0.30335115386547046,-2.359207679519537,0.4
+GPT-5 Mini,leaf_a0_b0_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b0_c1,20,6.428700547783124,0.6095948649547356,0.054494258245568084,0.7
+GPT-5 Mini,leaf_a0_b0_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b0_c1,20,6.394874586923214,0.606674441080318,0.06441803624088038,0.65
+GPT-5 Mini,leaf_a0_b0_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b0_c1,20,7.197422349257804,0.4176114911480267,-0.1851457231119482,0.75
+GPT-5 Mini,leaf_a0_b1_c0,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a0_b1_c0,20,6.021780907538403,0.6076112477873353,0.1704020348316344,0.7
+GPT-5 Mini,leaf_a0_b1_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b1_c0,20,7.878282574970826,0.568859489128949,-0.4199756107274659,0.65
+GPT-5 Mini,leaf_a0_b1_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b1_c0,20,7.771258564784834,0.5690570661622053,-0.3816578072731096,0.65
+GPT-5 Mini,leaf_a0_b1_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b1_c0,20,6.811081627703979,0.5809208785191348,-0.06132879593331397,0.65
+GPT-5 Mini,leaf_a0_b1_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b1_c0,20,7.148313118243126,0.5968900596461834,-0.16902799856555206,0.7
+GPT-5 Mini,leaf_a0_b1_c1,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a0_b1_c1,20,6.750145233983326,0.6181986982640105,-0.0424230634971694,0.7
+GPT-5 Mini,leaf_a0_b1_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a0_b1_c1,20,7.0903163992192555,0.5865137976946095,-0.15013550021962474,0.65
+GPT-5 Mini,leaf_a0_b1_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a0_b1_c1,20,7.762677552666584,0.5256255703689383,-0.37860824288464334,0.7
+GPT-5 Mini,leaf_a0_b1_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a0_b1_c1,20,6.970780865808372,0.6264472683939569,-0.11168216502761075,0.65
+GPT-5 Mini,leaf_a0_b1_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a0_b1_c1,20,6.603307025341911,0.6291784702655393,0.0024360217296711673,0.7
+GPT-5 Mini,leaf_a1_b0_c0,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a1_b0_c0,20,6.082435460917546,0.653756052433026,0.1536055707760895,0.75
+GPT-5 Mini,leaf_a1_b0_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b0_c0,20,6.657335631557868,0.6265086970667,-0.013955003301242108,0.7
+GPT-5 Mini,leaf_a1_b0_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b0_c0,20,6.999914955848519,0.5942776543699972,-0.12099404292257576,0.65
+GPT-5 Mini,leaf_a1_b0_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b0_c0,20,6.353380629397123,0.5816140377689596,0.0765199313591518,0.75
+GPT-5 Mini,leaf_a1_b0_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b0_c0,20,7.083268934091267,0.6040675269231182,-0.14785026748877206,0.65
+GPT-5 Mini,leaf_a1_b0_c1,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a1_b0_c1,20,7.087504578057247,0.55530049316893,-0.14922345796239367,0.55
+GPT-5 Mini,leaf_a1_b0_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b0_c1,20,7.102650302571657,0.5472255446991179,-0.15414039861298678,0.6
+GPT-5 Mini,leaf_a1_b0_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b0_c1,20,7.078147292632873,0.574046800470913,-0.146190934156468,0.65
+GPT-5 Mini,leaf_a1_b0_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b0_c1,20,7.096554464824089,0.5690720255403495,-0.15216017060638087,0.65
+GPT-5 Mini,leaf_a1_b0_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b0_c1,20,6.686586909356962,0.5836937420667045,-0.022884893770586556,0.6
+GPT-5 Mini,leaf_a1_b1_c0,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a1_b1_c0,20,7.006711682286451,0.6497378544665486,-0.1231720090437527,0.65
+GPT-5 Mini,leaf_a1_b1_c0,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b1_c0,20,11.68692018594255,0.6096129014597693,-2.1247691161222213,0.45
+GPT-5 Mini,leaf_a1_b1_c0,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b1_c0,20,8.47412645341664,0.5607653677922556,-0.6428868677927961,0.65
+GPT-5 Mini,leaf_a1_b1_c0,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b1_c0,20,6.842006197651679,0.628403482336841,-0.07098824440542661,0.65
+GPT-5 Mini,leaf_a1_b1_c0,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b1_c0,20,8.111869946567335,0.585237785738628,-0.5054271211302592,0.65
+GPT-5 Mini,leaf_a1_b1_c1,subset_summary,1,collection_analysis_report_joint_rep1/leaf_a1_b1_c1,20,7.39394205714876,0.5829016167290115,-0.2507481326452714,0.7
+GPT-5 Mini,leaf_a1_b1_c1,subset_summary,2,collection_analysis_report_joint_rep2/leaf_a1_b1_c1,20,7.9122958986176295,0.6077613302763452,-0.4322631491597455,0.65
+GPT-5 Mini,leaf_a1_b1_c1,subset_summary,3,collection_analysis_report_joint_rep3/leaf_a1_b1_c1,20,8.521154359762289,0.5942117925548915,-0.6611721541857511,0.6
+GPT-5 Mini,leaf_a1_b1_c1,subset_summary,4,collection_analysis_report_joint_rep4/leaf_a1_b1_c1,20,8.191297566084442,0.6062122473582167,-0.5350523227706101,0.7
+GPT-5 Mini,leaf_a1_b1_c1,subset_summary,5,collection_analysis_report_joint_rep5/leaf_a1_b1_c1,20,9.230911801995656,0.511404804591827,-0.9494270155208404,0.65

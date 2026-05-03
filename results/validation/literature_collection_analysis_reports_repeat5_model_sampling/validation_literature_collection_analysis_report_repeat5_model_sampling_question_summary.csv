@@ -1,0 +1,3 @@
+condition,mean_between_model_variance,mean_within_model_repeat_variance,median_between_within_ratio,share_questions_between_gt_within,eta_model_across_questions
+baseline,8.535277777777777,11.710666666666667,0.7866442872729029,0.3,0.4215796304884106
+benchmark,7.56183333333333,6.834666666666666,0.7516107163697516,0.35,0.5252549809560192

@@ -1,0 +1,38 @@
+# Paper Set Evidence Digest
+
+Number of papers in this paper set: 4
+
+Each item below is a compact paper-level analysis digest. Use only this digest.
+
+- source: Ezeigbo, I. C. (2017). How costly punishment, diversity, and density of connectivity influence cooperation in a biological network. *Scientific Reports*.
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=exact | payoff=exact
+  outcomes: primary=efficiency_or_payoff | overall_effect=less_positive
+  dimensions: player_count, num_rounds, punishment_cost, punishment_tech, show_n_rounds, show_other_summaries
+  findings: The study uses agent-based models of repeated Prisoner's Dilemma games on networks (18 players, 1000 rounds per game) to examine how costly punishment, diversity, and network connectivity affect cooperation and average payoff. Costly punishment (paying 1 unit to reduce another's payoff by 4 units) reduces defection but also significantly reduces average payoff compared to no-punishment conditions. Decreasing network connectivity (lower density of connections) increases average payoff when punishment is absent, but not when punishment is present. Diversity (randomizing connections and neighbors) can promote cooperation, but only in synergy with low connectivity. The main efficiency result is that costly punishment, while reducing defection, comes at a substantial cost to group welfare.
+  prediction_guidance: For prediction tasks, this paper provides strong evidence that enabling costly punishment in repeated Prisoner's Dilemma-like network games reduces group efficiency (average payoff), even though it reduces defection. The effect is robust across different network densities and diversity conditions. If the control (no-punishment) game has higher efficiency, enabling punishment is likely to lower efficiency, unless other mechanisms (like diversity and low connectivity) are also present and interact synergistically. The findings are directly relevant for predicting the efficiency impact of punishment in networked social dilemmas with similar payoff structures.
+
+- source: Shinya, O., Yusuke, I., & Hiroki, T. (2016). The Condition for Generous Trust. *Plos One*.
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=close | payoff=exact
+  outcomes: primary=efficiency_or_payoff | overall_effect=mixed
+  dimensions: player_count, num_rounds, show_n_rounds
+  findings: The paper finds that in repeated trust games with uncertainty about partner intention and competence, neither pure punishment nor pure generosity alone can sustain high efficiency. Generous trust (forgiveness) becomes viable and can support efficient outcomes when uncertainty is moderate and is combined with moderate punishment. If uncertainty (incompetence) is too high, efficiency collapses. The agent-based simulation shows that a mix of matching generosity (forgiving in partner selection) and exit generosity (forgiving in relationship maintenance) strategies coevolve and support higher efficiency, but only above a threshold of partner competence. The results highlight the importance of balancing punishment and forgiveness to achieve efficient cooperation under uncertainty.
+  prediction_guidance: This paper provides theoretical and simulation-based evidence that the effect of punishment on efficiency in trust-game-like environments depends critically on the level of uncertainty (competence) and the balance between punishment and forgiveness. In environments with moderate uncertainty, introducing moderate punishment alongside generosity increases efficiency compared to either strategy alone. However, if uncertainty is too high, even punishment cannot sustain efficiency. For prediction tasks, this suggests that the efficiency gain from punishment will be highest when the environment allows for some, but not excessive, uncertainty, and when punishment is not too strict or too lenient. The findings are most directly relevant to trust games and adjacent repeated dyadic games, rather than standard public goods games, but the mechanisms may transfer to PGG variants with similar uncertainty and partner selection features.
+
+- source: dos Santos, M., Placì, S., & Wedekind, C. (2015). Stochasticity in economic losses increases the value of reputation in indirect reciprocity. *Scientific Reports*.
+  type: empirical | empirical=experimental | experimental=lab_experiment
+  relevance: pgg=adjacent | punishment=adjacent | payoff=close
+  outcomes: primary=mixed | overall_effect=more_positive
+  dimensions: player_count, num_rounds, all_or_nothing, mpcr, reward_exists, reward_cost
+  findings: The experiment finds that stochasticity in economic losses does not increase mean helping rates or mean group earnings, but it does increase the payoff advantage of having a good reputation. Under stochastic losses, generous players are helped more and selfish players are helped less, leading to a steeper positive relationship between generosity and final earnings. In stable environments, this relationship is absent. Thus, stochasticity increases the efficiency of reputation-based cooperation by making investment in reputation more beneficial, even though overall group efficiency does not increase.
+  prediction_guidance: This paper suggests that, in repeated helping games with indirect reciprocity, environmental stochasticity (randomness in losses) increases the payoff return to cooperative behavior (reputation), even if mean group efficiency does not change. For prediction tasks, this implies that the effect of punishment-like mechanisms (here, reputation-based exclusion or helping) on efficiency may be more positive in environments with stochastic payoffs or risks, because the social system more effectively rewards cooperators and penalizes defectors. However, the game is not a standard public goods game and does not feature explicit costly punishment; rather, it is an indirect reciprocity helping game. The findings are most relevant for settings where reputation or exclusion is the main sanctioning mechanism, and where environmental risk is present.
+
+- source: Wang, Y., & Wang, B. H. (2015). Evolution of Cooperation on Spatial Network with Limited Resource. *Plos One*.
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=adjacent | punishment=none | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing
+  findings: The study finds that in a spatial continuous-strategy prisoner's dilemma with limited resources, lower total resource and intermediate temptation to defect can promote higher average cooperation (measured by the average characteristic parameter, CP). The number of dead individuals decreases with increasing resource, and the diversity of strategies is affected by both resource and temptation to defect. However, the model does not include punishment or sanctions, and does not report efficiency, group payoff, or welfare outcomes. The results are primarily about the evolution of cooperation and survival under resource constraints.
+  prediction_guidance: This paper does not provide direct evidence for predicting the effect of punishment on efficiency in public goods games or their variants. It does not include punishment, sanctions, or a public goods game structure, and does not report efficiency or payoff-based outcomes. Its findings about resource limitation and cooperation in spatial prisoner's dilemma games may be of limited indirect relevance for understanding environmental constraints on cooperation, but are not informative for the downstream prediction task focused on punishment and efficiency.
+

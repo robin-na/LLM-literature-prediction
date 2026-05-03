@@ -67,3 +67,11 @@
     most-convergent collection report
   - a 2x2 PNG figure with agreement-gain lollipops, agreement-vs-accuracy
     scatter, and baseline-versus-best-collection heatmaps
+
+- `repeat5_variance_and_baseline_issue_report.md`
+  Discussion note describing the current interpretability problem in the
+  repeat-5 augmentation analysis: repeat noise is sometimes comparable to
+  between-model variation, and models begin from different baselines, so naive
+  pooling and raw counts of "helpful" augmentations can be misleading. The note
+  summarizes what is already established, the exact failure modes, and the main
+  design decisions still to be made.

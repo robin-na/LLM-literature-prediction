@@ -1,0 +1,2 @@
+condition,n_models,n_repeats_per_model,anova_f,anova_pvalue,kruskal_h,kruskal_pvalue
+baseline,6,5,2.2531266436245883,0.08164941630709378,11.198709677419345,0.04757943249526517

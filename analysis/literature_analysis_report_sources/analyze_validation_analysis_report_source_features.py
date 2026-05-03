@@ -13,7 +13,7 @@ PERF_CSV = (
     ROOT
     / "results"
     / "validation"
-    / "literature_analysis_report_sources_extended2011"
+    / "literature_analysis_report_sources_repeat5"
     / "validation_literature_analysis_report_source_significance.csv"
 )
 PAPERS_CSV = (
@@ -56,7 +56,7 @@ METRICS = [
     "delta_directional_accuracy",
 ]
 MIXED_METRICS = ["delta_correlation", "delta_rmse"]
-MODELS = ["GPT-4.1", "GPT-4.1 Mini", "GPT-4.1 Nano"]
+MODELS = ["GPT-4.1", "GPT-4.1 Mini", "GPT-4.1 Nano", "GPT-5.1", "GPT-5 Mini", "GPT-5 Nano"]
 
 
 def load_analysis_frame() -> pd.DataFrame:

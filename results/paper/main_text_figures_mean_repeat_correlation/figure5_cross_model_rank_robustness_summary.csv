@@ -1,0 +1,3 @@
+kind,mean_spearman_rho,mean_order_agreement_excluding_near_ties,mean_informative_pair_coverage
+collections,0.4253970439019473,0.8954582541244982,0.19462968404144876
+papers,0.33684881823461826,0.8452250356722834,0.14667468228227337

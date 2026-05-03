@@ -1,0 +1,3 @@
+condition,mean_within_model_repeat_prediction_corr,mean_between_model_repeat_prediction_corr,mean_pairwise_corr_of_model_mean_predictions
+baseline,0.8830939284658628,0.8145632071442741,0.8992395820098444
+benchmark,0.8962977980951324,0.7932565284992432,0.8763248762107785

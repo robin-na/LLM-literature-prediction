@@ -1,0 +1,3 @@
+comparison,mean_diff,ci_low_95,ci_high_95,prob_diff_gt_zero
+LLM pooled baseline mean treatment-effect corr minus experts individual mean treatment-effect corr,0.04704763328039873,-0.1564422874596784,0.2612888429197273,0.66775
+LLM pooled baseline mean treatment-effect corr minus laypeople individual mean treatment-effect corr,0.14345625145905747,-0.08567204667130675,0.36601705259921996,0.891

@@ -1,0 +1,30 @@
+# Paper Set Evidence Digest
+
+Number of papers in this paper set: 3
+
+Each item below is a compact paper-level analysis digest. Use only this digest.
+
+- source: Lee, H. W., Cleveland, C., & Szolnoki, A. (2022). Mercenary punishment in structured populations. *Applied Mathematics and Computation*.
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=exact | punishment=exact | payoff=exact
+  outcomes: primary=efficiency_or_payoff | overall_effect=mixed
+  dimensions: player_count, num_rounds, all_or_nothing, mpcr, punishment_cost, punishment_tech
+  findings: The paper finds that mercenary punishment (punishers who do not contribute but punish defectors) can promote cooperation and increase group efficiency in structured populations, even without an additional tax, provided the punishment cost is not too high and the fine is sufficiently large. Introducing a tax to support punishers expands the parameter space where defectors are eliminated and efficiency is high, but only if the punishment cost is significant. If the fine is too low, the tax can actually harm cooperators and allow defectors to coexist with punishers, reducing efficiency. There is an optimal punishment cost that maximizes average payoff. The model also reveals regions of cyclic dominance among strategies, leading to complex spatial dynamics.
+  prediction_guidance: This paper provides direct theoretical evidence on how punishment cost, punishment effectiveness (fine), and the presence of a tax to support punishment interact to determine group efficiency in a spatial public goods game. For prediction, it suggests that enabling punishment can increase efficiency relative to control (no punishment) if the punishment cost is moderate and the fine is high, especially if a tax is used to support punishers when costs are high. However, if punishment is too costly or the fine is too low, efficiency may not improve or may even decrease. The findings are most applicable to spatially structured games with three strategies (C, D, P), and the results are sensitive to the exact parameter values of punishment cost, fine, and tax. The paper does not provide empirical data but offers detailed phase diagrams and payoff analyses that can inform predictions about the efficiency impact of punishment under varying game design dimensions.
+
+- source: Lv, S. J., & Song, F. F. (2022). Particle swarm intelligence and the evolution of cooperation in the spatial public goods game with punishment. *Applied Mathematics and Computation*.
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=exact | punishment=exact | payoff=adjacent
+  outcomes: primary=non_payoff_behavior | overall_effect=N/A
+  dimensions: player_count, num_rounds, all_or_nothing, mpcr, punishment_cost, punishment_tech
+  findings: The paper finds that the effect of punishment on cooperation in a spatial public goods game depends on both the punishment intensity and the learning rule (PSO weighting coefficient). For low punishment intensity, low susceptibility to neighbors (low omega) promotes cooperation; for high punishment intensity, high omega is more beneficial. Intermediate omega values increase punishment input but can reduce cooperation. The enhancement factor (r) also moderates these effects. However, the study does not report efficiency or group payoff, so its findings are about cooperation rates and investment allocation, not direct welfare or efficiency outcomes.
+  prediction_guidance: This paper provides indirect evidence about how punishment and learning rules affect cooperation rates and investment allocation in spatial PGGs with continuous strategies. It does not provide direct evidence for predicting efficiency or group payoff with or without punishment. For the prediction task, the main value is in understanding that the effect of punishment on cooperation is highly sensitive to punishment intensity and the learning rule, and that the allocation of resources between cooperation and punishment can affect the expansion of cooperative clusters. However, since efficiency is not reported, the paper's findings should be used only as indirect, mechanistic context rather than as direct quantitative evidence for efficiency prediction.
+
+- source: Hua, S. J., & Liu, L. J. (2024). Coevolutionary dynamics of population and institutional rewards in public goods games. *Expert Systems with Applications*.
+  type: theory | empirical=N/A | experimental=N/A
+  relevance: pgg=exact | punishment=none | payoff=exact
+  outcomes: primary=efficiency_or_payoff | overall_effect=N/A
+  dimensions: player_count, all_or_nothing, mpcr, reward_exists, reward_cost, reward_tech
+  findings: The paper finds that in public goods games with institutional rewards, if the reward strength is adaptively increased when cooperation is low and decreased when cooperation is high, the system can reach stable equilibria with sustained cooperation and group welfare. The model shows that: (1) a stable coexistence of cooperation and reward strength is possible; (2) full cooperation can be achieved with minimal reward intensity if the per capita incentive is above a threshold; (3) moderate cooperation can be sustained with either low or high reward intensity, depending on parameter values; (4) in some cases, even high reward intensity cannot prevent full defection if incentives are too low. The model provides explicit conditions for these outcomes in terms of group size, marginal per-capita return, and reward parameters.
+  prediction_guidance: This paper is directly relevant for predicting efficiency in public goods games with institutional rewards, but not for games with punishment. It provides theoretical predictions for how adaptive reward mechanisms affect group payoff and cooperation, given game parameters such as group size, marginal per-capita return, and reward strength. However, it does not address punishment, so it does not inform the effect of punishment on efficiency. The findings are useful for understanding the efficiency impact of reward-based interventions, especially when reward strength is allowed to adapt to cooperation levels.
+

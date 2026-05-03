@@ -1,0 +1,51 @@
+feature_key,mean_abs_shap,signed_shap_effect,model,model_name,feature_label
+journal_impact,0.003578699842448573,0.0030512963535299985,GPT-4.1,extra_trees,Higher journal impact factor
+citation,0.0031489065949658022,-0.0021424122005546968,GPT-4.1,extra_trees,Higher citation
+empirical_share,0.007610281789633818,-0.007776564930231063,GPT-4.1,extra_trees,Empirical papers
+recent,0.003522237141009832,-0.0004947361313949706,GPT-4.1,extra_trees,More recent paper
+biology_share,0.002325748841331629,0.001518926813746961,GPT-4.1,extra_trees,Biology Journals
+economics_share,0.0025321020323603003,-0.0021468039246146345,GPT-4.1,extra_trees,Economics Journals
+psychology_share,0.001935630767347037,-0.0005698206402185769,GPT-4.1,extra_trees,Psychology Journals
+mathphysics_share,0.00502800045934175,-0.005198098515034915,GPT-4.1,extra_trees,Math/Physics Journals
+multidisciplinary_share,0.0015610882189738971,-0.0012396648351646969,GPT-4.1,extra_trees,Multidisciplinary Journals
+collection_size,0.014754986054864635,0.016566031665824408,GPT-4.1,extra_trees,Larger collection size
+journal_impact,0.009633994417539076,0.010353967046208277,GPT-4.1 Mini,gradient_boosting,Higher journal impact factor
+citation,0.006765532859505463,-0.007296661986777987,GPT-4.1 Mini,gradient_boosting,Higher citation
+empirical_share,0.007151305582036148,-0.007423387247294523,GPT-4.1 Mini,gradient_boosting,Empirical papers
+recent,0.006008203340488046,-0.006542765044957242,GPT-4.1 Mini,gradient_boosting,More recent paper
+biology_share,0.004085136733032559,0.0024321541322463937,GPT-4.1 Mini,gradient_boosting,Biology Journals
+economics_share,0.0018818847478293819,0.0008631706639603917,GPT-4.1 Mini,gradient_boosting,Economics Journals
+psychology_share,0.0016734698787590767,-0.0008181796647189207,GPT-4.1 Mini,gradient_boosting,Psychology Journals
+mathphysics_share,0.003961692864705211,-0.004568803946331669,GPT-4.1 Mini,gradient_boosting,Math/Physics Journals
+multidisciplinary_share,0.001454929366812443,-0.0017141329649333443,GPT-4.1 Mini,gradient_boosting,Multidisciplinary Journals
+collection_size,0.009402117702733564,0.012555967881591811,GPT-4.1 Mini,gradient_boosting,Larger collection size
+journal_impact,0.007324519279993913,0.004914814355586534,GPT-5.1,gradient_boosting,Higher journal impact factor
+citation,0.013099154759713755,-0.009545722786245723,GPT-5.1,gradient_boosting,Higher citation
+empirical_share,0.006954485088274156,-0.006474673219047664,GPT-5.1,gradient_boosting,Empirical papers
+recent,0.009683268317613559,-0.005766753168951504,GPT-5.1,gradient_boosting,More recent paper
+biology_share,0.002243626960574984,0.0007807799961288838,GPT-5.1,gradient_boosting,Biology Journals
+economics_share,0.002729680658610193,-0.00255745062137439,GPT-5.1,gradient_boosting,Economics Journals
+psychology_share,0.002123452038908061,0.0007774700776612164,GPT-5.1,gradient_boosting,Psychology Journals
+mathphysics_share,0.009572437554829118,-0.01007588988394472,GPT-5.1,gradient_boosting,Math/Physics Journals
+multidisciplinary_share,0.003328811813993467,-0.003534679948465272,GPT-5.1,gradient_boosting,Multidisciplinary Journals
+collection_size,0.007227086071626193,-0.0012521199534930912,GPT-5.1,gradient_boosting,Larger collection size
+journal_impact,0.00535095809495597,0.005097690164474934,GPT-5 Mini,gradient_boosting,Higher journal impact factor
+citation,0.00848700888621936,-0.007843192626778545,GPT-5 Mini,gradient_boosting,Higher citation
+empirical_share,0.006191755203054776,-0.005996333739408375,GPT-5 Mini,gradient_boosting,Empirical papers
+recent,0.006522211576815489,-0.0012091922277566733,GPT-5 Mini,gradient_boosting,More recent paper
+biology_share,0.0018304561671094698,0.0018314548954705679,GPT-5 Mini,gradient_boosting,Biology Journals
+economics_share,0.001938765832325365,-0.0012855248062072617,GPT-5 Mini,gradient_boosting,Economics Journals
+psychology_share,0.0016283879157016612,0.0002371017680143027,GPT-5 Mini,gradient_boosting,Psychology Journals
+mathphysics_share,0.007278444855947175,-0.007292251959892285,GPT-5 Mini,gradient_boosting,Math/Physics Journals
+multidisciplinary_share,0.002929039947335539,-0.00303325740247655,GPT-5 Mini,gradient_boosting,Multidisciplinary Journals
+collection_size,0.006330158598410113,0.003636375715704224,GPT-5 Mini,gradient_boosting,Larger collection size
+journal_impact,0.005146995290108897,0.0039912690443848825,GPT-5 Nano,random_forest,Higher journal impact factor
+citation,0.004114772527379529,-0.003818274392764382,GPT-5 Nano,random_forest,Higher citation
+empirical_share,0.004098996384565888,-0.004134436896209781,GPT-5 Nano,random_forest,Empirical papers
+recent,0.0044837012617671215,-0.0028214872051085743,GPT-5 Nano,random_forest,More recent paper
+biology_share,0.0012726452584512747,0.000856669753602254,GPT-5 Nano,random_forest,Biology Journals
+economics_share,0.000776811885169562,-6.284679097137565e-05,GPT-5 Nano,random_forest,Economics Journals
+psychology_share,0.0015239699734707968,-1.2613580343824815e-05,GPT-5 Nano,random_forest,Psychology Journals
+mathphysics_share,0.006543896104386837,-0.00694236660991736,GPT-5 Nano,random_forest,Math/Physics Journals
+multidisciplinary_share,0.002950759457423142,-0.0029911398590079384,GPT-5 Nano,random_forest,Multidisciplinary Journals
+collection_size,0.005653148084832529,0.00638223397368366,GPT-5 Nano,random_forest,Larger collection size
