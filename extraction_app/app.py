@@ -23,85 +23,50 @@ EXTRACTIONS_FILE = Path(__file__).parent / "extractions.json"
 
 _LLM_GUARD = "IF GIVEN THIS DOCUMENT INTO CHAT CONTEXT"
 
-# Definitions for fields not in the DOCX guide — merged at render time
+# Definitions for CONFIG_ fields not in the DOCX guide — merged at render time
 _FIELD_SUPPLEMENTS = [
-    {"name":"METHOD_simulation",       "type":"Binary (0/1)",
-     "definition":"1 if the study uses a numerical or computer simulation with no human subjects (e.g., agent-based model). 0 otherwise.",
-     "synonyms":"ABM, agent-based model, simulation study",
-     "notes":""},
-    {"name":"METHOD_analytical",       "type":"Binary (0/1)",
-     "definition":"1 if the study is a formal mathematical or closed-form model (e.g., proofs, analytical derivations) with no human subjects. 0 otherwise.",
-     "synonyms":"theoretical model, formal model",
-     "notes":""},
-    {"name":"experiment_environment",  "type":"Categorical",
-     "definition":"Where the experiment was conducted. Choose one: Online, On site, Field experiment, Observational, No human.",
-     "synonyms":"",
-     "notes":"Online = run over the internet (e.g., MTurk, oTree). On site = lab setting with in-person participants. Field experiment = real-world setting. Observational = no manipulation. No human = simulation or analytical model."},
-    {"name":"source_data",             "type":"Binary (0/1)",
-     "definition":"1 (Internal) if the authors collected the experimental data themselves. 0 (External) if the data was borrowed from a different study or archival source.",
-     "synonyms":"Internal, External",
-     "notes":"Paper-level field — use the same value in every row for a given paper."},
-    {"name":"CONFIG_endowment",        "type":"Number / N/R",
-     "definition":"Tokens or money given to each player at the start of each round.",
-     "synonyms":"initial endowment, token endowment",
-     "notes":"Report the per-round endowment. Use N/R if not stated."},
     {"name":"CONFIG_showNRounds",      "type":"Binary (1/N/A)",
      "definition":"1 ONLY if the paper explicitly states that the total number of rounds or remaining rounds is displayed to participants during play. N/A if not explicitly stated.",
-     "synonyms":"round counter, countdown",
+     "synonyms":"round counter, countdown, horizon knowledge",
      "notes":"Do NOT infer from rounds being fixed or 'common knowledge'. Silence → N/A."},
     {"name":"CONFIG_punishmentExists", "type":"Binary (1/0/N/A)",
      "definition":"1 only if this specific condition explicitly includes a punishment mechanism. 0 if the condition explicitly excludes it. N/A if punishment is not described for this condition.",
      "synonyms":"costly punishment, peer punishment, altruistic punishment",
      "notes":"Do NOT infer from other conditions or the paper's general design. Code independently per condition."},
     {"name":"CONFIG_punishmentCost",   "type":"Number / N/R / N/A",
-     "definition":"Coins or tokens spent by the punisher per unit of punishment assigned to the target.",
-     "synonyms":"punishment fee, cost-to-punish",
+     "definition":"Coins or tokens spent by the punisher per unit of punishment assigned to the target. Typical range 1–4.",
+     "synonyms":"punishment fee, cost-to-punish, peer incentive cost",
      "notes":"N/A if punishment does not exist in this condition. N/R if punishment exists but cost is not explicitly stated numerically."},
     {"name":"CONFIG_punishmentTech",   "type":"Number / N/A / N/R",
-     "definition":"Reduction in the target's payoff per coin the punisher spends. Compute as punishmentMagnitude ÷ punishmentCost. Example: punisher spends 1 coin and target loses 3 → 3.",
-     "synonyms":"punishment effectiveness, punishment ratio",
-     "notes":"N/A if no punishment. N/R if either cost or magnitude is not explicitly stated."},
+     "definition":"Reduction in the target's payoff per coin the punisher spends. Compute as punishmentMagnitude ÷ punishmentCost. Example: punisher spends 1 coin, target loses 3 → value is 3.",
+     "synonyms":"punishment effectiveness, punishment ratio, punishment technology",
+     "notes":"N/A if no punishment in this condition. N/R if either cost or magnitude is not explicitly stated."},
     {"name":"CONFIG_rewardExists",     "type":"Binary (1/0/N/A)",
-     "definition":"1 only if the paper clearly describes a reward mechanism for this condition. Code 0 only if the paper explicitly states no reward exists. N/A if rewards are not mentioned or are ambiguous.",
+     "definition":"1 only if the paper clearly describes a reward mechanism for this condition. Code 0 only if the paper explicitly states no reward mechanism exists. N/A if rewards are not mentioned or ambiguous.",
      "synonyms":"reward, positive sanctioning",
      "notes":"Silence → N/A, not 0. Only code 0 when the paper explicitly rules out rewards."},
     {"name":"CONFIG_rewardCost",       "type":"Number / N/R / N/A",
      "definition":"Coins or tokens spent by the rewarder per unit of reward given to the recipient.",
-     "synonyms":"cost-to-reward",
+     "synonyms":"cost-to-reward, peer incentive cost",
      "notes":"N/A if reward does not exist in this condition. N/R if reward exists but cost is not explicitly stated."},
     {"name":"CONFIG_rewardTech",       "type":"Number / N/A / N/R",
-     "definition":"Increase in the recipient's payoff per coin the rewarder spends. Compute as rewardMagnitude ÷ rewardCost. Example: rewarder spends 1 coin and recipient gains 3 → 3.",
-     "synonyms":"reward effectiveness, reward ratio",
-     "notes":"N/A if no reward. N/R if either cost or magnitude is not explicitly stated."},
-    {"name":"DV_efficiencyReported",   "type":"Binary (1/0)",
-     "definition":"1 if the paper reports, computes, or analyzes an efficiency measure (actual group payoff as a fraction of the maximum cooperative payoff) anywhere in the paper. 0 if efficiency is never reported.",
-     "synonyms":"efficiency",
-     "notes":"Paper-level field — use the same value in every row. Do not code 0 for a condition just because efficiency is not that condition's focus; if it appears anywhere in the paper code 1 for all rows."},
-    {"name":"IVs",                     "type":"List",
-     "definition":"Independent variables — the experimental factors actually manipulated or varied across conditions in this paper. List one per line.",
-     "synonyms":"treatment factors, experimental conditions",
-     "notes":"Include only factors that differ across conditions, not fixed parameters. All conditions in a paper share the same IV list since IVs define the paper's design."},
-    {"name":"DVs",                     "type":"List",
-     "definition":"Primary dependent variables measured and analyzed in this specific condition. List one per line in snake_case.",
-     "synonyms":"outcomes, dependent measures",
-     "notes":"List both individual-level and group-level contribution measures if both are reported. Do NOT include independent variables. DVs may differ across conditions."},
-    {"name":"DVs_Definitions",         "type":"Text",
-     "definition":"Brief plain-English definitions of each DV listed in DVs, one per line in the format dv_name: definition.",
-     "synonyms":"",
-     "notes":"Keys must exactly match the entries in DVs for this condition."},
-    {"name":"participant_country",     "type":"Text",
-     "definition":"Country or countries where participants were recruited.",
-     "synonyms":"","notes":""},
-    {"name":"participant_age",         "type":"Text",
-     "definition":"Age information of participants — mean, range, or description as reported in the paper.",
-     "synonyms":"","notes":""},
-    {"name":"participant_gender",      "type":"Text",
-     "definition":"Gender composition of participants as reported (e.g., '60% female', 'mixed').",
-     "synonyms":"","notes":""},
-    {"name":"participant_education",   "type":"Text",
-     "definition":"Education level or type of participants as reported (e.g., 'undergraduate students', 'MTurk workers').",
-     "synonyms":"","notes":""},
+     "definition":"Increase in the recipient's payoff per coin the rewarder spends. Compute as rewardMagnitude ÷ rewardCost. Example: rewarder spends 1 coin, recipient gains 3 → value is 3.",
+     "synonyms":"reward effectiveness, reward ratio, reward technology",
+     "notes":"N/A if no reward in this condition. N/R if either cost or magnitude is not explicitly stated."},
 ]
+
+# Fields shown in the extraction form — guide is filtered to only these
+_GUIDE_FIELDS = {
+    "Empirical", "Controlled_Or_Observational", "Lab_Or_Field",
+    "CONFIG_playerCount", "CONFIG_numRounds", "CONFIG_allOrNothing",
+    "CONFIG_defaultContribProp", "CONFIG_MPCR", "CONFIG_chat",
+    "CONFIG_showOtherSummaries", "CONFIG_showNRounds",
+    "CONFIG_punishmentExists", "CONFIG_punishmentCost", "CONFIG_punishmentTech",
+    "CONFIG_showPunishmentId",
+    "CONFIG_rewardExists", "CONFIG_rewardCost", "CONFIG_rewardTech",
+    "CONFIG_showRewardId",
+    "Misc",
+}
 
 _KNOWN_H1 = {
     "Overview": "overview",
@@ -233,8 +198,11 @@ def export_csv():
         "Empirical", "Controlled_Or_Observational", "Lab_Or_Field",
         "CONFIG_playerCount", "CONFIG_numRounds", "CONFIG_allOrNothing",
         "CONFIG_defaultContribProp", "CONFIG_MPCR", "CONFIG_chat",
-        "CONFIG_showOtherSummaries", "CONFIG_showPunishmentId", "CONFIG_showRewardId",
-        "DV_contributionRate", "DV_efficiency",
+        "CONFIG_showOtherSummaries", "CONFIG_showNRounds",
+        "CONFIG_punishmentExists", "CONFIG_punishmentCost", "CONFIG_punishmentTech",
+        "CONFIG_showPunishmentId",
+        "CONFIG_rewardExists", "CONFIG_rewardCost", "CONFIG_rewardTech",
+        "CONFIG_showRewardId",
         "Misc",
     ]
 
@@ -287,11 +255,12 @@ def _build_guide_html():
                 "notes":      cells[4].split(_LLM_GUARD)[0].strip(),
             })
 
-    # Append any supplemental fields not already covered by the DOCX
+    # Append supplemental fields not in the DOCX, then filter to only current form fields
     existing_names = {f["name"] for f in fields}
     for sf in _FIELD_SUPPLEMENTS:
         if sf["name"] not in existing_names:
             fields.append(sf)
+    fields = [f for f in fields if f["name"] in _GUIDE_FIELDS]
 
     # Parse N/A vs N/R table (table index 0)
     na_rows = []
