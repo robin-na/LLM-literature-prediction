@@ -50,5 +50,545 @@
         "label": "Condition 0"
       }
     ]
+  },
+  "10.1007_bf01074955": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1007_s00191-014-0375-3": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1007_s00199-005-0633-6": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1007_s11238-022-09897-6": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1007_s11427-010-0007-6": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1007_s12144-023-05029-7": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1007_s40881-023-00159-x": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1016_j.amc.2024.128836": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1016_j.evolhumbehav.2021.04.002": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1016_j.irle.2014.03.001": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1016_j.jebo.2018.08.008": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1016_j.physleta.2018.04.031": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1038_s41598-025-07863-0": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1073_pnas.1608990113": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1093_bjps_axu024": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1098_rspb.2008.1715": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1111_bjso.12450": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1111_ecin.12187": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1111_ecin.12713": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
+  },
+  "10.1371_journal.pone.0083225": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "",
+        "Controlled_Or_Observational": "",
+        "Lab_Or_Field": "",
+        "CONFIG_playerCount": "",
+        "CONFIG_numRounds": "",
+        "CONFIG_allOrNothing": "",
+        "CONFIG_defaultContribProp": "",
+        "CONFIG_MPCR": "",
+        "CONFIG_chat": "",
+        "CONFIG_showOtherSummaries": "",
+        "CONFIG_showNRounds": "",
+        "CONFIG_punishmentExists": "",
+        "CONFIG_punishmentCost": "",
+        "CONFIG_punishmentTech": "",
+        "CONFIG_showPunishmentId": "",
+        "CONFIG_rewardExists": "",
+        "CONFIG_rewardCost": "",
+        "CONFIG_rewardTech": "",
+        "CONFIG_showRewardId": "",
+        "Misc": ""
+      }
+    ]
   }
 }

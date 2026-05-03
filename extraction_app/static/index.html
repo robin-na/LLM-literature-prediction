@@ -517,7 +517,7 @@ function renderList() {
     const badge  = noPdf ? `<span class="no-pdf-badge">no PDF</span>` : "";
     return `
     <div class="paper-item ${p.done ? "done" : ""} ${i === curIdx ? "active" : ""} ${noPdf ? "no-pdf" : ""}"
-         onclick="selectPaper(${i})">
+         data-pid="${esc(p.id)}" onclick="selectPaper(${i})">
       <div class="pi-left">
         <span class="paper-num">${i + 1}</span>
         <span class="paper-dot"></span>
@@ -715,9 +715,8 @@ function renderForm() {
       continue;
     }
     const val          = c[f.key] !== undefined ? c[f.key] : "";
-    const isConfigField = f.key.startsWith("CONFIG_") || f.key.startsWith("DV_");
-    const isStudyField  = f.key === "Controlled_Or_Observational" || f.key === "Lab_Or_Field";
-    html += fieldHTML(f, val, (isConfigField && lockCfg) || (isStudyField && nonEmp));
+    const isStudyField = f.key === "Controlled_Or_Observational" || f.key === "Lab_Or_Field";
+    html += fieldHTML(f, val, (AUTO_NA_KEYS.has(f.key) && lockCfg) || (isStudyField && nonEmp));
   }
   document.getElementById("form-body").innerHTML = html;
 }
@@ -881,9 +880,7 @@ async function flushSave(pid) {
 }
 
 function patchDoneState(pid, isDone) {
-  const idx = filtered.findIndex(p => p.id === pid);
-  if (idx < 0) return;
-  const el = document.querySelectorAll(".paper-item")[idx];
+  const el = document.querySelector(`.paper-item[data-pid="${CSS.escape(pid)}"]`);
   if (el) el.classList.toggle("done", isDone);
 }
 

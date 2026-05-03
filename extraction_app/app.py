@@ -214,13 +214,13 @@ def export_csv():
         for cond in data.get("conditions", []):
             empirical = cond.get("Empirical") == "1"
             row = {
-                "paper_id":        paper_id,
-                "title":           m.get("title", ""),
-                "authors":         m.get("authors", ""),
-                "year":            m.get("year", ""),
-                "condition_label": cond.get("label", "") if empirical else "N/A",
+                "paper_id": paper_id,
+                "title":    m.get("title", ""),
+                "authors":  m.get("authors", ""),
+                "year":     m.get("year", ""),
             }
             row.update(cond)
+            row["condition_label"] = cond.get("label", "") if empirical else "N/A"
             if not empirical:
                 row["Controlled_Or_Observational"] = "N/A"
                 row["Lab_Or_Field"]                = "N/A"
@@ -236,9 +236,7 @@ def export_csv():
 
 # ── Guide ─────────────────────────────────────────────────────────────────────
 
-_guide_cache = None
-
-
+@lru_cache(maxsize=1)
 def _build_guide_html():
     if not GUIDE_PATH.exists():
         return None
@@ -603,12 +601,10 @@ code {{ background: #f1f5f9; padding: 1px 5px; border-radius: 3px;
 
 @app.route("/guide")
 def guide():
-    global _guide_cache
-    if _guide_cache is None:
-        _guide_cache = _build_guide_html()
-    if _guide_cache is None:
+    html = _build_guide_html()
+    if html is None:
         return "<h2>Guide not found</h2><p>Place the DOCX at the configured path.</p>", 404
-    return _guide_cache
+    return html
 
 
 if __name__ == "__main__":
