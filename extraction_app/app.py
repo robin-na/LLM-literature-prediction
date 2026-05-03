@@ -303,6 +303,84 @@ def _build_guide_html():
     def field_anchor(name):
         return name.replace(" ", "_")
 
+    # ── Hardcoded section content ───────────────────────────────────────────
+    overview_html = """
+<p>Extract one row per <strong>condition</strong> (treatment arm).
+CONFIG_ fields are auto-set to N/A when <code>Empirical&nbsp;=&nbsp;0</code> or <code>Lab_Or_Field&nbsp;=&nbsp;1</code>.</p>
+<table class="na-table" style="margin-top:14px">
+<thead><tr><th>Field name</th><th>Table 1 label</th><th>Values</th></tr></thead>
+<tbody>
+<tr><td><code>Empirical</code></td><td>—</td><td>0 / 1</td></tr>
+<tr><td><code>Controlled_Or_Observational</code></td><td>—</td><td>0 / 1</td></tr>
+<tr><td><code>Lab_Or_Field</code></td><td>—</td><td>0 / 1</td></tr>
+<tr><td><code>CONFIG_playerCount</code></td><td>Group size</td><td>2–20</td></tr>
+<tr><td><code>CONFIG_numRounds</code></td><td>Game length</td><td>Number / N/R</td></tr>
+<tr><td><code>CONFIG_allOrNothing</code></td><td>Contribution type</td><td>0 / 1</td></tr>
+<tr><td><code>CONFIG_defaultContribProp</code></td><td>Contribution framing</td><td>0 / 1 / N/A</td></tr>
+<tr><td><code>CONFIG_MPCR</code></td><td>MPCR</td><td>Number</td></tr>
+<tr><td><code>CONFIG_chat</code></td><td>Communication</td><td>0 / 1 / N/A</td></tr>
+<tr><td><code>CONFIG_showOtherSummaries</code></td><td>Peer outcome visibility</td><td>0 / 1</td></tr>
+<tr><td><code>CONFIG_showNRounds</code></td><td>Horizon knowledge</td><td>1 / N/A</td></tr>
+<tr><td><code>CONFIG_punishmentExists</code></td><td>Punishment</td><td>0 / 1 / N/A</td></tr>
+<tr><td><code>CONFIG_punishmentCost</code></td><td>Peer incentive cost (P)</td><td>Number / N/A / N/R</td></tr>
+<tr><td><code>CONFIG_punishmentTech</code></td><td>Punishment technology</td><td>Number / N/A / N/R</td></tr>
+<tr><td><code>CONFIG_showPunishmentId</code></td><td>Actor anonymity (P)</td><td>0 / 1 / N/A</td></tr>
+<tr><td><code>CONFIG_rewardExists</code></td><td>Reward</td><td>0 / 1 / N/A</td></tr>
+<tr><td><code>CONFIG_rewardCost</code></td><td>Peer incentive cost (R)</td><td>Number / N/A / N/R</td></tr>
+<tr><td><code>CONFIG_rewardTech</code></td><td>Reward technology</td><td>Number / N/A / N/R</td></tr>
+<tr><td><code>CONFIG_showRewardId</code></td><td>Actor anonymity (R)</td><td>0 / 1 / N/A</td></tr>
+</tbody></table>"""
+
+    granularity_html = """
+<ul>
+<li>One <strong>condition tab</strong> per treatment arm (e.g., punishment vs. no-punishment; cohorts with different parameters).</li>
+<li>Conditions within a paper share study-type fields but may differ in every CONFIG_ field.</li>
+<li>Label each tab clearly (e.g., "Punishment", "Baseline", "Study 2 — Reward").</li>
+</ul>"""
+
+    workflow_html = """
+<ol style="padding-left:18px;line-height:2.2">
+<li>Determine <strong>Empirical</strong>, <strong>Controlled_Or_Observational</strong>, and <strong>Lab_Or_Field</strong> from the abstract and methods.</li>
+<li>If <code>Empirical = 0</code> or <code>Lab_Or_Field = 1</code>, all CONFIG_ fields are N/A automatically — add a note in Misc if useful and move on.</li>
+<li>Identify each distinct condition and create one tab per condition.</li>
+<li>Fill CONFIG_ fields from the design/methods section. Hover over any field label in the app to see its definition.</li>
+<li>Use <strong>N/R</strong> when the value should exist but is not reported; <strong>N/A</strong> when the concept does not apply to this condition.</li>
+<li>Record table/figure references and edge-case notes in <strong>Misc</strong>.</li>
+</ol>"""
+
+    pitfalls_html = """
+<table class="na-table">
+<thead><tr><th style="width:33%">Field</th><th style="width:28%">Common mistake</th><th>Correct rule</th></tr></thead>
+<tbody>
+<tr><td><code>CONFIG_allOrNothing</code></td>
+    <td>Coding 1 = all-or-nothing</td>
+    <td><strong>1 = continuous</strong> (any specific amount); 0 = binary. The field name is counterintuitive.</td></tr>
+<tr><td><code>CONFIG_chat</code></td>
+    <td>Coding 0 when not mentioned</td>
+    <td>Silence → N/A. Code 0 only if the paper <em>explicitly</em> prohibits communication.</td></tr>
+<tr><td><code>CONFIG_showOtherSummaries</code></td>
+    <td>Coding 1 when contributions are visible</td>
+    <td>Contribution visibility ≠ payoff visibility. Only individual <em>payoffs/earnings</em> visible to others → 1.</td></tr>
+<tr><td><code>CONFIG_punishmentExists</code> / <code>CONFIG_rewardExists</code></td>
+    <td>Inferring from overall paper design</td>
+    <td>Code per condition independently. If not described for this condition → N/A.</td></tr>
+<tr><td><code>CONFIG_rewardExists</code></td>
+    <td>Coding 0 when not mentioned</td>
+    <td>Silence → N/A, not 0. Code 0 only if the paper explicitly rules out rewards.</td></tr>
+<tr><td><code>CONFIG_punishmentTech</code> / <code>CONFIG_rewardTech</code></td>
+    <td>Using raw magnitude</td>
+    <td>Value = magnitude ÷ cost. E.g., punisher spends 1, target loses 3 → value is 3.</td></tr>
+<tr><td><code>CONFIG_playerCount</code></td>
+    <td>Using total participant count</td>
+    <td>Count players in <em>one group</em>, not all participants across all groups.</td></tr>
+<tr><td><code>CONFIG_showNRounds</code></td>
+    <td>Inferring from fixed round count</td>
+    <td>Code 1 only if the display is <em>explicitly stated</em>. Fixed/known rounds ≠ displayed. Silence → N/A.</td></tr>
+</tbody></table>"""
+
+    mpcr_formula_html = '<div class="formula-box">MPCR = Fund Multiplier ÷ Group Size</div>'
+
+    # ── Build field nav + cards ─────────────────────────────────────────────
     field_nav = "\n".join(
         f'<a href="#{html_mod.escape(field_anchor(f["name"]))}" class="nav-link">'
         f'{html_mod.escape(f["name"])}</a>'
@@ -358,8 +436,6 @@ def _build_guide_html():
 }}
 body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         background: var(--bg); color: var(--text); font-size: 14px; }}
-
-/* ── Layout ── */
 #wrap {{ display: flex; min-height: 100vh; }}
 #nav {{
   width: var(--nav-w); flex-shrink: 0; background: #1e3a8a; color: #fff;
@@ -367,52 +443,38 @@ body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   padding: 16px 0; display: flex; flex-direction: column; gap: 2px;
 }}
 #nav h2 {{ font-size: 11px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 1px; color: rgba(255,255,255,.5);
-            padding: 10px 14px 4px; margin-top: 6px; }}
+            letter-spacing: 1px; color: rgba(255,255,255,.5); padding: 10px 14px 4px; margin-top: 6px; }}
 .nav-link {{
   display: block; padding: 5px 14px; font-size: 12px; font-weight: 500;
-  color: rgba(255,255,255,.75); text-decoration: none; border-radius: 0;
-  transition: background .1s, color .1s;
+  color: rgba(255,255,255,.75); text-decoration: none;
   font-family: 'Menlo','Monaco',monospace;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: background .1s, color .1s;
 }}
 .nav-link:hover {{ background: rgba(255,255,255,.12); color: #fff; }}
 .nav-sep {{ height: 1px; background: rgba(255,255,255,.12); margin: 8px 14px; }}
-.nav-plain {{ padding: 5px 14px; font-size: 12px; color: rgba(255,255,255,.75);
-              text-decoration: none; display: block; }}
+.nav-plain {{ padding: 5px 14px; font-size: 12px; color: rgba(255,255,255,.75); text-decoration: none; display: block; }}
 .nav-plain:hover {{ background: rgba(255,255,255,.1); color: #fff; }}
-
 #main {{ flex: 1; max-width: 860px; padding: 40px 48px 80px; }}
-
-/* ── Typography ── */
 h1 {{ font-size: 26px; font-weight: 800; color: #1e3a8a; margin-bottom: 6px; }}
 .subtitle {{ color: var(--muted); font-size: 14px; margin-bottom: 32px; }}
 h2.sec {{ font-size: 18px; font-weight: 700; color: #1e3a8a;
-           border-bottom: 2px solid var(--accent); padding-bottom: 6px;
-           margin: 40px 0 16px; }}
+           border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 40px 0 16px; }}
 h3.subsec {{ font-size: 15px; font-weight: 700; color: #1e40af; margin: 24px 0 8px; }}
 p {{ font-size: 13.5px; line-height: 1.75; color: #374151; margin-bottom: 10px; }}
-ul {{ margin: 8px 0 12px 20px; }}
+ul, ol {{ margin: 8px 0 12px 20px; }}
 li {{ font-size: 13.5px; line-height: 1.65; color: #374151; margin-bottom: 4px; }}
 code {{ background: #f1f5f9; padding: 1px 5px; border-radius: 3px;
          font-size: 12px; font-family: 'Menlo','Monaco',monospace; }}
-
-/* ── Field cards ── */
 .field-card {{
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: 8px; padding: 16px 18px; margin-bottom: 12px;
-  scroll-margin-top: 20px;
+  border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; scroll-margin-top: 20px;
 }}
-.field-card:target {{
-  border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-lt);
-}}
-.card-header {{
-  display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
-}}
+.field-card:target {{ border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-lt); }}
+.card-header {{ display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }}
 .field-name {{
   font-size: 14px; font-weight: 700; font-family: 'Menlo','Monaco',monospace;
-  background: var(--accent-lt); color: var(--accent);
-  padding: 2px 8px; border-radius: 4px;
+  background: var(--accent-lt); color: var(--accent); padding: 2px 8px; border-radius: 4px;
 }}
 .field-type {{
   font-size: 11px; font-weight: 600; background: #f3f4f6; color: #374151;
@@ -429,30 +491,21 @@ code {{ background: #f1f5f9; padding: 1px 5px; border-radius: 3px;
   font-size: 12.5px; background: #fffbeb; border: 1px solid #fde68a;
   border-radius: 5px; padding: 8px 12px; color: #78350f; line-height: 1.6;
 }}
-
-/* ── N/A table ── */
 .na-table {{ border-collapse: collapse; width: 100%; margin: 12px 0 20px; font-size: 13px; }}
 .na-table th {{ background: #1e3a8a; color: white; padding: 8px 12px; text-align: left; }}
 .na-table td {{ border: 1px solid var(--border); padding: 8px 12px; vertical-align: top; }}
 .na-table tr:nth-child(even) td {{ background: var(--bg); }}
-
-/* ── Formula boxes ── */
 .formula-box {{
   background: #f0fdf4; border: 1px solid #86efac; border-radius: 6px;
   padding: 12px 16px; margin: 12px 0; font-family: 'Menlo','Monaco',monospace;
   font-size: 13px; font-weight: 700; color: #14532d;
 }}
-
-/* ── Back link ── */
 .back-btn {{
   display: inline-flex; align-items: center; gap: 6px;
   background: #1e3a8a; color: white; text-decoration: none;
-  padding: 7px 14px; border-radius: 6px; font-size: 12px; font-weight: 600;
-  margin-bottom: 28px;
+  padding: 7px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-bottom: 28px;
 }}
 .back-btn:hover {{ background: #1e40af; }}
-
-/* Scrollbar */
 ::-webkit-scrollbar {{ width: 5px; }}
 ::-webkit-scrollbar-thumb {{ background: #d4d4d8; border-radius: 10px; }}
 </style>
@@ -464,59 +517,39 @@ code {{ background: #f1f5f9; padding: 1px 5px; border-radius: 3px;
   <h2>Navigation</h2>
   <a class="nav-plain" href="#overview">Overview</a>
   <a class="nav-plain" href="#na-nr">N/A vs N/R</a>
+  <a class="nav-plain" href="#workflow">Workflow</a>
+  <a class="nav-plain" href="#pitfalls">Pitfalls</a>
   <a class="nav-plain" href="#fields">Field Definitions</a>
   <div class="nav-sep"></div>
   <h2>Fields</h2>
   {field_nav}
-  <div class="nav-sep"></div>
-  <a class="nav-plain" href="#formulas">Formulas</a>
-  <a class="nav-plain" href="#workflow">Workflow</a>
-  <a class="nav-plain" href="#pitfalls">Pitfalls</a>
 </nav>
 
 <main id="main">
   <a class="back-btn" href="/" target="_self">← Back to Extraction App</a>
   <h1>Field Extraction Guide</h1>
-  <p class="subtitle">Protocol for human coders — PGG experiment data extraction</p>
+  <p class="subtitle">Design space parameters — PGG lab experiments</p>
 
-  <!-- Overview -->
   <h2 class="sec" id="overview">Overview</h2>
-  {paras_to_html("overview")}
-  <h3 class="subsec" id="granularity">Granularity Rule: One Row = One Condition</h3>
-  {paras_to_html("granularity")}
+  {overview_html}
+  <h3 class="subsec" id="granularity">One tab = one condition</h3>
+  {granularity_html}
 
-  <!-- N/A vs N/R -->
-  <h2 class="sec" id="na-nr">When to use: N/A vs N/R</h2>
+  <h2 class="sec" id="na-nr">N/A vs N/R</h2>
   {na_table_html}
 
-  <!-- Field Definitions -->
+  <h2 class="sec" id="workflow">Workflow</h2>
+  {workflow_html}
+
+  <h2 class="sec" id="pitfalls">Common Pitfalls</h2>
+  {pitfalls_html}
+
   <h2 class="sec" id="fields">Field Definitions</h2>
-  <p>Each field you will extract is described below. Click a field name in the left sidebar to jump directly to it.</p>
+  <p style="margin-bottom:16px">Hover over any field label in the extraction app to see its definition inline. Full definitions below.</p>
   {field_cards}
 
-  <!-- Formulas -->
-  <h2 class="sec" id="formulas">Formula Cheat Sheet</h2>
-
-  <h3 class="subsec" id="DV_contributionRate">DV_contributionRate</h3>
-  <div class="formula-box">DV_contributionRate = (avg tokens contributed per player per round) / (tokens endowed per round)</div>
-  {paras_to_html("formula_contrib")}
-
-  <h3 class="subsec" id="DV_efficiency">DV_efficiency</h3>
-  <div class="formula-box">DV_efficiency = actual_total_group_payoff / max_payoff</div>
-  <div class="formula-box">max_payoff = n_players × n_rounds × endowment × multiplier</div>
-  {paras_to_html("formula_eff")}
-
-  <h3 class="subsec" id="CONFIG_MPCR">MPCR (Marginal Per Capita Return)</h3>
-  <div class="formula-box">MPCR = Fund Multiplier / Group Size</div>
-  {paras_to_html("formula_mpcr")}
-
-  <!-- Workflow -->
-  <h2 class="sec" id="workflow">Step-by-Step Extraction Workflow</h2>
-  {paras_to_html("workflow")}
-
-  <!-- Pitfalls -->
-  <h2 class="sec" id="pitfalls">Common Pitfalls &amp; Edge Cases</h2>
-  {paras_to_html("pitfalls")}
+  <h3 class="subsec" id="CONFIG_MPCR">MPCR formula</h3>
+  {mpcr_formula_html}
 </main>
 </div>
 </body>
