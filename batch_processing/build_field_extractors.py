@@ -1266,7 +1266,7 @@ def load_custom_ids(csv_path: str) -> list[str]:
         return [row["custom_id"].strip() for row in reader if row.get("custom_id")]
 
 
-def find_markdown_path(markdown_dir: str, custom_id: str) -> Path | None:
+def find_markdown_path(markdown_dir: str, custom_id: str):
     direct = Path(markdown_dir) / custom_id
     if direct.exists():
         return direct
