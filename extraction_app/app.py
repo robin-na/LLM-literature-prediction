@@ -218,7 +218,7 @@ def export_csv():
                 "title":           m.get("title", ""),
                 "authors":         m.get("authors", ""),
                 "year":            m.get("year", ""),
-                "condition_label": cond.get("label", "") if empirical else "",
+                "condition_label": cond.get("label", "") if empirical else "N/A",
             }
             row.update(cond)
             if not empirical:
