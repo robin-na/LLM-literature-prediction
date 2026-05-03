@@ -1,0 +1,40 @@
+{
+  "10.1002_bdm.1810": {
+    "conditions": [
+      {
+        "Controlled_Or_Observational": "0",
+        "Empirical": "0",
+        "Lab_Or_Field": "0",
+        "label": "Condition 0"
+      }
+    ]
+  },
+  "10.1002_bdm.1976": {
+    "conditions": [
+      {
+        "label": "Condition 0",
+        "Empirical": "0",
+        "CONFIG_playerCount": "N/A",
+        "CONFIG_numRounds": "N/A",
+        "CONFIG_allOrNothing": "N/A",
+        "CONFIG_defaultContribProp": "N/A",
+        "CONFIG_MPCR": "N/A",
+        "CONFIG_chat": "N/A",
+        "CONFIG_showOtherSummaries": "N/A",
+        "CONFIG_showPunishmentId": "N/A",
+        "CONFIG_showRewardId": "N/A",
+        "DV_contributionRate": "N/A",
+        "DV_efficiency": "N/A",
+        "Controlled_Or_Observational": "0",
+        "Lab_Or_Field": "0"
+      }
+    ]
+  },
+  "10.1002_bdm.2012": {
+    "conditions": [
+      {
+        "label": "Condition 0"
+      }
+    ]
+  }
+}

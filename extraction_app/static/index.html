@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PGG Paper Extraction</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sidebar-w: 290px;
+  --form-w: 350px;
+  --bg: #f4f4f5;
+  --surface: #fff;
+  --border: #e4e4e7;
+  --accent: #2563eb;
+  --accent-h: #1d4ed8;
+  --accent-lt: #eff6ff;
+  --done: #16a34a;
+  --done-lt: #f0fdf4;
+  --text: #18181b;
+  --muted: #71717a;
+  --danger: #dc2626;
+  --warn: #d97706;
+}
+
+*, body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text); }
+body { background: var(--bg); height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+/* ── Topbar ── */
+#topbar {
+  background: #1e3a8a;
+  color: #fff;
+  height: 46px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,.22);
+  z-index: 10;
+}
+#topbar h1 { font-size: 14px; font-weight: 700; color: #fff; flex: 1; }
+#topbar-pos { font-size: 11px; color: rgba(255,255,255,.65); white-space: nowrap; min-width: 90px; }
+#status-msg { font-size: 11px; color: rgba(255,255,255,.7); min-width: 70px; }
+.top-btn {
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff;
+  padding: 5px 11px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background .12s;
+}
+.top-btn:hover { background: rgba(255,255,255,.24); }
+
+/* ── Layout ── */
+#main { display: flex; flex: 1; overflow: hidden; }
+
+/* ── Sidebar ── */
+#sidebar {
+  width: var(--sidebar-w);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+#search-wrap { padding: 9px 9px 6px; border-bottom: 1px solid var(--border); }
+#search {
+  width: 100%; padding: 6px 10px; border: 1px solid var(--border);
+  border-radius: 5px; font-size: 12px; outline: none; background: var(--bg);
+}
+#search:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-lt); }
+
+#paper-count {
+  padding: 4px 10px;
+  font-size: 10.5px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.prog-bar-wrap { height: 3px; background: var(--border); }
+.prog-bar { height: 3px; background: var(--done); transition: width .4s; }
+
+#paper-list { flex: 1; overflow-y: auto; }
+
+.paper-item {
+  padding: 8px 10px 7px;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  transition: background .08s;
+  user-select: none;
+}
+.paper-item:hover { background: var(--bg); }
+.paper-item.active { background: var(--accent-lt); border-left-color: var(--accent); }
+.paper-item.done   { background: var(--done-lt); }
+.paper-item.done.active { background: #dbeafe; }
+.paper-item.no-pdf { opacity: .5; }
+
+.pi-left { display: flex; flex-direction: column; align-items: center; gap: 5px; flex-shrink: 0; padding-top: 2px; }
+.paper-num { font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.paper-dot { width: 7px; height: 7px; border-radius: 50%; background: #d4d4d8; }
+.paper-item.done .paper-dot { background: var(--done); }
+
+.pi-right { min-width: 0; }
+.pi-title {
+  font-size: 11.5px; font-weight: 600; line-height: 1.35;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.pi-sub {
+  font-size: 10px; color: var(--muted); margin-top: 2px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.no-pdf-badge {
+  display: inline-block; font-size: 9px; background: #fef3c7; color: #92400e;
+  border: 1px solid #fde68a; border-radius: 3px; padding: 0 4px; margin-left: 4px;
+  vertical-align: middle; font-weight: 600;
+}
+
+.no-results { padding: 24px; text-align: center; color: var(--muted); font-size: 13px; }
+
+#sidebar-footer {
+  padding: 7px 10px;
+  border-top: 1px solid var(--border);
+  background: #fafafa;
+  font-size: 10px;
+  color: #a1a1aa;
+  line-height: 1.6;
+}
+#sidebar-footer kbd {
+  background: #e4e4e7; border-radius: 3px; padding: 0 4px;
+  font-size: 10px; font-family: inherit; color: #52525b;
+}
+
+/* ── PDF Viewer ── */
+#viewer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #525659;
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+#pdf-frame {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+#pdf-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #aaa;
+}
+#pdf-placeholder .ph-icon { font-size: 48px; }
+#pdf-placeholder .ph-title { font-size: 15px; font-weight: 600; color: #ccc; }
+#pdf-placeholder .ph-sub { font-size: 12px; color: #999; text-align: center; max-width: 320px; line-height: 1.6; }
+#pdf-placeholder code {
+  background: #3a3d40; color: #e0e0e0; padding: 2px 7px;
+  border-radius: 4px; font-size: 11px; font-family: 'Menlo','Monaco',monospace;
+}
+
+/* ── Form panel ── */
+#form-panel {
+  width: var(--form-w);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+#form-header {
+  padding: 10px 12px 8px;
+  border-bottom: 1px solid var(--border);
+  background: #fafafa;
+}
+#form-paper-label {
+  font-size: 11px; color: var(--muted);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  margin-bottom: 7px;
+}
+#condition-tabs { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+
+.cond-tab {
+  padding: 3px 9px; border-radius: 4px; font-size: 11px; cursor: pointer;
+  border: 1px solid var(--border); background: white; font-weight: 500;
+  color: var(--muted); transition: all .1s; max-width: 120px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.cond-tab:hover { border-color: var(--accent); color: var(--accent); }
+.cond-tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+#add-cond-btn {
+  font-size: 11px; padding: 3px 8px; background: none;
+  border: 1px dashed #d4d4d8; border-radius: 4px; cursor: pointer;
+  color: var(--accent); font-weight: 500;
+}
+#add-cond-btn:hover { background: var(--accent-lt); border-style: solid; }
+#del-cond-btn {
+  font-size: 11px; padding: 3px 7px; background: none; border: none;
+  cursor: pointer; color: var(--danger); margin-left: auto; opacity: .65;
+}
+#del-cond-btn:hover { opacity: 1; }
+
+#form-body { flex: 1; overflow-y: auto; padding: 10px 12px 14px; }
+
+.section-label {
+  font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  color: #a1a1aa; padding: 10px 0 5px; border-bottom: 1px solid var(--border); margin-bottom: 8px;
+}
+.field-group { margin-bottom: 9px; }
+.field-label {
+  font-size: 11px; font-weight: 600; color: #52525b; margin-bottom: 4px;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.field-hint { font-size: 10px; font-weight: 400; color: var(--muted); font-style: italic; }
+
+/* Locked (non-empirical) fields */
+.field-group.locked { opacity: .45; pointer-events: none; }
+.na-badge {
+  display: inline-block; margin-left: 8px; font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .5px;
+  background: #fef9c3; color: #854d0e; border: 1px solid #fde047;
+  border-radius: 3px; padding: 0 5px; vertical-align: middle;
+}
+
+.tog-row { display: flex; gap: 3px; }
+.tog {
+  flex: 1; padding: 6px 2px; border: 1px solid var(--border);
+  background: var(--bg); border-radius: 4px; cursor: pointer;
+  font-size: 12px; font-weight: 600; text-align: center; color: #52525b;
+  transition: all .1s;
+}
+.tog:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-lt); }
+.tog.on  { background: var(--accent); color: white; border-color: var(--accent); }
+.tog.na  { background: #71717a; color: white; border-color: #71717a; }
+
+.finput {
+  width: 100%; padding: 6px 9px; border: 1px solid var(--border);
+  border-radius: 4px; font-size: 12.5px; outline: none;
+  background: var(--bg); color: var(--text); font-family: inherit;
+}
+.finput:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-lt); background: white; }
+textarea.finput { resize: vertical; min-height: 54px; line-height: 1.5; }
+.finput-sub { margin-top: 4px; font-size: 12px; }
+
+#form-footer {
+  padding: 9px 12px; border-top: 1px solid var(--border);
+  display: flex; gap: 7px; background: #fafafa;
+}
+.save-btn {
+  flex: 1; padding: 8px; background: var(--accent); color: white;
+  border: none; border-radius: 5px; cursor: pointer;
+  font-size: 13px; font-weight: 600; transition: background .12s;
+}
+.save-btn:hover  { background: var(--accent-h); }
+.save-btn.saved  { background: var(--done); }
+.save-btn.dirty  { background: var(--warn); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+</style>
+</head>
+<body>
+
+<div id="topbar">
+  <h1>PGG Paper Extraction</h1>
+  <span id="topbar-pos"></span>
+  <span id="status-msg"></span>
+  <button class="top-btn" onclick="openGuide()">📖 Extraction Guide</button>
+  <button class="top-btn" onclick="exportCSV()">⬇ Export CSV</button>
+</div>
+
+<div id="main">
+
+  <!-- ── Sidebar ── -->
+  <div id="sidebar">
+    <div id="search-wrap">
+      <input id="search" type="text" placeholder="Search by title or DOI…"
+             oninput="filterPapers()" autocomplete="off" spellcheck="false">
+    </div>
+    <div id="paper-count"></div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="prog-bar" style="width:0%"></div></div>
+    <div id="paper-list"></div>
+    <div id="sidebar-footer">
+      <kbd>← →</kbd> or <kbd>J</kbd><kbd>K</kbd> navigate &nbsp;·&nbsp; <kbd>S</kbd> save
+    </div>
+  </div>
+
+  <!-- ── PDF Viewer ── -->
+  <div id="viewer">
+    <iframe id="pdf-frame" style="display:none"></iframe>
+    <div id="pdf-placeholder">
+      <div class="ph-icon">📄</div>
+      <div class="ph-title">No paper selected</div>
+      <div class="ph-sub">
+        Select a paper from the list.<br>
+        Drop your PDF files into<br>
+        <code>extraction_app/pdfs/</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Extraction Form ── -->
+  <div id="form-panel">
+    <div id="form-header">
+      <div id="form-paper-label">No paper selected</div>
+      <div id="condition-tabs"></div>
+    </div>
+    <div id="form-body">
+      <div style="display:flex;align-items:center;justify-content:center;height:180px;color:var(--muted);font-size:12px">
+        Select a paper to begin
+      </div>
+    </div>
+    <div id="form-footer" style="display:none">
+      <button class="save-btn" id="save-btn" onclick="saveNow()">Save</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   FIELDS  (matches Human Extraction Guide exactly)
+═══════════════════════════════════════════════════ */
+const FIELDS = [
+  { sec: "Study Type" },
+  { key:"Empirical",
+    label:"Empirical",
+    type:"bin",
+    hint:"1 = has human data · 0 = theory / simulation" },
+  { key:"Controlled_Or_Observational",
+    label:"Controlled / Observational",
+    type:"bin",
+    hint:"1 = experiment with manipulation · 0 = observational" },
+  { key:"Lab_Or_Field",
+    label:"Lab / Field",
+    type:"bin",
+    hint:"1 = real-world field · 0 = lab or online" },
+
+  { sec: "Game Configuration (CONFIG_)" },
+  { key:"CONFIG_playerCount",
+    label:"Player Count",
+    type:"text",
+    hint:"# players per group" },
+  { key:"CONFIG_numRounds",
+    label:"Num Rounds",
+    type:"text",
+    hint:"total rounds · N/R if unknown or hidden" },
+  { key:"CONFIG_allOrNothing",
+    label:"All-or-Nothing",
+    type:"bin",
+    hint:"1 = binary (all/nothing) · 0 = continuous" },
+  { key:"CONFIG_defaultContribProp",
+    label:"Default Contrib Prop",
+    type:"bin_na_v",
+    hint:"0 = opt-in (standard) · 1 = opt-out · N/A = non-human" },
+  { key:"CONFIG_MPCR",
+    label:"MPCR",
+    type:"text",
+    hint:"fund multiplier ÷ group size" },
+  { key:"CONFIG_chat",
+    label:"Chat / Communication",
+    type:"bin_na",
+    hint:"1 = yes · 0 = no · N/A = non-human" },
+  { key:"CONFIG_showOtherSummaries",
+    label:"Show Others' Summaries",
+    type:"bin",
+    hint:"1 = individual earnings / sanctions visible · 0 = group total only" },
+  { key:"CONFIG_showPunishmentId",
+    label:"Punisher Identity Shown",
+    type:"bin_na",
+    hint:"1 = identified · 0 = anonymous · N/A = no punishment" },
+  { key:"CONFIG_showRewardId",
+    label:"Rewarder Identity Shown",
+    type:"bin_na",
+    hint:"1 = identified · 0 = anonymous · N/A = no reward" },
+
+  { sec: "Outcomes (DV_)" },
+  { key:"DV_contributionRate",
+    label:"Contribution Rate",
+    type:"text",
+    hint:"mean contrib / endowment · 0–1 · or N/R" },
+  { key:"DV_efficiency",
+    label:"Efficiency",
+    type:"text",
+    hint:"actual group payoff / max payoff · 0–1 · or N/R" },
+
+  { sec: "Notes" },
+  { key:"Misc",
+    label:"Misc / Source Notes",
+    type:"area",
+    hint:"table/figure refs, edge cases, ambiguities" },
+];
+
+/* ═══════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════ */
+let allPapers      = [];
+let filtered       = [];
+let curIdx         = -1;
+let curCond        = 0;
+let store          = {};
+let dirty          = false;
+let saveTimer      = null;
+let _activePaperId = null;
+
+/* ═══════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════ */
+async function init() {
+  const r   = await fetch("/api/papers");
+  allPapers = await r.json();
+  filtered  = [...allPapers];
+  renderList();
+  updateMeta();
+}
+
+/* ═══════════════════════════════════════════════════
+   PAPER LIST
+═══════════════════════════════════════════════════ */
+function renderList() {
+  const el = document.getElementById("paper-list");
+  if (filtered.length === 0) {
+    el.innerHTML = `<div class="no-results">No papers match your search</div>`;
+    return;
+  }
+  el.innerHTML = filtered.map((p, i) => {
+    const title  = p.title || p.id;
+    const sub    = p.title ? (p.year ? `${p.id} · ${p.year}` : p.id) : "";
+    const noPdf  = !p.has_pdf;
+    const badge  = noPdf ? `<span class="no-pdf-badge">no PDF</span>` : "";
+    return `
+    <div class="paper-item ${p.done ? "done" : ""} ${i === curIdx ? "active" : ""} ${noPdf ? "no-pdf" : ""}"
+         onclick="selectPaper(${i})">
+      <div class="pi-left">
+        <span class="paper-num">${i + 1}</span>
+        <span class="paper-dot"></span>
+      </div>
+      <div class="pi-right">
+        <div class="pi-title" title="${esc(title)}">${esc(title)}${badge}</div>
+        ${sub ? `<div class="pi-sub">${esc(sub)}</div>` : ""}
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function filterPapers() {
+  const q      = document.getElementById("search").value.toLowerCase().trim();
+  const prevId = curIdx >= 0 ? filtered[curIdx]?.id : null;
+
+  filtered = q
+    ? allPapers.filter(p =>
+        p.id.toLowerCase().includes(q) ||
+        (p.title   || "").toLowerCase().includes(q) ||
+        (p.authors || "").toLowerCase().includes(q))
+    : [...allPapers];
+
+  // Keep current paper highlighted if still visible
+  curIdx = prevId ? filtered.findIndex(p => p.id === prevId) : -1;
+
+  renderList();
+  updateMeta();
+}
+
+function updateMeta() {
+  const done  = allPapers.filter(p => p.done).length;
+  const total = allPapers.length;
+  const pdfs  = allPapers.filter(p => p.has_pdf).length;
+  document.getElementById("paper-count").textContent =
+    `${filtered.length} / ${total} · ${pdfs} PDFs · ${done} done`;
+  document.getElementById("prog-bar").style.width =
+    total ? `${(done / total) * 100}%` : "0%";
+}
+
+function scrollActive() {
+  document.querySelector(".paper-item.active")?.scrollIntoView({ block: "nearest" });
+}
+
+/* ═══════════════════════════════════════════════════
+   SELECT PAPER
+═══════════════════════════════════════════════════ */
+async function selectPaper(idx) {
+  if (idx < 0 || idx >= filtered.length) return;
+
+  // Save current paper before leaving
+  clearTimeout(saveTimer);
+  if (_activePaperId) await flushSave(_activePaperId);
+
+  curIdx         = idx;
+  curCond        = 0;
+  dirty          = false;
+  _activePaperId = filtered[idx].id;
+
+  renderList();
+  scrollActive();
+  updatePositionLabel();
+
+  const p = filtered[idx];
+
+  // Update form header
+  document.getElementById("form-paper-label").textContent =
+    p.title ? `${p.title} (${p.year || p.id})` : p.id;
+
+  // Load PDF or show placeholder
+  const frame       = document.getElementById("pdf-frame");
+  const placeholder = document.getElementById("pdf-placeholder");
+
+  if (p.has_pdf) {
+    frame.src = `/pdf/${encodeURIComponent(p.id)}`;
+    frame.style.display = "block";
+    placeholder.style.display = "none";
+  } else {
+    frame.src = "";
+    frame.style.display = "none";
+    placeholder.style.display = "flex";
+    placeholder.innerHTML = `
+      <div class="ph-icon">📄</div>
+      <div class="ph-title">PDF not available</div>
+      <div class="ph-sub">
+        Add the file<br>
+        <code>${esc(p.id)}.pdf</code><br>
+        to <code>extraction_app/pdfs/</code><br>
+        then reload the page.
+      </div>`;
+  }
+
+  // Load extraction data
+  const exR = await fetch(`/api/extraction/${encodeURIComponent(p.id)}`);
+  const ex  = await exR.json();
+  store[p.id] = (ex && Array.isArray(ex.conditions) && ex.conditions.length)
+    ? ex
+    : { conditions: [blankCond(0)] };
+
+  renderTabs();
+  renderForm();
+  setSaveBtn("idle");
+  document.getElementById("form-footer").style.display = "flex";
+}
+
+function updatePositionLabel() {
+  document.getElementById("topbar-pos").textContent =
+    curIdx >= 0 ? `Paper ${curIdx + 1} / ${filtered.length}` : "";
+}
+
+/* ═══════════════════════════════════════════════════
+   CONDITIONS
+═══════════════════════════════════════════════════ */
+function blankCond(n) { return { label: `Condition ${n}` }; }
+
+function curData() {
+  return (_activePaperId && store[_activePaperId]) ? store[_activePaperId] : null;
+}
+
+function curCondObj() {
+  const d = curData();
+  return d ? (d.conditions[curCond] || {}) : {};
+}
+
+function renderTabs() {
+  const d = curData();
+  if (!d) return;
+  document.getElementById("condition-tabs").innerHTML =
+    d.conditions.map((c, i) => `
+      <span class="cond-tab ${i === curCond ? "active" : ""}" onclick="switchCond(${i})"
+            title="${esc(c.label || "Condition " + i)}">${esc(c.label || "Cond " + i)}</span>
+    `).join("") +
+    `<button id="add-cond-btn" onclick="addCond()">+ Cond</button>` +
+    (d.conditions.length > 1
+      ? `<button id="del-cond-btn" onclick="delCond()">✕</button>`
+      : "");
+}
+
+function switchCond(i) { curCond = i; renderTabs(); renderForm(); }
+
+function addCond() {
+  const d = curData(); if (!d) return;
+  d.conditions.push(blankCond(d.conditions.length));
+  curCond = d.conditions.length - 1;
+  renderTabs(); renderForm(); markDirty();
+}
+
+function delCond() {
+  const d = curData(); if (!d || d.conditions.length <= 1) return;
+  if (!confirm(`Delete "${d.conditions[curCond].label || "this condition"}"?`)) return;
+  d.conditions.splice(curCond, 1);
+  curCond = Math.max(0, curCond - 1);
+  renderTabs(); renderForm(); markDirty();
+}
+
+/* ═══════════════════════════════════════════════════
+   FORM RENDERING
+═══════════════════════════════════════════════════ */
+function isNonEmpirical() {
+  const c = curCondObj();
+  return c["Empirical"] === "0";
+}
+
+function renderForm() {
+  const c       = curCondObj();
+  const locked  = isNonEmpirical();
+  let html = fieldHTML({ key: "label", label: "Condition Label", type: "text", hint: "" }, c.label || "");
+
+  for (const f of FIELDS) {
+    if (f.sec) {
+      const isParamSec = f.sec.startsWith("Game") || f.sec.startsWith("Outcomes");
+      const badge = (locked && isParamSec)
+        ? `<span class="na-badge">auto N/A</span>`
+        : "";
+      html += `<div class="section-label">${f.sec}${badge}</div>`;
+      continue;
+    }
+    const val     = c[f.key] !== undefined ? c[f.key] : "";
+    const isParam = f.key.startsWith("CONFIG_") || f.key.startsWith("DV_");
+    html += fieldHTML(f, val, locked && isParam);
+  }
+  document.getElementById("form-body").innerHTML = html;
+}
+
+function fieldHTML(f, val, locked = false) {
+  val = (val === null || val === undefined) ? "" : String(val);
+  const hint = f.hint ? `<span class="field-hint">${esc(f.hint)}</span>` : "";
+  let body;
+
+  if (f.type === "bin") {
+    body = togRow(f.key, val, [
+      { v: "0", lbl: "0 — No" },
+      { v: "1", lbl: "1 — Yes" },
+    ]);
+  } else if (f.type === "bin_na") {
+    body = togRow(f.key, val, [
+      { v: "0",   lbl: "0" },
+      { v: "1",   lbl: "1" },
+      { v: "N/A", lbl: "N/A", na: true },
+    ]);
+  } else if (f.type === "bin_na_v") {
+    const freeVal = !["0", "1", "N/A"].includes(val) ? val : "";
+    body = togRow(f.key, val, [
+      { v: "0",   lbl: "0" },
+      { v: "1",   lbl: "1" },
+      { v: "N/A", lbl: "N/A", na: true },
+    ]) + `<input class="finput finput-sub" type="text"
+            placeholder="or intermediate value e.g. 0.5"
+            value="${esc(freeVal)}"
+            data-key="${f.key}"
+            oninput="onFreeInput(this)"
+            onchange="onFreeInput(this)">`;
+  } else if (f.type === "area") {
+    body = `<textarea class="finput" rows="3"
+              data-key="${f.key}"
+              onchange="setVal('${f.key}',this.value)"
+              oninput="setVal('${f.key}',this.value)">${esc(val)}</textarea>`;
+  } else {
+    body = `<input class="finput" type="text" value="${esc(val)}"
+              data-key="${f.key}"
+              onchange="setVal('${f.key}',this.value)"
+              oninput="setVal('${f.key}',this.value)">`;
+  }
+
+  const wrap = locked ? ` locked` : "";
+  return `<div class="field-group${wrap}" data-field="${f.key || "label"}">
+    <div class="field-label">${esc(f.label || "Label")} ${hint}</div>
+    ${body}
+  </div>`;
+}
+
+function togRow(key, curVal, opts) {
+  return `<div class="tog-row" data-tog-key="${key}">` +
+    opts.map(o => {
+      const sel = String(curVal) === String(o.v);
+      const cls = sel ? (o.na ? "tog na" : "tog on") : "tog";
+      return `<button class="${cls}" data-val="${esc(o.v)}"
+                onclick="onToggle(this,'${key}')">${esc(o.lbl)}</button>`;
+    }).join("") +
+  `</div>`;
+}
+
+/* ═══════════════════════════════════════════════════
+   INPUT HANDLERS
+═══════════════════════════════════════════════════ */
+function onToggle(btn, key) {
+  const row = btn.closest(".tog-row");
+  row.querySelectorAll(".tog").forEach(b => b.classList.remove("on", "na"));
+  btn.classList.add(["N/A", "N/R"].includes(btn.dataset.val) ? "na" : "on");
+  setVal(key, btn.dataset.val);
+  const ft = btn.closest(".field-group").querySelector("input.finput-sub");
+  if (ft) ft.value = "";
+}
+
+function onFreeInput(input) {
+  input.closest(".field-group").querySelectorAll(".tog").forEach(b =>
+    b.classList.remove("on", "na")
+  );
+  setVal(input.dataset.key, input.value);
+}
+
+function setVal(key, value) {
+  const d = curData(); if (!d || !d.conditions[curCond]) return;
+  d.conditions[curCond][key] = value;
+  if (key === "label") renderTabs();
+  if (key === "Empirical" && value === "0") autoFillNA();
+  else if (key === "Empirical" && value === "1") renderForm(); // re-render to unlock
+  markDirty();
+}
+
+function autoFillNA() {
+  const d = curData(); if (!d || !d.conditions[curCond]) return;
+  const c = d.conditions[curCond];
+  for (const f of FIELDS) {
+    if (f.key && (f.key.startsWith("CONFIG_") || f.key.startsWith("DV_"))) {
+      c[f.key] = "N/A";
+    }
+  }
+  renderForm();
+}
+
+/* ═══════════════════════════════════════════════════
+   DIRTY / SAVE STATE
+═══════════════════════════════════════════════════ */
+function markDirty() {
+  dirty = true;
+  setSaveBtn("dirty");
+  clearTimeout(saveTimer);
+  const pid = _activePaperId;
+  saveTimer = setTimeout(() => {
+    if (_activePaperId === pid) autoSave();
+  }, 2000);
+}
+
+async function autoSave() {
+  if (!dirty || !_activePaperId) return;
+  await flushSave(_activePaperId);
+  dirty = false;
+  setSaveBtn("idle");
+  showStatus("Auto-saved");
+}
+
+async function saveNow() {
+  clearTimeout(saveTimer);
+  if (!_activePaperId) return;
+  await flushSave(_activePaperId);
+  dirty = false;
+  setSaveBtn("saved");
+  setTimeout(() => setSaveBtn("idle"), 1600);
+}
+
+async function flushSave(pid) {
+  const d = store[pid]; if (!d) return;
+  await fetch(`/api/extraction/${encodeURIComponent(pid)}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(d),
+  });
+  const anyFilled = d.conditions.some(c =>
+    Object.entries(c).some(([k, v]) => k !== "label" && v !== "" && v !== null)
+  );
+  [allPapers, filtered].forEach(arr => {
+    const p = arr.find(x => x.id === pid);
+    if (p) p.done = anyFilled;
+  });
+  renderList();
+  updateMeta();
+}
+
+function setSaveBtn(state) {
+  const btn = document.getElementById("save-btn"); if (!btn) return;
+  btn.classList.remove("saved", "dirty");
+  if      (state === "saved") { btn.textContent = "Saved ✓"; btn.classList.add("saved"); }
+  else if (state === "dirty") { btn.textContent = "● Save";  btn.classList.add("dirty"); }
+  else                        { btn.textContent = "Save"; }
+}
+
+function showStatus(msg) {
+  const el = document.getElementById("status-msg");
+  el.textContent = msg;
+  clearTimeout(window._stTimer);
+  window._stTimer = setTimeout(() => { el.textContent = ""; }, 2200);
+}
+
+/* ═══════════════════════════════════════════════════
+   EXPORT / DOWNLOAD
+═══════════════════════════════════════════════════ */
+function exportCSV()  { window.location.href = "/api/export-csv"; }
+function openGuide() { window.open("/guide", "_blank"); }
+
+/* ═══════════════════════════════════════════════════
+   KEYBOARD NAV
+═══════════════════════════════════════════════════ */
+document.addEventListener("keydown", e => {
+  const tag = document.activeElement?.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+  if      (e.key === "ArrowRight" || e.key === "j") { e.preventDefault(); selectPaper(curIdx + 1); }
+  else if (e.key === "ArrowLeft"  || e.key === "k") { e.preventDefault(); selectPaper(curIdx - 1); }
+  else if (e.key === "s" || e.key === "S")          { saveNow(); }
+});
+
+/* ═══════════════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════════════ */
+function esc(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;").replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+init();
+</script>
+</body>
+</html>
