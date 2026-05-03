@@ -1313,15 +1313,6 @@ def load_custom_ids(csv_path: str) -> list[str]:
         return [row["custom_id"].strip() for row in reader if row.get("custom_id")]
 
 
-def find_markdown_path(markdown_dir: str, custom_id: str) -> Path | None:
-    for name in (custom_id, custom_id + ".md"):
-        direct = Path(markdown_dir) / name
-        if direct.exists():
-            return direct
-    matches = list(Path(markdown_dir).rglob(custom_id + ".md"))
-    return matches[0] if matches else None
-
-
 def main():
     args = parse_args()
 
@@ -1353,12 +1344,14 @@ def main():
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    md_index = {p.stem: p for p in Path(args.markdown_dir).rglob("*.md")}
+
     for field in fields:
         output_path = output_dir / f"field_{field}.jsonl"
         count = 0
         with open(output_path, "w", encoding="utf-8") as out_fh:
             for custom_id in selected_ids:
-                md_path = find_markdown_path(args.markdown_dir, custom_id)
+                md_path = md_index.get(custom_id)
                 if not md_path:
                     print(
                         f"Warning: markdown not found for {custom_id}",

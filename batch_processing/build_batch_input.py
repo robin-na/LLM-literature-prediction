@@ -239,16 +239,6 @@ def load_custom_ids(csv_path):
         return [row["custom_id"].strip() for row in reader if row.get("custom_id")]
 
 
-def find_markdown_path(markdown_dir, custom_id):
-    direct_path = Path(markdown_dir) / custom_id
-    if direct_path.exists():
-        return direct_path
-    matches = list(Path(markdown_dir).rglob(custom_id))
-    if matches:
-        return matches[0]
-    return None
-
-
 def build_user_prompt(paper_text):
     return "\n\n".join([
         OUTPUT_SCHEMA_DESCRIPTION,
@@ -270,9 +260,11 @@ def main():
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
+    md_index = {p.stem: p for p in Path(args.markdown_dir).rglob("*.md")}
+
     with open(output_path, "w", encoding="utf-8") as out_handle:
         for custom_id in selected_ids:
-            markdown_path = find_markdown_path(args.markdown_dir, custom_id)
+            markdown_path = md_index.get(custom_id)
             if not markdown_path:
                 print(
                     f"Warning: markdown file not found for {custom_id}",

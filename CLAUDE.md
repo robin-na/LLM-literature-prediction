@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**Full project documentation:** [`docs/index.md`](docs/index.md)
+
 ## Project Overview
 
 This is a research project evaluating whether augmenting LLM prompts with academic literature improves predictions of Public Goods Game (PGG) experiment outcomes. Specifically, the task is predicting how enabling a punishment mechanism changes a game's **efficiency** (ratio of actual group payoff to maximum cooperative payoff, expressed as a percentage integer).

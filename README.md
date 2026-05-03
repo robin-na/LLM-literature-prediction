@@ -12,12 +12,12 @@ Evaluating whether augmenting LLM prompts with academic literature improves pred
 | `analysis/` | Prediction metrics, parsing, figure scripts |
 | `results/` | Prediction output CSVs and metric summaries |
 | `plots/` | Jupyter notebooks for paper figures |
-| `docs/` | Academic documentation (SI LaTeX) |
+| `docs/` | All project documentation (see [docs/index.md](docs/index.md)) |
 
 ## Paper Figures
 
-- Narrative overview: [analysis/paper_figures/README.md](analysis/paper_figures/README.md)
-- Detailed derivations and data sources: [analysis/paper_figures/figure_derivation_notes.md](analysis/paper_figures/figure_derivation_notes.md)
+- Narrative overview: [docs/analysis/figures.md](docs/analysis/figures.md)
+- Detailed derivations and data sources: [docs/analysis/figure_derivations.md](docs/analysis/figure_derivations.md)
 
 ## Data Extraction
 
@@ -28,8 +28,8 @@ Structured experimental parameters were extracted from **810 PGG papers** using 
 - **Output:** 808 papers with extractable conditions, 3,910 condition rows, 45 fields per condition
 - **Schema:** Condition-level (one row per treatment arm) with paper-level aggregations for `number_IVs`, `number_DVs`, `DV_efficiencyReported`, and `source_data`
 
-Full methodology: [`batch_processing/extraction.md`](batch_processing/extraction.md)  
-Formal SI write-up for publication: [`docs/extraction_SI.tex`](docs/extraction_SI.tex)
+Full methodology: [`docs/extraction/pipeline.md`](docs/extraction/pipeline.md)  
+Formal SI write-up for publication: [`docs/formal/extraction_SI.tex`](docs/formal/extraction_SI.tex)
 
 ## Prediction Task
 
@@ -47,7 +47,7 @@ Given a PGG experimental configuration (group size, endowment, MPCR, punishment 
 # Required
 export OPENAI_API_KEY=...
 
-# Run extraction (see batch_processing/extraction.md for full workflow)
+# Run extraction (see docs/extraction/pipeline.md for full workflow)
 set -a && source .env && set +a
 python batch_processing/extract_papers.py batch-submit --help
 

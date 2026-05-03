@@ -38,22 +38,13 @@ Custom output dir or Drive folder name:
 """
 
 import argparse
-import io
 from pathlib import Path
 
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
-from googleapiclient.http import MediaIoBaseDownload
+
+from gdrive_helpers import download_file, find_folder, get_credentials, list_folder_files
 
 # ── Config ────────────────────────────────────────────────────────────────────
-
-SCOPES = ["https://www.googleapis.com/auth/drive.readonly"]
-
-SCRIPT_DIR = Path(__file__).parent
-CREDENTIALS_FILE = SCRIPT_DIR / "gdrive_credentials.json"
-TOKEN_FILE = SCRIPT_DIR / "gdrive_token.json"
 
 DEFAULT_OUTPUT_DIR = Path(__file__).parent.parent / "PGG_papers" / "papers"
 DEFAULT_DRIVE_FOLDER = "papers_markdown"
@@ -259,82 +250,6 @@ PDF_PATHS = [
     "paper_collection/WoS_251029.Data/PDF/2551743279/10.1007_s10551-011-0795-z.pdf",
     "paper_collection/WoS_251029.Data/PDF/1047048267/10.1037_a0011381.pdf",
 ]
-
-# ── Auth ──────────────────────────────────────────────────────────────────────
-
-def get_credentials():
-    creds = None
-    if TOKEN_FILE.exists():
-        creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            if not CREDENTIALS_FILE.exists():
-                raise FileNotFoundError(
-                    f"Credentials file not found: {CREDENTIALS_FILE}\n"
-                    "Please follow the setup instructions in this file's docstring."
-                )
-            flow = InstalledAppFlow.from_client_secrets_file(str(CREDENTIALS_FILE), SCOPES)
-            creds = flow.run_local_server(port=0)
-        TOKEN_FILE.write_text(creds.to_json())
-    return creds
-
-# ── Drive helpers ─────────────────────────────────────────────────────────────
-
-def find_folder(service, name):
-    """Find a folder by name in files shared with the user."""
-    query = f"name = '{name}' and mimeType = 'application/vnd.google-apps.folder' and sharedWithMe = true"
-    results = service.files().list(
-        q=query,
-        fields="files(id, name, parents)",
-        pageSize=10,
-    ).execute()
-    files = results.get("files", [])
-    if not files:
-        # Also search in all drives
-        query2 = f"name = '{name}' and mimeType = 'application/vnd.google-apps.folder'"
-        results2 = service.files().list(
-            q=query2,
-            fields="files(id, name)",
-            pageSize=10,
-            includeItemsFromAllDrives=True,
-            supportsAllDrives=True,
-        ).execute()
-        files = results2.get("files", [])
-    return files
-
-
-def list_folder_files(service, folder_id):
-    """Return dict of {filename: file_id} for all files in a folder."""
-    files = {}
-    page_token = None
-    while True:
-        params = dict(
-            q=f"'{folder_id}' in parents and trashed = false",
-            fields="nextPageToken, files(id, name)",
-            pageSize=1000,
-            includeItemsFromAllDrives=True,
-            supportsAllDrives=True,
-        )
-        if page_token:
-            params["pageToken"] = page_token
-        response = service.files().list(**params).execute()
-        for f in response.get("files", []):
-            files[f["name"]] = f["id"]
-        page_token = response.get("nextPageToken")
-        if not page_token:
-            break
-    return files
-
-
-def download_file(service, file_id, dest_path):
-    request = service.files().get_media(fileId=file_id)
-    with open(dest_path, "wb") as fh:
-        downloader = MediaIoBaseDownload(fh, request)
-        done = False
-        while not done:
-            _, done = downloader.next_chunk()
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 

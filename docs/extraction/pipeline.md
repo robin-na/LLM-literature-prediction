@@ -2,7 +2,7 @@
 
 This document describes the automated data extraction pipeline used to extract structured experimental parameters from Public Goods Game (PGG) papers. It covers the extraction schema, pipeline design, prompt engineering, and CLI reference.
 
-For the formal academic write-up see [`docs/extraction_SI.tex`](../docs/extraction_SI.tex).
+For the formal academic write-up see [`docs/formal/extraction_SI.tex`](../formal/extraction_SI.tex).
 
 ---
 
