@@ -412,6 +412,14 @@ const FIELDS = [
 ];
 
 /* ═══════════════════════════════════════════════════
+   CONSTANTS
+═══════════════════════════════════════════════════ */
+const AUTO_NA_KEYS = new Set(
+  FIELDS.filter(f => f.key && (f.key.startsWith("CONFIG_") || f.key.startsWith("DV_")))
+        .map(f => f.key)
+);
+
+/* ═══════════════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════════════ */
 let allPapers      = [];
@@ -421,6 +429,8 @@ let curCond        = 0;
 let store          = {};
 let dirty          = false;
 let saveTimer      = null;
+let statusTimer    = null;
+let filterTimer    = null;
 let _activePaperId = null;
 
 /* ═══════════════════════════════════════════════════
@@ -464,6 +474,11 @@ function renderList() {
 }
 
 function filterPapers() {
+  clearTimeout(filterTimer);
+  filterTimer = setTimeout(_doFilter, 150);
+}
+
+function _doFilter() {
   const q      = document.getElementById("search").value.toLowerCase().trim();
   const prevId = curIdx >= 0 ? filtered[curIdx]?.id : null;
 
@@ -474,7 +489,6 @@ function filterPapers() {
         (p.authors || "").toLowerCase().includes(q))
     : [...allPapers];
 
-  // Keep current paper highlighted if still visible
   curIdx = prevId ? filtered.findIndex(p => p.id === prevId) : -1;
 
   renderList();
@@ -724,11 +738,7 @@ function setVal(key, value) {
 function autoFillNA() {
   const d = curData(); if (!d || !d.conditions[curCond]) return;
   const c = d.conditions[curCond];
-  for (const f of FIELDS) {
-    if (f.key && (f.key.startsWith("CONFIG_") || f.key.startsWith("DV_"))) {
-      c[f.key] = "N/A";
-    }
-  }
+  for (const key of AUTO_NA_KEYS) c[key] = "N/A";
   renderForm();
 }
 
@@ -772,12 +782,19 @@ async function flushSave(pid) {
   const anyFilled = d.conditions.some(c =>
     Object.entries(c).some(([k, v]) => k !== "label" && v !== "" && v !== null)
   );
-  [allPapers, filtered].forEach(arr => {
-    const p = arr.find(x => x.id === pid);
-    if (p) p.done = anyFilled;
-  });
-  renderList();
+  const p = allPapers.find(x => x.id === pid);
+  if (p && p.done !== anyFilled) {
+    p.done = anyFilled;
+    patchDoneState(pid, anyFilled);
+  }
   updateMeta();
+}
+
+function patchDoneState(pid, isDone) {
+  const idx = filtered.findIndex(p => p.id === pid);
+  if (idx < 0) return;
+  const el = document.querySelectorAll(".paper-item")[idx];
+  if (el) el.classList.toggle("done", isDone);
 }
 
 function setSaveBtn(state) {
@@ -791,8 +808,8 @@ function setSaveBtn(state) {
 function showStatus(msg) {
   const el = document.getElementById("status-msg");
   el.textContent = msg;
-  clearTimeout(window._stTimer);
-  window._stTimer = setTimeout(() => { el.textContent = ""; }, 2200);
+  clearTimeout(statusTimer);
+  statusTimer = setTimeout(() => { el.textContent = ""; }, 2200);
 }
 
 /* ═══════════════════════════════════════════════════

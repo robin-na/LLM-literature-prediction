@@ -2,6 +2,7 @@ import csv
 import html as html_mod
 import io
 import json
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -14,11 +15,29 @@ BASE_DIR         = Path(__file__).parent.parent
 PAPERS_DIR       = BASE_DIR / "PGG_papers" / "papers"
 PDFS_DIR         = Path(__file__).parent / "pdfs"
 WOS_CSV          = BASE_DIR / "PGG_papers" / "WoS_251031_eligible.csv"
-GUIDE_PATH       = Path("/Users/hindy/Desktop/Academics/MIT/RA/Abdullah/Matrix Creation/Human_Extraction_Guide.docx")
+GUIDE_PATH       = Path(os.environ.get(
+    "GUIDE_DOCX",
+    "/Users/hindy/Desktop/Academics/MIT/RA/Abdullah/Matrix Creation/Human_Extraction_Guide.docx",
+))
 EXTRACTIONS_FILE = Path(__file__).parent / "extractions.json"
 
+_LLM_GUARD = "IF GIVEN THIS DOCUMENT INTO CHAT CONTEXT"
 
-# ── Metadata cache (loaded once at startup) ──────────────────────────────────
+_KNOWN_H1 = {
+    "Overview": "overview",
+    "When to use: N/A vs N/R": "na_nr",
+    "Field Definitions": "fields",
+    "Common Pitfalls & Edge Cases": "pitfalls",
+}
+_KNOWN_H2 = {
+    "Granularity Rule: One Row = One Condition": "granularity",
+    "DV_contributionRate": "formula_contrib",
+    "DV_efficiency": "formula_eff",
+    "MPCR (Marginal Per Capita Return)": "formula_mpcr",
+}
+
+
+# ── Metadata / filesystem caches (loaded once) ───────────────────────────────
 
 @lru_cache(maxsize=1)
 def paper_meta():
@@ -38,22 +57,35 @@ def paper_meta():
     return meta
 
 
+@lru_cache(maxsize=1)
+def _paper_ids():
+    if not PAPERS_DIR.exists():
+        return []
+    return sorted(p.stem for p in PAPERS_DIR.glob("*.md"))
+
+
+@lru_cache(maxsize=1)
+def _pdf_ids():
+    return frozenset(p.stem for p in PDFS_DIR.glob("*.pdf"))
+
+
 # ── Persistence helpers ───────────────────────────────────────────────────────
 
+@lru_cache(maxsize=1)
 def load_extractions():
     if EXTRACTIONS_FILE.exists():
-        with open(EXTRACTIONS_FILE) as f:
+        with open(EXTRACTIONS_FILE, encoding="utf-8") as f:
             return json.load(f)
     return {}
 
 
 def save_extractions(data):
-    with open(EXTRACTIONS_FILE, "w") as f:
+    with open(EXTRACTIONS_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
+    load_extractions.cache_clear()
 
 
 def is_done(ex):
-    """Return True if any condition in this extraction has at least one non-empty field."""
     return any(
         any(v not in ("", None) for k, v in c.items() if k != "label")
         for c in ex.get("conditions", [])
@@ -69,13 +101,11 @@ def index():
 
 @app.route("/api/papers")
 def list_papers():
-    if not PAPERS_DIR.exists():
-        return jsonify([])
     meta        = paper_meta()
     extractions = load_extractions()
-    pdf_ids     = {p.stem for p in PDFS_DIR.glob("*.pdf")}
+    pdf_ids     = _pdf_ids()
     result = []
-    for pid in sorted(p.stem for p in PAPERS_DIR.glob("*.md")):
+    for pid in _paper_ids():
         ex = extractions.get(pid, {})
         m  = meta.get(pid, {})
         result.append({
@@ -89,27 +119,19 @@ def list_papers():
     return jsonify(result)
 
 
-@app.route("/api/pdfs")
-def list_pdfs():
-    """Return list of paper IDs that have a PDF available."""
-    return jsonify([p.stem for p in sorted(PDFS_DIR.glob("*.pdf"))])
-
-
 @app.route("/pdf/<path:paper_id>")
 def serve_pdf(paper_id):
-    # Strip .pdf suffix if accidentally included
     paper_id = paper_id.removesuffix(".pdf")
     path = PDFS_DIR / f"{paper_id}.pdf"
-    if not path.exists():
+    try:
+        return send_file(path, mimetype="application/pdf")
+    except FileNotFoundError:
         abort(404)
-    return send_file(path, mimetype="application/pdf")
-
 
 
 @app.route("/api/extraction/<path:paper_id>", methods=["GET"])
 def get_extraction(paper_id):
-    extractions = load_extractions()
-    return jsonify(extractions.get(paper_id, {}))
+    return jsonify(load_extractions().get(paper_id, {}))
 
 
 @app.route("/api/extraction/<path:paper_id>", methods=["POST"])
@@ -161,72 +183,51 @@ def export_csv():
     )
 
 
-@app.route("/guide")
-def guide():
-    if not GUIDE_PATH.exists():
-        return "<h2>Guide not found</h2><p>Place the DOCX at the configured path.</p>", 404
+# ── Guide ─────────────────────────────────────────────────────────────────────
 
-    LLM_GUARD = "IF GIVEN THIS DOCUMENT INTO CHAT CONTEXT"
+_guide_cache = None
+
+
+def _build_guide_html():
+    if not GUIDE_PATH.exists():
+        return None
+
     doc = _docx.Document(GUIDE_PATH)
 
-    # ── Parse field definitions table (table index 1) ──────────────────
+    # Parse field definitions table (table index 1)
     fields = []
     if len(doc.tables) > 1:
-        for row in doc.tables[1].rows[1:]:          # skip header row
+        for row in doc.tables[1].rows[1:]:
             cells = [c.text.strip() for c in row.cells]
-            raw_name = cells[0].replace("\n", "").replace(" ", "")
-            # Normalise "CONFIG_ playerCount" → "CONFIG_playerCount"
-            name = raw_name.replace("CONFIG_", "CONFIG_").replace("DV_", "DV_")
+            name = cells[0].replace("\n", "").replace(" ", "")
             fields.append({
                 "name":       name,
                 "type":       cells[1],
-                "definition": cells[2].split(LLM_GUARD)[0].strip(),
+                "definition": cells[2].split(_LLM_GUARD)[0].strip(),
                 "synonyms":   cells[3],
-                "notes":      cells[4].split(LLM_GUARD)[0].strip(),
+                "notes":      cells[4].split(_LLM_GUARD)[0].strip(),
             })
 
-    # ── Parse N/A vs N/R table (table index 0) ─────────────────────────
+    # Parse N/A vs N/R table (table index 0)
     na_rows = []
     if doc.tables:
         for row in doc.tables[0].rows[1:]:
-            cells = [c.text.strip().split(LLM_GUARD)[0].strip() for c in row.cells]
+            cells = [c.text.strip().split(_LLM_GUARD)[0].strip() for c in row.cells]
             na_rows.append(cells)
 
-    # ── Parse paragraphs into sections ─────────────────────────────────
-    # Collect headings and body text for Overview, Formulas, Workflow, Pitfalls
-    sections = {}
-    cur_key  = None
-    KNOWN_H1 = {
-        "Overview": "overview",
-        "When to use: N/A vs N/R": "na_nr",
-        "Field Definitions": "fields",
-        "Common Pitfalls & Edge Cases": "pitfalls",
-    }
-    KNOWN_H2 = {
-        "Granularity Rule: One Row = One Condition": "granularity",
-        "DV_contributionRate": "formula_contrib",
-        "DV_efficiency": "formula_eff",
-        "MPCR (Marginal Per Capita Return)": "formula_mpcr",
-    }
-    formula_items = {"formula_contrib": [], "formula_eff": [], "formula_mpcr": []}
-
-    def _para_html(text, style):
-        t = html_mod.escape(text)
-        if style == "List Paragraph":
-            return f"<li>{t}</li>"
-        return f"<p>{t}</p>"
-
-    para_store = {k: [] for k in list(KNOWN_H1.values()) + list(KNOWN_H2.values())}
+    # Parse paragraphs into sections
+    cur_key    = None
+    para_store = {k: [] for k in list(_KNOWN_H1.values()) + list(_KNOWN_H2.values())}
 
     for p in doc.paragraphs:
         txt = p.text.strip()
-        if not txt or LLM_GUARD in txt:
+        if not txt or _LLM_GUARD in txt:
             continue
         sname = p.style.name
         if sname == "Heading 1":
-            cur_key = KNOWN_H1.get(txt)
+            cur_key = _KNOWN_H1.get(txt)
         elif sname == "Heading 2":
-            cur_key = KNOWN_H2.get(txt)
+            cur_key = _KNOWN_H2.get(txt)
         elif cur_key and cur_key in para_store:
             para_store[cur_key].append((txt, sname))
 
@@ -245,7 +246,6 @@ def guide():
             out.append("</ul>")
         return "\n".join(out)
 
-    # ── Build HTML ──────────────────────────────────────────────────────
     def field_anchor(name):
         return name.replace(" ", "_")
 
@@ -289,7 +289,7 @@ def guide():
 <tbody>{rows_html}</tbody>
 </table>"""
 
-    html_out = f"""<!DOCTYPE html>
+    return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -468,7 +468,15 @@ code {{ background: #f1f5f9; padding: 1px 5px; border-radius: 3px;
 </body>
 </html>"""
 
-    return html_out
+
+@app.route("/guide")
+def guide():
+    global _guide_cache
+    if _guide_cache is None:
+        _guide_cache = _build_guide_html()
+    if _guide_cache is None:
+        return "<h2>Guide not found</h2><p>Place the DOCX at the configured path.</p>", 404
+    return _guide_cache
 
 
 if __name__ == "__main__":
