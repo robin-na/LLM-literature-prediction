@@ -221,51 +221,68 @@ FIELD_CONFIGS["CONFIG_allOrNothing"] = {
     "system_prompt": _BASE_SYSTEM + """
 
 DEFINITION
-CONFIG_allOrNothing encodes the contribution FLEXIBILITY:
-  1 = players can contribute ANY amount from 0 to their endowment (continuous/graded)
-  0 = players must contribute either NOTHING or their FULL endowment (binary only)
+CONFIG_allOrNothing distinguishes games where participants choose HOW MUCH to
+contribute from games where they choose WHETHER to contribute:
+
+  1 = players choose a SPECIFIC AMOUNT to contribute
+      (e.g., "any number of tokens from 0 to their endowment", "a real number from [0, E]")
+  0 = players make a BINARY YES/NO decision
+      (e.g., all-or-nothing, full endowment or nothing, cooperate or defect)
+  N/A = the paper does not explicitly state how contributions are structured
 
 WARNING — THE FIELD NAME IS COUNTERINTUITIVE
   Despite being called "allOrNothing", the value 1 does NOT mean all-or-nothing.
-  1 = CONTINUOUS (flexible, graded contribution).
-  0 = ALL-OR-NOTHING (binary: full endowment or nothing).
-  A paper saying "players chose to contribute between 0 and 20 tokens" → 1 (continuous).
-  A paper saying "players could contribute all or nothing" → 0 (binary).
+  1 = SPECIFIC AMOUNTS (graded, continuous choice of how much).
+  0 = BINARY CHOICE (yes or no, all or nothing).
+
+CRITICAL RULE — REQUIRE EXPLICIT EVIDENCE TO CODE 1
+  Do NOT code 1 merely because the paper studies a Public Goods Game or uses
+  the word "contribution". A paper saying "subjects contributed to the public good"
+  without specifying how contributions work does NOT justify a 1.
+  Code 1 ONLY when the paper explicitly states players choose a specific amount
+  (e.g., "between 0 and 20 tokens", "any number of coins from 0 to their endowment").
+  Use N/A whenever the contribution structure is not explicitly described.
 
 CRITICAL RULE — BINARY ACTIONS ≠ ALL-OR-NOTHING CONTRIBUTION
   A game where players choose between two non-contribution actions (e.g., R vs B in
   a coordination/punishment game, or "cooperate" vs "defect" in a prisoner's dilemma)
-  is NOT an all-or-nothing contribution game. Such games do not use a public-goods
-  contribution scale at all. In those cases:
-    CONFIG_allOrNothing = 0   ← there is NO graded contribution scale; the game
-                                  simply lacks continuous contributions.
-  Do NOT set it to 1 just because there are only two discrete options.
-  Do NOT set it to N/A; use 0 when the paper's game has no contribution scale.
+  is a binary-choice game → 0. Not a graded-amount game.
 
 WORKED EXAMPLES
 
-Example A — WRONG vs CORRECT
-  Paper: "Y and Z choose between two discrete actions R or B; no contribution scale."
-  WRONG:  CONFIG_allOrNothing = 1   ← "binary" confused with "any amount"
-  CORRECT: CONFIG_allOrNothing = 0  ← no continuous contribution exists
+Example A — CORRECT 1 (explicit specific amounts)
+  Paper: "Each player chose how many of their 20 tokens to place in the public account."
+  CORRECT: CONFIG_allOrNothing = 1  ← explicit specific-amount choice
 
-Example B — CORRECT
-  Paper: "Each player chooses to contribute between 0 and 20 tokens."
-  CORRECT: CONFIG_allOrNothing = 1  ← graded contribution allowed
+Example B — CORRECT 0 (binary all-or-nothing)
+  Paper: "Players could contribute all or nothing."
+  CORRECT: CONFIG_allOrNothing = 0  ← binary choice
+
+Example C — CORRECT 0 (binary non-contribution actions)
+  Paper: "Y and Z choose between two discrete actions R or B; no contribution scale."
+  CORRECT: CONFIG_allOrNothing = 0  ← binary choice, no contribution scale
+
+Example D — CORRECT N/A (contribution structure not explicitly described)
+  Paper: "Subjects contributed to a public good." [no further description of amounts]
+  CORRECT: CONFIG_allOrNothing = N/A  ← how contributions work is not stated
 """,
     "instruction": """Extract CONFIG_allOrNothing for every condition.
 
-STEP 1 — DESCRIBE THE CONTRIBUTION MECHANISM
-Quote the sentence(s) describing what players can contribute.
+STEP 1 — FIND THE CONTRIBUTION MECHANISM
+Quote the exact sentence(s) describing how players contribute.
+If no such sentence exists, output N/A immediately without proceeding.
 
 STEP 2 — CLASSIFY
-Does the game have a continuous/graded contribution choice (0 to endowment)?
+Does the paper explicitly state that players choose a specific AMOUNT
+(e.g., "between 0 and X tokens", "any number from 0 to endowment")?
   → 1
-Is contribution binary (all or nothing), or is there no contribution scale at all?
+Is the choice explicitly BINARY (all-or-nothing, cooperate/defect, yes/no, two discrete actions)?
   → 0
+Is the contribution structure not explicitly described?
+  → N/A
 """,
     "schema": _SCHEMA_WRAPPER.format(
-        field_schema=_schema("CONFIG_allOrNothing", "1 or 0")
+        field_schema=_schema("CONFIG_allOrNothing", "1, 0, or 'N/A'")
     ),
 }
 
@@ -384,46 +401,71 @@ FIELD_CONFIGS["CONFIG_showOtherSummaries"] = {
     "system_prompt": _BASE_SYSTEM + """
 
 DEFINITION
-CONFIG_showOtherSummaries = 1 if participants are shown SUMMARY statistics of
-OTHER participants' earnings, contributions, or punishment/reward activity across
-rounds (e.g., a post-round summary table of all group members).
-= 0 if participants see only their own outcome, or if feedback is minimal.
-= N/A if the paper never describes post-decision feedback.
+CONFIG_showOtherSummaries = 1 if participants are explicitly shown the individual-level
+PAYOFFS or EARNINGS of other group members after each round — or explicit punishment/
+reward activity that reveals relative earnings (e.g., who received/assigned what amount).
 
-CRITICAL RULE — DO NOT OVER-INFER
-  Showing contribution amounts or earnings does NOT automatically mean
-  "summaries" in this schema's sense. The schema is asking whether participants
-  receive an aggregated or round-level summary of OTHERS (not just their own payoff).
-  If the paper is ambiguous about whether others' earnings/contributions are shown
-  vs only the player's own total, use N/A—do not assume 1.
+= 0 if participants only see: their own payoff, the group aggregate total, or
+individual CONTRIBUTIONS without individual payoffs/earnings.
+
+= N/A if the paper does not describe what post-round information is displayed.
+
+KEY DISTINCTION — CONTRIBUTIONS ≠ PAYOFFS
+In standard PGG experiments, participants can already see others' CONTRIBUTIONS
+(tokens put into the public pot). Contribution visibility is the baseline and does
+NOT warrant a 1. Code 1 ONLY when the paper explicitly states that participants see
+others' EARNINGS or PAYOFFS (what each person actually received at end of round) or
+punishment/reward amounts that together reveal how much each person earned.
+
+Rationale: seeing payoffs (not just contributions) enables fairness comparison —
+"that player free-rode and earned more than I did" — which is what motivates
+punishment. Contribution visibility alone does not reveal whether free-riders benefited.
+
+CRITICAL RULE — DO NOT CODE 1 FOR CONTRIBUTION VISIBILITY ALONE
+Even "subjects saw the contributions of all group members" is NOT enough for 1.
+Code 1 only when the paper says participants see others' payoffs/earnings, or a
+breakdown that explicitly includes earnings (e.g., "a table showing contributions,
+punishments received, and final payoff for each player").
 
 WORKED EXAMPLES
 
-Example A — WRONG vs CORRECT
-  Paper: "After decisions, subjects were shown the contribution and earnings of
-          every group member for every time period."
-  WRONG:  CONFIG_showOtherSummaries = 1  ← plausible, but the ground truth here
-                                            is N/A because the field definition
-                                            requires a higher bar; the paper does
-                                            not explicitly call this a "summary"
-                                            screen in the schema sense.
-  CORRECT: N/A  ← when the paper does not clearly state a summary display
-                   beyond standard post-round contribution feedback.
+Example A — CORRECT 1 (individual payoffs shown)
+  Paper: "After each round, each player could see the payoff of every other group
+          member for that round."
+  CORRECT: 1  ← individual payoffs explicitly shown
 
-  Note: Use 1 only when the paper explicitly describes a distinct summary/history
-  screen showing all group members' outcomes across rounds.
+Example B — CORRECT 1 (punishment table reveals earnings)
+  Paper: "Subjects saw a table showing each player's contribution, punishment
+          given/received, and final earnings."
+  CORRECT: 1  ← earnings shown explicitly
+
+Example C — CORRECT 0 (contributions only — default PGG info)
+  Paper: "After decisions, subjects were shown the contribution of each group member."
+  CORRECT: 0  ← contributions shown but NOT payoffs/earnings
+
+Example D — CORRECT 0 (aggregate group total only)
+  Paper: "Subjects were informed of the total group contribution."
+  CORRECT: 0  ← aggregate, not individual payoffs
+
+Example E — CORRECT N/A (no post-round feedback described)
+  Paper: [No description of what information is shown after decisions]
+  CORRECT: N/A  ← feedback mechanism not described
 """,
     "instruction": """Extract CONFIG_showOtherSummaries for every condition.
 
-STEP 1 — FIND FEEDBACK DESCRIPTION
-Quote every sentence about what information players receive after each round
-(their own payoff, others' contributions, a group summary table, etc.).
+STEP 1 — FIND POST-ROUND FEEDBACK DESCRIPTION
+Quote every sentence describing what information players receive after each round.
+If none exists, output N/A immediately.
 
 STEP 2 — CLASSIFY
-Is there an explicit, dedicated summary display of all others' outcomes across
-rounds? → 1
-Is feedback limited to the player's own payoff / only aggregate group total? → 0
-Is feedback description absent or ambiguous? → N/A
+Does the paper explicitly state that participants see the PAYOFFS or EARNINGS of
+individual other group members (or punishment/reward amounts that reveal earnings)?
+  → 1
+Do participants only see contributions of others (without payoffs), their own payoff,
+or group aggregates?
+  → 0
+Is post-round feedback absent from the description?
+  → N/A
 """,
     "schema": _SCHEMA_WRAPPER.format(
         field_schema=_schema("CONFIG_showOtherSummaries", "1, 0, or 'N/A'")
@@ -1004,39 +1046,44 @@ FIELD_CONFIGS["CONFIG_punishmentTech"] = {
     "system_prompt": _BASE_SYSTEM + """
 
 DEFINITION
-CONFIG_punishmentTech is the magnitude of payoff reduction imposed on the TARGET
-per unit of punishment assigned (the "exchange rate" or "effectiveness" of punishment).
+CONFIG_punishmentTech is the reduction in the TARGET's payoff per coin the PUNISHER
+spends — i.e., punishmentMagnitude / punishmentCost.
 
-If spending 1 token reduces the target's payoff by 3, CONFIG_punishmentTech = 3.
+If the punisher spends 1 coin and the target loses 3, CONFIG_punishmentTech = 3/1 = 3.
+If the punisher spends 2 coins and the target loses 3, CONFIG_punishmentTech = 3/2 = 1.5.
 
 CRITICAL RULES
 
-Rule 1 — TARGET'S REDUCTION, NOT PUNISHER'S COST
-  CONFIG_punishmentTech is about what the TARGET loses, not what the punisher pays.
-  If the paper says "costs 1, reduces target by 3", CONFIG_punishmentTech = 3.
+Rule 1 — RATIO, NOT JUST MAGNITUDE
+  This is not simply how much the target loses per punishment point received.
+  It is the target's loss DIVIDED BY the punisher's cost per point.
+  If the paper only states the target reduction without the punisher cost,
+  use N/R — do not assume cost = 1.
 
 Rule 2 — CONDITION-LEVEL
   Use N/A if no punishment mechanism exists in this specific condition.
-  Use N/R if punishment exists but the exchange rate is never stated.
+  Use N/R if punishment exists but cost or magnitude is not explicitly stated.
 
 WORKED EXAMPLES
 
-"1 punishment point deducts 3 MU from the target's earnings." → 3
-"Each point sent reduces target payoff by 1; costs sender 1." → 1
-"Punishment exists; costs 1 per point." (no target reduction stated) → N/R
-No punishment → N/A
+"Punisher spends 1 coin; target loses 3." → 3/1 = 3
+"Each punishment point costs sender 1 and reduces target payoff by 1." → 1/1 = 1
+"Each punishment point costs sender 2 and reduces target by 3." → 3/2 = 1.5
+"Punishment costs 1 per point." (no target reduction stated) → N/R
+No punishment in this condition → N/A
 """,
     "instruction": """Extract CONFIG_punishmentTech for every condition.
 
 STEP 1 — DOES THIS CONDITION HAVE PUNISHMENT?
 If no → CONFIG_punishmentTech = N/A. Stop.
 
-STEP 2 — FIND THE EXCHANGE RATE
-Quote the sentence describing how much the target's payoff falls per unit of punishment received.
+STEP 2 — FIND BOTH NUMBERS
+Quote the sentence(s) stating (a) what the punisher spends per punishment point
+and (b) how much the target's payoff falls per punishment point received.
 
-STEP 3 — ASSIGN
-Record the per-unit target reduction as a number.
-If not stated → N/R.
+STEP 3 — COMPUTE
+CONFIG_punishmentTech = target reduction per point ÷ punisher cost per point.
+If either number is not explicitly stated → N/R.
 """,
     "schema": _SCHEMA_WRAPPER.format(
         field_schema=_schema("CONFIG_punishmentTech", "number, 'N/R', or 'N/A'")
@@ -1266,11 +1313,12 @@ def load_custom_ids(csv_path: str) -> list[str]:
         return [row["custom_id"].strip() for row in reader if row.get("custom_id")]
 
 
-def find_markdown_path(markdown_dir: str, custom_id: str):
-    direct = Path(markdown_dir) / custom_id
-    if direct.exists():
-        return direct
-    matches = list(Path(markdown_dir).rglob(custom_id))
+def find_markdown_path(markdown_dir: str, custom_id: str) -> Path | None:
+    for name in (custom_id, custom_id + ".md"):
+        direct = Path(markdown_dir) / name
+        if direct.exists():
+            return direct
+    matches = list(Path(markdown_dir).rglob(custom_id + ".md"))
     return matches[0] if matches else None
 
 

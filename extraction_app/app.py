@@ -307,28 +307,69 @@ def _build_guide_html():
     overview_html = """
 <p>Extract one row per <strong>condition</strong> (treatment arm).
 CONFIG_ fields are auto-set to N/A when <code>Empirical&nbsp;=&nbsp;0</code> or <code>Lab_Or_Field&nbsp;=&nbsp;1</code>.</p>
-<table class="na-table" style="margin-top:14px">
-<thead><tr><th>Field name</th><th>Table 1 label</th><th>Values</th></tr></thead>
+<p style="margin-top:10px;font-size:12.5px;color:#52525b">
+  <strong>Cmd+F keywords</strong> — terms to search for in the paper when filling each field.
+</p>
+<table class="na-table" style="margin-top:8px">
+<thead><tr><th style="width:28%">Field</th><th style="width:22%">Values</th><th>Cmd+F — look for these terms in the paper</th></tr></thead>
 <tbody>
-<tr><td><code>Empirical</code></td><td>—</td><td>0 / 1</td></tr>
-<tr><td><code>Controlled_Or_Observational</code></td><td>—</td><td>0 / 1</td></tr>
-<tr><td><code>Lab_Or_Field</code></td><td>—</td><td>0 / 1</td></tr>
-<tr><td><code>CONFIG_playerCount</code></td><td>Group size</td><td>2–20</td></tr>
-<tr><td><code>CONFIG_numRounds</code></td><td>Game length</td><td>Number / N/R</td></tr>
-<tr><td><code>CONFIG_allOrNothing</code></td><td>Contribution type</td><td>0 / 1</td></tr>
-<tr><td><code>CONFIG_defaultContribProp</code></td><td>Contribution framing</td><td>0 / 1 / N/A</td></tr>
-<tr><td><code>CONFIG_MPCR</code></td><td>MPCR</td><td>Number</td></tr>
-<tr><td><code>CONFIG_chat</code></td><td>Communication</td><td>0 / 1 / N/A</td></tr>
-<tr><td><code>CONFIG_showOtherSummaries</code></td><td>Peer outcome visibility</td><td>0 / 1</td></tr>
-<tr><td><code>CONFIG_showNRounds</code></td><td>Horizon knowledge</td><td>1 / N/A</td></tr>
-<tr><td><code>CONFIG_punishmentExists</code></td><td>Punishment</td><td>0 / 1 / N/A</td></tr>
-<tr><td><code>CONFIG_punishmentCost</code></td><td>Peer incentive cost (P)</td><td>Number / N/A / N/R</td></tr>
-<tr><td><code>CONFIG_punishmentTech</code></td><td>Punishment technology</td><td>Number / N/A / N/R</td></tr>
-<tr><td><code>CONFIG_showPunishmentId</code></td><td>Actor anonymity (P)</td><td>0 / 1 / N/A</td></tr>
-<tr><td><code>CONFIG_rewardExists</code></td><td>Reward</td><td>0 / 1 / N/A</td></tr>
-<tr><td><code>CONFIG_rewardCost</code></td><td>Peer incentive cost (R)</td><td>Number / N/A / N/R</td></tr>
-<tr><td><code>CONFIG_rewardTech</code></td><td>Reward technology</td><td>Number / N/A / N/R</td></tr>
-<tr><td><code>CONFIG_showRewardId</code></td><td>Actor anonymity (R)</td><td>0 / 1 / N/A</td></tr>
+<tr><td><code>Empirical</code></td>
+    <td>0 / 1</td>
+    <td>participants, subjects, experiment, lab study, field study<br><em>0 if:</em> theory, model, simulation, analytical</td></tr>
+<tr><td><code>Controlled_Or_Observational</code></td>
+    <td>0 / 1</td>
+    <td>treatment, control, randomly assigned, manipulation<br><em>0 if:</em> observational, survey, natural experiment</td></tr>
+<tr><td><code>Lab_Or_Field</code></td>
+    <td>0 / 1</td>
+    <td><em>0 if:</em> laboratory, online, lab experiment, oTree, z-Tree<br><em>1 if:</em> field experiment, artefactual field, framed field, real-world</td></tr>
+<tr><td><code>CONFIG_playerCount</code></td>
+    <td>Number</td>
+    <td>group size, group of N, N players, N members, N participants per group</td></tr>
+<tr><td><code>CONFIG_numRounds</code></td>
+    <td>Number / N/R</td>
+    <td>rounds, periods, repetitions, stages, iterations</td></tr>
+<tr><td><code>CONFIG_allOrNothing</code></td>
+    <td>0=binary · 1=continuous</td>
+    <td><em>1 (continuous):</em> any amount, any number of tokens, between 0 and X<br><em>0 (binary):</em> cooperate or defect, contribute all or nothing, binary choice</td></tr>
+<tr><td><code>CONFIG_defaultContribProp</code></td>
+    <td>0=opt-in · 1=opt-out</td>
+    <td>opt-in, opt-out, default contribution, starting allocation, endowment in public account</td></tr>
+<tr><td><code>CONFIG_MPCR</code></td>
+    <td>Number</td>
+    <td>MPCR, marginal per capita return, multiplier, return factor, public good multiplier, efficiency factor</td></tr>
+<tr><td><code>CONFIG_chat</code></td>
+    <td>0 / 1 / N/A</td>
+    <td>communication, pre-play communication, cheap talk, chat, messaging, discussion<br><em>N/A if not mentioned anywhere</em></td></tr>
+<tr><td><code>CONFIG_showOtherSummaries</code></td>
+    <td>0 / 1</td>
+    <td><em>1:</em> individual earnings, payoff feedback, see others' earnings/payoffs<br><em>0:</em> group total, own payoff only, contribution feedback</td></tr>
+<tr><td><code>CONFIG_showNRounds</code></td>
+    <td>1 / N/A</td>
+    <td>remaining rounds, round counter, countdown, number of rounds shown, periods remaining</td></tr>
+<tr><td><code>CONFIG_punishmentExists</code></td>
+    <td>0 / 1 / N/A</td>
+    <td>punishment, costly punishment, peer punishment, altruistic punishment, sanction, deduction</td></tr>
+<tr><td><code>CONFIG_punishmentCost</code></td>
+    <td>Number / N/A / N/R</td>
+    <td>cost of punishment, punishment points, deduction tokens, punishment fee, spend X to punish</td></tr>
+<tr><td><code>CONFIG_punishmentTech</code></td>
+    <td>Number / N/A / N/R</td>
+    <td>deduction ratio, points deducted per token, punishment effectiveness, each point costs X reduces by Y</td></tr>
+<tr><td><code>CONFIG_showPunishmentId</code></td>
+    <td>0 / 1 / N/A</td>
+    <td>identified punishment, anonymous punishment, punisher identity, who punished, targeted punishment</td></tr>
+<tr><td><code>CONFIG_rewardExists</code></td>
+    <td>0 / 1 / N/A</td>
+    <td>reward, rewarding, bonus, positive sanction, commendation, praise, applause<br><em>N/A if not mentioned anywhere</em></td></tr>
+<tr><td><code>CONFIG_rewardCost</code></td>
+    <td>Number / N/A / N/R</td>
+    <td>cost of rewarding, reward tokens, reward fee, spend X to reward</td></tr>
+<tr><td><code>CONFIG_rewardTech</code></td>
+    <td>Number / N/A / N/R</td>
+    <td>reward effectiveness, bonus ratio, points gained per reward token, each point costs X adds Y</td></tr>
+<tr><td><code>CONFIG_showRewardId</code></td>
+    <td>0 / 1 / N/A</td>
+    <td>identified reward, anonymous reward, rewarder identity, who rewarded</td></tr>
 </tbody></table>"""
 
     granularity_html = """
