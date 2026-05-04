@@ -1,0 +1,20 @@
+item_type,feature_key,feature_label,mean_coef,n_positive,n_negative,n_signif_positive,n_signif_negative,n_total
+papers,biology_share,Biology Journals,0.0012605937662743887,18,7,4,0,25
+papers,citation,Citation,-0.0026501729943048963,3,22,0,8,25
+papers,economics_share,Economics Journals,-0.002356790733479061,6,19,0,12,25
+papers,empirical_share,Empirical papers,-0.007035593219718659,0,25,0,24,25
+papers,journal_impact,Journal Impact Factor,0.001222588441841817,18,7,1,0,25
+papers,mathphysics_share,Math/Physics Journals,-0.0013616121672142365,8,17,0,2,25
+papers,multidisciplinary_share,Multidisciplinary Journals,-0.0006303758642812284,8,17,1,3,25
+papers,psychology_share,Psychology Journals,0.0005648473923781742,15,10,1,0,25
+papers,recent,Publication Year,-0.0020050675382027525,3,22,0,6,25
+collections,biology_share,Biology Journals,0.0033361509434330066,23,2,5,0,25
+collections,citation,Citation,-0.006586400062211327,0,25,0,15,25
+collections,collection_size,Number of Papers,0.00947142759465974,24,1,16,0,25
+collections,economics_share,Economics Journals,-0.0010875516555854292,8,17,0,0,25
+collections,empirical_share,Empirical papers,-0.009728302964311934,0,25,0,21,25
+collections,journal_impact,Journal Impact Factor,0.004300977306367243,22,3,6,0,25
+collections,mathphysics_share,Math/Physics Journals,-0.010583999553175674,0,25,0,25,25
+collections,multidisciplinary_share,Multidisciplinary Journals,-0.0043915764351110925,0,25,0,9,25
+collections,psychology_share,Psychology Journals,-0.00035880078016291365,13,12,0,1,25
+collections,recent,Publication Year,-0.0024487106745695263,7,18,0,3,25

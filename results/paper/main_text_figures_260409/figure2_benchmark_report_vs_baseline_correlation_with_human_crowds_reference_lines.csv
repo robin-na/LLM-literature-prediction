@@ -1,0 +1,4 @@
+kind,source,label,value,n_complete_participants,n_questions,color,linestyle
+human_crowd,prolific,Laypeople crowd,0.6038335627266781,468.0,20,#caa27e,"(0, (5, 2))"
+human_crowd,sspp,Experts crowd,0.605577147311127,38.0,20,#8d6748,"(0, (1, 1))"
+noise_ceiling,noise_ceiling,Estimated noise ceiling,0.7765353937484988,,20,#0f766e,--

@@ -1,0 +1,6 @@
+custom_id,paper_id,limitation_index,limitation
+PGG_Science,PGG_Science,1,PGGs are stylized laboratory games; external validity to real-world cooperation problems is limited.
+PGG_Science,PGG_Science,2,The study isolates variation in game parameters within a relatively homogeneous participant population; effects may differ across populations.
+PGG_Science,PGG_Science,3,"The design space, while broad, is not exhaustive; other potentially relevant parameters or real-world complexities are not captured."
+PGG_Science,PGG_Science,4,"Some parameter combinations were sampled only once (in wave 1), limiting precision for those conditions."
+PGG_Science,PGG_Science,5,Interpretability of complex model interactions is limited; some findings may be specific to the modeling approach used.

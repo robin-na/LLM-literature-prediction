@@ -1,0 +1,5 @@
+model,condition,repeat_correlations,mean_correlation_repeat5,median_correlation_repeat5,lowest_correlation_repeat,lowest_correlation_value,mean_correlation_without_lowest_repeat,leave_one_out_mean_correlations
+Gemini 2.5 Flash,baseline,rep1:0.520341;rep2:0.398771;rep3:0.328047;rep4:0.695078;rep5:0.659906,0.520429,0.520341,rep3,0.328047,0.568524,rep1:0.520451;rep2:0.550843;rep3:0.568524;rep4:0.476766;rep5:0.485559
+Gemini 2.5 Flash,benchmark,rep1:0.845648;rep2:0.756850;rep3:0.759678;rep4:0.824003;rep5:0.826291,0.802494,0.824003,rep2,0.756850,0.813905,rep1:0.791706;rep2:0.813905;rep3:0.813198;rep4:0.797117;rep5:0.796545
+Gemini 2.5 Pro,baseline,rep1:0.513181;rep2:0.391057;rep3:0.533325;rep4:0.565685;rep5:-0.080580,0.384534,0.513181,rep5,-0.080580,0.500812,rep1:0.352372;rep2:0.382903;rep3:0.347336;rep4:0.339246;rep5:0.500812
+Gemini 2.5 Pro,benchmark,rep1:0.806640;rep2:0.819928;rep3:0.892344;rep4:0.871766;rep5:0.856542,0.849444,0.856542,rep1,0.806640,0.860145,rep1:0.860145;rep2:0.856823;rep3:0.838719;rep4:0.843864;rep5:0.847670

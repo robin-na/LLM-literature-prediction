@@ -1,0 +1,4 @@
+source_workbook,rows_total,rows_in_broad_all,rows_dropped_outside_broad_all,papers_total,papers_in_broad_all,papers_dropped_outside_broad_all
+simple_batch_197papers.xlsx,1094,800,294,196,135,61
+simple_batch_810papers.xlsx,3910,3910,0,808,808,0
+combined,5004,4710,294,1004,943,61

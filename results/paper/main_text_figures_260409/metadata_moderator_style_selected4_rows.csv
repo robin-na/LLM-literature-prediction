@@ -1,0 +1,169 @@
+panel,moderator_key,moderator_title,model,level,estimate,ci_low,ci_high,n_level
+Individual papers,paper_type_group,Paper type,Claude Sonnet 4.6,Theoretical,0.6582511754188316,0.6568458680451384,0.6596564827925248,1064
+Individual papers,paper_type_group,Paper type,Claude Sonnet 4.6,Empirical,0.6546857050504946,0.6528566064974949,0.6565148036034943,947
+Individual papers,paper_type_group,Paper type,GPT-5.1,Theoretical,0.5999691311248947,0.5962757116751551,0.6036625505746342,1062
+Individual papers,paper_type_group,Paper type,GPT-5.1,Empirical,0.5837859187782626,0.5791992052276557,0.5883726323288695,947
+Individual papers,paper_type_group,Paper type,GPT-4.1,Theoretical,0.5912772470041832,0.58864739774047,0.5939070962678963,1064
+Individual papers,paper_type_group,Paper type,GPT-4.1,Empirical,0.5799797416111382,0.5771847292720724,0.582774753950204,946
+Individual papers,paper_type_group,Paper type,Gemini 2.5 Pro,Theoretical,0.5429324270681223,0.5382672783725954,0.5475975757636492,1064
+Individual papers,paper_type_group,Paper type,Gemini 2.5 Pro,Empirical,0.5112648975997055,0.5044602100591816,0.5180695851402294,947
+Individual papers,citation_quartile,Citation,Claude Sonnet 4.6,Q1 lowest,0.6585312740541603,0.6565168686282978,0.6605456794800229,566
+Individual papers,citation_quartile,Citation,Claude Sonnet 4.6,Q2,0.6558906632787451,0.6536807256022298,0.6581006009552605,427
+Individual papers,citation_quartile,Citation,Claude Sonnet 4.6,Q3,0.6573498710549834,0.6551442946368047,0.6595554474731622,474
+Individual papers,citation_quartile,Citation,Claude Sonnet 4.6,Q4 highest,0.6545188794614839,0.6517703261020293,0.6572674328209385,488
+Individual papers,citation_quartile,Citation,GPT-5.1,Q1 lowest,0.596002408058931,0.5908949658527671,0.6011098502650949,564
+Individual papers,citation_quartile,Citation,GPT-5.1,Q2,0.5932621588751643,0.5875288832105511,0.5989954345397775,427
+Individual papers,citation_quartile,Citation,GPT-5.1,Q3,0.5924490199184621,0.5864858179804309,0.5984122218564933,474
+Individual papers,citation_quartile,Citation,GPT-5.1,Q4 highest,0.5871508294777552,0.5801367608270946,0.5941648981284158,488
+Individual papers,citation_quartile,Citation,GPT-4.1,Q1 lowest,0.5854064879691703,0.5822834880371424,0.5885294879011982,565
+Individual papers,citation_quartile,Citation,GPT-4.1,Q2,0.5871433760857419,0.583223724987332,0.5910630271841517,427
+Individual papers,citation_quartile,Citation,GPT-4.1,Q3,0.5856845011691002,0.5819204399793241,0.5894485623588763,474
+Individual papers,citation_quartile,Citation,GPT-4.1,Q4 highest,0.58640984867959,0.5815659781936295,0.5912537191655505,488
+Individual papers,citation_quartile,Citation,Gemini 2.5 Pro,Q1 lowest,0.5347682924105295,0.5277272752369803,0.5418093095840787,566
+Individual papers,citation_quartile,Citation,Gemini 2.5 Pro,Q2,0.525563537760417,0.5168060272990205,0.5343210482218135,427
+Individual papers,citation_quartile,Citation,Gemini 2.5 Pro,Q3,0.5322687971063803,0.5248104715952103,0.5397271226175503,474
+Individual papers,citation_quartile,Citation,Gemini 2.5 Pro,Q4 highest,0.5200208749957989,0.5101118234585991,0.5299299265329986,488
+Individual papers,journal_impact_quartile,Journal impact factor,Claude Sonnet 4.6,Q1 lowest,0.6560464138076418,0.653631047260989,0.6584617803542947,525
+Individual papers,journal_impact_quartile,Journal impact factor,Claude Sonnet 4.6,Q2,0.6566345958434033,0.6542916179385013,0.6589775737483053,467
+Individual papers,journal_impact_quartile,Journal impact factor,Claude Sonnet 4.6,Q3,0.6571955926278058,0.6550041344899473,0.6593870507656643,459
+Individual papers,journal_impact_quartile,Journal impact factor,Claude Sonnet 4.6,Q4 highest,0.6565944453955745,0.654218465862421,0.658970424928728,454
+Individual papers,journal_impact_quartile,Journal impact factor,GPT-5.1,Q1 lowest,0.5870172709910415,0.5806619086615279,0.5933726333205551,523
+Individual papers,journal_impact_quartile,Journal impact factor,GPT-5.1,Q2,0.5948896627131336,0.5890066513986423,0.6007726740276249,467
+Individual papers,journal_impact_quartile,Journal impact factor,GPT-5.1,Q3,0.5911679247106076,0.5854246248973002,0.5969112245239151,459
+Individual papers,journal_impact_quartile,Journal impact factor,GPT-5.1,Q4 highest,0.596369542279958,0.5902040958387386,0.6025349887211774,454
+Individual papers,journal_impact_quartile,Journal impact factor,GPT-4.1,Q1 lowest,0.5813206293769467,0.5772540195887756,0.5853872391651178,524
+Individual papers,journal_impact_quartile,Journal impact factor,GPT-4.1,Q2,0.587791897308648,0.5842239422074794,0.5913598524098166,467
+Individual papers,journal_impact_quartile,Journal impact factor,GPT-4.1,Q3,0.589278691994079,0.5857994639914618,0.5927579199966962,459
+Individual papers,journal_impact_quartile,Journal impact factor,GPT-4.1,Q4 highest,0.5860243768632282,0.5813860597838486,0.5906626939426077,454
+Individual papers,journal_impact_quartile,Journal impact factor,Gemini 2.5 Pro,Q1 lowest,0.5253370210954122,0.516722235220461,0.5339518069703635,525
+Individual papers,journal_impact_quartile,Journal impact factor,Gemini 2.5 Pro,Q2,0.5300607194832871,0.5221699057954107,0.5379515331711636,467
+Individual papers,journal_impact_quartile,Journal impact factor,Gemini 2.5 Pro,Q3,0.5343602670433735,0.526649126425144,0.5420714076616029,459
+Individual papers,journal_impact_quartile,Journal impact factor,Gemini 2.5 Pro,Q4 highest,0.5233692616257111,0.5140066297159877,0.5327318935354345,454
+Individual papers,year_quartile,Publication year,Claude Sonnet 4.6,Q1 earliest,0.6571734870286812,0.6545579832067576,0.6597889908506047,532
+Individual papers,year_quartile,Publication year,Claude Sonnet 4.6,Q2,0.6570227636080799,0.6548584482762071,0.6591870789399527,528
+Individual papers,year_quartile,Publication year,Claude Sonnet 4.6,Q3,0.6561899672360176,0.6539740059121006,0.6584059285599346,438
+Individual papers,year_quartile,Publication year,Claude Sonnet 4.6,Q4 latest,0.6561215458604909,0.6540289951096933,0.6582140966112885,457
+Individual papers,year_quartile,Publication year,GPT-5.1,Q1 earliest,0.5918470117914725,0.5850163917703424,0.5986776318126026,532
+Individual papers,year_quartile,Publication year,GPT-5.1,Q2,0.5959424061499248,0.5901796562021231,0.6017051560977265,527
+Individual papers,year_quartile,Publication year,GPT-5.1,Q3,0.5868990546492141,0.5813881071170811,0.5924100021813471,438
+Individual papers,year_quartile,Publication year,GPT-5.1,Q4 latest,0.5939313507916637,0.5886778344523914,0.599184867130936,456
+Individual papers,year_quartile,Publication year,GPT-4.1,Q1 earliest,0.586215376972984,0.5815624453014449,0.5908683086445231,532
+Individual papers,year_quartile,Publication year,GPT-4.1,Q2,0.5858295373054161,0.5821560111984554,0.5895030634123768,528
+Individual papers,year_quartile,Publication year,GPT-4.1,Q3,0.584679868191344,0.5808535898342115,0.5885061465484764,438
+Individual papers,year_quartile,Publication year,GPT-4.1,Q4 latest,0.5876600624699339,0.5845733814792105,0.5907467434606573,456
+Individual papers,year_quartile,Publication year,Gemini 2.5 Pro,Q1 earliest,0.5228583789185476,0.5135031777335473,0.5322135801035479,532
+Individual papers,year_quartile,Publication year,Gemini 2.5 Pro,Q2,0.5274265799953634,0.5194913048227116,0.5353618551680152,528
+Individual papers,year_quartile,Publication year,Gemini 2.5 Pro,Q3,0.533051534449537,0.5252416759265707,0.5408613929725034,438
+Individual papers,year_quartile,Publication year,Gemini 2.5 Pro,Q4 latest,0.5318197309481763,0.5242859331711326,0.5393535287252199,457
+Individual papers,discipline_group,Journal discipline,Claude Sonnet 4.6,Biology,0.6589714350985058,0.6552510123043502,0.6626918578926613,134
+Individual papers,discipline_group,Journal discipline,Claude Sonnet 4.6,Economics,0.6563216598184263,0.6535749536141702,0.6590683660226824,444
+Individual papers,discipline_group,Journal discipline,Claude Sonnet 4.6,Psychology,0.6584041079408252,0.6553778878649068,0.6614303280167435,304
+Individual papers,discipline_group,Journal discipline,Claude Sonnet 4.6,Math/Physics,0.6538784775015435,0.6516362962728499,0.6561206587302371,365
+Individual papers,discipline_group,Journal discipline,Claude Sonnet 4.6,Multidisciplinary,0.6567266843716312,0.6539362123576985,0.6595171563855639,300
+Individual papers,discipline_group,Journal discipline,Claude Sonnet 4.6,Mixed/Other,0.6569377708023992,0.6544712373588863,0.6594043042459121,464
+Individual papers,discipline_group,Journal discipline,GPT-5.1,Biology,0.6065876648497236,0.5969642846163175,0.6162110450831297,134
+Individual papers,discipline_group,Journal discipline,GPT-5.1,Economics,0.5919826215485466,0.584705299732102,0.5992599433649913,444
+Individual papers,discipline_group,Journal discipline,GPT-5.1,Psychology,0.5864600810761529,0.5785059825353783,0.5944141796169274,304
+Individual papers,discipline_group,Journal discipline,GPT-5.1,Math/Physics,0.5920615803705515,0.5864739394198636,0.5976492213212393,365
+Individual papers,discipline_group,Journal discipline,GPT-5.1,Multidisciplinary,0.5911975504954665,0.5841768403223878,0.5982182606685452,300
+Individual papers,discipline_group,Journal discipline,GPT-5.1,Mixed/Other,0.5933849451281301,0.5871902861535221,0.5995796041027381,462
+Individual papers,discipline_group,Journal discipline,GPT-4.1,Biology,0.5916699202203038,0.585460019408839,0.5978798210317687,134
+Individual papers,discipline_group,Journal discipline,GPT-4.1,Economics,0.5799365283350822,0.5748284320062285,0.585044624663936,444
+Individual papers,discipline_group,Journal discipline,GPT-4.1,Psychology,0.5829343139929212,0.5783944855835724,0.5874741424022699,304
+Individual papers,discipline_group,Journal discipline,GPT-4.1,Math/Physics,0.5978804104948705,0.5944903059234147,0.6012705150663263,365
+Individual papers,discipline_group,Journal discipline,GPT-4.1,Multidisciplinary,0.584367413421472,0.579970608884098,0.588764217958846,300
+Individual papers,discipline_group,Journal discipline,GPT-4.1,Mixed/Other,0.5837054712211083,0.579491453597316,0.5879194888449005,463
+Individual papers,discipline_group,Journal discipline,Gemini 2.5 Pro,Biology,0.5417841288136013,0.5253304450749515,0.558237812552251,134
+Individual papers,discipline_group,Journal discipline,Gemini 2.5 Pro,Economics,0.5074672101921323,0.49734922103823825,0.5175851993460262,444
+Individual papers,discipline_group,Journal discipline,Gemini 2.5 Pro,Psychology,0.5212322189472618,0.5092034973635893,0.5332609405309343,304
+Individual papers,discipline_group,Journal discipline,Gemini 2.5 Pro,Math/Physics,0.5406623717040233,0.5344821437800256,0.5468425996280211,365
+Individual papers,discipline_group,Journal discipline,Gemini 2.5 Pro,Multidisciplinary,0.5321227697531385,0.5224552644644229,0.5417902750418542,300
+Individual papers,discipline_group,Journal discipline,Gemini 2.5 Pro,Mixed/Other,0.5355608937137853,0.5271502807245183,0.5439715067030524,464
+Collections,empirical_quartile,Empirical share,Claude Sonnet 4.6,Q1 lowest,0.6601462807069278,0.6561359670824498,0.6641565943314058,179
+Collections,empirical_quartile,Empirical share,Claude Sonnet 4.6,Q2,0.6581567945427058,0.6533023410788428,0.6630112480065689,179
+Collections,empirical_quartile,Empirical share,Claude Sonnet 4.6,Q3,0.6614449546989783,0.6558466389712059,0.6670432704267508,179
+Collections,empirical_quartile,Empirical share,Claude Sonnet 4.6,Q4 highest,0.6621091871449116,0.6555520467092263,0.668666327580597,178
+Collections,empirical_quartile,Empirical share,GPT-5.1,Q1 lowest,0.5588663756514394,0.5499876004994906,0.5677451508033882,179
+Collections,empirical_quartile,Empirical share,GPT-5.1,Q2,0.5476920010324292,0.5374757123413587,0.5579082897234997,179
+Collections,empirical_quartile,Empirical share,GPT-5.1,Q3,0.5476803153586786,0.5360989303547604,0.5592617003625967,179
+Collections,empirical_quartile,Empirical share,GPT-5.1,Q4 highest,0.5453298346380168,0.5324959686846235,0.5581637005914101,178
+Collections,empirical_quartile,Empirical share,GPT-4.1,Q1 lowest,0.6225450884696491,0.6165305688895751,0.628559608049723,179
+Collections,empirical_quartile,Empirical share,GPT-4.1,Q2,0.6050631642008624,0.5971339494037665,0.6129923789979582,179
+Collections,empirical_quartile,Empirical share,GPT-4.1,Q3,0.6064160902406917,0.5964527162686422,0.6163794642127411,179
+Collections,empirical_quartile,Empirical share,GPT-4.1,Q4 highest,0.5990544349959727,0.5888587082233183,0.609250161768627,178
+Collections,empirical_quartile,Empirical share,Gemini 2.5 Pro,Q1 lowest,0.5259428204104883,0.5161789702617491,0.5357066705592276,179
+Collections,empirical_quartile,Empirical share,Gemini 2.5 Pro,Q2,0.505105845338805,0.4892639571518266,0.5209477335257834,179
+Collections,empirical_quartile,Empirical share,Gemini 2.5 Pro,Q3,0.5149023003418349,0.5013714781874807,0.5284331224961891,179
+Collections,empirical_quartile,Empirical share,Gemini 2.5 Pro,Q4 highest,0.49719003056374805,0.48080924839477934,0.5135708127327168,178
+Collections,citation_quartile,Citation,Claude Sonnet 4.6,Q1 lowest,0.6571688655368442,0.6533982692983241,0.6609394617753642,179
+Collections,citation_quartile,Citation,Claude Sonnet 4.6,Q2,0.6644740457641342,0.6587010989803781,0.6702469925478902,179
+Collections,citation_quartile,Citation,Claude Sonnet 4.6,Q3,0.6605822347395917,0.6547122736750948,0.6664521958040885,179
+Collections,citation_quartile,Citation,Claude Sonnet 4.6,Q4 highest,0.6596181546704153,0.6540099368489252,0.6652263724919054,178
+Collections,citation_quartile,Citation,GPT-5.1,Q1 lowest,0.5540565122439206,0.5447158927030407,0.5633971317848006,179
+Collections,citation_quartile,Citation,GPT-5.1,Q2,0.5507368941546815,0.5387562273666636,0.5627175609426994,179
+Collections,citation_quartile,Citation,GPT-5.1,Q3,0.5450273294355615,0.5331630989597873,0.5568915599113358,179
+Collections,citation_quartile,Citation,GPT-5.1,Q4 highest,0.549772610825099,0.539217823359516,0.560327398290682,178
+Collections,citation_quartile,Citation,GPT-4.1,Q1 lowest,0.6025330404329567,0.5955447229011742,0.6095213579647393,179
+Collections,citation_quartile,Citation,GPT-4.1,Q2,0.6113662196937217,0.6020388702370588,0.6206935691503846,179
+Collections,citation_quartile,Citation,GPT-4.1,Q3,0.6104726594919603,0.600950433817927,0.6199948851659935,179
+Collections,citation_quartile,Citation,GPT-4.1,Q4 highest,0.608761085385687,0.5997598032424866,0.6177623675288874,178
+Collections,citation_quartile,Citation,Gemini 2.5 Pro,Q1 lowest,0.5169474640705067,0.506148423154334,0.5277465049866795,179
+Collections,citation_quartile,Citation,Gemini 2.5 Pro,Q2,0.5186138708331731,0.505488265404403,0.5317394762619433,179
+Collections,citation_quartile,Citation,Gemini 2.5 Pro,Q3,0.5073959681741353,0.49188206309331717,0.5229098732549535,179
+Collections,citation_quartile,Citation,Gemini 2.5 Pro,Q4 highest,0.5002005119085982,0.48366546576970626,0.51673555804749,178
+Collections,journal_impact_quartile,Journal impact factor,Claude Sonnet 4.6,Q1 lowest,0.6550385364274072,0.6489003702402535,0.6611767026145609,179
+Collections,journal_impact_quartile,Journal impact factor,Claude Sonnet 4.6,Q2,0.6568002860639344,0.6513047066316849,0.6622958654961838,179
+Collections,journal_impact_quartile,Journal impact factor,Claude Sonnet 4.6,Q3,0.6622934050067174,0.6572789324670124,0.6673078775464224,179
+Collections,journal_impact_quartile,Journal impact factor,Claude Sonnet 4.6,Q4 highest,0.6677565390474342,0.66342792791212,0.6720851501827483,178
+Collections,journal_impact_quartile,Journal impact factor,GPT-5.1,Q1 lowest,0.5461945701910795,0.532873098608456,0.5595160417737031,179
+Collections,journal_impact_quartile,Journal impact factor,GPT-5.1,Q2,0.5512950353782267,0.5405311559737265,0.5620589147827268,179
+Collections,journal_impact_quartile,Journal impact factor,GPT-5.1,Q3,0.5511082224339744,0.5407567563105921,0.5614596885573567,179
+Collections,journal_impact_quartile,Journal impact factor,GPT-5.1,Q4 highest,0.5510023889246951,0.541910795963002,0.5600939818863883,178
+Collections,journal_impact_quartile,Journal impact factor,GPT-4.1,Q1 lowest,0.5907497592478492,0.5801955946764091,0.6013039238192893,179
+Collections,journal_impact_quartile,Journal impact factor,GPT-4.1,Q2,0.6075179222242787,0.599464444856063,0.6155713995924944,179
+Collections,journal_impact_quartile,Journal impact factor,GPT-4.1,Q3,0.6137142890658458,0.6054659925527462,0.6219625855789453,179
+Collections,journal_impact_quartile,Journal impact factor,GPT-4.1,Q4 highest,0.6212206409218608,0.6139384078054354,0.6285028740382862,178
+Collections,journal_impact_quartile,Journal impact factor,Gemini 2.5 Pro,Q1 lowest,0.49769981317846473,0.48005918782495455,0.515340438531975,179
+Collections,journal_impact_quartile,Journal impact factor,Gemini 2.5 Pro,Q2,0.5041640718888967,0.4904392558762484,0.5178888879015449,179
+Collections,journal_impact_quartile,Journal impact factor,Gemini 2.5 Pro,Q3,0.5095836047353689,0.4966243150479482,0.5225428944227896,179
+Collections,journal_impact_quartile,Journal impact factor,Gemini 2.5 Pro,Q4 highest,0.5318873466065761,0.5207371696311393,0.543037523582013,178
+Collections,year_quartile,Publication year,Claude Sonnet 4.6,Q1 earliest,0.6576214835630458,0.6522635792833101,0.6629793878427815,179
+Collections,year_quartile,Publication year,Claude Sonnet 4.6,Q2,0.6631294828553451,0.6561838259980484,0.6700751397126419,179
+Collections,year_quartile,Publication year,Claude Sonnet 4.6,Q3,0.6649591896121073,0.6601230882646463,0.6697952909595684,179
+Collections,year_quartile,Publication year,Claude Sonnet 4.6,Q4 latest,0.656113565972683,0.6526028351027856,0.6596242968425804,178
+Collections,year_quartile,Publication year,GPT-5.1,Q1 earliest,0.5448099875916323,0.5341590518205659,0.5554609233626988,179
+Collections,year_quartile,Publication year,GPT-5.1,Q2,0.5554441441703784,0.542525206634506,0.5683630817062507,179
+Collections,year_quartile,Publication year,GPT-5.1,Q3,0.5564894474751465,0.5456509963389008,0.5673278986113922,179
+Collections,year_quartile,Publication year,GPT-5.1,Q4 latest,0.5428108750434414,0.5337301897047035,0.5518915603821792,178
+Collections,year_quartile,Publication year,GPT-4.1,Q1 earliest,0.6020426482128706,0.5927480234927689,0.6113372729329722,179
+Collections,year_quartile,Publication year,GPT-4.1,Q2,0.6131089006722316,0.602664510747443,0.6235532905970201,179
+Collections,year_quartile,Publication year,GPT-4.1,Q3,0.6140985155904769,0.6062570454330796,0.6219399857478742,179
+Collections,year_quartile,Publication year,GPT-4.1,Q4 latest,0.6038555352205651,0.5968747528555349,0.6108363175855953,178
+Collections,year_quartile,Publication year,Gemini 2.5 Pro,Q1 earliest,0.4834927596443198,0.4669262304042832,0.5000592888843565,179
+Collections,year_quartile,Publication year,Gemini 2.5 Pro,Q2,0.5149701236013597,0.4977789239439707,0.5321613232587488,179
+Collections,year_quartile,Publication year,Gemini 2.5 Pro,Q3,0.5222318000966616,0.5111088805496409,0.5333547196436823,179
+Collections,year_quartile,Publication year,Gemini 2.5 Pro,Q4 latest,0.5225882025414647,0.5131198399899903,0.532056565092939,178
+Collections,discipline_group,Dominant discipline,Claude Sonnet 4.6,Biology,0.6631357259647819,0.6553966884400373,0.6708747634895265,93
+Collections,discipline_group,Dominant discipline,Claude Sonnet 4.6,Economics,0.6638916051778635,0.6576912142289709,0.6700919961267561,122
+Collections,discipline_group,Dominant discipline,Claude Sonnet 4.6,Psychology,0.6593741974128144,0.6513968115018174,0.6673515833238115,112
+Collections,discipline_group,Dominant discipline,Claude Sonnet 4.6,Math/Physics,0.6494526506766027,0.6439771600271594,0.654928141326046,138
+Collections,discipline_group,Dominant discipline,Claude Sonnet 4.6,Multidisciplinary,0.6589659139261408,0.6511726595905825,0.6667591682616991,59
+Collections,discipline_group,Dominant discipline,Claude Sonnet 4.6,Mixed/Other,0.6658725036929051,0.6609366535581547,0.6708083538276555,192
+Collections,discipline_group,Dominant discipline,GPT-5.1,Biology,0.5607996140756911,0.5465739824962521,0.5750252456551301,93
+Collections,discipline_group,Dominant discipline,GPT-5.1,Economics,0.5493368025197355,0.5356080225345864,0.5630655825048846,122
+Collections,discipline_group,Dominant discipline,GPT-5.1,Psychology,0.5484389694673674,0.5321538597567542,0.5647240791779805,112
+Collections,discipline_group,Dominant discipline,GPT-5.1,Math/Physics,0.5322621099758836,0.5197573764435215,0.5447668435082458,138
+Collections,discipline_group,Dominant discipline,GPT-5.1,Multidisciplinary,0.533769811614085,0.5162474166832559,0.5512922065449141,59
+Collections,discipline_group,Dominant discipline,GPT-5.1,Mixed/Other,0.5634670979343352,0.554130692586038,0.5728035032826325,192
+Collections,discipline_group,Dominant discipline,GPT-4.1,Biology,0.6141886502824802,0.6036001406545153,0.624777159910445,93
+Collections,discipline_group,Dominant discipline,GPT-4.1,Economics,0.604006219105642,0.592952975668121,0.615059462543163,122
+Collections,discipline_group,Dominant discipline,GPT-4.1,Psychology,0.6023823134601115,0.5898996793051601,0.6148649476150629,112
+Collections,discipline_group,Dominant discipline,GPT-4.1,Math/Physics,0.6044937691826751,0.5959742710823069,0.6130132672830432,138
+Collections,discipline_group,Dominant discipline,GPT-4.1,Multidisciplinary,0.6086895385030974,0.5956031615395871,0.6217759154666076,59
+Collections,discipline_group,Dominant discipline,GPT-4.1,Mixed/Other,0.6142099558995031,0.6049694587849977,0.6234504530140085,191
+Collections,discipline_group,Dominant discipline,Gemini 2.5 Pro,Biology,0.5421625547191147,0.5223761390585935,0.5619489703796359,93
+Collections,discipline_group,Dominant discipline,Gemini 2.5 Pro,Economics,0.5007093195177491,0.48215053406805963,0.5192681049674386,122
+Collections,discipline_group,Dominant discipline,Gemini 2.5 Pro,Psychology,0.5067929233025227,0.48734463075878687,0.5262412158462585,112
+Collections,discipline_group,Dominant discipline,Gemini 2.5 Pro,Math/Physics,0.4967567898009132,0.48115844622048576,0.5123551333813406,138
+Collections,discipline_group,Dominant discipline,Gemini 2.5 Pro,Multidisciplinary,0.5288738497232985,0.5098633728141333,0.5478843266324638,59
+Collections,discipline_group,Dominant discipline,Gemini 2.5 Pro,Mixed/Other,0.5091130645790446,0.49616358715341985,0.5220625420046694,192

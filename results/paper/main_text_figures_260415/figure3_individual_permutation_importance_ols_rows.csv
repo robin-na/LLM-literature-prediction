@@ -1,0 +1,28 @@
+estimator,estimator_label,model,model_display,feature_key,feature_label,feature_group,mean_importance,sd_importance,n_folds,n_total,se_importance
+ols,OLS / linear regression,Claude Sonnet 4.6,Claude Sonnet 4.6,biology_share,Biology,Journal discipline,0.13700827156653145,0.23355156900462304,5,2011,0.104447436909214
+ols,OLS / linear regression,Claude Sonnet 4.6,Claude Sonnet 4.6,citation,Citation,Prestige / visibility,1.7934818724209083,0.7315559412188264,5,2011,0.32716176278182724
+ols,OLS / linear regression,Claude Sonnet 4.6,Claude Sonnet 4.6,economics_share,Economics,Journal discipline,0.019460785184374423,0.14817180892295845,5,2011,0.066264447420169
+ols,OLS / linear regression,Claude Sonnet 4.6,Claude Sonnet 4.6,empirical_share,Empirical papers,Study type,0.8537543877478362,0.18629167052835277,5,2011,0.08331216778867818
+ols,OLS / linear regression,Claude Sonnet 4.6,Claude Sonnet 4.6,journal_impact,Journal Impact Factor,Prestige / visibility,0.14789507290244244,0.2613659479965389,5,2011,0.11688640534478718
+ols,OLS / linear regression,Claude Sonnet 4.6,Claude Sonnet 4.6,mathphysics_share,Math/Physics,Journal discipline,0.14243452019956937,0.1162415018735062,5,2011,0.0519847799991658
+ols,OLS / linear regression,Claude Sonnet 4.6,Claude Sonnet 4.6,multidisciplinary_share,Multidisciplinary,Journal discipline,-0.09485235084396401,0.054977484606860465,5,2011,0.02458667856257766
+ols,OLS / linear regression,Claude Sonnet 4.6,Claude Sonnet 4.6,psychology_share,Psychology,Journal discipline,-0.009732363589163653,0.17893064643251955,5,2011,0.08002021773621878
+ols,OLS / linear regression,Claude Sonnet 4.6,Claude Sonnet 4.6,recent,Publication Year,Publication timing,1.0387310436222816,0.49022225535521696,5,2011,0.2192340574115051
+ols,OLS / linear regression,GPT-4.1,GPT-4.1,biology_share,Biology,Journal discipline,-0.019898236165683942,0.052999574533290066,5,2010,0.023702130287000654
+ols,OLS / linear regression,GPT-4.1,GPT-4.1,citation,Citation,Prestige / visibility,-0.0438761758270184,0.09053624195996939,5,2010,0.040489038289972065
+ols,OLS / linear regression,GPT-4.1,GPT-4.1,economics_share,Economics,Journal discipline,0.7054611493222204,0.24357512069635012,5,2010,0.10893010550095095
+ols,OLS / linear regression,GPT-4.1,GPT-4.1,empirical_share,Empirical papers,Study type,0.9101300799135285,0.35663193450473285,5,2010,0.15949064969996707
+ols,OLS / linear regression,GPT-4.1,GPT-4.1,journal_impact,Journal Impact Factor,Prestige / visibility,-0.005560716772233645,0.08029109566542886,5,2010,0.035907269579167525
+ols,OLS / linear regression,GPT-4.1,GPT-4.1,mathphysics_share,Math/Physics,Journal discipline,-0.022337037030302008,0.06722868959040484,5,2010,0.030065583992475543
+ols,OLS / linear regression,GPT-4.1,GPT-4.1,multidisciplinary_share,Multidisciplinary,Journal discipline,0.215388814375161,0.23894091772723705,5,2010,0.10685762692885731
+ols,OLS / linear regression,GPT-4.1,GPT-4.1,psychology_share,Psychology,Journal discipline,0.11926711880348499,0.21184299889511726,5,2010,0.094739069217379
+ols,OLS / linear regression,GPT-4.1,GPT-4.1,recent,Publication Year,Publication timing,-0.07610131960623163,0.07447443005087483,5,2010,0.03330597763586184
+ols,OLS / linear regression,Gemini 2.5 Pro,Gemini Pro 2.5,biology_share,Biology,Journal discipline,0.3859682364268686,0.2746328171976567,5,2011,0.12281952962124673
+ols,OLS / linear regression,Gemini 2.5 Pro,Gemini Pro 2.5,citation,Citation,Prestige / visibility,0.6977967078974773,0.3881829955204957,5,2011,0.17360071313866493
+ols,OLS / linear regression,Gemini 2.5 Pro,Gemini Pro 2.5,economics_share,Economics,Journal discipline,0.05258552259410001,0.16863152395510148,5,2011,0.07541431014259821
+ols,OLS / linear regression,Gemini 2.5 Pro,Gemini Pro 2.5,empirical_share,Empirical papers,Study type,2.34722096991633,1.4293508159130996,5,2011,0.6392251176152958
+ols,OLS / linear regression,Gemini 2.5 Pro,Gemini Pro 2.5,journal_impact,Journal Impact Factor,Prestige / visibility,-0.025182945058407506,0.05798514305231118,5,2011,0.025931744310003488
+ols,OLS / linear regression,Gemini 2.5 Pro,Gemini Pro 2.5,mathphysics_share,Math/Physics,Journal discipline,-0.06843863361139765,0.1514315835769509,5,2011,0.0677222629637006
+ols,OLS / linear regression,Gemini 2.5 Pro,Gemini Pro 2.5,multidisciplinary_share,Multidisciplinary,Journal discipline,0.11668571145339576,0.1407444126003463,5,2011,0.06294281480553046
+ols,OLS / linear regression,Gemini 2.5 Pro,Gemini Pro 2.5,psychology_share,Psychology,Journal discipline,0.0031901631120096986,0.1004758161479447,5,2011,0.04493415100031508
+ols,OLS / linear regression,Gemini 2.5 Pro,Gemini Pro 2.5,recent,Publication Year,Publication timing,-0.028159213588425075,0.06275675054069073,5,2011,0.028065672051196228

@@ -1,0 +1,476 @@
+feature_key,coef,n,repeat,model,item_type,positive,negative
+journal_impact,0.00513781657587924,2011,rep1,GPT-5.1,papers,True,False
+citation,-0.004892040925316325,2011,rep1,GPT-5.1,papers,False,True
+empirical_share,-0.007466842961364026,2011,rep1,GPT-5.1,papers,False,True
+recent,-0.0029598521063804025,2011,rep1,GPT-5.1,papers,False,True
+biology_share,0.0011366489104132963,2011,rep1,GPT-5.1,papers,True,False
+economics_share,0.00394444171316661,2011,rep1,GPT-5.1,papers,True,False
+psychology_share,-0.004494007934264035,2011,rep1,GPT-5.1,papers,False,True
+mathphysics_share,0.00011938388070673405,2011,rep1,GPT-5.1,papers,True,False
+multidisciplinary_share,-0.0013241937321503878,2011,rep1,GPT-5.1,papers,False,True
+journal_impact,0.001635985292915945,2011,rep1,GPT-4.1 Mini,papers,True,False
+citation,-0.0048481802231931425,2011,rep1,GPT-4.1 Mini,papers,False,True
+empirical_share,-0.011119587886925113,2011,rep1,GPT-4.1 Mini,papers,False,True
+recent,-0.004843785019920845,2011,rep1,GPT-4.1 Mini,papers,False,True
+biology_share,-0.0006953850814240087,2011,rep1,GPT-4.1 Mini,papers,False,True
+economics_share,-0.008712969903993254,2011,rep1,GPT-4.1 Mini,papers,False,True
+psychology_share,-0.00014599465152083821,2011,rep1,GPT-4.1 Mini,papers,False,True
+mathphysics_share,-0.00241276319788874,2011,rep1,GPT-4.1 Mini,papers,False,True
+multidisciplinary_share,-0.002311416888749742,2011,rep1,GPT-4.1 Mini,papers,False,True
+journal_impact,0.00024267036391650412,2011,rep1,GPT-4.1,papers,True,False
+citation,0.0004134400616000296,2011,rep1,GPT-4.1,papers,True,False
+empirical_share,-0.002529183103272062,2011,rep1,GPT-4.1,papers,False,True
+recent,0.00014098689191482404,2011,rep1,GPT-4.1,papers,True,False
+biology_share,-0.00010081067716797936,2011,rep1,GPT-4.1,papers,False,True
+economics_share,-0.002338080013550615,2011,rep1,GPT-4.1,papers,False,True
+psychology_share,9.380127166383003e-06,2011,rep1,GPT-4.1,papers,True,False
+mathphysics_share,0.0007146914725916444,2011,rep1,GPT-4.1,papers,True,False
+multidisciplinary_share,-0.00027421342149393154,2011,rep1,GPT-4.1,papers,False,True
+journal_impact,-0.0017487272143386508,1998,rep1,GPT-5 Nano,papers,False,True
+citation,-0.001839591310938675,1998,rep1,GPT-5 Nano,papers,False,True
+empirical_share,-0.005960767728752088,1998,rep1,GPT-5 Nano,papers,False,True
+recent,-0.0023082677687193795,1998,rep1,GPT-5 Nano,papers,False,True
+biology_share,0.003178016767637487,1998,rep1,GPT-5 Nano,papers,True,False
+economics_share,0.0013590980860136734,1998,rep1,GPT-5 Nano,papers,True,False
+psychology_share,0.004963214274103698,1998,rep1,GPT-5 Nano,papers,True,False
+mathphysics_share,-0.00250641044003465,1998,rep1,GPT-5 Nano,papers,False,True
+multidisciplinary_share,0.004425677643274625,1998,rep1,GPT-5 Nano,papers,True,False
+journal_impact,0.0008855390556142478,2011,rep1,GPT-5 Mini,papers,True,False
+citation,-0.00036376702789513415,2011,rep1,GPT-5 Mini,papers,False,True
+empirical_share,-0.0049692431281588,2011,rep1,GPT-5 Mini,papers,False,True
+recent,-5.2519970091543936e-05,2011,rep1,GPT-5 Mini,papers,False,True
+biology_share,0.002133844511706293,2011,rep1,GPT-5 Mini,papers,True,False
+economics_share,-0.0018977402732028971,2011,rep1,GPT-5 Mini,papers,False,True
+psychology_share,-0.00071936253548135,2011,rep1,GPT-5 Mini,papers,False,True
+mathphysics_share,0.00010488385247850767,2011,rep1,GPT-5 Mini,papers,True,False
+multidisciplinary_share,-0.0005767738663324433,2011,rep1,GPT-5 Mini,papers,False,True
+journal_impact,0.002829600625162325,2011,rep2,GPT-5.1,papers,True,False
+citation,-0.006171894003749437,2011,rep2,GPT-5.1,papers,False,True
+empirical_share,-0.010061792609277748,2011,rep2,GPT-5.1,papers,False,True
+recent,-0.0032923702333776234,2011,rep2,GPT-5.1,papers,False,True
+biology_share,0.00354728014988541,2011,rep2,GPT-5.1,papers,True,False
+economics_share,0.0014843330324048514,2011,rep2,GPT-5.1,papers,True,False
+psychology_share,0.00027411328088889497,2011,rep2,GPT-5.1,papers,True,False
+mathphysics_share,-0.004300931478783186,2011,rep2,GPT-5.1,papers,False,True
+multidisciplinary_share,-0.0006045506885479605,2011,rep2,GPT-5.1,papers,False,True
+journal_impact,0.001640556542912504,2011,rep2,GPT-4.1 Mini,papers,True,False
+citation,-0.004371450473419032,2011,rep2,GPT-4.1 Mini,papers,False,True
+empirical_share,-0.012102264296716406,2011,rep2,GPT-4.1 Mini,papers,False,True
+recent,-0.003666056314784922,2011,rep2,GPT-4.1 Mini,papers,False,True
+biology_share,0.001593736362595138,2011,rep2,GPT-4.1 Mini,papers,True,False
+economics_share,-0.007270989929210093,2011,rep2,GPT-4.1 Mini,papers,False,True
+psychology_share,0.0019810462633754553,2011,rep2,GPT-4.1 Mini,papers,True,False
+mathphysics_share,-0.0013876515474177111,2011,rep2,GPT-4.1 Mini,papers,False,True
+multidisciplinary_share,-0.0009996833642579707,2011,rep2,GPT-4.1 Mini,papers,False,True
+journal_impact,0.0015032734284559967,2011,rep2,GPT-4.1,papers,True,False
+citation,0.0009024707787032963,2011,rep2,GPT-4.1,papers,True,False
+empirical_share,-0.0023521297799459226,2011,rep2,GPT-4.1,papers,False,True
+recent,0.00033280535235052314,2011,rep2,GPT-4.1,papers,True,False
+biology_share,-0.0004945556611891778,2011,rep2,GPT-4.1,papers,False,True
+economics_share,-0.001576787340967439,2011,rep2,GPT-4.1,papers,False,True
+psychology_share,-0.0016437804783863595,2011,rep2,GPT-4.1,papers,False,True
+mathphysics_share,0.000109422895507251,2011,rep2,GPT-4.1,papers,True,False
+multidisciplinary_share,-0.0014777226820608764,2011,rep2,GPT-4.1,papers,False,True
+journal_impact,0.0003518868791527344,1986,rep2,GPT-5 Nano,papers,True,False
+citation,-0.0016158028218663126,1986,rep2,GPT-5 Nano,papers,False,True
+empirical_share,-0.00409351276965329,1986,rep2,GPT-5 Nano,papers,False,True
+recent,-0.0010280486867558477,1986,rep2,GPT-5 Nano,papers,False,True
+biology_share,0.0025395415634081745,1986,rep2,GPT-5 Nano,papers,True,False
+economics_share,-0.003320988236241402,1986,rep2,GPT-5 Nano,papers,False,True
+psychology_share,0.0017982200686982176,1986,rep2,GPT-5 Nano,papers,True,False
+mathphysics_share,-0.001988529583700792,1986,rep2,GPT-5 Nano,papers,False,True
+multidisciplinary_share,0.0007880501648951314,1986,rep2,GPT-5 Nano,papers,True,False
+journal_impact,-0.0004221248509001697,2007,rep2,GPT-5 Mini,papers,False,True
+citation,-0.003068748547391821,2007,rep2,GPT-5 Mini,papers,False,True
+empirical_share,-0.008567563465579324,2007,rep2,GPT-5 Mini,papers,False,True
+recent,-0.0014660845042594154,2007,rep2,GPT-5 Mini,papers,False,True
+biology_share,0.0033344545013444444,2007,rep2,GPT-5 Mini,papers,True,False
+economics_share,-0.0028616629255746226,2007,rep2,GPT-5 Mini,papers,False,True
+psychology_share,0.00045726051907221845,2007,rep2,GPT-5 Mini,papers,True,False
+mathphysics_share,-0.002438658889576362,2007,rep2,GPT-5 Mini,papers,False,True
+multidisciplinary_share,-0.0014282210893126043,2007,rep2,GPT-5 Mini,papers,False,True
+journal_impact,0.0036769538395943152,2011,rep3,GPT-5.1,papers,True,False
+citation,-0.006657864111193818,2011,rep3,GPT-5.1,papers,False,True
+empirical_share,-0.010880056584247979,2011,rep3,GPT-5.1,papers,False,True
+recent,-0.0033511818590574722,2011,rep3,GPT-5.1,papers,False,True
+biology_share,0.0033752827690398638,2011,rep3,GPT-5.1,papers,True,False
+economics_share,0.0030303746093674044,2011,rep3,GPT-5.1,papers,True,False
+psychology_share,-0.0010384826121373446,2011,rep3,GPT-5.1,papers,False,True
+mathphysics_share,-0.0031724627480729313,2011,rep3,GPT-5.1,papers,False,True
+multidisciplinary_share,0.0013388451251413087,2011,rep3,GPT-5.1,papers,True,False
+journal_impact,0.001776318485693495,2011,rep3,GPT-4.1 Mini,papers,True,False
+citation,-0.005673216189408549,2011,rep3,GPT-4.1 Mini,papers,False,True
+empirical_share,-0.006371310903236681,2011,rep3,GPT-4.1 Mini,papers,False,True
+recent,-0.0027893886241314235,2011,rep3,GPT-4.1 Mini,papers,False,True
+biology_share,-0.0003192243829648632,2011,rep3,GPT-4.1 Mini,papers,False,True
+economics_share,-0.006177869303997408,2011,rep3,GPT-4.1 Mini,papers,False,True
+psychology_share,0.00130352794215756,2011,rep3,GPT-4.1 Mini,papers,True,False
+mathphysics_share,8.822920655913279e-05,2011,rep3,GPT-4.1 Mini,papers,True,False
+multidisciplinary_share,-0.0016358282729123997,2011,rep3,GPT-4.1 Mini,papers,False,True
+journal_impact,-0.00033107462201916463,2010,rep3,GPT-4.1,papers,False,True
+citation,-0.0007619728627756673,2010,rep3,GPT-4.1,papers,False,True
+empirical_share,-0.0031547488941430194,2010,rep3,GPT-4.1,papers,False,True
+recent,-0.0002352896217075187,2010,rep3,GPT-4.1,papers,False,True
+biology_share,-0.00020546623387540164,2010,rep3,GPT-4.1,papers,False,True
+economics_share,-0.0025317738072182677,2010,rep3,GPT-4.1,papers,False,True
+psychology_share,-0.0006124938112328553,2010,rep3,GPT-4.1,papers,False,True
+mathphysics_share,0.0004705009041984312,2010,rep3,GPT-4.1,papers,True,False
+multidisciplinary_share,-0.0007596845701061672,2010,rep3,GPT-4.1,papers,False,True
+journal_impact,-0.0006319220254787546,1992,rep3,GPT-5 Nano,papers,False,True
+citation,-0.0016861062285389895,1992,rep3,GPT-5 Nano,papers,False,True
+empirical_share,-0.003161801376048749,1992,rep3,GPT-5 Nano,papers,False,True
+recent,-0.0027139163410320206,1992,rep3,GPT-5 Nano,papers,False,True
+biology_share,0.0007461434326818865,1992,rep3,GPT-5 Nano,papers,True,False
+economics_share,-0.0039367859889240546,1992,rep3,GPT-5 Nano,papers,False,True
+psychology_share,0.002864244487854646,1992,rep3,GPT-5 Nano,papers,True,False
+mathphysics_share,-0.0007692097357210254,1992,rep3,GPT-5 Nano,papers,False,True
+multidisciplinary_share,0.0003551202648664634,1992,rep3,GPT-5 Nano,papers,True,False
+journal_impact,-0.0006016764173499392,2010,rep3,GPT-5 Mini,papers,False,True
+citation,-0.0018727560605448692,2010,rep3,GPT-5 Mini,papers,False,True
+empirical_share,-0.011875054738491155,2010,rep3,GPT-5 Mini,papers,False,True
+recent,-0.0018229844171949493,2010,rep3,GPT-5 Mini,papers,False,True
+biology_share,0.0017007517704444918,2010,rep3,GPT-5 Mini,papers,True,False
+economics_share,-0.0030991623144468066,2010,rep3,GPT-5 Mini,papers,False,True
+psychology_share,0.0017104479956999252,2010,rep3,GPT-5 Mini,papers,True,False
+mathphysics_share,-0.0012189912102016133,2010,rep3,GPT-5 Mini,papers,False,True
+multidisciplinary_share,0.0009556198247611278,2010,rep3,GPT-5 Mini,papers,True,False
+journal_impact,0.00336802125812756,2011,rep4,GPT-5.1,papers,True,False
+citation,-0.005541237046751771,2011,rep4,GPT-5.1,papers,False,True
+empirical_share,-0.007948796303318037,2011,rep4,GPT-5.1,papers,False,True
+recent,-0.004900886661047405,2011,rep4,GPT-5.1,papers,False,True
+biology_share,0.0015460102693191215,2011,rep4,GPT-5.1,papers,True,False
+economics_share,0.0006254457825035415,2011,rep4,GPT-5.1,papers,True,False
+psychology_share,-0.0004951298112167341,2011,rep4,GPT-5.1,papers,False,True
+mathphysics_share,-0.003770017326020701,2011,rep4,GPT-5.1,papers,False,True
+multidisciplinary_share,-0.004902176125006862,2011,rep4,GPT-5.1,papers,False,True
+journal_impact,0.001759303271180245,2011,rep4,GPT-4.1 Mini,papers,True,False
+citation,-0.005010032690428856,2011,rep4,GPT-4.1 Mini,papers,False,True
+empirical_share,-0.010009360595534329,2011,rep4,GPT-4.1 Mini,papers,False,True
+recent,-0.003877793431242336,2011,rep4,GPT-4.1 Mini,papers,False,True
+biology_share,0.0009529259511623666,2011,rep4,GPT-4.1 Mini,papers,True,False
+economics_share,-0.007062910043321675,2011,rep4,GPT-4.1 Mini,papers,False,True
+psychology_share,0.0021525583614388725,2011,rep4,GPT-4.1 Mini,papers,True,False
+mathphysics_share,-0.00038921740494753554,2011,rep4,GPT-4.1 Mini,papers,False,True
+multidisciplinary_share,6.0205143521774384e-05,2011,rep4,GPT-4.1 Mini,papers,True,False
+journal_impact,0.0008857975381777707,2011,rep4,GPT-4.1,papers,True,False
+citation,-0.00021028877745476698,2011,rep4,GPT-4.1,papers,False,True
+empirical_share,-0.002385519696750732,2011,rep4,GPT-4.1,papers,False,True
+recent,-0.00046925401880095635,2011,rep4,GPT-4.1,papers,False,True
+biology_share,0.0005922120523452217,2011,rep4,GPT-4.1,papers,True,False
+economics_share,-0.0022420551159927386,2011,rep4,GPT-4.1,papers,False,True
+psychology_share,-0.0003641062070322683,2011,rep4,GPT-4.1,papers,False,True
+mathphysics_share,0.0004328539166767034,2011,rep4,GPT-4.1,papers,True,False
+multidisciplinary_share,-0.0009976427014147427,2011,rep4,GPT-4.1,papers,False,True
+journal_impact,-0.0006123111519187809,1991,rep4,GPT-5 Nano,papers,False,True
+citation,-0.0012761457495270637,1991,rep4,GPT-5 Nano,papers,False,True
+empirical_share,-0.002404299655976226,1991,rep4,GPT-5 Nano,papers,False,True
+recent,-0.001742062777785742,1991,rep4,GPT-5 Nano,papers,False,True
+biology_share,0.0013770757232560301,1991,rep4,GPT-5 Nano,papers,True,False
+economics_share,-0.002050565154405525,1991,rep4,GPT-5 Nano,papers,False,True
+psychology_share,0.0011570410362587026,1991,rep4,GPT-5 Nano,papers,True,False
+mathphysics_share,-0.0008344462619504011,1991,rep4,GPT-5 Nano,papers,False,True
+multidisciplinary_share,-0.0006122619894835412,1991,rep4,GPT-5 Nano,papers,False,True
+journal_impact,-0.000350323677419957,2009,rep4,GPT-5 Mini,papers,False,True
+citation,-0.000728417916605059,2009,rep4,GPT-5 Mini,papers,False,True
+empirical_share,-0.01068712390234401,2009,rep4,GPT-5 Mini,papers,False,True
+recent,-0.0005897472960359314,2009,rep4,GPT-5 Mini,papers,False,True
+biology_share,0.003540863870247422,2009,rep4,GPT-5 Mini,papers,True,False
+economics_share,-0.0018951972558785852,2009,rep4,GPT-5 Mini,papers,False,True
+psychology_share,0.0027839719589101424,2009,rep4,GPT-5 Mini,papers,True,False
+mathphysics_share,-0.003404680497380662,2009,rep4,GPT-5 Mini,papers,False,True
+multidisciplinary_share,0.0006398571506493478,2009,rep4,GPT-5 Mini,papers,True,False
+journal_impact,0.005006600993113054,2009,rep5,GPT-5.1,papers,True,False
+citation,-0.0031793572373380397,2009,rep5,GPT-5.1,papers,False,True
+empirical_share,-0.009709874370797757,2009,rep5,GPT-5.1,papers,False,True
+recent,-0.004301918013596113,2009,rep5,GPT-5.1,papers,False,True
+biology_share,-8.077962917065654e-05,2009,rep5,GPT-5.1,papers,False,True
+economics_share,0.0036714714925347985,2009,rep5,GPT-5.1,papers,True,False
+psychology_share,-0.0015318652417515928,2009,rep5,GPT-5.1,papers,False,True
+mathphysics_share,-0.004411187061049192,2009,rep5,GPT-5.1,papers,False,True
+multidisciplinary_share,-0.004855042672971146,2009,rep5,GPT-5.1,papers,False,True
+journal_impact,0.0022973644787064856,2011,rep5,GPT-4.1 Mini,papers,True,False
+citation,-0.00442541519269028,2011,rep5,GPT-4.1 Mini,papers,False,True
+empirical_share,-0.013645363441783628,2011,rep5,GPT-4.1 Mini,papers,False,True
+recent,-0.0010751220704380067,2011,rep5,GPT-4.1 Mini,papers,False,True
+biology_share,0.0006242789110608138,2011,rep5,GPT-4.1 Mini,papers,True,False
+economics_share,-0.007430466949819275,2011,rep5,GPT-4.1 Mini,papers,False,True
+psychology_share,0.00092457056468592,2011,rep5,GPT-4.1 Mini,papers,True,False
+mathphysics_share,-0.0012333648881107744,2011,rep5,GPT-4.1 Mini,papers,False,True
+multidisciplinary_share,-0.0005864542678361242,2011,rep5,GPT-4.1 Mini,papers,False,True
+journal_impact,0.0006418925125056229,2011,rep5,GPT-4.1,papers,True,False
+citation,0.0002801692754532739,2011,rep5,GPT-4.1,papers,True,False
+empirical_share,-0.0027909635323656507,2011,rep5,GPT-4.1,papers,False,True
+recent,0.0011754580846459579,2011,rep5,GPT-4.1,papers,True,False
+biology_share,0.0012723905483129374,2011,rep5,GPT-4.1,papers,True,False
+economics_share,-0.002663033800413226,2011,rep5,GPT-4.1,papers,False,True
+psychology_share,-0.0012803801371063595,2011,rep5,GPT-4.1,papers,False,True
+mathphysics_share,0.0013075005233551356,2011,rep5,GPT-4.1,papers,True,False
+multidisciplinary_share,-0.0009456343484765789,2011,rep5,GPT-4.1,papers,False,True
+journal_impact,0.00024750253764321687,1996,rep5,GPT-5 Nano,papers,True,False
+citation,-0.0022569952279674933,1996,rep5,GPT-5 Nano,papers,False,True
+empirical_share,-0.00235275184427751,1996,rep5,GPT-5 Nano,papers,False,True
+recent,-0.0016666397066321982,1996,rep5,GPT-5 Nano,papers,False,True
+biology_share,0.0007693546968303181,1996,rep5,GPT-5 Nano,papers,True,False
+economics_share,-0.003247192559804972,1996,rep5,GPT-5 Nano,papers,False,True
+psychology_share,0.001777821816338504,1996,rep5,GPT-5 Nano,papers,True,False
+mathphysics_share,-0.0014229265434993798,1996,rep5,GPT-5 Nano,papers,False,True
+multidisciplinary_share,-0.0004910355355716948,1996,rep5,GPT-5 Nano,papers,False,True
+journal_impact,0.0013757873267194794,2009,rep5,GPT-5 Mini,papers,True,False
+citation,-0.001399124348383909,2009,rep5,GPT-5 Mini,papers,False,True
+empirical_share,-0.009289916924006365,2009,rep5,GPT-5 Mini,papers,False,True
+recent,-0.0026227693409879745,2009,rep5,GPT-5 Mini,papers,False,True
+biology_share,-0.0005497469390388078,2009,rep5,GPT-5 Mini,papers,False,True
+economics_share,-0.002718702136004682,2009,rep5,GPT-5 Mini,papers,False,True
+psychology_share,0.0022893695329350965,2009,rep5,GPT-5 Mini,papers,True,False
+mathphysics_share,-0.0017263220180735376,2009,rep5,GPT-5 Mini,papers,False,True
+multidisciplinary_share,0.0004597642925445481,2009,rep5,GPT-5 Mini,papers,True,False
+journal_impact,0.0025735297640333043,716,rep1,GPT-5.1,collections,True,False
+citation,-0.003237126767984577,716,rep1,GPT-5.1,collections,False,True
+empirical_share,-0.001852557410115451,716,rep1,GPT-5.1,collections,False,True
+recent,-0.0019795001990477795,716,rep1,GPT-5.1,collections,False,True
+biology_share,0.003639002412432023,716,rep1,GPT-5.1,collections,True,False
+economics_share,-0.00166968778062615,716,rep1,GPT-5.1,collections,False,True
+psychology_share,0.0028859329140236327,716,rep1,GPT-5.1,collections,True,False
+mathphysics_share,-0.008502852513053896,716,rep1,GPT-5.1,collections,False,True
+multidisciplinary_share,-0.00263799504108177,716,rep1,GPT-5.1,collections,False,True
+collection_size,0.0010003991532109655,716,rep1,GPT-5.1,collections,True,False
+journal_impact,0.010819057011883494,716,rep1,GPT-4.1 Mini,collections,True,False
+citation,-0.008852420757337769,716,rep1,GPT-4.1 Mini,collections,False,True
+empirical_share,-0.011047490210971948,716,rep1,GPT-4.1 Mini,collections,False,True
+recent,-0.006542637579768821,716,rep1,GPT-4.1 Mini,collections,False,True
+biology_share,0.005954880695511571,716,rep1,GPT-4.1 Mini,collections,True,False
+economics_share,-0.0010176008151292631,716,rep1,GPT-4.1 Mini,collections,False,True
+psychology_share,-0.004318746336326985,716,rep1,GPT-4.1 Mini,collections,False,True
+mathphysics_share,-0.008968593628554105,716,rep1,GPT-4.1 Mini,collections,False,True
+multidisciplinary_share,-0.007918806486950092,716,rep1,GPT-4.1 Mini,collections,False,True
+collection_size,0.0147383641557075,716,rep1,GPT-4.1 Mini,collections,True,False
+journal_impact,0.005718497288963984,715,rep1,GPT-4.1,collections,True,False
+citation,-0.003799084892176911,715,rep1,GPT-4.1,collections,False,True
+empirical_share,-0.011988954819680264,715,rep1,GPT-4.1,collections,False,True
+recent,-0.0006017131048171291,715,rep1,GPT-4.1,collections,False,True
+biology_share,0.003664705642084022,715,rep1,GPT-4.1,collections,True,False
+economics_share,-0.0019028561533157718,715,rep1,GPT-4.1,collections,False,True
+psychology_share,0.0012003226072268092,715,rep1,GPT-4.1,collections,True,False
+mathphysics_share,-0.009415917624860307,715,rep1,GPT-4.1,collections,False,True
+multidisciplinary_share,-0.0025381482446571145,715,rep1,GPT-4.1,collections,False,True
+collection_size,0.01875595154135613,715,rep1,GPT-4.1,collections,True,False
+journal_impact,0.0017471375706175642,715,rep1,GPT-5 Nano,collections,True,False
+citation,-0.005274225114971403,715,rep1,GPT-5 Nano,collections,False,True
+empirical_share,-0.007399688671550183,715,rep1,GPT-5 Nano,collections,False,True
+recent,-0.00463674263450613,715,rep1,GPT-5 Nano,collections,False,True
+biology_share,0.0014212289016324565,715,rep1,GPT-5 Nano,collections,True,False
+economics_share,-0.0015645791987429344,715,rep1,GPT-5 Nano,collections,False,True
+psychology_share,-0.0025256288158910026,715,rep1,GPT-5 Nano,collections,False,True
+mathphysics_share,-0.009925909089042293,715,rep1,GPT-5 Nano,collections,False,True
+multidisciplinary_share,-0.0046801603530029524,715,rep1,GPT-5 Nano,collections,False,True
+collection_size,0.008893280920548438,715,rep1,GPT-5 Nano,collections,True,False
+journal_impact,0.001415005839553825,715,rep1,GPT-5 Mini,collections,True,False
+citation,-0.0035421285865082533,715,rep1,GPT-5 Mini,collections,False,True
+empirical_share,-0.006630064940685242,715,rep1,GPT-5 Mini,collections,False,True
+recent,0.0007840347650246548,715,rep1,GPT-5 Mini,collections,True,False
+biology_share,0.001423121095669907,715,rep1,GPT-5 Mini,collections,True,False
+economics_share,-0.0003156419604493161,715,rep1,GPT-5 Mini,collections,False,True
+psychology_share,-0.0015709622726952073,715,rep1,GPT-5 Mini,collections,False,True
+mathphysics_share,-0.004158528587158546,715,rep1,GPT-5 Mini,collections,False,True
+multidisciplinary_share,-0.0005579864207899352,715,rep1,GPT-5 Mini,collections,False,True
+collection_size,0.004228026924725887,715,rep1,GPT-5 Mini,collections,True,False
+journal_impact,0.0031093591913525023,716,rep2,GPT-5.1,collections,True,False
+citation,-0.009910323335485634,716,rep2,GPT-5.1,collections,False,True
+empirical_share,-0.012710586886793225,716,rep2,GPT-5.1,collections,False,True
+recent,-0.003757046153469435,716,rep2,GPT-5.1,collections,False,True
+biology_share,0.004179827575587275,716,rep2,GPT-5.1,collections,True,False
+economics_share,-0.006577700217204004,716,rep2,GPT-5.1,collections,False,True
+psychology_share,0.002065000316168104,716,rep2,GPT-5.1,collections,True,False
+mathphysics_share,-0.017684269260624316,716,rep2,GPT-5.1,collections,False,True
+multidisciplinary_share,-0.005625263668023689,716,rep2,GPT-5.1,collections,False,True
+collection_size,0.003463469996060842,716,rep2,GPT-5.1,collections,True,False
+journal_impact,0.008628425998972362,716,rep2,GPT-4.1 Mini,collections,True,False
+citation,-0.010651200037142903,716,rep2,GPT-4.1 Mini,collections,False,True
+empirical_share,-0.01047344989528011,716,rep2,GPT-4.1 Mini,collections,False,True
+recent,-0.008151594556350951,716,rep2,GPT-4.1 Mini,collections,False,True
+biology_share,0.0024591829884254065,716,rep2,GPT-4.1 Mini,collections,True,False
+economics_share,-0.0029500954052779724,716,rep2,GPT-4.1 Mini,collections,False,True
+psychology_share,0.0015955572074735323,716,rep2,GPT-4.1 Mini,collections,True,False
+mathphysics_share,-0.008867337056218904,716,rep2,GPT-4.1 Mini,collections,False,True
+multidisciplinary_share,-0.006915515919507557,716,rep2,GPT-4.1 Mini,collections,False,True
+collection_size,0.015535491408669815,716,rep2,GPT-4.1 Mini,collections,True,False
+journal_impact,0.00373871082856288,715,rep2,GPT-4.1,collections,True,False
+citation,-0.007345375815770132,715,rep2,GPT-4.1,collections,False,True
+empirical_share,-0.011040273797882208,715,rep2,GPT-4.1,collections,False,True
+recent,-0.004475250351018609,715,rep2,GPT-4.1,collections,False,True
+biology_share,0.002028027354299337,715,rep2,GPT-4.1,collections,True,False
+economics_share,-0.003993232302776928,715,rep2,GPT-4.1,collections,False,True
+psychology_share,0.0010403148516748449,715,rep2,GPT-4.1,collections,True,False
+mathphysics_share,-0.010144799049688891,715,rep2,GPT-4.1,collections,False,True
+multidisciplinary_share,-0.00264748756326887,715,rep2,GPT-4.1,collections,False,True
+collection_size,0.01982897629912403,715,rep2,GPT-4.1,collections,True,False
+journal_impact,0.00586371260441627,715,rep2,GPT-5 Nano,collections,True,False
+citation,-0.004911606470526613,715,rep2,GPT-5 Nano,collections,False,True
+empirical_share,-0.00655430908912838,715,rep2,GPT-5 Nano,collections,False,True
+recent,-0.0045622675487615215,715,rep2,GPT-5 Nano,collections,False,True
+biology_share,0.004503027996642514,715,rep2,GPT-5 Nano,collections,True,False
+economics_share,0.0004269934715591235,715,rep2,GPT-5 Nano,collections,True,False
+psychology_share,-0.002518163804778359,715,rep2,GPT-5 Nano,collections,False,True
+mathphysics_share,-0.011329171675016635,715,rep2,GPT-5 Nano,collections,False,True
+multidisciplinary_share,-0.003674892930893217,715,rep2,GPT-5 Nano,collections,False,True
+collection_size,0.002405637803586438,715,rep2,GPT-5 Nano,collections,True,False
+journal_impact,0.003650170857578148,716,rep2,GPT-5 Mini,collections,True,False
+citation,-0.00911642704618083,716,rep2,GPT-5 Mini,collections,False,True
+empirical_share,-0.011355175508059649,716,rep2,GPT-5 Mini,collections,False,True
+recent,0.0018065733334205348,716,rep2,GPT-5 Mini,collections,True,False
+biology_share,0.003240646750454615,716,rep2,GPT-5 Mini,collections,True,False
+economics_share,0.0023632046399866963,716,rep2,GPT-5 Mini,collections,True,False
+psychology_share,0.0009666170811009423,716,rep2,GPT-5 Mini,collections,True,False
+mathphysics_share,-0.010689336596077858,716,rep2,GPT-5 Mini,collections,False,True
+multidisciplinary_share,-0.0010269661227042246,716,rep2,GPT-5 Mini,collections,False,True
+collection_size,0.007251127038695665,716,rep2,GPT-5 Mini,collections,True,False
+journal_impact,-0.0005721284935106107,716,rep3,GPT-5.1,collections,False,True
+citation,-0.005463195430826989,716,rep3,GPT-5.1,collections,False,True
+empirical_share,-0.008295271195464672,716,rep3,GPT-5.1,collections,False,True
+recent,-0.0022527637169881334,716,rep3,GPT-5.1,collections,False,True
+biology_share,0.0012259032533700996,716,rep3,GPT-5.1,collections,True,False
+economics_share,-0.0013527168958583115,716,rep3,GPT-5.1,collections,False,True
+psychology_share,-0.0011700353707024824,716,rep3,GPT-5.1,collections,False,True
+mathphysics_share,-0.014999925746748148,716,rep3,GPT-5.1,collections,False,True
+multidisciplinary_share,-0.007771528458451408,716,rep3,GPT-5.1,collections,False,True
+collection_size,0.0012926281452397118,716,rep3,GPT-5.1,collections,True,False
+journal_impact,0.008185992329830307,716,rep3,GPT-4.1 Mini,collections,True,False
+citation,-0.010276349478482364,716,rep3,GPT-4.1 Mini,collections,False,True
+empirical_share,-0.011048121967984896,716,rep3,GPT-4.1 Mini,collections,False,True
+recent,-0.006266541080928488,716,rep3,GPT-4.1 Mini,collections,False,True
+biology_share,0.0010487194355109745,716,rep3,GPT-4.1 Mini,collections,True,False
+economics_share,-0.00387964836762731,716,rep3,GPT-4.1 Mini,collections,False,True
+psychology_share,-0.0009534069386243002,716,rep3,GPT-4.1 Mini,collections,False,True
+mathphysics_share,-0.007439648426321124,716,rep3,GPT-4.1 Mini,collections,False,True
+multidisciplinary_share,-0.004997490265669544,716,rep3,GPT-4.1 Mini,collections,False,True
+collection_size,0.017900281696968272,716,rep3,GPT-4.1 Mini,collections,True,False
+journal_impact,0.0035086562115800553,715,rep3,GPT-4.1,collections,True,False
+citation,-0.002435298316071212,715,rep3,GPT-4.1,collections,False,True
+empirical_share,-0.01484945269669489,715,rep3,GPT-4.1,collections,False,True
+recent,0.001084063089932547,715,rep3,GPT-4.1,collections,True,False
+biology_share,0.005065658347764428,715,rep3,GPT-4.1,collections,True,False
+economics_share,0.0035417420584600203,715,rep3,GPT-4.1,collections,True,False
+psychology_share,0.0031250134878151787,715,rep3,GPT-4.1,collections,True,False
+mathphysics_share,-0.012195632888443993,715,rep3,GPT-4.1,collections,False,True
+multidisciplinary_share,-0.0011574637431377517,715,rep3,GPT-4.1,collections,False,True
+collection_size,0.01816325227122206,715,rep3,GPT-4.1,collections,True,False
+journal_impact,0.0036012912379533605,715,rep3,GPT-5 Nano,collections,True,False
+citation,-0.0057371892276646165,715,rep3,GPT-5 Nano,collections,False,True
+empirical_share,-0.004509245068220677,715,rep3,GPT-5 Nano,collections,False,True
+recent,-0.003168900438387525,715,rep3,GPT-5 Nano,collections,False,True
+biology_share,-3.182141773675745e-05,715,rep3,GPT-5 Nano,collections,False,True
+economics_share,-0.004045985774892807,715,rep3,GPT-5 Nano,collections,False,True
+psychology_share,0.0007605212298526532,715,rep3,GPT-5 Nano,collections,True,False
+mathphysics_share,-0.009873903498902409,715,rep3,GPT-5 Nano,collections,False,True
+multidisciplinary_share,-0.008652936290032257,715,rep3,GPT-5 Nano,collections,False,True
+collection_size,0.00684089810407858,715,rep3,GPT-5 Nano,collections,True,False
+journal_impact,0.011995637634348522,716,rep3,GPT-5 Mini,collections,True,False
+citation,-0.011791962027648477,716,rep3,GPT-5 Mini,collections,False,True
+empirical_share,-0.01039322270976785,716,rep3,GPT-5 Mini,collections,False,True
+recent,-0.002939448912091398,716,rep3,GPT-5 Mini,collections,False,True
+biology_share,0.011783689989861929,716,rep3,GPT-5 Mini,collections,True,False
+economics_share,0.003239310973941603,716,rep3,GPT-5 Mini,collections,True,False
+psychology_share,8.184029354008776e-05,716,rep3,GPT-5 Mini,collections,True,False
+mathphysics_share,-0.008466924844640133,716,rep3,GPT-5 Mini,collections,False,True
+multidisciplinary_share,-0.0030041738669164073,716,rep3,GPT-5 Mini,collections,False,True
+collection_size,0.0050378829736888115,716,rep3,GPT-5 Mini,collections,True,False
+journal_impact,5.271474679903292e-06,716,rep4,GPT-5.1,collections,True,False
+citation,-0.008163510514154594,716,rep4,GPT-5.1,collections,False,True
+empirical_share,-0.011763825399967948,716,rep4,GPT-5.1,collections,False,True
+recent,-0.0045328750641630165,716,rep4,GPT-5.1,collections,False,True
+biology_share,0.00449219011700638,716,rep4,GPT-5.1,collections,True,False
+economics_share,-0.003973426400171419,716,rep4,GPT-5.1,collections,False,True
+psychology_share,-0.0004282771822122656,716,rep4,GPT-5.1,collections,False,True
+mathphysics_share,-0.018452382497877548,716,rep4,GPT-5.1,collections,False,True
+multidisciplinary_share,-0.006874225084685,716,rep4,GPT-5.1,collections,False,True
+collection_size,0.0058818465992823595,716,rep4,GPT-5.1,collections,True,False
+journal_impact,0.005814471131260032,716,rep4,GPT-4.1 Mini,collections,True,False
+citation,-0.00938480052714679,716,rep4,GPT-4.1 Mini,collections,False,True
+empirical_share,-0.015586129504211997,716,rep4,GPT-4.1 Mini,collections,False,True
+recent,-0.004757358726315078,716,rep4,GPT-4.1 Mini,collections,False,True
+biology_share,0.004580353613540082,716,rep4,GPT-4.1 Mini,collections,True,False
+economics_share,-0.0021067601359123335,716,rep4,GPT-4.1 Mini,collections,False,True
+psychology_share,-0.0027056129604831475,716,rep4,GPT-4.1 Mini,collections,False,True
+mathphysics_share,-0.011249559028537783,716,rep4,GPT-4.1 Mini,collections,False,True
+multidisciplinary_share,-0.006423264086186771,716,rep4,GPT-4.1 Mini,collections,False,True
+collection_size,0.013280576668307831,716,rep4,GPT-4.1 Mini,collections,True,False
+journal_impact,0.004341980357890888,715,rep4,GPT-4.1,collections,True,False
+citation,-0.003805331828182813,715,rep4,GPT-4.1,collections,False,True
+empirical_share,-0.014423979279716096,715,rep4,GPT-4.1,collections,False,True
+recent,0.0006576487596351506,715,rep4,GPT-4.1,collections,True,False
+biology_share,0.005868584206043412,715,rep4,GPT-4.1,collections,True,False
+economics_share,0.00017398317911689157,715,rep4,GPT-4.1,collections,True,False
+psychology_share,0.0034869345706445326,715,rep4,GPT-4.1,collections,True,False
+mathphysics_share,-0.011410766363668966,715,rep4,GPT-4.1,collections,False,True
+multidisciplinary_share,-0.0031097098240167663,715,rep4,GPT-4.1,collections,False,True
+collection_size,0.01714308515525402,715,rep4,GPT-4.1,collections,True,False
+journal_impact,-0.0013536784582858837,716,rep4,GPT-5 Nano,collections,False,True
+citation,-0.0014150352390370992,716,rep4,GPT-5 Nano,collections,False,True
+empirical_share,-0.005953734761407018,716,rep4,GPT-5 Nano,collections,False,True
+recent,-0.0020725983106717593,716,rep4,GPT-5 Nano,collections,False,True
+biology_share,-0.00034505562950265436,716,rep4,GPT-5 Nano,collections,False,True
+economics_share,-0.0014878861771147928,716,rep4,GPT-5 Nano,collections,False,True
+psychology_share,-0.0021871917208095126,716,rep4,GPT-5 Nano,collections,False,True
+mathphysics_share,-0.005993559608270712,716,rep4,GPT-5 Nano,collections,False,True
+multidisciplinary_share,-0.001778595061728817,716,rep4,GPT-5 Nano,collections,False,True
+collection_size,0.0011373760771252327,716,rep4,GPT-5 Nano,collections,True,False
+journal_impact,0.004265714951032207,716,rep4,GPT-5 Mini,collections,True,False
+citation,-0.005618392474065278,716,rep4,GPT-5 Mini,collections,False,True
+empirical_share,-0.00860335389521599,716,rep4,GPT-5 Mini,collections,False,True
+recent,0.004571907098213721,716,rep4,GPT-5 Mini,collections,True,False
+biology_share,0.0004596702871164241,716,rep4,GPT-5 Mini,collections,True,False
+economics_share,-0.0005195491936438503,716,rep4,GPT-5 Mini,collections,False,True
+psychology_share,-0.0030618966625188294,716,rep4,GPT-5 Mini,collections,False,True
+mathphysics_share,-0.01105577816228136,716,rep4,GPT-5 Mini,collections,False,True
+multidisciplinary_share,-0.006523632213613762,716,rep4,GPT-5 Mini,collections,False,True
+collection_size,0.004809118773521468,716,rep4,GPT-5 Mini,collections,True,False
+journal_impact,0.006309708377461719,716,rep5,GPT-5.1,collections,True,False
+citation,-0.009082010874207777,716,rep5,GPT-5.1,collections,False,True
+empirical_share,-0.011002685288558545,716,rep5,GPT-5.1,collections,False,True
+recent,-0.0037444442919293748,716,rep5,GPT-5.1,collections,False,True
+biology_share,0.004228065727863772,716,rep5,GPT-5.1,collections,True,False
+economics_share,0.0034953559247713293,716,rep5,GPT-5.1,collections,True,False
+psychology_share,-0.0013237823731555077,716,rep5,GPT-5.1,collections,False,True
+mathphysics_share,-0.012555631232545855,716,rep5,GPT-5.1,collections,False,True
+multidisciplinary_share,-0.007538134446605449,716,rep5,GPT-5.1,collections,False,True
+collection_size,-0.0003398703659960034,716,rep5,GPT-5.1,collections,False,True
+journal_impact,0.010128042107294746,716,rep5,GPT-4.1 Mini,collections,True,False
+citation,-0.008876045139658029,716,rep5,GPT-4.1 Mini,collections,False,True
+empirical_share,-0.012701623020605011,716,rep5,GPT-4.1 Mini,collections,False,True
+recent,-0.00542355128351801,716,rep5,GPT-4.1 Mini,collections,False,True
+biology_share,0.003926358848246051,716,rep5,GPT-4.1 Mini,collections,True,False
+economics_share,0.000626723470169817,716,rep5,GPT-4.1 Mini,collections,True,False
+psychology_share,5.3347662541395474e-05,716,rep5,GPT-4.1 Mini,collections,True,False
+mathphysics_share,-0.010808431019332064,716,rep5,GPT-4.1 Mini,collections,False,True
+multidisciplinary_share,-0.006423464650202618,716,rep5,GPT-4.1 Mini,collections,False,True
+collection_size,0.01626102972981157,716,rep5,GPT-4.1 Mini,collections,True,False
+journal_impact,0.0022204651803214254,715,rep5,GPT-4.1,collections,True,False
+citation,-0.0028508771511188535,715,rep5,GPT-4.1,collections,False,True
+empirical_share,-0.013444092975358556,715,rep5,GPT-4.1,collections,False,True
+recent,0.00048718761276878974,715,rep5,GPT-4.1,collections,True,False
+biology_share,0.003205571386769414,715,rep5,GPT-4.1,collections,True,False
+economics_share,9.10630083847834e-05,715,rep5,GPT-4.1,collections,True,False
+psychology_share,0.0021466935723645883,715,rep5,GPT-4.1,collections,True,False
+mathphysics_share,-0.009814594709665647,715,rep5,GPT-4.1,collections,False,True
+multidisciplinary_share,-0.0004924909500638714,715,rep5,GPT-4.1,collections,False,True
+collection_size,0.01806265850362398,715,rep5,GPT-4.1,collections,True,False
+journal_impact,-0.0020472766528735887,715,rep5,GPT-5 Nano,collections,False,True
+citation,-0.006885398483799822,715,rep5,GPT-5 Nano,collections,False,True
+empirical_share,-0.003889404190396537,715,rep5,GPT-5 Nano,collections,False,True
+recent,-0.0013165398584801952,715,rep5,GPT-5 Nano,collections,False,True
+biology_share,0.001229392757707366,715,rep5,GPT-5 Nano,collections,True,False
+economics_share,-0.0024996903089458075,715,rep5,GPT-5 Nano,collections,False,True
+psychology_share,-0.005784164042440193,715,rep5,GPT-5 Nano,collections,False,True
+mathphysics_share,-0.011557922756640856,715,rep5,GPT-5 Nano,collections,False,True
+multidisciplinary_share,-0.006319368385849103,715,rep5,GPT-5 Nano,collections,False,True
+collection_size,0.007358880592625284,715,rep5,GPT-5 Nano,collections,True,False
+journal_impact,0.0038566783142634717,716,rep5,GPT-5 Mini,collections,True,False
+citation,-0.006234686019133285,716,rep5,GPT-5 Mini,collections,False,True
+empirical_share,-0.005690880924080762,716,rep5,GPT-5 Mini,collections,False,True
+recent,0.000572592287979924,716,rep5,GPT-5 Mini,collections,True,False
+biology_share,0.004152841249525176,716,rep5,GPT-5 Mini,collections,True,False
+economics_share,-0.0012901110283368572,716,rep5,GPT-5 Mini,collections,False,True
+psychology_share,0.00016975318213913702,716,rep5,GPT-5 Mini,collections,True,False
+mathphysics_share,-0.009038612965219229,716,rep5,GPT-5 Mini,collections,False,True
+multidisciplinary_share,-0.0004997107997386334,716,rep5,GPT-5 Mini,collections,False,True
+collection_size,0.007855319700054604,716,rep5,GPT-5 Mini,collections,True,False

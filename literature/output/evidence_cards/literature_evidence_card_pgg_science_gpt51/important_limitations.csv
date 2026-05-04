@@ -1,0 +1,6 @@
+custom_id,paper_id,limitation_index,limitation
+PGG_Science,PGG_Science,1,"The experiments use stylized public goods games with specific parameter ranges and online participant pools (MTurk and Prolific), which limits external validity to other cooperation games and real-world settings."
+PGG_Science,PGG_Science,2,The study focuses on variation in game parameters within relatively homogeneous populations; interactions between population characteristics and game design are not explored but may be important.
+PGG_Science,PGG_Science,3,"Some design parameters (e.g., group size, horizon knowledge, punishment cost, reward technology) are included in the models but receive little direct substantive analysis, so their causal roles remain unclear."
+PGG_Science,PGG_Science,4,Normalized efficiency and conventional efficiency are model-based welfare measures that assume specific benchmarks (full cooperation and full defection) and ignore potential utility heterogeneity across participants.
+PGG_Science,PGG_Science,5,"Although the best-performing model explains most of the explainable variance given sampling noise, model multiplicity and potential overfitting to the learning data mean that alternative models could assign different importance to some parameters, especially punishment technology and costs."

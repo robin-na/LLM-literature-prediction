@@ -1,0 +1,15 @@
+parameter,label,short_label,category,importance_feature,n_papers_mentioned,percent_papers_mentioned,n_papers_varied,percent_papers_varied,predictive_importance_pct_rmse,plotted
+CONFIG_chat,Communication,communication,Social Information,Ability to chat,38,24.675324675324674,6,3.896103896103896,59.95052135969729,True
+CONFIG_defaultContribProp,Contribution framing,Contrib. framing,Contribution Structure,Default contribution vs withdrawal,95,61.68831168831169,1,0.6493506493506493,17.925221014670008,True
+CONFIG_allOrNothing,Contribution type,Contrib. type,Contribution Structure,"""All or Nothing"" contributions",141,91.55844155844156,4,2.5974025974025974,14.579931279140416,True
+CONFIG_numRounds,Game length,Game length,Game Structure,# of rounds,148,96.1038961038961,14,9.090909090909092,11.49266256681321,True
+CONFIG_showOtherSummaries,Peer outcome visibility,Peer outcomes,Social Information,Peer outcome visibility,72,46.75324675324675,2,1.2987012987012987,5.819912300616935,True
+CONFIG_rewardExists,Reward exists,Reward,Incentive Mechanisms,Ability to reward,76,49.35064935064935,9,5.844155844155844,4.618892524635318,True
+CONFIG_showNRounds,Horizon knowledge,Horizon,Game Structure,Visibility of # of rounds,17,11.03896103896104,1,0.6493506493506493,1.8904189074993376,True
+CONFIG_MPCR,MPCR,MPCR,Game Structure,Marginal per capita return,76,49.35064935064935,2,1.2987012987012987,0.8258708052433317,True
+CONFIG_punishmentCost,Punishment cost,Punish. cost,Incentive Mechanisms,Punishment cost,75,48.701298701298704,6,3.896103896103896,0.2482911151171314,True
+CONFIG_showAnyId,Actor anonymity,Actor anonymity,Social Information,Punisher/rewarder anonymity,22,14.285714285714285,1,0.6493506493506493,-0.1869118783272908,True
+CONFIG_playerCount,Group size,Group size,Game Structure,# of players,150,97.40259740259741,18,11.688311688311687,-0.24042585480229825,True
+CONFIG_punishmentTech,Punishment technology,Punish. tech.,Incentive Mechanisms,Punishment effectiveness,72,46.75324675324675,8,5.194805194805195,-1.0895233969713434,True
+CONFIG_rewardCost,Reward cost,Reward cost,Incentive Mechanisms,,10,6.493506493506493,1,0.6493506493506493,,False
+CONFIG_rewardTech,Reward technology,Reward tech.,Incentive Mechanisms,,9,5.844155844155844,2,1.2987012987012987,,False

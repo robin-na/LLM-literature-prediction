@@ -1,0 +1,58 @@
+item_type,model,feature_key,feature_label,coef,ci_low,ci_high,n,panel
+Individual papers,GPT-4.1,journal_impact,Journal Impact Factor,0.000558045479858,-0.00099474875936,0.0031174489072409,2010,Individual papers
+Individual papers,GPT-4.1,citation,Citation,0.0001375213284215,-0.001691007479303,0.0018494166727378,2010,Individual papers
+Individual papers,GPT-4.1,empirical_share,Empirical papers,-0.0028516310789129,-0.0057564581915234,-0.0015458388866651,2010,Individual papers
+Individual papers,GPT-4.1,recent,Publication Year,0.0002264892312914,-0.0016736863160454,0.002595862778802,2010,Individual papers
+Individual papers,GPT-4.1,biology_share,Biology Journals,5.7238388864826885e-05,-0.0022881152242693,0.0015315849015138,2010,Individual papers
+Individual papers,GPT-4.1,economics_share,Economics Journals,-0.0021422331285932,-0.0049145247382578,-0.0006313927148359,2010,Individual papers
+Individual papers,GPT-4.1,psychology_share,Psychology Journals,-0.0008667773614126,-0.0029536039805986,0.0005056050153812,2010,Individual papers
+Individual papers,GPT-4.1,mathphysics_share,Math/Physics Journals,0.0008509975399202,-0.0018067279191405,0.0020917413289274,2010,Individual papers
+Individual papers,GPT-4.1,multidisciplinary_share,Multidisciplinary Journals,-0.0009491456082408,-0.0037367920914182,0.0001464483653416,2010,Individual papers
+Individual papers,GPT-5.1,journal_impact,Journal Impact Factor,0.0048449934704259,0.0010324170591348,0.0078964461037136,2009,Individual papers
+Individual papers,GPT-5.1,citation,Citation,-0.0068440567699734,-0.0110779312011734,-0.0027166832728315,2009,Individual papers
+Individual papers,GPT-5.1,empirical_share,Empirical papers,-0.0092733506551624,-0.0131909112881514,-0.0053759475641293,2009,Individual papers
+Individual papers,GPT-5.1,recent,Publication Year,-0.0043130864523722,-0.0080343301851197,-0.0004599958533585,2009,Individual papers
+Individual papers,GPT-5.1,biology_share,Biology Journals,0.0019064434224902,-0.0006419224064824,0.0046150169280332,2009,Individual papers
+Individual papers,GPT-5.1,economics_share,Economics Journals,0.0016831201086383,-0.0017756034076192,0.0052441672639192,2009,Individual papers
+Individual papers,GPT-5.1,psychology_share,Psychology Journals,-0.001621131454938,-0.0046083799231765,0.0011785261844965,2009,Individual papers
+Individual papers,GPT-5.1,mathphysics_share,Math/Physics Journals,-0.0037795874335664,-0.0066640108026419,-0.0003886859401486,2009,Individual papers
+Individual papers,GPT-5.1,multidisciplinary_share,Multidisciplinary Journals,-0.0022382079930454,-0.0055159048341494,0.0011196828418358,2009,Individual papers
+Individual papers,Claude Sonnet 4.6,journal_impact,Journal Impact Factor,0.000920835958758,-0.0003334513890622,0.0021338014072364,2011,Individual papers
+Individual papers,Claude Sonnet 4.6,citation,Citation,-0.0030574993662566,-0.0045666972011586,-0.0013956432459787,2011,Individual papers
+Individual papers,Claude Sonnet 4.6,empirical_share,Empirical papers,-0.0022487977751668,-0.0035087632648969,-0.0008619497501932,2011,Individual papers
+Individual papers,Claude Sonnet 4.6,recent,Publication Year,-0.0023444123055117,-0.0036593880224808,-0.0009364097641936,2011,Individual papers
+Individual papers,Claude Sonnet 4.6,biology_share,Biology Journals,0.0010792501873286,4.200482533348788e-05,0.0022164791971891,2011,Individual papers
+Individual papers,Claude Sonnet 4.6,economics_share,Economics Journals,0.0004542906363569,-0.0009550431147878,0.0019239214323746,2011,Individual papers
+Individual papers,Claude Sonnet 4.6,psychology_share,Psychology Journals,0.0006345435025616,-0.0004165248405758,0.001771574072117,2011,Individual papers
+Individual papers,Claude Sonnet 4.6,mathphysics_share,Math/Physics Journals,-0.001050246478145,-0.0023134976611178,0.0004243237901549,2011,Individual papers
+Individual papers,Claude Sonnet 4.6,multidisciplinary_share,Multidisciplinary Journals,0.0003295515836622,-0.0007937018275762,0.0015894167721993,2011,Individual papers
+Collections,GPT-4.1,journal_impact,Journal Impact Factor,0.0034381869619394,-0.003182047636648,0.0093664688778416,715,Collections
+Collections,GPT-4.1,citation,Citation,-0.0032144223874788,-0.0084707539757956,0.0017323793669467,715,Collections
+Collections,GPT-4.1,empirical_share,Empirical papers,-0.0134756354382415,-0.0190429576881038,-0.0086930110447411,715,Collections
+Collections,GPT-4.1,recent,Publication Year,-0.0006226068678236,-0.0046862434007592,0.0038190665804701,715,Collections
+Collections,GPT-4.1,biology_share,Biology Journals,0.0040479048287252,0.0004394732310572,0.0082651482385876,715,Collections
+Collections,GPT-4.1,economics_share,Economics Journals,-0.0004016056771672,-0.0062310797854084,0.0047385045129565,715,Collections
+Collections,GPT-4.1,psychology_share,Psychology Journals,0.0019788540151671,-0.0033131106866394,0.0057814363726334,715,Collections
+Collections,GPT-4.1,mathphysics_share,Math/Physics Journals,-0.0113319268981545,-0.0163202277622075,-0.0071112220303567,715,Collections
+Collections,GPT-4.1,multidisciplinary_share,Multidisciplinary Journals,-0.0017020983899022,-0.0051473764977094,0.0019055582874115,715,Collections
+Collections,GPT-4.1,collection_size,Number of Papers,0.0202648295121355,0.0165065178526385,0.0243239974315134,715,Collections
+Collections,GPT-5.1,journal_impact,Journal Impact Factor,0.0031817023713108,-0.0038173964658705,0.0103083066084744,716,Collections
+Collections,GPT-5.1,citation,Citation,-0.0107640400961405,-0.0176736601853695,-0.0028088469058234,716,Collections
+Collections,GPT-5.1,empirical_share,Empirical papers,-0.0106869984452745,-0.0161608146579565,-0.0041015546436661,716,Collections
+Collections,GPT-5.1,recent,Publication Year,-0.0061430898963138,-0.0129149795999383,0.0004872722014063,716,Collections
+Collections,GPT-5.1,biology_share,Biology Journals,0.0040954260686201,-0.001106556230611,0.0092766504534192,716,Collections
+Collections,GPT-5.1,economics_share,Economics Journals,-0.0030498046270431,-0.0088741864780602,0.0032916434495962,716,Collections
+Collections,GPT-5.1,psychology_share,Psychology Journals,0.0013629733539246,-0.0043289304059582,0.0072219778817489,716,Collections
+Collections,GPT-5.1,mathphysics_share,Math/Physics Journals,-0.0182938024286174,-0.0250332589419786,-0.0110386246689006,716,Collections
+Collections,GPT-5.1,multidisciplinary_share,Multidisciplinary Journals,-0.0069777252351872,-0.0124033201651162,-0.000884487551563,716,Collections
+Collections,GPT-5.1,collection_size,Number of Papers,0.0036403644881139,-0.0013997875197157,0.0084137327741012,716,Collections
+Collections,Claude Sonnet 4.6,journal_impact,Journal Impact Factor,0.0018859820264838,-0.0018918499963834,0.0059482332223703,716,Collections
+Collections,Claude Sonnet 4.6,citation,Citation,-0.0033171266570025,-0.0078880058676652,-0.0004059704148222,716,Collections
+Collections,Claude Sonnet 4.6,empirical_share,Empirical papers,-0.0022015660536306,-0.0061364156004361,0.0007759351439878,716,Collections
+Collections,Claude Sonnet 4.6,recent,Publication Year,-0.0019100197363196,-0.0054931270682918,0.0005004255831906,716,Collections
+Collections,Claude Sonnet 4.6,biology_share,Biology Journals,0.0024220785208476,0.0002586362992226,0.0053031364676234,716,Collections
+Collections,Claude Sonnet 4.6,economics_share,Economics Journals,-0.0002943034635028,-0.003537637110307,0.0027357872403029,716,Collections
+Collections,Claude Sonnet 4.6,psychology_share,Psychology Journals,0.0011894054631708,-0.0011934441047313,0.0040944671031489,716,Collections
+Collections,Claude Sonnet 4.6,mathphysics_share,Math/Physics Journals,-0.0083163092870633,-0.0129727806423713,-0.0056887633036664,716,Collections
+Collections,Claude Sonnet 4.6,multidisciplinary_share,Multidisciplinary Journals,-0.0010976169696066,-0.0034536091123431,0.0011476537525551,716,Collections
+Collections,Claude Sonnet 4.6,collection_size,Number of Papers,0.0050851477649221,0.0029474620535861,0.0081087846493719,716,Collections

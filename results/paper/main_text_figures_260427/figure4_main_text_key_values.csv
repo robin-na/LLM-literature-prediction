@@ -1,0 +1,28 @@
+section,model,value_name,value,notes
+predictive_performance,Claude Sonnet 4.6,best_model,elastic_net,Best cross-validated predictive model among benchmarked estimators.
+predictive_performance,Claude Sonnet 4.6,cv_r2,0.007061095798034045,Out-of-sample R^2 for the best model (elastic net).
+empirical_coefficient,Claude Sonnet 4.6,coef,-0.002093531448977759,Elastic-net standardized coefficient for empirical papers.
+empirical_coefficient,Claude Sonnet 4.6,ci_low,-0.0036317500065573115,Bootstrap 95% interval lower bound.
+empirical_coefficient,Claude Sonnet 4.6,ci_high,-0.0007552034331162189,Bootstrap 95% interval upper bound.
+empirical_importance,Claude Sonnet 4.6,mean_importance_pct_error_increase,0.6829174273005326,Mean permutation importance: % increase in prediction error when the empirical feature is permuted.
+empirical_importance,Claude Sonnet 4.6,se_importance_pct_error_increase,0.06938769887876176,Standard error across folds.
+empirical_importance,Claude Sonnet 4.6,importance_rank,3,Rank of empirical status among the 9 metadata features by permutation importance.
+empirical_importance,Claude Sonnet 4.6,top_feature,Citation,Highest-importance metadata feature for this model.
+predictive_performance,GPT-4.1,best_model,elastic_net,Best cross-validated predictive model among benchmarked estimators.
+predictive_performance,GPT-4.1,cv_r2,0.010918900508791629,Out-of-sample R^2 for the best model (elastic net).
+empirical_coefficient,GPT-4.1,coef,-0.0031896337214827523,Elastic-net standardized coefficient for empirical papers.
+empirical_coefficient,GPT-4.1,ci_low,-0.006011733467985884,Bootstrap 95% interval lower bound.
+empirical_coefficient,GPT-4.1,ci_high,-0.001547822839373043,Bootstrap 95% interval upper bound.
+empirical_importance,GPT-4.1,mean_importance_pct_error_increase,0.7794838163299023,Mean permutation importance: % increase in prediction error when the empirical feature is permuted.
+empirical_importance,GPT-4.1,se_importance_pct_error_increase,0.10989682625955945,Standard error across folds.
+empirical_importance,GPT-4.1,importance_rank,1,Rank of empirical status among the 9 metadata features by permutation importance.
+empirical_importance,GPT-4.1,top_feature,Empirical,Highest-importance metadata feature for this model.
+predictive_performance,Gemini 2.5 Pro,best_model,elastic_net,Best cross-validated predictive model among benchmarked estimators.
+predictive_performance,Gemini 2.5 Pro,cv_r2,0.030809305182857183,Out-of-sample R^2 for the best model (elastic net).
+empirical_coefficient,Gemini 2.5 Pro,coef,-0.012675551716666705,Elastic-net standardized coefficient for empirical papers.
+empirical_coefficient,Gemini 2.5 Pro,ci_low,-0.017317471699171014,Bootstrap 95% interval lower bound.
+empirical_coefficient,Gemini 2.5 Pro,ci_high,-0.00821698248302525,Bootstrap 95% interval upper bound.
+empirical_importance,Gemini 2.5 Pro,mean_importance_pct_error_increase,2.068758108098826,Mean permutation importance: % increase in prediction error when the empirical feature is permuted.
+empirical_importance,Gemini 2.5 Pro,se_importance_pct_error_increase,0.5617934031035015,Standard error across folds.
+empirical_importance,Gemini 2.5 Pro,importance_rank,1,Rank of empirical status among the 9 metadata features by permutation importance.
+empirical_importance,Gemini 2.5 Pro,top_feature,Empirical,Highest-importance metadata feature for this model.

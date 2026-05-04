@@ -1,0 +1,3 @@
+shard,rows,input_tokens,cache_read_input_tokens,cache_creation_input_tokens,ephemeral_5m_input_tokens,ephemeral_1h_input_tokens,read_hit_rows,write_rows,accounted_rows,zero_accounting_rows,accounted_token_total,cache_read_token_share,cache_write_token_share,read_hit_row_share_all,write_row_share_all,read_hit_row_share_accounted,write_row_share_accounted
+cached5m,505,1371,1043040,502303,502303,0,320,154,474,31,1546714,0.6743586726440699,0.3247549320688893,0.6336633663366337,0.30495049504950494,0.6751054852320675,0.32489451476793246
+cached1h,505,1275,951529,506610,0,506610,292,156,448,57,1459414,0.6519938824761171,0.34713247920055584,0.5782178217821782,0.3089108910891089,0.6517857142857143,0.3482142857142857

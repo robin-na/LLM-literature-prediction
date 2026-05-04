@@ -132,6 +132,14 @@ def _extract_joint_predictions_from_json_text(text: str | None) -> dict[str, flo
 
     candidate = text.strip()
 
+    # Gemini occasionally emits doubled quotes around a JSON key, e.g.
+    # ""prediction"": 85. Normalize that mild corruption before parsing.
+    candidate = re.sub(r'""([A-Za-z][A-Za-z0-9_]*)""(?=\s*:)', r'"\1"', candidate)
+    # Claude occasionally emits a stray ">" after the prediction key,
+    # e.g. "prediction">87. Normalize that mild corruption too.
+    candidate = re.sub(r'"prediction"\s*>\s*(-?\d+(?:\.\d+)?)', r'"prediction": \1', candidate)
+    candidate = re.sub(r'"prediction"\s*=\s*(-?\d+(?:\.\d+)?)', r'"prediction": \1', candidate)
+
     try:
         preds = _to_joint_predictions(json.loads(candidate))
         if preds is not None:
@@ -157,6 +165,45 @@ def _extract_joint_predictions_from_json_text(text: str | None) -> dict[str, flo
                 return preds
         except (json.JSONDecodeError, TypeError):
             pass
+
+    # Case 4: recover per-question predictions from mildly malformed joint JSON
+    # by scanning one Q/L block at a time. This also handles cases where Gemini
+    # drops one intermediate question label but still emits the corresponding
+    # prediction block before the next labeled question.
+    key_matches = list(re.finditer(r'"([QL]\d+)"\s*:\s*\{', candidate))
+    if key_matches:
+        preds: dict[str, float] = {}
+        pred_pattern = re.compile(
+            r'"prediction"\s*[:=]\s*[^-0-9]{0,32}?(-?\d+(?:\.\d+)?)'
+        )
+        for idx, match in enumerate(key_matches):
+            question = match.group(1)
+            block_start = match.start()
+            block_end = key_matches[idx + 1].start() if idx + 1 < len(key_matches) else len(candidate)
+            block = candidate[block_start:block_end]
+
+            expected_questions = [question]
+            if idx + 1 < len(key_matches):
+                next_question = key_matches[idx + 1].group(1)
+                if question[0] == next_question[0]:
+                    current_idx = int(question[1:])
+                    next_idx = int(next_question[1:])
+                    if next_idx > current_idx + 1:
+                        expected_questions.extend(
+                            f"{question[0]}{missing_idx}"
+                            for missing_idx in range(current_idx + 1, next_idx)
+                        )
+
+            pred_matches = list(pred_pattern.finditer(block))
+            if not pred_matches:
+                pred_matches = list(
+                    re.finditer(r'"prediction"\s*>\s*[^-0-9]{0,32}?(-?\d+(?:\.\d+)?)', block)
+                )
+
+            for expected_question, pred_match in zip(expected_questions, pred_matches):
+                preds[expected_question] = float(pred_match.group(1))
+        if preds:
+            return preds
 
     return None
 
@@ -259,6 +306,30 @@ def _extract_claude_answer_text(item: dict) -> str | None:
     return joined if joined else None
 
 
+def _extract_gemini_answer_text(item: dict) -> str | None:
+    response = item.get("response", {})
+    if not isinstance(response, dict):
+        return None
+
+    candidates = response.get("candidates") or []
+    if not candidates:
+        return None
+
+    first = candidates[0] if isinstance(candidates[0], dict) else {}
+    content = first.get("content") or {}
+    if not isinstance(content, dict):
+        return None
+
+    parts = content.get("parts") or []
+    text_chunks = [
+        part.get("text", "")
+        for part in parts
+        if isinstance(part, dict) and isinstance(part.get("text"), str)
+    ]
+    joined = "\n".join(chunk for chunk in text_chunks if chunk).strip()
+    return joined if joined else None
+
+
 def _looks_like_reasoning_payload(text: str | None) -> bool:
     if not text:
         return False
@@ -268,7 +339,7 @@ def _looks_like_reasoning_payload(text: str | None) -> bool:
     )
 
 
-def jsonl_to_dataframe(jsonl_path, verbose: bool = False, platform: str = "openai"):
+def jsonl_to_dataframe(jsonl_path, verbose: bool = False, platform: str = "auto"):
     """
     Converts a list of dictionaries (parsed from a jsonl file) to a DataFrame.
     
@@ -281,8 +352,8 @@ def jsonl_to_dataframe(jsonl_path, verbose: bool = False, platform: str = "opena
 
     Include the value of log probability, get the mean, and then generate the output
     """
-    if platform not in {"openai", "claude"}:
-        raise ValueError("platform must be one of: openai, claude")
+    if platform not in {"auto", "openai", "claude", "gemini"}:
+        raise ValueError("platform must be one of: auto, openai, claude, gemini")
 
     # Create an empty dictionary to hold data. Each key will be a row id.
     data = {}
@@ -291,12 +362,21 @@ def jsonl_to_dataframe(jsonl_path, verbose: bool = False, platform: str = "opena
         jsonl_list = [json.loads(line) for line in jsonl_file]  # Load each line as a dictionary
 
     for item in jsonl_list:
-        custom_id = item.get('custom_id', '')
+        custom_id = item.get("custom_id") or item.get("key", "")
+
+        item_platform = platform
+        if item_platform == "auto":
+            if "result" in item:
+                item_platform = "claude"
+            elif isinstance(item.get("response"), dict) and "candidates" in item.get("response", {}):
+                item_platform = "gemini"
+            else:
+                item_platform = "openai"
 
         answer_text = None
         mean = None
 
-        if platform == "openai":
+        if item_platform == "openai":
             body = item.get("response", {}).get("body", {})
             answer_text, top_lp = _extract_openai_answer_and_logprobs(body)
             if top_lp:
@@ -304,8 +384,10 @@ def jsonl_to_dataframe(jsonl_path, verbose: bool = False, platform: str = "opena
                     mean = _mean_from_logprobs(top_lp)
                 except Exception:
                     mean = None
-        elif platform == "claude":
+        elif item_platform == "claude":
             answer_text = _extract_claude_answer_text(item)
+        elif item_platform == "gemini":
+            answer_text = _extract_gemini_answer_text(item)
 
         if answer_text is None:
             if verbose:

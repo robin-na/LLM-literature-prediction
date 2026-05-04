@@ -1,0 +1,25 @@
+{
+  "input_path": "openAI_batch_output/literature_evidence_card_pgg_science_gpt51.jsonl",
+  "output_dir": "literature/output/evidence_cards/literature_evidence_cards_cleaned_plus_pgg_science_gpt51",
+  "base_corpus_dir": "literature/output/evidence_cards/literature_evidence_cards_cleaned",
+  "single_output_dir": "literature/output/evidence_cards/literature_evidence_card_pgg_science_gpt51",
+  "added_custom_ids": [
+    "PGG_Science"
+  ],
+  "model": "gpt-5.1",
+  "papers_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_plus_pgg_science_gpt51/papers.csv",
+  "combined_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_plus_pgg_science_gpt51/combined.csv",
+  "dimensions_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_plus_pgg_science_gpt51/dimensions.csv",
+  "key_claims_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_plus_pgg_science_gpt51/key_claims.csv",
+  "important_limitations_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_plus_pgg_science_gpt51/important_limitations.csv",
+  "errors_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_plus_pgg_science_gpt51/errors.csv",
+  "paper_set_csv": "literature/output/evidence_cards/literature_evidence_cards_cleaned_plus_pgg_science_gpt51/paper_set_single.csv",
+  "table_row_counts": {
+    "papers.csv": 2852,
+    "combined.csv": 2852,
+    "dimensions.csv": 39928,
+    "key_claims.csv": 12339,
+    "important_limitations.csv": 15529,
+    "errors.csv": 0
+  }
+}

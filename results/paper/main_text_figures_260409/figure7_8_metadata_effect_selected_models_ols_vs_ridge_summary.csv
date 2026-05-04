@@ -1,0 +1,7 @@
+panel,model,coef_vector_corr,mean_abs_shift,max_abs_shift,n_sign_flips,top_feature_ridge,top_feature_ols
+individual,GPT-4.1,0.9567715061700828,0.0008277712560681404,0.0015416328232953041,2,Empirical papers,Empirical papers
+individual,GPT-5.1,0.9990542031515082,0.00050466021511951,0.0011417759799618662,0,Empirical papers,Empirical papers
+individual,Claude Sonnet 4.6,0.9991520538326119,0.00017232414544551236,0.0004882164436515431,0,Citation,Citation
+collections,GPT-4.1,0.9994707133161013,0.0005701058069544768,0.0014043411966704784,0,Number of Papers,Number of Papers
+collections,GPT-5.1,0.9987049413425436,0.0007689473034055606,0.001745609627361304,0,Math/Physics Journals,Math/Physics Journals
+collections,Claude Sonnet 4.6,0.9951480702220439,0.0008863051456865818,0.0018838860431143918,0,Math/Physics Journals,Math/Physics Journals

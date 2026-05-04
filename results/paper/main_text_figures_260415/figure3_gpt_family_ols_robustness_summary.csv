@@ -1,0 +1,20 @@
+panel,feature_key,feature_label,n,n_positive,n_negative,same_sign,n_sig,n_sig_positive,n_sig_negative,all_sig_same_direction,mean_coef,coef_min,coef_max,sig_models
+Collections,mathphysics_share,Math/Physics Journals,6,0,6,True,6,0,6,True,-0.012900141654410733,-0.019686400480912,-0.0077999371265514,"GPT-4.1, GPT-4.1 Mini, GPT-4.1 Nano, GPT-5.1, GPT-5 Mini, GPT-5 Nano"
+Collections,empirical_share,Empirical papers,6,0,6,True,5,0,5,False,-0.010693926729255216,-0.0148799774567113,-0.004557249261083,"GPT-4.1, GPT-4.1 Mini, GPT-5.1, GPT-5 Mini, GPT-5 Nano"
+Collections,collection_size,Number of Papers,6,6,0,True,5,5,0,False,0.011982475021180902,0.0038095616000934,0.021338242951156,"GPT-4.1, GPT-4.1 Mini, GPT-4.1 Nano, GPT-5 Mini, GPT-5 Nano"
+Collections,citation,Citation,6,0,6,True,4,0,4,False,-0.007388076006847533,-0.0125126694032139,-0.0014609211900024,"GPT-4.1 Mini, GPT-5.1, GPT-5 Mini, GPT-5 Nano"
+Collections,multidisciplinary_share,Multidisciplinary Journals,6,0,6,True,3,0,3,False,-0.005081328725969433,-0.0074852881454142,-0.0016010965703034,"GPT-4.1 Mini, GPT-5.1, GPT-5 Nano"
+Collections,journal_impact,Journal Impact Factor,6,6,0,True,1,1,0,False,0.005385048051314035,0.0024455561162544,0.0100807111928754,GPT-4.1 Mini
+Collections,recent,Publication Year,6,1,5,False,2,0,2,False,-0.003559055565872217,-0.0080942322553637,0.0008076208811089,"GPT-4.1 Mini, GPT-5 Nano"
+Collections,biology_share,Biology Journals,6,5,1,False,1,1,0,False,0.0030216888671090836,-0.0008078718403585,0.0044687122962434,GPT-5 Mini
+Collections,economics_share,Economics Journals,6,1,5,False,0,0,0,False,-0.0008898198023396166,-0.0030258766528227,0.0005519779002844,
+Collections,psychology_share,Psychology Journals,6,4,2,False,0,0,0,False,0.0010593028989392165,-0.0012490572316047,0.0045708067678535,
+Individual papers,empirical_share,Empirical papers,6,0,6,True,6,0,6,True,-0.0090962819869223,-0.012663853484459,-0.0042269681831411,"GPT-4.1, GPT-4.1 Mini, GPT-4.1 Nano, GPT-5.1, GPT-5 Mini, GPT-5 Nano"
+Individual papers,mathphysics_share,Math/Physics Journals,6,0,6,True,2,0,2,False,-0.002409571587130533,-0.0042340615080707,-0.0002428635312581,"GPT-5.1, GPT-5 Mini"
+Individual papers,citation,Citation,6,2,4,False,3,0,3,False,-0.002810509333898417,-0.0080221013527514,0.0044328578241019,"GPT-4.1 Mini, GPT-5.1, GPT-5 Nano"
+Individual papers,recent,Publication Year,6,2,4,False,3,0,3,False,-0.00248444899081475,-0.0060543521957346,0.0022284259176007,"GPT-4.1 Mini, GPT-5.1, GPT-5 Nano"
+Individual papers,economics_share,Economics Journals,6,1,5,False,2,0,2,False,-0.0026584243107350167,-0.0081341770124411,0.00194525084113,"GPT-4.1, GPT-4.1 Mini"
+Individual papers,journal_impact,Journal Impact Factor,6,5,1,False,1,1,0,False,0.0012123879826444334,-0.0028326583568158,0.0055477206629761,GPT-5.1
+Individual papers,psychology_share,Psychology Journals,6,3,3,False,1,1,0,False,6.930019756688321e-05,-0.0024984803711704,0.0034112249880844,GPT-5 Nano
+Individual papers,multidisciplinary_share,Multidisciplinary Journals,6,2,4,False,1,0,1,False,-0.0014999607004230668,-0.0042273374047596,0.0013999644169847,GPT-4.1
+Individual papers,biology_share,Biology Journals,6,3,3,False,0,0,0,False,0.00040414930525819206,-0.0032987749364676,0.0022741365259899,

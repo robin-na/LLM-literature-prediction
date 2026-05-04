@@ -171,7 +171,7 @@ def build_collection_feature_frame() -> pd.DataFrame:
     return rel.merge(comp, on="variant_id", how="left", validate="many_to_one")
 
 
-def fit_ridge_bootstrap(df: pd.DataFrame, feature_cols: list[str], *, y_col: str = "delta_correlation") -> pd.DataFrame:
+def fit_ridge_bootstrap(df: pd.DataFrame, feature_cols: list[str], *, y_col: str = "correlation") -> pd.DataFrame:
     part = df[feature_cols + [y_col]].copy()
     y = pd.to_numeric(part[y_col], errors="coerce")
     X = part[feature_cols].apply(pd.to_numeric, errors="coerce")

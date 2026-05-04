@@ -1,0 +1,19 @@
+dataset,feature_family,feature_label,n_models_tested,n_negative_raw_p_lt_0_05,n_positive_raw_p_lt_0_05,n_negative_bh_q_lt_0_05,n_positive_bh_q_lt_0_05,mean_slope,mean_r_squared
+collections,citation,Citation,4,1,0,1,0,-0.0019321352428875354,0.003272975091194422
+collections,journal_discipline,Biology Journals,4,0,1,0,1,0.01580290477753515,0.00533717624605631
+collections,journal_discipline,Economics Journals,4,2,0,2,0,-0.017700854966625483,0.008053294020482833
+collections,journal_discipline,Math/Physics Journals,4,4,0,4,0,-0.02738893880471023,0.027174094147703692
+collections,journal_discipline,Multidisciplinary Journals,4,0,1,0,0,0.005162300313919392,0.002476447825659294
+collections,journal_discipline,Psychology Journals,4,0,0,0,0,-0.005348391066051471,0.0011560590100599191
+collections,journal_impact,Journal Impact Factor,4,0,3,0,3,0.020566169456366027,0.01922734824787944
+collections,paper_type,Empirical papers,4,2,0,2,0,-0.013586613470005988,0.007682716699746045
+collections,publication_year,Publication Year,4,0,1,0,1,0.0006905881254524967,0.005894110060143432
+individual_papers,citation,Citation,4,1,0,1,0,-0.0013663794125874157,0.001692972464596028
+individual_papers,journal_discipline,Biology Journals,4,0,3,0,1,0.008951610352951025,0.002884799999662016
+individual_papers,journal_discipline,Economics Journals,4,2,0,2,0,-0.008444930420681503,0.005257800282340597
+individual_papers,journal_discipline,Math/Physics Journals,4,0,2,0,2,0.006351243882111723,0.003302704163024913
+individual_papers,journal_discipline,Multidisciplinary Journals,4,0,0,0,0,0.0003234249256972182,0.0002335992084660612
+individual_papers,journal_discipline,Psychology Journals,4,0,0,0,0,-0.0031258348312874005,0.0008655447609193235
+individual_papers,journal_impact,Journal Impact Factor,4,0,0,0,0,0.0014560907842260616,0.0004340230284785044
+individual_papers,paper_type,Empirical papers,4,4,0,4,0,-0.01567842939410742,0.01597757706986618
+individual_papers,publication_year,Publication Year,4,0,0,0,0,5.4909869394315314e-05,0.0009051680462236822

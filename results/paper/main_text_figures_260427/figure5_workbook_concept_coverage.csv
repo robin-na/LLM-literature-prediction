@@ -1,0 +1,18 @@
+concept_type,concept_name,n_papers,percent_papers,notes
+benchmark_parameter,Game length,724,95.76719576719576,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,Group size,751,99.33862433862434,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,Punishment technology,427,56.481481481481474,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,Punishment cost,460,60.84656084656085,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,Reward exists,197,26.058201058201057,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,Communication,230,30.423280423280424,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,MPCR,390,51.5873015873016,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,Actor anonymity,201,26.58730158730159,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,Contribution type,728,96.29629629629628,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,Peer outcome visibility,407,53.835978835978835,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,Contribution framing,493,65.21164021164022,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+benchmark_parameter,Horizon knowledge,125,16.534391534391535,Paper-level mention/reporting count from canonical Figure 5 parameter table.
+outcome_family,contribution,396,52.38095238095239,Paper-level workbook DV coverage using a simple regex family match over the union of DV labels within each lab paper.
+outcome_family,punishment_behavior,428,56.613756613756614,Paper-level workbook DV coverage using a simple regex family match over the union of DV labels within each lab paper.
+outcome_family,cooperation,110,14.550264550264549,Paper-level workbook DV coverage using a simple regex family match over the union of DV labels within each lab paper.
+outcome_family,earnings_payoff,308,40.74074074074074,Paper-level workbook DV coverage using a simple regex family match over the union of DV labels within each lab paper.
+outcome_family,efficiency_welfare,78,10.317460317460316,Paper-level workbook DV coverage using a simple regex family match over the union of DV labels within each lab paper.

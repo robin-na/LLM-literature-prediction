@@ -1,0 +1,7 @@
+kind,kind_label,model_a,model_b,model_a_short,model_b_short,n_shared_items,pearson_r,pearson_p_greater_than_zero_parametric
+individual_papers,Individual papers,Claude Sonnet 4.6,GPT-4.1,Claude Sonnet 4.6,GPT-4.1,2010,0.2970324100776244,1.585406749953774e-42
+individual_papers,Individual papers,Claude Sonnet 4.6,Gemini 2.5 Pro,Claude Sonnet 4.6,Gemini Pro 2.5,2010,0.30512300939649856,7.120891665428968e-45
+individual_papers,Individual papers,GPT-4.1,Gemini 2.5 Pro,GPT-4.1,Gemini Pro 2.5,2010,0.31934682727297625,3.477915068715106e-49
+metadata_filter_collections,Collections,Claude Sonnet 4.6,GPT-4.1,Claude Sonnet 4.6,GPT-4.1,716,0.6025057629077297,2.9339698053042446e-72
+metadata_filter_collections,Collections,Claude Sonnet 4.6,Gemini 2.5 Pro,Claude Sonnet 4.6,Gemini Pro 2.5,716,0.4704860096906258,5.093778424017227e-41
+metadata_filter_collections,Collections,GPT-4.1,Gemini 2.5 Pro,GPT-4.1,Gemini Pro 2.5,716,0.42768954620405525,1.655313774189341e-33

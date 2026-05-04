@@ -1,0 +1,43 @@
+key,value,description,source_table
+laypeople_woc_corr,0.6038335627266782,Laypeople wisdom-of-the-crowd correlation,figure2 rows
+experts_woc_corr,0.6055771473111272,Experts wisdom-of-the-crowd correlation,figure2 rows
+laypeople_complete_n,468.0,Number of laypeople with complete 20-question forecasts,human prediction survey
+experts_complete_n,38.0,Number of experts with complete 20-question forecasts,human prediction survey
+claude_sonnet_46_baseline_corr,0.664485819221625,Claude Sonnet 4.6 baseline correlation,figure2 rows
+claude_sonnet_46_benchmark_corr,0.7990382022651855,Claude Sonnet 4.6 benchmark-augmented correlation,figure2 rows
+gpt_41_baseline_corr,0.6145930323334075,GPT-4.1 baseline correlation,figure2 rows
+gpt_41_benchmark_corr,0.7583894748982796,GPT-4.1 benchmark-augmented correlation,figure2 rows
+gemini_25_pro_baseline_corr,0.39938199972137367,Gemini 2.5 Pro baseline correlation,figure2 rows
+gemini_25_pro_benchmark_corr,0.8425933927095227,Gemini 2.5 Pro benchmark-augmented correlation,figure2 rows
+no_treatment_baseline_corr,0.5414748692062455,No-treatment outcome baseline correlation,figure2 reference line
+noise_ceiling_corr,0.7765353937484988,Noise ceiling correlation,figure2 reference line
+laypeople_minus_no_treatment_delta,0.06235869352043266,Laypeople WoC minus no-treatment baseline correlation,human vs no-treatment bootstrap
+laypeople_minus_no_treatment_ci95_low,0.0063629100026604156,Lower 95% CI for laypeople WoC minus no-treatment baseline,human vs no-treatment bootstrap
+laypeople_minus_no_treatment_ci95_high,0.13224252884540405,Upper 95% CI for laypeople WoC minus no-treatment baseline,human vs no-treatment bootstrap
+experts_minus_no_treatment_delta,0.06410227810488167,Experts WoC minus no-treatment baseline correlation,human vs no-treatment bootstrap
+experts_minus_no_treatment_ci95_low,-0.015502782674286517,Lower 95% CI for experts WoC minus no-treatment baseline,human vs no-treatment bootstrap
+experts_minus_no_treatment_ci95_high,0.16192436239964567,Upper 95% CI for experts WoC minus no-treatment baseline,human vs no-treatment bootstrap
+claude_baseline_minus_laypeople_delta,0.060652256494946766,Claude Sonnet 4.6 baseline minus laypeople WoC correlation,baseline vs human bootstrap
+claude_baseline_minus_laypeople_ci95_low,-0.08985164293490495,Lower 95% CI for Claude baseline minus laypeople WoC,baseline vs human bootstrap
+claude_baseline_minus_laypeople_ci95_high,0.24710699015302084,Upper 95% CI for Claude baseline minus laypeople WoC,baseline vs human bootstrap
+claude_baseline_minus_experts_delta,0.058908671910497756,Claude Sonnet 4.6 baseline minus experts WoC correlation,baseline vs human bootstrap
+claude_baseline_minus_experts_ci95_low,-0.05213202789883033,Lower 95% CI for Claude baseline minus experts WoC,baseline vs human bootstrap
+claude_baseline_minus_experts_ci95_high,0.21009360820711503,Upper 95% CI for Claude baseline minus experts WoC,baseline vs human bootstrap
+claude_minus_gemini_baseline_delta,0.2651038195002513,Claude Sonnet 4.6 baseline minus Gemini 2.5 Pro baseline correlation,unaugmented pairwise bootstrap
+claude_minus_gemini_baseline_ci95_low,0.057277358154726066,Lower 95% CI for Claude minus Gemini baseline delta,unaugmented pairwise bootstrap
+claude_minus_gemini_baseline_ci95_high,0.5122645111162603,Upper 95% CI for Claude minus Gemini baseline delta,unaugmented pairwise bootstrap
+gemini_25_pro_benchmark_gain_delta,0.443211392988149,Gemini 2.5 Pro benchmark minus baseline delta,figure2 pair significance
+gemini_25_pro_benchmark_gain_ci95_low,0.1599033277699265,Lower 95% CI for Gemini 2.5 Pro benchmark gain,figure2 pair significance
+gemini_25_pro_benchmark_gain_ci95_high,0.8298084768939545,Upper 95% CI for Gemini 2.5 Pro benchmark gain,figure2 pair significance
+gpt_41_benchmark_gain_delta,0.1437964425648721,GPT-4.1 benchmark minus baseline delta,figure2 pair significance
+gpt_41_benchmark_gain_ci95_low,0.0090780299589028,Lower 95% CI for GPT-4.1 benchmark gain,figure2 pair significance
+gpt_41_benchmark_gain_ci95_high,0.3269179622838123,Upper 95% CI for GPT-4.1 benchmark gain,figure2 pair significance
+claude_sonnet_46_benchmark_gain_delta,0.1345523830435605,Claude Sonnet 4.6 benchmark minus baseline delta,figure2 pair significance
+claude_sonnet_46_benchmark_gain_ci95_low,0.0016520093832652,Lower 95% CI for Claude Sonnet 4.6 benchmark gain,figure2 pair significance
+claude_sonnet_46_benchmark_gain_ci95_high,0.3562875196932232,Upper 95% CI for Claude Sonnet 4.6 benchmark gain,figure2 pair significance
+gpt41_benchmark_minus_laypeople_delta,0.15455591217160136,GPT-4.1 benchmark minus laypeople WoC correlation,all conditions vs human bootstrap
+gpt41_benchmark_minus_laypeople_ci95_low,0.038933144856811014,Lower 95% CI for GPT-4.1 benchmark minus laypeople WoC,all conditions vs human bootstrap
+gpt41_benchmark_minus_laypeople_ci95_high,0.328794739765865,Upper 95% CI for GPT-4.1 benchmark minus laypeople WoC,all conditions vs human bootstrap
+gpt41_benchmark_minus_experts_delta,0.15281232758715235,GPT-4.1 benchmark minus experts WoC correlation,all conditions vs human bootstrap
+gpt41_benchmark_minus_experts_ci95_low,0.03732810542898611,Lower 95% CI for GPT-4.1 benchmark minus experts WoC,all conditions vs human bootstrap
+gpt41_benchmark_minus_experts_ci95_high,0.3250791156765692,Upper 95% CI for GPT-4.1 benchmark minus experts WoC,all conditions vs human bootstrap
