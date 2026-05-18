@@ -637,6 +637,10 @@ function updatePositionLabel() {
 ═══════════════════════════════════════════════════ */
 function blankCond(n) { return { label: `Condition ${n}` }; }
 
+function condFromPrevious(previous, n) {
+  return { ...previous, label: `Condition ${n}` };
+}
+
 function curData() {
   return (_activePaperId && store[_activePaperId]) ? store[_activePaperId] : null;
 }
@@ -669,7 +673,7 @@ function switchCond(i) { curCond = i; renderTabs(); renderForm(); }
 
 function addCond() {
   const d = curData(); if (!d) return;
-  d.conditions.push(blankCond(d.conditions.length));
+  d.conditions.push(condFromPrevious(curCondObj(), d.conditions.length));
   curCond = d.conditions.length - 1;
   renderTabs(); renderForm(); markDirty();
 }

@@ -7,8 +7,11 @@ Approach
     conditions are set aside; the mismatch rate is a standalone metric.
 
 2.  **Condition-level comparison** — for papers where the models agree on
-    condition count, conditions are aligned within each paper (sorted by
-    ``data_id``), then compared field-by-field using type-aware rules:
+    condition count, conditions are aligned within each paper using semantic
+    similarity of ``data_id`` strings (Hungarian algorithm on cosine similarity
+    of text-embedding-3-small embeddings; falls back to alphabetical sort when
+    embeddings are unavailable), then compared field-by-field using type-aware
+    rules:
 
         binary / categorical : exact match after normalisation
         numeric continuous   : within 5 % relative tolerance
@@ -33,6 +36,8 @@ import argparse
 import os
 import pickle
 from pathlib import Path
+
+from scipy.optimize import linear_sum_assignment
 
 os.environ.setdefault("MPLCONFIGDIR", str(Path(__file__).resolve().parents[1] / ".mplconfig"))
 
@@ -75,7 +80,8 @@ TEXT_FIELDS = {
 }
 
 NUMERIC_TOLERANCE = 0.05
-TEXT_COSINE_THRESHOLD = 0.95
+NUMERIC_ABS_FLOOR = 0.01   # values within this absolute diff also agree (protects tiny numbers)
+TEXT_COSINE_THRESHOLD = 0.70  # lowered from 0.95: allows paraphrases, blocks genuinely different content
 EMBED_MODEL = "text-embedding-3-small"
 EMBED_BATCH = 256
 
@@ -119,6 +125,7 @@ def normalize_value(v, ftype: str):
 
 def compare_values(
     a_raw, b_raw, ftype: str, embeddings: dict | None = None,
+    text_threshold: float = TEXT_COSINE_THRESHOLD,
 ) -> tuple[bool, bool, bool]:
     """Compare two raw cell values.  Returns (ok, a_missing, b_missing)."""
     a = normalize_value(a_raw, ftype)
@@ -134,11 +141,14 @@ def compare_values(
     if ftype == "numeric":
         if isinstance(a, str) or isinstance(b, str):
             return a == b, False, False
+        abs_diff = abs(a - b)
+        if abs_diff <= NUMERIC_ABS_FLOOR:
+            return True, False, False
         denom = max(abs(a), abs(b), 1e-12)
-        return abs(a - b) / denom <= NUMERIC_TOLERANCE, False, False
-    # text
+        return abs_diff / denom <= NUMERIC_TOLERANCE, False, False
+    # text: cosine similarity with configurable threshold
     if embeddings and a in embeddings and b in embeddings:
-        return cosine(embeddings[a], embeddings[b]) >= TEXT_COSINE_THRESHOLD, False, False
+        return cosine(embeddings[a], embeddings[b]) >= text_threshold, False, False
     return a == b, False, False
 
 
@@ -168,10 +178,35 @@ def load_raw_rows(paths: list[str], fields: list[str]) -> dict[str, list[dict]]:
 
 def align_conditions(
     gpt_rows: list[dict], sonnet_rows: list[dict],
+    embeddings: dict[str, np.ndarray] | None = None,
 ) -> list[tuple[dict, dict]]:
-    """Pair conditions 1-to-1 by sorting on data_id within each paper."""
+    """Pair conditions 1-to-1 using semantic similarity (Hungarian algorithm).
+
+    Falls back to alphabetical data_id sort when embeddings are unavailable
+    or when there is only one condition per paper (no choice to make).
+    """
     key = lambda r: str(r.get("data_id", "") or "").lower()
-    return list(zip(sorted(gpt_rows, key=key), sorted(sonnet_rows, key=key)))
+    if embeddings is None or len(gpt_rows) <= 1:
+        return list(zip(sorted(gpt_rows, key=key), sorted(sonnet_rows, key=key)))
+
+    g_ids = [str(r.get("data_id", "") or "") for r in gpt_rows]
+    s_ids = [str(r.get("data_id", "") or "") for r in sonnet_rows]
+    n = len(gpt_rows)
+
+    # Build n×n cosine-similarity matrix
+    sim = np.zeros((n, n), dtype=np.float32)
+    for i, gid in enumerate(g_ids):
+        ge = embeddings.get(gid)
+        if ge is None:
+            continue
+        for j, sid in enumerate(s_ids):
+            se = embeddings.get(sid)
+            if se is not None:
+                sim[i, j] = cosine(ge, se)
+
+    # Hungarian algorithm: maximise total similarity (minimise negative)
+    row_ind, col_ind = linear_sum_assignment(-sim)
+    return [(gpt_rows[r], sonnet_rows[c]) for r, c in zip(row_ind, col_ind)]
 
 
 # ---------------------------------------------------------------------------
@@ -250,6 +285,7 @@ def plot(
     n_papers: int,
     n_conditions: int,
     output: Path,
+    text_threshold: float = TEXT_COSINE_THRESHOLD,
 ) -> None:
     """Two bars per field: overall agreement (lighter) and present-only (darker)."""
     s = summary.sort_values("agreement_rate", ascending=True).reset_index(drop=True)
@@ -259,21 +295,19 @@ def plot(
     bar_h = 0.38
     overall = s["agreement_rate"].to_numpy()
     present = s["agreement_rate_present"].fillna(0.0).to_numpy()
-    ax.barh(y + bar_h / 2, overall, height=bar_h, color=colors, alpha=0.45,
-            label="overall (incl. both-missing)")
-    ax.barh(y - bar_h / 2, present, height=bar_h, color=colors,
-            label="both-present only")
+    ax.barh(y + bar_h / 2, overall, height=bar_h, color=colors, alpha=0.45)
+    ax.barh(y - bar_h / 2, present, height=bar_h, color=colors)
     ax.set_yticks(y)
     ax.set_yticklabels(s["field"], fontsize=10)
     ax.set_ylim(-0.7, len(s) - 0.3)
     ax.set_xlim(0, 1.32)
     ax.set_xticks(np.linspace(0, 1, 6))
-    ax.set_xlabel("Agreement rate")
+    ax.set_xlabel("Fraction of condition pairs where GPT-4.1 and Sonnet 4.6 agree")
     ax.set_title(
-        f"GPT-4.1 vs Sonnet 4.6 — condition-level field agreement\n"
-        f"({n_papers} papers with matching granularity, "
-        f"{n_conditions} condition pairs)\n"
-        "binary: exact match | numeric: ±5% | text: cosine ≥ 0.95",
+        f"GPT-4.1 vs Sonnet 4.6 — field-level agreement across {n_conditions} condition pairs "
+        f"({n_papers} papers)\n"
+        f"binary: exact match | numeric: ±5% or ±{NUMERIC_ABS_FLOOR} abs | "
+        f"text: cosine ≥ {text_threshold} (semantic similarity)",
     )
     ax.axvline(1.0, color="gray", linewidth=0.5, linestyle="--")
     for i, row in s.iterrows():
@@ -285,21 +319,34 @@ def plot(
             max(row["agreement_rate"], row["agreement_rate_present"] or 0) + 0.01,
             i,
             f"{row['agreement_rate']:.2f} → {present_str} "
-            f"({row['pct_both_missing']*100:.0f}% NA)",
+            f"({row['pct_both_missing']*100:.0f}% N/A)",
             va="center", fontsize=9,
         )
-    type_handles = [plt.Rectangle((0, 0), 1, 1, color=TYPE_COLORS[t])
-                    for t in ("binary", "numeric", "text")]
-    leg1 = ax.legend(type_handles, ["binary", "numeric", "text"],
-                     loc="lower right", framealpha=0.9, title="field type")
-    ax.add_artist(leg1)
+    # Legend 1: bar shade — place below the axes, outside the plot
     shade_handles = [
         plt.Rectangle((0, 0), 1, 1, color="gray", alpha=0.45),
         plt.Rectangle((0, 0), 1, 1, color="gray"),
     ]
-    ax.legend(shade_handles, ["overall (incl. both-missing)", "both-present only"],
-              loc="upper right", framealpha=0.9, title="bar")
-    fig.subplots_adjust(left=0.28, right=0.97, top=0.88, bottom=0.07)
+    leg1 = ax.legend(
+        shade_handles,
+        [
+            "Top bar: agreement across ALL pairs (N/A+N/A counts as agreement — "
+            "can look inflated for sparse fields)",
+            "Bottom bar: agreement when BOTH models gave a value — "
+            "the more meaningful number",
+        ],
+        loc="upper center", bbox_to_anchor=(0.5, -0.04),
+        ncol=1, framealpha=0.9, fontsize=9,
+        title="What each bar shows",
+    )
+    ax.add_artist(leg1)
+    # Legend 2: field type — also below, to the right of leg1
+    type_handles = [plt.Rectangle((0, 0), 1, 1, color=TYPE_COLORS[t])
+                    for t in ("binary", "numeric", "text")]
+    ax.legend(type_handles, ["Binary (yes/no)", "Numeric", "Text (semantic)"],
+              loc="upper center", bbox_to_anchor=(0.5, -0.09),
+              ncol=3, framealpha=0.9, fontsize=9, title="Field type")
+    fig.subplots_adjust(left=0.28, right=0.97, top=0.88, bottom=0.14)
     fig.savefig(output, dpi=200, bbox_inches="tight")
     plt.close(fig)
 
@@ -515,6 +562,98 @@ def write_disagreements_markdown(
 
 
 # ---------------------------------------------------------------------------
+# Granularity correctness analysis
+# ---------------------------------------------------------------------------
+
+def _word_jaccard(a: str, b: str) -> float:
+    """Token-level Jaccard similarity between two strings."""
+    sa = set(a.lower().split())
+    sb = set(b.lower().split())
+    if not sa and not sb:
+        return 1.0
+    if not sa or not sb:
+        return 0.0
+    return len(sa & sb) / len(sa | sb)
+
+
+def analyze_granularity_mismatches(
+    mismatching_ids: list[str],
+    gpt_rows: dict[str, list[dict]],
+    sonnet_rows: dict[str, list[dict]],
+) -> pd.DataFrame:
+    """For each granularity-mismatched paper, classify the nature of the mismatch.
+
+    Uses word-Jaccard similarity between data_id strings to detect whether one
+    model sub-divided the other's conditions (merging/splitting) or whether the
+    condition lists are fundamentally different.
+
+    Verdict codes
+    -------------
+    sonnet_splits_gpt   Sonnet has more conditions; GPT's names have close
+                        matches in Sonnet's list (Sonnet split GPT's arms).
+    gpt_splits_sonnet   GPT has more conditions; Sonnet's names have close
+                        matches in GPT's list.
+    sonnet_different    Sonnet has more conditions but the extra conditions
+                        don't map onto GPT's (Sonnet found novel arms or
+                        GPT missed them entirely).
+    gpt_different       GPT has more conditions with no mapping to Sonnet's.
+    """
+    MATCH_THR = 0.30   # min Jaccard to count a condition as "matched"
+    FRAC_THR  = 0.65   # fraction of smaller-set conditions that must be matched
+
+    records = []
+    for cid in mismatching_ids:
+        g_ids = [str(r.get("data_id", "") or "").strip() for r in gpt_rows[cid]]
+        s_ids = [str(r.get("data_id", "") or "").strip() for r in sonnet_rows[cid]]
+        n_g, n_s = len(g_ids), len(s_ids)
+        delta = n_s - n_g
+
+        if n_g <= n_s:
+            smaller, larger = g_ids, s_ids
+            smaller_model = "gpt41"
+        else:
+            smaller, larger = s_ids, g_ids
+            smaller_model = "sonnet46"
+
+        # For each condition in the smaller set, best match score in the larger set
+        best_scores = []
+        for sc in smaller:
+            best = max((_word_jaccard(sc, lc) for lc in larger), default=0.0)
+            best_scores.append(best)
+
+        frac_matched = (
+            sum(1 for s in best_scores if s >= MATCH_THR) / len(best_scores)
+            if best_scores else 0.0
+        )
+        avg_score = sum(best_scores) / len(best_scores) if best_scores else 0.0
+
+        if frac_matched >= FRAC_THR:
+            verdict = (
+                "sonnet_splits_gpt" if smaller_model == "gpt41"
+                else "gpt_splits_sonnet"
+            )
+        else:
+            verdict = (
+                "sonnet_different" if delta > 0
+                else "gpt_different"
+            )
+
+        records.append({
+            "custom_id": cid,
+            "n_gpt41": n_g,
+            "n_sonnet46": n_s,
+            "delta": delta,
+            "smaller_model": smaller_model,
+            "frac_small_matched": round(frac_matched, 3),
+            "avg_match_score": round(avg_score, 3),
+            "verdict": verdict,
+        })
+
+    df = pd.DataFrame(records)
+    return df.sort_values("delta", ascending=False)
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -525,7 +664,11 @@ def main() -> None:
     p.add_argument("--output-dir", default="results/extraction_model_comparison")
     p.add_argument("--skip-text", action="store_true",
                    help="Skip text-field comparison (no embedding API calls).")
+    p.add_argument("--text-threshold", type=float, default=TEXT_COSINE_THRESHOLD,
+                   help=f"Cosine similarity threshold for text-field agreement "
+                        f"(default {TEXT_COSINE_THRESHOLD}).")
     args = p.parse_args()
+    text_threshold = args.text_threshold
 
     out = Path(args.output_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -563,12 +706,23 @@ def main() -> None:
     print(f"Granularity: {n_match}/{n_total} papers match "
           f"({n_mismatch} excluded), {n_condition_pairs} condition pairs")
 
-    # ---- Align conditions for matching papers ------------------------------
+    # ---- Embed data_id strings for semantic alignment ----------------------
+    cache_path = out / ".embedding_cache.pkl"
+    all_data_ids: list[str] = []
+    for cid in matching_ids:
+        for r in gpt_rows[cid] + sonnet_rows[cid]:
+            did = str(r.get("data_id", "") or "")
+            if did:
+                all_data_ids.append(did)
+    print(f"Embedding {len(set(all_data_ids))} unique data_id strings for semantic alignment…")
+    id_embeddings = get_embeddings(list(set(all_data_ids)), cache_path)
+
+    # ---- Align conditions semantically -------------------------------------
     aligned: dict[str, list[tuple[dict, dict]]] = {}
     for cid in matching_ids:
-        aligned[cid] = align_conditions(gpt_rows[cid], sonnet_rows[cid])
+        aligned[cid] = align_conditions(gpt_rows[cid], sonnet_rows[cid], id_embeddings)
 
-    # ---- Collect text values for embedding ---------------------------------
+    # ---- Collect text field values for embedding ---------------------------
     text_fields = [f for f in fields if field_type(f) == "text"]
     embeddings: dict[str, np.ndarray] = {}
     if text_fields:
@@ -580,7 +734,7 @@ def main() -> None:
                     sv = normalize_value(s.get(f), "text")
                     if gv: all_texts.append(gv)
                     if sv: all_texts.append(sv)
-        embeddings = get_embeddings(all_texts, out / ".embedding_cache.pkl")
+        embeddings = get_embeddings(all_texts, cache_path)
 
     # ---- Compare each (paper, condition, field) ----------------------------
     # Accumulators per field
@@ -598,6 +752,7 @@ def main() -> None:
                 ftype = field_type(f)
                 ok, a_miss, b_miss = compare_values(
                     g.get(f), s.get(f), ftype, embeddings,
+                    text_threshold=text_threshold,
                 )
                 st = field_stats[f]
                 st["n"] += 1
@@ -681,12 +836,18 @@ def main() -> None:
         n_condition_pairs=n_condition_pairs,
         output_path=out / "disagreement_papers_by_field.md",
     )
-    plot(summary_df, n_match, n_condition_pairs, out / "agreement.png")
+    plot(summary_df, n_match, n_condition_pairs, out / "agreement.png",
+         text_threshold=text_threshold)
     plot_experiment_count_disagreement(counts, out / "granularity_disagreement.png")
+
+    # ---- Granularity correctness analysis ------------------------------------
+    gran_df = analyze_granularity_mismatches(mismatching_ids, gpt_rows, sonnet_rows)
+    gran_df.to_csv(out / "granularity_analysis.csv", index=False)
 
     print(
         f"Wrote {out / 'agreement.csv'}, {out / 'disagreements.csv'}, "
         f"{out / 'experiment_counts.csv'}, "
+        f"{out / 'granularity_analysis.csv'}, "
         f"{out / 'disagreement_papers_by_field.md'}, "
         f"{out / 'agreement.png'}, {out / 'granularity_disagreement.png'}"
     )
