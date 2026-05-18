@@ -11,7 +11,7 @@ from typing import Any, Callable
 import numpy as np
 import pandas as pd
 
-from analysis.prediction_metrics import compute_metrics
+from prediction.prediction_metrics import compute_metrics
 from positive_cases.agentic_report.column_defs import format_column_definitions
 from positive_cases.agentic_report.pipeline import (
     REPORT_METHOD_SPECS,

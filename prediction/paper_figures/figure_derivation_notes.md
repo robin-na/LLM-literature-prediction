@@ -54,7 +54,7 @@ Current scripts:
 **Inputs**
 
 - Human predictions:
-  - `science-data_and_code/data/processed_data/prediction_survey.csv`
+  - `science_data/data/processed_data/prediction_survey.csv`
 - Truth and no-treatment-effect reference:
   - `input/pgg_CONFIGmerged_validation.csv`
 - Baseline LLM summary:

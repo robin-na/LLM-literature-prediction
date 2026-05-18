@@ -18,8 +18,8 @@ from prediction_metrics import _directional_accuracy_np as _da_np  # noqa: E402
 
 ROOT = ANALYSIS_ROOT.parent
 INPUT = ROOT / "input"
-VAL_DF = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
-LEARN_DF = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_learn.csv"
+VAL_DF = ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv"
+LEARN_DF = ROOT / "science_data" / "data" / "processed_data" / "df_paired_learn.csv"
 OPENAI_BATCH_OUTPUT = ROOT / "openAI_batch_output"
 BACKFILL_OUTPUT_DIR = OPENAI_BATCH_OUTPUT / "backfill_repeat5_missing"
 METADATA_FILTER_INDEX_CSV = (

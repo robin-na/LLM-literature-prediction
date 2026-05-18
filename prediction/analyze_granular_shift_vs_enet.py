@@ -17,8 +17,8 @@ from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
 from plot_paths import GRANULAR_PLOTS as PLOTS, ensure_plot_dir
-DATA = ROOT / "science-data_and_code" / "data" / "processed_data"
-HPO = ROOT / "science-data_and_code" / "data" / "hpo_model_configs.json"
+DATA = ROOT / "science_data" / "data" / "processed_data"
+HPO = ROOT / "science_data" / "data" / "hpo_model_configs.json"
 
 MODES = ["single", "reasoning", "joint", "joint_reasoning"]
 INPUT_GROUPS = ["both", "paper_only", "data_only"]

@@ -46,12 +46,12 @@ import numpy as np
 import pandas as pd
 
 DEFAULT_GPT41 = [
-    "batch_processing/output_xlsx/simple_batch_197papers_gpt41.xlsx",
-    "batch_processing/output_xlsx/simple_batch_810papers_v2.xlsx",
+    "extraction/output_xlsx/simple_batch_197papers_gpt41.xlsx",
+    "extraction/output_xlsx/simple_batch_810papers_v2.xlsx",
 ]
 DEFAULT_SONNET46 = [
-    "batch_processing/output_xlsx/simple_batch_197papers_sonnet46_combined.xlsx",
-    "batch_processing/output_xlsx/simple_batch_810papers_sonnet46_combined.xlsx",
+    "extraction/output_xlsx/simple_batch_197papers_sonnet46_combined.xlsx",
+    "extraction/output_xlsx/simple_batch_810papers_sonnet46_combined.xlsx",
 ]
 
 BINARY_FIELDS = {

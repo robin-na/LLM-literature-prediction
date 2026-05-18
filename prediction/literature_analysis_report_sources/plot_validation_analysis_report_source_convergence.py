@@ -11,7 +11,7 @@ from matplotlib.patches import FancyArrowPatch
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VAL_PROCESSED_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
+VAL_PROCESSED_CSV = ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv"
 RESULTS_DIR = ROOT / "results" / "validation" / "literature_analysis_report_sources_overview"
 PLOTS_DIR = ROOT / "plots" / "validation" / "literature_analysis_report_sources_overview"
 SINGLE_REPEAT5_AVG_CSV = (

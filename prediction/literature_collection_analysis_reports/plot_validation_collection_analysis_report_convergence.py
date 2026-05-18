@@ -12,7 +12,7 @@ from matplotlib.patches import FancyArrowPatch
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VAL_PROCESSED_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
+VAL_PROCESSED_CSV = ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv"
 AVG_PREDICTIONS_CSV = (
     ROOT
     / "results"

@@ -31,7 +31,7 @@ FEATURE_DATASET_CSV = (
     / "literature_analysis_report_sources_repeat5"
     / "paper_feature_analysis_dataset_repeat5.csv"
 )
-VAL_PROCESSED_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
+VAL_PROCESSED_CSV = ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv"
 BENCHMARK_REPEAT5_CSV = (
     ROOT
     / "results"

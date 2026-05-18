@@ -32,8 +32,8 @@ BASELINE_AVG_CSV = (
     / "validation_literature_collection_analysis_report_repeat5_baseline_avg_predictions.csv"
 )
 VALIDATION_CSV = ROOT / "input" / "pgg_CONFIGmerged_validation.csv"
-LEARN_DF = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_learn.csv"
-VAL_DF = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
+LEARN_DF = ROOT / "science_data" / "data" / "processed_data" / "df_paired_learn.csv"
+VAL_DF = ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv"
 PLOTS_DIR = ROOT / "plots" / "validation" / "literature_collection_analysis_reports_repeat5"
 
 MODEL_COLORS = {

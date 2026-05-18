@@ -43,7 +43,7 @@ REPEAT5_BASELINE_AVG_PRED_CSV = (
     / "literature_collection_analysis_reports_repeat5"
     / "validation_literature_collection_analysis_report_repeat5_baseline_avg_predictions.csv"
 )
-HUMAN_PREDICTIONS_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "prediction_survey.csv"
+HUMAN_PREDICTIONS_CSV = ROOT / "science_data" / "data" / "processed_data" / "prediction_survey.csv"
 VALIDATION_CSV = ROOT / "input" / "pgg_CONFIGmerged_validation.csv"
 REPEAT5_SUMMARY_CSV = (
     ROOT

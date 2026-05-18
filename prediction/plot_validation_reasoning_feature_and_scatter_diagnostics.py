@@ -16,7 +16,7 @@ from analyze_validation_interaction_alignment import (
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
 from plot_paths import VALIDATION_PLOTS as PLOTS, ensure_plot_dir
-DATA = ROOT / "science-data_and_code" / "data" / "processed_data"
+DATA = ROOT / "science_data" / "data" / "processed_data"
 
 FEATURES = [
     "CONFIG_chat",

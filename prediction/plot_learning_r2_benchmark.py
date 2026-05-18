@@ -9,7 +9,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
 from plot_paths import LEARNING_PLOTS as PLOTS, ensure_plot_dir
-LEARN_PATH = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_learn.csv"
+LEARN_PATH = ROOT / "science_data" / "data" / "processed_data" / "df_paired_learn.csv"
 
 
 def r2_from_rmse(rmse: float, null_mse: float) -> float:

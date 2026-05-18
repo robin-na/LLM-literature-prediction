@@ -1,0 +1,1632 @@
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+
+\setlength{\LTpost}{0pt}
+
+\title{\textbf{GPT-4.1 vs.\ Sonnet~4.6}\\[4pt]
+       \large A Taxonomy of Extraction Disagreements\\
+       on Public Goods Game Papers}
+\author{Generated automatically by \texttt{generate\_disagreement\_report.py}}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section*{Abstract}
+We compare structured extractions from \textbf{988} Public Goods
+Game papers produced independently by GPT-4.1 and Claude Sonnet~4.6.  Both
+models extract 37 fields per experimental condition (values, reasoning, and
+confidence scores) covering experimental design, configuration parameters,
+dependent variables, and participant demographics.
+
+After excluding 280 papers (28.3\%) where the models
+disagree on the number of experimental conditions (\emph{granularity mismatch}),
+we compare \textbf{708} papers spanning \textbf{3,315}
+condition pairs.  Field-level agreement ranges from
+\textbf{33\%}
+(\texttt{number\_DVs}) to
+\textbf{100\%}
+(\texttt{METHOD\_simulation}).
+
+We organise disagreements into four categories:
+\begin{itemize}
+  \item \textbf{Category~A --- Natural} (6,247 disagreements, 36\%):
+    naming/terminology conventions and level-of-detail differences where no
+    single answer is objectively correct.  At a cosine threshold of 0.70,
+    most text-field disagreements resolve as paraphrases; the remainder reflect
+    genuine content differences.
+  \item \textbf{Category~B --- Prompt violation: silence vs.\ N/A} (2,354, 14\%):
+    one model marks a field N/A (not mentioned) while the other records 0
+    (not present), reflecting a methodological ambiguity.
+  \item \textbf{Category~C --- Systematic} (8,653, 50\%):
+    disagreements on numeric or binary fields whose values are unambiguously
+    stated in the paper; one model is likely wrong.
+  \item \textbf{Category~D --- Granularity} (280 papers, 28.3\%):
+    models extract different numbers of experimental conditions entirely.
+    Correctness analysis shows Sonnet typically sub-divides GPT's conditions
+    rather than inventing new ones.
+\end{itemize}
+
+Sonnet~4.6 shows better confidence calibration: it reports lower confidence
+precisely on cases where it disagrees with GPT-4.1.  GPT-4.1 frequently
+assigns confidence 1.0 regardless, making its confidence scores less useful
+for downstream quality control.
+
+
+
+\section{Methodology}
+
+\subsection{Extraction Setup}
+Both models --- GPT-4.1 and Claude Sonnet~4.6 --- were given identical prompts
+asking them to extract 37 structured fields from each paper's full text
+(in Markdown format).  For every field the model returns three values:
+a \emph{value}, a free-text \emph{reason} explaining the extraction decision,
+and a \emph{confidence} score in $[0,1]$.  Extraction was run via the OpenAI
+Batch API (for GPT-4.1) and the Anthropic Batch API (for Sonnet~4.6),
+with temperature~0.
+
+\subsection{Condition Alignment}
+Each paper may describe multiple experimental conditions (arms).  Both models
+are asked to return one row per condition.  To compare them, we first check
+whether the two models extracted the same \emph{number} of conditions for a
+paper.  Papers with a mismatch are flagged as \textbf{granularity disagreements}
+(Category~D) and excluded from field-level comparison (Section~\ref{sec:granularity}).
+
+For papers where the condition counts match, conditions must be paired across
+models before field-level comparison can proceed.
+
+\subsubsection*{Semantic alignment (current approach)}
+We embed each condition's \texttt{data\_id} string using
+\texttt{text-embedding-3-small} and solve the optimal 1-to-1 matching with
+the \textbf{Hungarian algorithm} (minimising total cosine distance).
+This replaced an earlier alphabetical sort that occasionally mis-paired
+conditions when the two models used different naming conventions, producing
+spurious disagreements.  Switching to semantic alignment eliminated
+\textbf{685 false disagreements} (17{,}939 $\rightarrow$ 17{,}254).
+
+\subsubsection*{When does embedding-based alignment work well?}
+Condition names in PGG papers are usually descriptive enough for embeddings
+to work reliably:
+\begin{itemize}
+  \item \emph{``Experiment~1 --- Punishment treatment''} vs.\
+    \emph{``Punishment condition, Experiment~1''} --- high cosine,
+    correct match.
+  \item \emph{``Partners with punishment --- Maintenance''} vs.\
+    \emph{``Partners~+ punishment, Maintenance''} --- correct.
+\end{itemize}
+
+\subsubsection*{Known failure modes}
+\begin{itemize}
+  \item \textbf{Factorial designs with many near-identical names.}
+    In a $2{\times}2{\times}3$ design, conditions differ by only one word
+    (e.g.\ ``High MPCR, 4~players, Punishment'' vs.\
+    ``Low MPCR, 4~players, Punishment'').
+    Embeddings handle this well on average but can swap near-identical pairs.
+  \item \textbf{Generic labels.}
+    If GPT uses ``Condition~1, Condition~2'' and Sonnet uses
+    ``Control, Treatment~A'', embeddings have almost nothing to match on.
+\end{itemize}
+
+\subsubsection*{What would a better approach look like?}
+The most principled fix is \textbf{content-based matching}: pair conditions
+on their actual field values (e.g.\ \texttt{CONFIG\_punishmentExists},
+\texttt{CONFIG\_MPCR}, \texttt{CONFIG\_playerCount}) rather than their
+label.  Two conditions with identical parameters are the same treatment
+regardless of what either model called them.  An LLM could also be asked
+to explicitly reason across both condition lists and assign correspondences.
+We consider the embedding approach sufficient for the current analysis ---
+the failure modes affect a small fraction of 3{,}315 condition pairs --- but
+content-based matching would be the right long-term investment if this
+pipeline runs continuously on new papers.
+
+\subsection{Agreement Criteria}
+Agreement is assessed field-by-field using type-aware rules:
+
+\begin{description}
+  \item[Binary / categorical fields (16 fields)]
+    Exact string match after normalisation: \texttt{true}/\texttt{yes}
+    $\rightarrow$ \texttt{1}, \texttt{false}/\texttt{no} $\rightarrow$ \texttt{0};
+    numeric floats converted to integers when integral.
+
+  \item[Numeric fields (11 fields)]
+    Agreement if \emph{either}:
+    $|a - b| \leq 0.01$ (absolute floor protecting near-zero values),
+    \emph{or} $\dfrac{|a - b|}{\max(|a|,|b|,\varepsilon)} \leq 5\%$.
+
+  \item[Text fields (10 fields)]
+    Agreement if the cosine similarity of OpenAI
+    \texttt{text-embedding-3-small} embeddings $\geq 0.70$.
+
+    \textbf{Threshold rationale.}  An earlier version of this analysis used a
+    threshold of 0.95, which flagged near-paraphrases as disagreements:
+    two descriptions of the same DV with different wording typically score
+    0.85--0.92, and should count as agreement for the purpose of extracting
+    the \emph{same concept}.  Lowering the threshold to 0.70 corrects this:
+    at this level the embeddings still clearly separate genuinely different
+    content (e.g.\ ``cooperation'' vs.\ ``earnings'', which scores $<0.5$)
+    from paraphrases.  As a result, the apparent disagreement rate for most
+    text fields drops dramatically --- for example
+    \texttt{DVs\_Definitions} falls from 93.5\,\% to 2.2\,\%.
+\end{description}
+
+\subsection{Missing Value Handling}
+Any value matching the set
+$\{$\texttt{nan}, \texttt{none}, \texttt{n/a}, \texttt{n/r},
+\texttt{na}, \texttt{null}, \texttt{""}$\}$ is treated as \emph{missing}.
+Per-field statistics decompose disagreements into three buckets:
+\begin{itemize}
+  \item \textbf{Both missing} --- trivial agreement; not counted as disagreement.
+  \item \textbf{One missing} --- one model extracted a value, the other did not;
+    always a disagreement.
+  \item \textbf{Both present} --- both gave values; compared with the
+    type-specific rule above.
+\end{itemize}
+The \emph{agreement rate present} column reports the fraction of both-present
+pairs that agree.
+
+\subsection{Limitations}
+\begin{itemize}
+  \item Semantic alignment on \texttt{data\_id} embeddings can still fail
+    for factorial designs with many near-identical condition names, or for
+    papers where one model uses generic labels (``Condition~1'', ``Condition~2'').
+    Content-based matching on field values would be more robust.
+  \item The 197-paper and 810-paper extraction batches are concatenated
+    without deduplication; papers appearing in both batches have doubled
+    condition rows and are excluded from field-level analysis as granularity
+    mismatches.
+  \item All embeddings are cached; the cache is shared between the alignment
+    step and the text-field agreement step.
+\end{itemize}
+
+
+        \section{Evaluation Fairness}
+
+        This section documents the methodological choices made to ensure the
+        comparison is as fair as possible to both models.
+
+        \subsection{Text Similarity Threshold}
+
+        The original 0.95 cosine threshold was designed to catch only exact or near-exact
+        matches. It penalised both models equally for paraphrase variation that has no
+        bearing on extraction quality.  A human reviewer would consider two descriptions
+        of the same DV that differ only in wording as \emph{equivalent}, not
+        \emph{disagreeing}.
+
+        We therefore adopt a threshold of \textbf{0.70}, which:
+        \begin{itemize}
+          \item Accepts paraphrases and synonymous naming conventions as agreements.
+          \item Still rejects genuinely different content: e.g., ``cooperation'' vs.\
+            ``earnings'' or ``punishment exists'' vs.\ ``reward exists'' score $<0.50$.
+          \item Has a clear semantic interpretation: texts scoring $\geq0.70$
+            are about the same concept; texts scoring $<0.70$ are discussing
+            meaningfully different things.
+        \end{itemize}
+
+        The table below shows how agreement rates change under the two thresholds:
+
+        \begin{center}\small
+\begin{tabular}{lrr}
+\toprule
+\textbf{Text field} & \textbf{Agreement @ 0.95 (old)} & \textbf{Agreement @ 0.70 (current)} \\
+\midrule
+\texttt{DVs\_Definitions} & 6.5\% & 98.5\% \\
+\texttt{participant\_gender} & 68.9\% & 89.4\% \\
+\texttt{DVs} & 17.3\% & 89.0\% \\
+\texttt{data\_id} & 32.6\% & 88.1\% \\
+\texttt{participant\_country} & 83.7\% & 86.6\% \\
+\texttt{participant\_age} & 62.6\% & 84.6\% \\
+\texttt{participant\_education} & 44.0\% & 84.0\% \\
+\texttt{IVs} & 28.4\% & 76.6\% \\
+\texttt{indep\_var} & 1.0\% & 67.9\% \\
+\texttt{other\_game\_info} & 0.0\% & 46.7\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+        \medskip
+        The dramatic improvement in \texttt{DVs\_Definitions} (6.5\%~$\rightarrow$~97.8\%)
+        confirms that virtually all disagreements at 0.95 were paraphrase noise, not
+        real extraction errors.  Fields that remain below 80\% even at 0.70
+        (\texttt{other\_game\_info}, \texttt{indep\_var}) have \emph{genuinely}
+        different content between models --- these are meaningful disagreements.
+
+        \subsection{Numeric Tolerance}
+        We use a dual criterion: absolute tolerance $|a-b| \leq 0.01$ (to protect
+        near-zero values like MPCR fractions) \emph{plus} a 5\% relative tolerance.
+        This is symmetric --- neither model benefits from the rule --- and matches the
+        precision one would expect from manual extraction.
+
+        \subsection{Missing vs.\ Zero: Category~B Is a Prompt Violation, Not a Convention}
+        For binary configuration fields (\texttt{CONFIG\_chat}, \texttt{CONFIG\_punishmentExists},
+        etc.), the extraction prompt is unambiguous: ``silence $\rightarrow$ N/A, not~0.''
+        There is no convention choice to make --- the rule is already specified.
+
+        \begin{center}\small
+\begin{tabular}{lrr}
+\toprule
+\textbf{Field} & \textbf{N one-missing} & \textbf{N both-present disagree} \\
+\midrule
+\texttt{CONFIG\_showRewardId} & 34 & 0 \\
+\texttt{CONFIG\_rewardExists} & 374 & 1 \\
+\texttt{CONFIG\_showPunishmentId} & 372 & 13 \\
+\texttt{CONFIG\_punishmentExists} & 683 & 8 \\
+\texttt{CONFIG\_chat} & 856 & 13 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+        Almost all Category~B disagreements are one-side-missing: one model gave a value
+        (0), the other gave N/A.  When both models gave a value, agreement exceeds 95\%.
+        This tells us the models agree on \emph{what} the feature is when they both
+        see explicit evidence --- they only disagree on \emph{how to handle silence}.
+
+        Counting the one-missing cases: \textbf{Sonnet~4.6} codes a value (typically~0)
+        when GPT says N/A in \textbf{1{,}784 cases}; GPT does so when Sonnet says N/A
+        in only \textbf{535 cases}.  Sonnet is the larger contributor, but
+        \textbf{both models violate the rule:} we identified 93 silence-based
+        violations in GPT-4.1 and 161 in Sonnet~4.6 by examining whether the
+        reasoning trace cites explicit evidence of absence or merely notes silence.
+        GPT's violations are often borderline (indirect methodology citations from
+        referenced papers); Sonnet's are more straightforwardly silence-based.
+
+        \textbf{Correct post-processing:} apply a keyword filter to \emph{both}
+        models' outputs, converting 0 values on these fields to N/A whenever the
+        reasoning contains silence keywords (``not mentioned'', ``not described'')
+        without companion explicit-evidence keywords (``explicitly prohibited'',
+        ``paper states'').  See the Category~B verdict for the full filter code.
+
+        \subsection{Granularity: Which Model Is Correct?}
+        Granularity analysis (Section~\ref{sec:granularity}) shows that
+\textbf{136/280} mismatches are ``Sonnet splits GPT'' ---
+Sonnet's extra conditions are recognisable refinements of GPT's, not
+fabrications.  Only \textbf{57} mismatches go the other way (GPT splits
+Sonnet).  The remaining \textbf{87} have low name overlap and require
+human review.  This pattern is consistent with Sonnet applying the extraction
+rule more strictly, making it the \emph{reference} for granularity in
+ambiguous cases until a human ground truth is established.
+
+
+        \subsection{Condition Alignment}
+        Conditions are now aligned using the \textbf{Hungarian algorithm} on
+        \texttt{text-embedding-3-small} cosine similarities of \texttt{data\_id}
+        strings --- replacing an earlier alphabetical sort.
+        Switching to semantic alignment eliminated \textbf{685 false disagreements}
+        (17{,}939 $\rightarrow$ 17{,}254), confirming the alphabetical approach was
+        occasionally mis-pairing conditions when the two models used different naming
+        conventions.
+
+        \textbf{Residual risk:} Embedding-based alignment can still fail for
+        factorial designs with near-identical condition names or generic labels
+        (``Condition~1'', ``Condition~2'').  For the current dataset the failure
+        rate is small: mis-aligned pairs produce broad random-looking mismatches
+        across many fields, which are visible as outliers in Category~C and easy
+        to spot-check manually.
+
+
+\section{Overall Agreement Statistics}
+
+The table below lists all 37 extracted fields sorted by agreement rate (worst first).  Colours: \colorbox{red!18}{red} $<50\%$, \colorbox{orange!28}{orange} 50--80\%, \colorbox{green!18}{green} $>80\%$.
+
+\begin{center}
+\small
+\begin{longtable}{llrrrrrr}
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Agr.\%} & \textbf{Agr.\%\textsuperscript{*}} & \textbf{N\,disagree} & \textbf{N\,both\,miss.} & \textbf{N\,one\,miss.} & \textbf{N\,both\,pres.}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Agr.\%} & \textbf{Agr.\%\textsuperscript{*}} & \textbf{N\,disagree} & \textbf{N\,both\,miss.} & \textbf{N\,one\,miss.} & \textbf{N\,both\,pres.}\\
+\midrule
+\endhead
+\midrule \multicolumn{8}{r}{\small\itshape (continued\ldots)} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\rowcolor{red!18} \texttt{number\_DVs} & Numeric & 33.4\% & 33.4\% & 2208 & 0 & 0 & 3315\\
+\rowcolor{red!18} \texttt{other\_game\_info} & Text & 46.7\% & 46.7\% & 1767 & 0 & 1 & 3314\\
+\rowcolor{orange!28} \texttt{indep\_var} & Text & 67.9\% & 68.1\% & 1063 & 0 & 6 & 3309\\
+\rowcolor{orange!28} \texttt{CONFIG\_showOtherSummaries} & Binary & 70.4\% & 84.4\% & 981 & 473 & 637 & 2205\\
+\rowcolor{orange!28} \texttt{CONFIG\_chat} & Binary & 73.8\% & 98.5\% & 869 & 1567 & 856 & 892\\
+\rowcolor{orange!28} \texttt{number\_IVs} & Numeric & 76.2\% & 76.4\% & 788 & 4 & 7 & 3304\\
+\rowcolor{orange!28} \texttt{IVs} & Text & 76.6\% & 76.6\% & 775 & 0 & 0 & 3315\\
+\rowcolor{orange!28} \texttt{DV\_efficiencyReported} & Binary & 78.1\% & 78.1\% & 725 & 0 & 0 & 3315\\
+\rowcolor{orange!28} \texttt{CONFIG\_punishmentExists} & Binary & 79.2\% & 99.5\% & 691 & 1118 & 683 & 1514\\
+\rowcolor{green!18} \texttt{participant\_education} & Text & 84.0\% & 84.2\% & 529 & 799 & 155 & 2361\\
+\rowcolor{green!18} \texttt{participant\_age} & Text & 84.6\% & 71.2\% & 510 & 1796 & 101 & 1418\\
+\rowcolor{green!18} \texttt{CONFIG\_punishmentTech} & Numeric & 86.4\% & 90.4\% & 450 & 2108 & 370 & 837\\
+\rowcolor{green!18} \texttt{participant\_country} & Text & 86.6\% & 88.5\% & 444 & 98 & 84 & 3133\\
+\rowcolor{green!18} \texttt{CONFIG\_showNRounds} & Binary & 87.4\% & 99.3\% & 419 & 2601 & 417 & 297\\
+\rowcolor{green!18} \texttt{CONFIG\_MPCR} & Numeric & 87.5\% & 88.0\% & 416 & 1803 & 266 & 1246\\
+\rowcolor{green!18} \texttt{CONFIG\_allOrNothing} & Binary & 87.7\% & 93.3\% & 407 & 173 & 212 & 2930\\
+\rowcolor{green!18} \texttt{data\_id} & Text & 88.1\% & 88.1\% & 395 & 0 & 0 & 3315\\
+\rowcolor{green!18} \texttt{CONFIG\_numRounds} & Numeric & 88.4\% & 91.8\% & 385 & 188 & 139 & 2988\\
+\rowcolor{green!18} \texttt{CONFIG\_showPunishmentId} & Binary & 88.4\% & 96.5\% & 385 & 2572 & 372 & 371\\
+\rowcolor{green!18} \texttt{CONFIG\_punishmentCost} & Numeric & 88.4\% & 95.5\% & 383 & 1966 & 338 & 1011\\
+\rowcolor{green!18} \texttt{CONFIG\_rewardExists} & Binary & 88.7\% & 99.5\% & 375 & 2739 & 374 & 202\\
+\rowcolor{green!18} \texttt{DVs} & Text & 89.0\% & 89.0\% & 363 & 0 & 0 & 3315\\
+\rowcolor{green!18} \texttt{participant\_gender} & Text & 89.4\% & 85.4\% & 352 & 1552 & 111 & 1652\\
+\rowcolor{green!18} \texttt{CONFIG\_endowment} & Numeric & 91.1\% & 96.2\% & 294 & 738 & 203 & 2374\\
+\rowcolor{green!18} \texttt{CONFIG\_defaultContribProp} & Numeric & 91.2\% & 99.2\% & 293 & 1136 & 278 & 1901\\
+\rowcolor{green!18} \texttt{CONFIG\_playerCount} & Numeric & 91.3\% & 94.1\% & 289 & 106 & 106 & 3103\\
+\rowcolor{green!18} \texttt{experiment\_environment} & Binary & 94.5\% & 94.6\% & 181 & 0 & 1 & 3314\\
+\rowcolor{green!18} \texttt{METHOD\_lab} & Binary & 95.4\% & 95.4\% & 152 & 0 & 1 & 3314\\
+\rowcolor{green!18} \texttt{CONFIG\_rewardCost} & Numeric & 96.5\% & 95.2\% & 117 & 3099 & 112 & 104\\
+\rowcolor{green!18} \texttt{CONFIG\_rewardTech} & Numeric & 96.7\% & 88.3\% & 110 & 3122 & 99 & 94\\
+\rowcolor{green!18} \texttt{DVs\_Definitions} & Text & 98.5\% & 98.5\% & 49 & 0 & 0 & 3315\\
+\rowcolor{green!18} \texttt{CONFIG\_showRewardId} & Binary & 99.0\% & 100.0\% & 34 & 3243 & 34 & 38\\
+\rowcolor{green!18} \texttt{source\_data} & Binary & 99.2\% & 99.2\% & 27 & 0 & 0 & 3315\\
+\rowcolor{green!18} \texttt{METHOD\_experiment} & Binary & 99.5\% & 99.5\% & 18 & 0 & 0 & 3315\\
+\rowcolor{green!18} \texttt{METHOD\_empirical} & Binary & 99.7\% & 99.7\% & 10 & 0 & 0 & 3315\\
+\rowcolor{green!18} \texttt{METHOD\_analytical} & Binary & 100.0\% & 100.0\% & 0 & 0 & 0 & 3315\\
+\rowcolor{green!18} \texttt{METHOD\_simulation} & Binary & 100.0\% & 100.0\% & 0 & 0 & 0 & 3315\\
+\end{longtable}
+{\footnotesize\textsuperscript{*}Agreement rate among condition pairs where both models gave a non-missing value.}
+\end{center}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{/Users/hindy/Coding/LLM-literature-prediction/results/extraction_model_comparison/agreement.png}
+  \caption{Per-field agreement rates between GPT-4.1 and Sonnet~4.6.  Fields are ordered by agreement rate.}
+\end{figure}
+
+
+        \section{Category D: Granularity Disagreements}\label{sec:granularity}
+
+        \subsection{Overview}
+        Of \textbf{988} papers common to both models, \textbf{280}
+        (28.3\%) have a different number of extracted experimental conditions.
+        These papers are \emph{excluded} from field-level comparison because there is
+        no safe way to pair conditions across models.
+
+        The mismatch is asymmetric: Sonnet~4.6 extracts \emph{more} conditions than
+        GPT-4.1 in \textbf{192} papers, while GPT-4.1 extracts more in
+        \textbf{88} papers.
+        The largest observed discrepancy is \textbf{14} conditions on a
+        single paper.
+
+        \begin{figure}[h]
+          \centering
+          \includegraphics[width=0.92\textwidth]{/Users/hindy/Coding/LLM-literature-prediction/results/extraction_model_comparison/granularity_disagreement.png}
+          \caption{Granularity disagreement diagnostics: distribution of per-paper
+          condition-count deltas (Sonnet minus GPT).}
+        \end{figure}
+
+        \subsection{Which Model Is Correct? --- Correctness Analysis}
+
+        To assess \emph{who} is right when the counts differ, we compute the
+        word-token Jaccard similarity between each condition name in the
+        \emph{smaller} model's set and its best match in the \emph{larger} model's set.
+        If most of the smaller model's conditions have a close match in the larger set
+        (Jaccard $\geq 0.30$ for $\geq 65\%$ of conditions), we infer that the
+        \emph{larger} model sub-divided the smaller model's conditions rather than
+        inventing new ones. Otherwise the condition sets are ``fundamentally different.''
+
+        \begin{center}\small
+\begin{tabular}{lrp{6cm}p{4.5cm}}
+\toprule
+\textbf{Verdict} & \textbf{N} & \textbf{Description} & \textbf{Implication} \\
+\midrule
+\textbf{sonnet\_splits\_gpt} & 136 & Sonnet has more; GPT's conditions map onto Sonnet's (Sonnet subdivided GPT's arms) & Sonnet likely more granular/correct \\[2pt]
+\textbf{gpt\_splits\_sonnet} & 57 & GPT has more; Sonnet's conditions map onto GPT's (GPT subdivided Sonnet's arms) & GPT likely more granular/correct \\[2pt]
+\textbf{sonnet\_different} & 56 & Sonnet has more; low name overlap with GPT (Sonnet found novel conditions or misread) & Unclear --- manual review needed \\[2pt]
+\textbf{gpt\_different} & 31 & GPT has more; low name overlap with Sonnet & Unclear --- manual review needed \\[2pt]
+\bottomrule
+\end{tabular}
+\end{center}
+
+        \medskip
+        \textbf{Key finding.}
+        In \textbf{136} of 280 mismatches (49\%),
+        Sonnet's extra conditions are refinements of GPT's --- GPT appears to have
+        \emph{merged} conditions that Sonnet correctly separated.
+        In only \textbf{57} cases does GPT extract more granular conditions.
+        In \textbf{87} cases the condition sets are
+        fundamentally different, suggesting one model misread the paper's design
+        --- these require manual review.
+
+        Overall, Sonnet~4.6 appears to be the more granular extractor, and when it
+        extracts more conditions than GPT-4.1 those conditions are usually recognisable
+        refinements of GPT's (not fabrications).  This is consistent with Sonnet
+        applying the extraction rule ``each treatment arm = one row'' more strictly
+        than GPT, which tends to merge arms that share most parameters.
+
+        \subsection{Selected Examples}
+
+
+\subsection{Three Illustrative Patterns}
+
+Manual inspection of the mismatches reveals three qualitatively
+distinct patterns, summarised in the table below.
+
+\begin{center}\small
+\begin{tabular}{lrp{5.5cm}p{5.5cm}}
+\toprule
+\textbf{Pattern} & \textbf{N} & \textbf{Description} & \textbf{Interpretation} \\
+\midrule
+Case~1 & 158 & Sonnet $>$ GPT; same experimental type & GPT omitted experiments from the paper's main paradigm; Sonnet likely correct \\[3pt]
+Case~2 & 34 & Sonnet $>$ GPT; Sonnet adds non-experimental studies & Sonnet over-broad (meta-analyses, surveys, different paradigms); GPT may be more appropriate \\[3pt]
+GPT has more & 88 & GPT $>$ Sonnet; avg delta $= -2.7$ & Reverse pattern; Sonnet under-extracts relative to GPT; needs case-by-case review \\[3pt]
+\midrule
+\textbf{Total} & \textbf{280} & & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+\textbf{Case~1 --- GPT genuinely omits later experiments} ($\approx$\textbf{158} \textbf{papers).}
+        For multi-experiment papers, GPT sometimes extracts conditions from only
+        one experiment and ignores the rest, even though the remaining experiments
+        are independently described PGG conditions.  The prompt says
+        \emph{``Extract every experiment, simulation, or observational condition
+        described''} --- Sonnet follows this; GPT does not.
+        GPT's own \texttt{data\_id\_reason} in the example below confirms it
+        processed Experiment~1 only, with no mention of experiments 2--5.
+
+              \begin{tcolorbox}[
+            title={\textbf{Case 1 — GPT omits later experiments (sonnet\textbackslash{}\_splits\textbackslash{}\_gpt)} (name-match 100\%) --- DOI: 10.1016\_j.jesp.2022.104284},
+            colback=orange!4!white, colframe=orange!55!black,
+            fonttitle=\small\sffamily,
+            sidebyside, sidebyside align=top seam,
+            lower separated=false, breakable,
+            before upper={\small}, before lower={\small},
+          ]
+          \textbf{GPT-4.1} (4~conditions)\\[4pt]
+          \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+            \item Experiment 1 – Chinese – Time Delay
+\item Experiment 1 – Chinese – Time Pressure
+\item Experiment 1 – Western – Time Delay
+\item Experiment 1 – Western – Time Pressure
+          \end{itemize}
+          \medskip\textit{GPT reason for first condition:} Explicitly described as one of the four main conditions in Experiment 1: Chinese participants under time pressure.
+          \tcblower
+          \textbf{Sonnet~4.6} (17~conditions)\\[4pt]
+          \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+            \item Experiment 1 – Chinese participants, Time Delay condition
+\item Experiment 1 – Chinese participants, Time Pressure condition
+\item Experiment 1 – Western participants, Time Delay condition
+\item Experiment 1 – Western participants, Time Pressure condition
+\item Experiment 2a – Chinese participants, High Cognitive Load condition
+\item Experiment 2a – Chinese participants, Low Cognitive Load condition
+\item Experiment 2b – Western participants, High Cognitive Load condition
+\item Experiment 2b – Western participants, Low Cognitive Load condition
+\item Experiment 3a – Chinese participants, Time Delay condition
+\item Experiment 3a – Chinese participants, Time Pressure condition
+\item \textit{... 7 more}
+          \end{itemize}
+          \medskip\textit{Sonnet reason for first condition:} Experiment 1 uses a mixed design with Chinese vs. Western culture (between) and time pressure vs. time delay (between), and ingroup vs. outgroup divider (within). This row captures the Chinese/Time Pressure cell.
+          \end{tcolorbox}
+
+
+\textbf{Case~2 --- GPT selectively extracts the core PGG; Sonnet over-extracts}
+($\approx$\textbf{34} \textbf{papers).}
+        Some papers bundle a genuine PGG with adjacent studies of different paradigms:
+        vignette surveys, national polls, meta-analyses, eBay auction experiments,
+        or anthropological datasets.  Sonnet extracts everything
+        (\texttt{METHOD\_experiment = False} for the non-PGG rows); GPT correctly
+        limits itself to the experimental PGG conditions.
+        This is the one pattern where GPT's judgment is arguably \emph{better}:
+        the non-experimental studies should probably not be in this dataset at all.
+
+              \begin{tcolorbox}[
+            title={\textbf{Case 2 — GPT extracts only the core PGG; Sonnet adds non-PGG studies} (name-match 100\%) --- DOI: 10.1037\_a0033495},
+            colback=blue!4!white, colframe=blue!55!black,
+            fonttitle=\small\sffamily,
+            sidebyside, sidebyside align=top seam,
+            lower separated=false, breakable,
+            before upper={\small}, before lower={\small},
+          ]
+          \textbf{GPT-4.1} (2~conditions)\\[4pt]
+          \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+            \item Study 4 – Club Good Game (Contributors)
+\item Study 4 – Public Good Game (Contributors)
+          \end{itemize}
+          \medskip\textit{GPT reason for first condition:} Explicitly described as the public good game in Study 4, with contributors analyzed separately.
+          \tcblower
+          \textbf{Sonnet~4.6} (13~conditions)\\[4pt]
+          \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+            \item Study 1 – Club Good condition (Carwash Fundraiser)
+\item Study 1 – Public Good condition (Carwash Fundraiser)
+\item Study 2 – Club Good condition (Fishing/Samana)
+\item Study 2 – Public Good condition (Fishing/Samana)
+\item Study 3 – Club Good condition (Fishing/Samana, likelihood and wrongness ratings)
+\item Study 3 – Public Good condition (Fishing/Samana, likelihood and wrongness ratings)
+\item Study 4 – Club Good Game condition
+\item Study 4 – Public Good Game condition
+\item Study 5 – Nationally Representative Survey (Presidential Election)
+\item Study 6 – Subjective Valuation manipulation (Gardening Co-op, 5 levels)
+\item \textit{... 3 more}
+          \end{itemize}
+          \medskip\textit{Sonnet reason for first condition:} Study 1 contrasts public vs. club good; this is the public good arm of the between-subjects design.
+          \end{tcolorbox}
+
+
+\textbf{Case~3 --- GPT has more conditions than Sonnet}
+($\approx$\textbf{88} \textbf{papers, avg delta $=-2.7$).}
+        In 88 papers GPT extracts more conditions than Sonnet.  Unlike Case~1,
+        these are not simple omission errors: the average delta is $-2.9$ and
+        the range goes to $-11$.  The \texttt{gpt\_splits\_sonnet} verdict
+        (57 papers) means GPT's extra conditions are recognisable subdivisions
+        of Sonnet's --- GPT applied a finer treatment-arm split.
+        The \texttt{gpt\_different} verdict (31 papers) means the condition sets
+        are fundamentally different and require manual inspection.
+        The example below shows the one case we examined in detail: a simulation
+        comparison that GPT records as two rows and Sonnet as one.
+
+              \begin{tcolorbox}[
+            title={\textbf{Case 3 — GPT has more conditions (gpt\textbackslash{}\_splits\textbackslash{}\_sonnet)} (name-match 100\%) --- DOI: 10.1038\_s41562-017-0191-5},
+            colback=teal!4!white, colframe=teal!55!black,
+            fonttitle=\small\sffamily,
+            sidebyside, sidebyside align=top seam,
+            lower separated=false, breakable,
+            before upper={\small}, before lower={\small},
+          ]
+          \textbf{GPT-4.1} (10~conditions)\\[4pt]
+          \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+            \item One-shot – Maintenance
+\item One-shot – Provision
+\item Partners with punishment – Maintenance
+\item Partners with punishment – Provision
+\item Partners – Maintenance
+\item Partners – Provision
+\item Simulation – Maintenance
+\item Simulation – Provision
+\item Strangers – Maintenance
+\item Strangers – Provision
+          \end{itemize}
+          \medskip\textit{GPT reason for first condition:} Explicitly described as the 'one-shot' maintenance condition in the main text and methods.
+          \tcblower
+          \textbf{Sonnet~4.6} (9~conditions)\\[4pt]
+          \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+            \item Experiment 1 (One-shot) – Maintenance
+\item Experiment 1 (One-shot) – Provision
+\item Experiment 2 (Strangers) – Maintenance
+\item Experiment 2 (Strangers) – Provision
+\item Experiment 3 (Partners) – Maintenance
+\item Experiment 3 (Partners) – Provision
+\item Experiment 4 (Partners with Punishment) – Maintenance
+\item Experiment 4 (Partners with Punishment) – Provision
+\item Simulation – Maintenance vs. Provision (1000 simulated experiments)
+          \end{itemize}
+          \medskip\textit{Sonnet reason for first condition:} Single-decision one-shot game in the maintenance framing (n=140 maintenance participants in one-shot).
+          \end{tcolorbox}
+
+
+          \begin{tcolorbox}[
+            title={\textbf{sonnet\_different} (match 0\%) --- DOI: 10.1093\_pnasnexus\_pgad091},
+            colback=red!4!white, colframe=red!55!black,
+            fonttitle=\small\sffamily,
+            sidebyside, sidebyside align=top seam,
+            lower separated=false, breakable,
+            before upper={\small}, before lower={\small},
+          ]
+          \textbf{GPT-4.1} (2~conditions)\\[4pt]
+          \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+            \item Bologna – SFI (Sanctioning-Free Institution)
+\item Bologna – SI (Sanctioning Institution)
+          \end{itemize}
+          \tcblower
+          \textbf{Sonnet~4.6} (16~conditions)\\[4pt]
+          \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+            \item Bologna Replication – Sanctioning Institution (SI) condition
+\item Bologna Replication – Sanctioning-Free Institution (SFI) condition
+\item GIR2006 – Sanctioning Institution (SI) condition
+\item GIR2006 – Sanctioning-Free Institution (SFI) condition
+\item Nuremberg Replication – Sanctioning Institution (SI) condition
+\item Nuremberg Replication – Sanctioning-Free Institution (SFI) condition
+\item Oxford Replication – Sanctioning Institution (SI) condition
+\item Oxford Replication – Sanctioning-Free Institution (SFI) condition
+\item Utrecht Replication – Sanctioning Institution (SI) condition
+\item Utrecht Replication – Sanctioning-Free Institution (SFI) condition
+\item Valencia Replication – Sanctioning Institution (SI) condition
+\item Valencia Replication – Sanctioning-Free Institution (SFI) condition
+\item \textit{... 4 more}
+          \end{itemize}
+          \end{tcolorbox}
+
+
+        \section{Category A: Natural Disagreements}
+
+        \subsection{Overview}
+        Category~A covers fields where the two models capture the \emph{same
+underlying information} but express it differently.  Two sub-types appear:
+
+\begin{description}
+  \item[Naming / terminology] Fields \texttt{DVs}, \texttt{IVs}, and
+    \texttt{data\_id} exhibit near-zero embedding-similarity agreement
+    because each model names measures in its own convention
+    (e.g., ``\texttt{individual\_cooperation}'' vs.\ ``\texttt{%
+    individual\_cooperation\_rate}'').  An expert coder would also choose
+    a naming style, and two experts would commonly disagree.
+
+  \item[Level of detail] Fields \texttt{indep\_var},
+    \texttt{other\_game\_info}, and \texttt{DVs\_Definitions} have
+    near-zero agreement because the models differ dramatically in verbosity
+    without differing in factual content.  GPT-4.1 tends to be terse;
+    Sonnet~4.6 tends to be comprehensive.
+
+  \item[Demographics formatting] \texttt{participant\_age},
+    \texttt{participant\_gender}, \texttt{participant\_education}, and
+    \texttt{participant\_country} are reported with different levels of
+    aggregation (e.g., mean age vs.\ age range).
+\end{description}
+
+
+        This category accounts for \textbf{6,247} disagreeing
+        (paper, condition, field) triples across \textbf{666} papers.
+
+        \subsection{Field Summary}
+        \begin{center}\small
+\begin{tabular}{llrrr}
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Agr.\%} & \textbf{N\,disagree} & \textbf{N\,one\,miss.}\\
+\midrule
+\rowcolor{red!18}\texttt{other\_game\_info} & Text & 46.7\% & 1767 & 1\\
+\rowcolor{orange!28}\texttt{indep\_var} & Text & 67.9\% & 1063 & 6\\
+\rowcolor{orange!28}\texttt{IVs} & Text & 76.6\% & 775 & 0\\
+\rowcolor{green!18}\texttt{participant\_education} & Text & 84.0\% & 529 & 155\\
+\rowcolor{green!18}\texttt{participant\_age} & Text & 84.6\% & 510 & 101\\
+\rowcolor{green!18}\texttt{participant\_country} & Text & 86.6\% & 444 & 84\\
+\rowcolor{green!18}\texttt{data\_id} & Text & 88.1\% & 395 & 0\\
+\rowcolor{green!18}\texttt{DVs} & Text & 89.0\% & 363 & 0\\
+\rowcolor{green!18}\texttt{participant\_gender} & Text & 89.4\% & 352 & 111\\
+\rowcolor{green!18}\texttt{DVs\_Definitions} & Text & 98.5\% & 49 & 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+        \subsection{Verdict}
+        These disagreements are \textbf{natural}: domain experts asked to code the
+same papers would produce similar variation.  They do not indicate that one
+model is ``wrong.''  For downstream uses that require consistent naming
+(e.g., structured databases), a post-processing normalisation step is
+advisable rather than choosing one model over the other.
+
+
+        \subsection{Selected Examples}
+        Each box shows the GPT-4.1 (left) and Sonnet~4.6 (right) extracted values,
+        confidence scores, and reasoning for the same paper--condition--field triple.
+
+\begin{tcolorbox}[
+  title={\textbf{data\_id} \textbar{} DOI: 10.1016\_j.jrp.2019.05.005 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~Public Goods Game with Costly Punishment under Threat\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~The paper describes a single experimental condition: a two-person public goods game with a costly punishment stage, where each participant can punish a member of another team and can be punished by a member of a different team (not their own).
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~Single experimental condition -- PGG with punishment threat\\[3pt]
+\textit{Conf.:}~0.90\\[3pt]
+\textit{Reason:}~The paper describes a single experimental condition: a two-person public goods game with a punishment stage where every participant can both punish and be punished by members of other teams. There are no separate treatment/control conditions; the study is a within-sample correlational design examining personality as a predictor.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{DVs} \textbar{} DOI: 10.1111\_ssqu.12910 \textbar{} Cond.~1},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~["individual\_contribution", "group\_contribution", "threat\_manipulation", "group\_efficiency", "punishment\_assigned"]\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~Paper reports: (1) percent of endowment contributed, (2) group-level contribution, (3) net percent of endowment spent on increasing threat, (4) group efficiency, (5) punishment assigned (by high rank). No election DV in this condition.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~["percent\_endowment\_contributed", "net\_percent\_endowment\_spent\_increasing\_threat", "group\_earnings\_efficiency"]\\[3pt]
+\textit{Conf.:}~0.95\\[3pt]
+\textit{Reason:}~In the nondemocracy condition, the election DV is not applicable. The paper reports percentage of endowment contributed, net percentage spent on threat manipulation, and group earnings efficiency for this condition.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{DVs} \textbar{} DOI: 10.1016\_j.jebo.2018.04.002 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~["individual\_contribution", "punishment\_assigned", "punishment\_received"]\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~Reported: percentage of PD players sending 10 points (individual\_contribution), punishment points assigned by third parties (punishment\_assigned), and punishment points received by PD players (punishment\_received).
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~["cooperation\_rate", "punishment\_frequency", "punishment\_intensity\_per\_third\_party", "total\_punishment\_received"]\\[3pt]
+\textit{Conf.:}~0.90\\[3pt]
+\textit{Reason:}~The paper reports: percentage of PD players who sent 10 points (cooperation rate), frequency of punishment by scenario, average punishment points per third party player, and total punishment received by PD players.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{DVs} \textbar{} DOI: 10.1111\_jlca.12283 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~["household\_collective\_action\_investment", "support\_network\_size", "reciprocity\_rate", "aid\_types\_exchanged"]\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~The study reports (1) hours invested in collective action per household, (2) size of each household's support network (normalized indegree centrality), (3) proportion of reciprocal relationships in support networks, and (4) types of aid exchanged (agricultural, health, food).
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~["social\_network\_size", "network\_reciprocity"]\\[3pt]
+\textit{Conf.:}~0.85\\[3pt]
+\textit{Reason:}~The paper reports normalized indegree network centrality (network size) as the primary outcome, and also reports reciprocity rates within support networks (68\% for agricultural aid, 58\% for health advice).
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{indep\_var} \textbar{} DOI: 10.1038\_s41562-017-0138 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~economic\_potential: low; leader\_strength: weak; treatment: IPGG control\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~Paper describes a 2x2 between-subjects design (economic potential: low/high; leader strength: weak/strong) and within-subjects treatments (IPGG control, BG, BG+partial transparency, BG+full transparency, BG+leader investment). This row is for the IPGG control, low economic potential, weak leader.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~Game type (IPGG control), economic potential (low, MPCR=0.3), leader strength (weak, punishment multiplier=1)\\[3pt]
+\textit{Conf.:}~0.90\\[3pt]
+\textit{Reason:}~The paper uses a 2x2 between-subjects design (economic potential x leader strength) crossed with within-subject treatments (IPGG, BG, BG+partial transparency, BG+full transparency, BG+leader investment).
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{data\_id} \textbar{} DOI: 10.5751\_es-07493-200323 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~Irrigation Lab Experiment (Rounds 1-10, All Groups)\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~The paper describes a single experimental design with 23 groups of 5 participants each, analyzed at the group and positional level for rounds 1-10 (before environmental uncertainty is introduced).
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~Irrigation Lab Experiment -- Single Treatment (Communication + Asymmetric Commons)\\[3pt]
+\textit{Conf.:}~0.85\\[3pt]
+\textit{Reason:}~The paper describes a single experimental treatment: a five-player computer-based irrigation game with communication, run across 23 groups. There is no between-condition manipulation; the study analyzes variation in social roles across groups.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{data\_id} \textbar{} DOI: 10.1098\_rsos.230867 \textbar{} Cond.~2},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~Simulation -- Randomized Agent Pairs (Markov transition matrix simulation)\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~The paper describes a simulation study in which 20,000 agent pairs with randomly generated transition probabilities are simulated to identify strategies that maximize long-term mutual cooperation.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~Simulation -- Best vs. Worst Faring Players (Long-term Cooperation Phenotypes)\\[3pt]
+\textit{Conf.:}~0.85\\[3pt]
+\textit{Reason:}~Section 3.5 describes a simulation study using 2x10\textasciicircum{}4 simulations with 1000 simulated agents per group to identify behavioral phenotypes that maintain long-term cooperation, comparing best-faring vs. worst-faring players.
+\end{tcolorbox}
+
+
+
+        \section{Category B: Prompt Violation --- Silence vs.\ N/A}
+
+        \subsection{Overview}
+        Category~B covers binary configuration fields where one model records
+0 (``not present'') from silence while the other correctly records N/A
+(``not mentioned'').  The fields affected are:
+\texttt{CONFIG\_chat}, \texttt{CONFIG\_punishmentExists},
+\texttt{CONFIG\_rewardExists}, \texttt{CONFIG\_showPunishmentId},
+and \texttt{CONFIG\_showRewardId}.
+
+\textbf{This is not a convention ambiguity.}  The extraction prompt
+(\texttt{batch\_processing/build\_batch\_input.py}, \texttt{INSTRUCTION\_TEXT})
+is explicit for every one of these fields:
+\begin{itemize}
+  \item \texttt{CONFIG\_chat}: ``N/A if communication is not mentioned
+    anywhere in the paper --- do NOT code 0 from silence.''
+  \item \texttt{CONFIG\_punishmentExists}: ``N/A if punishment is not
+    explicitly described --- do NOT infer from other conditions.''
+  \item \texttt{CONFIG\_rewardExists}: ``silence $\rightarrow$ N/A, not 0.
+    Code 0 only if the paper explicitly states no reward mechanism exists.''
+  \item \texttt{CONFIG\_showPunishmentId} / \texttt{CONFIG\_showRewardId}:
+    ``N/A if the paper does not address whether identities are revealed ---
+    do not infer 0 from silence.''
+\end{itemize}
+
+\textbf{Both models violate the rule --- but at different rates and
+for different reasons.}  We classify each 0-coding on a Category~B
+field by the language in its reasoning trace.  A coding is a
+\emph{silence-based violation} if the reasoning contains phrases like
+``not mentioned'', ``not described'', ``not reported'', or ``not
+explicitly stated'' \emph{without} a companion phrase like
+``explicitly prohibited'', ``paper states no~\ldots{}'', or
+``without communication.''
+
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Model} & \textbf{Total 0-codings} &
+\textbf{Silence-based violations} &
+\textbf{Explicit-evidence (valid)} \\
+\midrule
+GPT-4.1   & 2{,}122 & 93  & 545 \\
+Sonnet~4.6 & 4{,}343 & 161 & 831 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Sonnet codes \textbf{4{,}343} zeros vs.\ GPT's \textbf{2{,}122} --- more than
+twice as many --- and is $1.7\times$ more likely to produce a silence-based
+violation (161 vs.\ 93).  However, GPT-4.1 also violates the rule:
+93 of its~0 codings rest purely on the absence of a mention, with no
+affirmative evidence cited.  A meaningful fraction of GPT's violations
+are borderline --- the reasoning cites methodology from a referenced
+paper (e.g., ``instructions followed Andreoni and Gee (2012), which
+prohibited communication'') --- but the prompt still requires an
+explicit statement in the paper being extracted, not an inference from
+a citation.
+
+
+        This category accounts for \textbf{2,354} disagreeing
+        (paper, condition, field) triples across \textbf{462} papers.
+
+        \subsection{Field Summary}
+        \begin{center}\small
+\begin{tabular}{llrrr}
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Agr.\%} & \textbf{N\,disagree} & \textbf{N\,one\,miss.}\\
+\midrule
+\rowcolor{orange!28}\texttt{CONFIG\_chat} & Binary & 73.8\% & 869 & 856\\
+\rowcolor{orange!28}\texttt{CONFIG\_punishmentExists} & Binary & 79.2\% & 691 & 683\\
+\rowcolor{green!18}\texttt{CONFIG\_showPunishmentId} & Binary & 88.4\% & 385 & 372\\
+\rowcolor{green!18}\texttt{CONFIG\_rewardExists} & Binary & 88.7\% & 375 & 374\\
+\rowcolor{green!18}\texttt{CONFIG\_showRewardId} & Binary & 99.0\% & 34 & 34\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+        \subsection{Verdict}
+                    \textbf{Both models violate the ``silence $\rightarrow$ N/A'' rule}, but
+            Sonnet~4.6 does so at a higher rate and more consistently.  GPT-4.1's
+            violations are often borderline (indirect methodology citations), while
+            Sonnet's are more straightforwardly silence-based.  The prompt was
+            confirmed to be \emph{identical} for both models, so this is model
+            behaviour, not a prompt difference.
+
+            When both models give a value (both-present), agreement exceeds 95\%,
+            confirming the extraction logic is correct --- the divergence is purely
+            in how each model handles the absence of explicit evidence.
+
+            \textbf{Recommended post-extraction filter} (applicable to both models,
+            especially Sonnet):
+
+            \begin{verbatim}
+SILENCE_KWS = [
+    "not mentioned", "no mention", "not described",
+    "not explicitly", "not reported", "not stated",
+    "not discussed", "not addressed",
+]
+EXPLICIT_KWS = [
+    "explicitly prohibited", "explicitly states no",
+    "explicitly stated", "paper states", "without communication",
+    "no communication was", "communication was not",
+    "paper explicitly",
+]
+CAT_B_FIELDS = [
+    "CONFIG_chat", "CONFIG_punishmentExists",
+    "CONFIG_rewardExists", "CONFIG_showPunishmentId",
+    "CONFIG_showRewardId",
+]
+
+def is_silence_violation(value, reason):
+    v = str(value).lower().strip()
+    r = str(reason).lower()
+    if v != "0":
+        return False
+    has_silence = any(kw in r for kw in SILENCE_KWS)
+    has_explicit = any(kw in r for kw in EXPLICIT_KWS)
+    return has_silence and not has_explicit
+
+for field in CAT_B_FIELDS:
+    reason_col = field + "_reason"
+    mask = df.apply(
+        lambda row: is_silence_violation(row[field], row.get(reason_col, "")),
+        axis=1
+    )
+    df.loc[mask, field] = float("nan")  # convert back to N/A
+            \end{verbatim}
+
+            This filter converts silence-based~0 codings back to N/A without
+            touching valid 0s that cite explicit evidence.  It should be applied
+            to \emph{both} GPT-4.1 and Sonnet~4.6 outputs; it primarily affects
+            Sonnet (larger violation count) but is correct to apply universally.
+
+
+        \subsection{Selected Examples}
+        Each box shows the GPT-4.1 (left) and Sonnet~4.6 (right) extracted values,
+        confidence scores, and reasoning for the same paper--condition--field triple.
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showPunishmentId} \textbar{} DOI: 10.1038\_415137a \textbar{} Cond.~1},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~N/A\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~The paper states that all interactions were anonymous and members were not informed of the identity of others in the group. It does not explicitly state whether punished players could identify punishers.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.0\\[3pt]
+\textit{Conf.:}~0.80\\[3pt]
+\textit{Reason:}~All interactions took place anonymously and punishment decisions were made simultaneously; the paper does not state punishers are identified to punished members, and the anonymous design implies punishment is anonymous.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showPunishmentId} \textbar{} DOI: 10.1038\_s41598-023-33167-2 \textbar{} Cond.~4},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~1\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~Paper states that each member of the other group was fully informed about how many DP they (anonymously yet identifiable with an arbitrary number and their academic background) assigned to them.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.0\\[3pt]
+\textit{Conf.:}~0.70\\[3pt]
+\textit{Reason:}~Paper states participants were 'anonymously yet identifiable with an arbitrary number and their academic background' -- punishment decisions were anonymous in terms of individual identity but academic background was visible.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_chat} \textbar{} DOI: 10.1016\_j.jesp.2009.02.017 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~1.0\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~High threat condition included group discussion 'like in a chat room'; for low threat, no mention of chat, but paper states 'no means of socially sanctioning' and 'allocation judgments would never be shared', so chat is absent. However, per strict rules, only code 0 if explicitly stated. Here, chat is not mentioned for low threat, so code N/A.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.0\\[3pt]
+\textit{Conf.:}~0.80\\[3pt]
+\textit{Reason:}~In the Low Threat condition, participants were told their allocation decisions would never be shared with fellow group members and choices were anonymous; no communication channel described.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showPunishmentId} \textbar{} DOI: 10.1086\_720287 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~1\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~After voting, participants are informed about the allocation decisions by the three group members, the exclusion rule that was selected, and who was excluded from receiving the bonus.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.0\\[3pt]
+\textit{Conf.:}~0.85\\[3pt]
+\textit{Reason:}~The sanctioning is directed toward a strategy (not a specific person), and 'All decisions were made anonymously.' Participants cannot identify who voted to exclude them.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showPunishmentId} \textbar{} DOI: 10.1108\_01437720310502177 \textbar{} Cond.~2},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~0\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~Contributions of others are shown, but exclusion decisions are not revealed; 'subjects are never informed about the punishment activities of the other group members.'
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~N/A\\[3pt]
+\textit{Conf.:}~0.65\\[3pt]
+\textit{Reason:}~The paper does not explicitly state whether excluders are identified to excluded players. Contributions are randomly listed to prevent reputation formation, suggesting anonymity, but this is not explicitly stated for exclusion identity.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showPunishmentId} \textbar{} DOI: 10.1016\_j.jpubeco.2006.10.007 \textbar{} Cond.~3},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~1\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~Exclusion decision is made by the leader, and the excluded member is informed (Appendix: 'If the early contributor decides, for instance, to exclude member 2...').
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~N/A\\[3pt]
+\textit{Conf.:}~0.50\\[3pt]
+\textit{Reason:}~The exclusion mechanism is not traditional punishment; the paper does not address whether the excluded member knows who excluded them. The leader's identity is known (they are the early contributor), so effectively the excluded member can identify the excluder, but this is not explicitly stated as a design feature.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showPunishmentId} \textbar{} DOI: 10.1093\_sf\_soy017 \textbar{} Cond.~2},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~0\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~Participants could see how many deductions they and others received, but not who assigned them; identities were anonymized by changing participant identifiers.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~N/A\\[3pt]
+\textit{Conf.:}~0.50\\[3pt]
+\textit{Reason:}~The paper does not explicitly state whether punished players could identify the leader as punisher; the leader is known but identity of who punished whom is not explicitly described as revealed or hidden.
+\end{tcolorbox}
+
+
+
+        \section{Category C: Systematic Extraction Errors}
+
+        \subsection{Overview}
+        Category~C covers fields where the paper contains a clear, unambiguous
+answer --- a number, a yes/no statement, or a binary indicator --- yet the
+two models give different answers.  At least one model is wrong.
+
+Key affected fields include:
+\begin{itemize}
+  \item \textbf{\texttt{CONFIG\_MPCR}} (87.4\% agreement): the
+    marginal-per-capita return, a ratio that appears explicitly in most
+    papers.  Discrepancies often arise from whether to use the per-player
+    or per-group formulation.
+  \item \textbf{\texttt{CONFIG\_playerCount}} (90.7\% agreement):
+    group size.  Disagreements arise when the paper reports both session
+    size and group size.
+  \item \textbf{\texttt{DV\_efficiencyReported}} (78.1\% agreement):
+    binary indicator of whether the paper reports group efficiency.
+    Discrepancies suggest one model missed a relevant section.
+  \item \textbf{\texttt{CONFIG\_showOtherSummaries}} (70.4\% agreement):
+    whether participants saw a summary of others' contributions.
+  \item \textbf{\texttt{number\_DVs}} (33.4\% agreement): count of
+    dependent variables, which should be derivable from the \texttt{DVs}
+    list but is often counted differently (e.g., whether sub-measures are
+    counted separately).
+\end{itemize}
+
+These disagreements propagate directly into the prediction pipeline:
+incorrect values for \texttt{CONFIG\_MPCR} or \texttt{CONFIG\_playerCount}
+change the feature representation used by the LLM when predicting
+experimental outcomes.
+
+
+        This category accounts for \textbf{8,653} disagreeing
+        (paper, condition, field) triples across \textbf{681} papers.
+
+        \subsection{Field Summary}
+        \begin{center}\small
+\begin{tabular}{llrrr}
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Agr.\%} & \textbf{N\,disagree} & \textbf{N\,one\,miss.}\\
+\midrule
+\rowcolor{red!18}\texttt{number\_DVs} & Numeric & 33.4\% & 2208 & 0\\
+\rowcolor{orange!28}\texttt{CONFIG\_showOtherSummaries} & Binary & 70.4\% & 981 & 637\\
+\rowcolor{orange!28}\texttt{number\_IVs} & Numeric & 76.2\% & 788 & 7\\
+\rowcolor{orange!28}\texttt{DV\_efficiencyReported} & Binary & 78.1\% & 725 & 0\\
+\rowcolor{green!18}\texttt{CONFIG\_punishmentTech} & Numeric & 86.4\% & 450 & 370\\
+\rowcolor{green!18}\texttt{CONFIG\_showNRounds} & Binary & 87.4\% & 419 & 417\\
+\rowcolor{green!18}\texttt{CONFIG\_MPCR} & Numeric & 87.5\% & 416 & 266\\
+\rowcolor{green!18}\texttt{CONFIG\_allOrNothing} & Binary & 87.7\% & 407 & 212\\
+\rowcolor{green!18}\texttt{CONFIG\_numRounds} & Numeric & 88.4\% & 385 & 139\\
+\rowcolor{green!18}\texttt{CONFIG\_punishmentCost} & Numeric & 88.4\% & 383 & 338\\
+\rowcolor{green!18}\texttt{CONFIG\_endowment} & Numeric & 91.1\% & 294 & 203\\
+\rowcolor{green!18}\texttt{CONFIG\_defaultContribProp} & Numeric & 91.2\% & 293 & 278\\
+\rowcolor{green!18}\texttt{CONFIG\_playerCount} & Numeric & 91.3\% & 289 & 106\\
+\rowcolor{green!18}\texttt{experiment\_environment} & Binary & 94.5\% & 181 & 1\\
+\rowcolor{green!18}\texttt{METHOD\_lab} & Binary & 95.4\% & 152 & 1\\
+\rowcolor{green!18}\texttt{CONFIG\_rewardCost} & Numeric & 96.5\% & 117 & 112\\
+\rowcolor{green!18}\texttt{CONFIG\_rewardTech} & Numeric & 96.7\% & 110 & 99\\
+\rowcolor{green!18}\texttt{source\_data} & Binary & 99.2\% & 27 & 0\\
+\rowcolor{green!18}\texttt{METHOD\_experiment} & Binary & 99.5\% & 18 & 0\\
+\rowcolor{green!18}\texttt{METHOD\_empirical} & Binary & 99.7\% & 10 & 0\\
+\rowcolor{green!18}\texttt{METHOD\_analytical} & Binary & 100.0\% & 0 & 0\\
+\rowcolor{green!18}\texttt{METHOD\_simulation} & Binary & 100.0\% & 0 & 0\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+        \subsection{Verdict}
+        These disagreements are \textbf{systematic}: the paper has a correct answer,
+and at least one model retrieved it incorrectly.  Examining the reasoning
+traces reveals two recurring failure modes:
+\begin{enumerate}
+  \item \textbf{Unit confusion}: GPT-4.1 and Sonnet~4.6 disagree on whether
+    MPCR should be expressed per player or per group.  Sonnet typically
+    reports the per-player value; GPT sometimes reports the group-level
+    multiplier.
+  \item \textbf{Scope confusion}: when a paper runs multiple experiments,
+    one model extracts values from the wrong experiment, or conflates
+    session-level and group-level parameters.
+\end{enumerate}
+For high-stakes uses (e.g., feeding extracted values into a downstream
+model), Category~C fields warrant human spot-checking or an independent
+verification pass.
+
+
+        \subsection{Selected Examples}
+        Each box shows the GPT-4.1 (left) and Sonnet~4.6 (right) extracted values,
+        confidence scores, and reasoning for the same paper--condition--field triple.
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showOtherSummaries} \textbar{} DOI: 10.1037\_npe0000069 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~1.0\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~"Studying how the payoffs changed in a round, we found that the production quantity was adjusted upward on round t+1 if the other player had gained between rounds t-1 and t (see Figure 2) but the player himself had not gained. In the other cases, the production quantity was adjusted downward on round t+1. These cases were when both lost, when only the player himself gained, and when both gained." Also, the task structure states: "A table with out\textbackslash{}ldots
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.0\\[3pt]
+\textit{Conf.:}~0.60\\[3pt]
+\textit{Reason:}~Players saw the payoff matrix and outcomes from previous rounds (own and other's production quantities and payoffs), but this is standard outcome feedback in the game, not a separate display of other players' earnings/payoffs beyond what is inherent in the game outcome. The paper describes viewing outcomes (payoffs) each round as part of the game structure.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showOtherSummaries} \textbar{} DOI: 10.1016\_j.socec.2014.09.001 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~1.0\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~At the beginning of Stage 2, group members received information about the other group members' first-stage incomes and their contributions to the public good. ... At the end of Stage 2, participant i obtained a summary detailing his or her contribution to the public good ci, the sum of individual contributions, first-stage income pii, both the number and the costs of punishment points allocated by this participant to other group members, the numb\textbackslash{}ldots
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.0\\[3pt]
+\textit{Conf.:}~0.70\\[3pt]
+\textit{Reason:}~At Stage 2, participants see others' contributions and their own first-stage income, but not others' payoffs/earnings directly. The paper states they see 'how many points the other group members invested in the project' and 'the earnings of a group member are stated below the member's contribution' --- this does show others' stage-1 earnings. Coding 1.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showOtherSummaries} \textbar{} DOI: 10.1016\_j.socec.2023.102050 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~1.0\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~"each round in which a participant was not sitting out went as follows: a) decide whether to cooperate ("Red") or defect ("Blue"); b) see the partner's decision and both people's earnings; c) decide whether to punish versus not punish, plus decide whether to withdraw or not; and d) find out results of partner's punishment and withdrawing decisions."
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.0\\[3pt]
+\textit{Conf.:}~0.70\\[3pt]
+\textit{Reason:}~Paper states participants see partner's decision and both people's earnings after each round, which includes own payoff and partner's payoff. However, the paper says 'All payoffs were confidential' referring to total earnings. After each round participants see 'whether one's partner cooperated or defected and what each partner earned' --- this does reveal partner earnings per round.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showOtherSummaries} \textbar{} DOI: 10.1007\_s11238-021-09864-7 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~1.0\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~Instructions: 'After you make the decision each group member will be given information about all decisions that were made in stages 1 and 2 by each participant.' and 'At the end of stage 3 the total points earned during the whole round will be shown to all group members.' and 'These reward sums will be revealed at the end of each round.'
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.0\\[3pt]
+\textit{Conf.:}~0.70\\[3pt]
+\textit{Reason:}~After each round, participants are shown decisions made in stages 1 and 2 (contributions/allocations), not individual payoffs/earnings of others explicitly. The instructions say 'each group member will be given information about all decisions that were made in stages 1 and 2 by each participant' and 'total points earned during the whole round will be shown to all group members' - this shows group totals and decisions, not individual earnings brea\textbackslash{}ldots
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_punishmentTech} \textbar{} DOI: 10.1177\_0956797615624469 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~0.6\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~Each \$1 spent reduced dictator's kept amount by 20\% (e.g., \$2 spent reduces by 40\%); thus, \$1 spent reduces by \$2 (20\% of \$10 max), but the reduction is 20\% of whatever the dictator kept. For \$10, \$1 = \$2 reduction; for \$7.50, \$1 = \$1.50 reduction. The ratio is not fixed, but the rule is 20\% per \$1. Coding as 0.2 (20\%) per \$1 spent.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.2\\[3pt]
+\textit{Conf.:}~0.50\\[3pt]
+\textit{Reason:}~Each \$1 spent by punisher reduces dictator's kept amount by 20\%. E.g., if dictator kept \$7.50 and punisher spends \$1, dictator loses 20\% of \$7.50 = \$1.50. So punishmentTech = 1.5/1 = 1.5 per dollar spent... but wait: the paper says 'spend none, all, or part of it in \$1 increments to reduce the money, in 20\% increments, the dictator kept'. So \$1 spent = 20\% reduction of dictator's kept amount. The kept amount varies by allocation level. This is no\textbackslash{}ldots
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showOtherSummaries} \textbar{} DOI: 10.1016\_j.econlet.2020.109155 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~1.0\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~After sanctioning, players receive feedback on their individual performance in the current period and the average performance for the past behavior in both communities, including the contribution, the income after the public good game, received and distributed points - if applicable - and the total payoffs.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.0\\[3pt]
+\textit{Conf.:}~0.50\\[3pt]
+\textit{Reason:}~Players receive feedback on individual contributions of other community members, and after sanctioning receive feedback on individual performance and average performance. The paper mentions seeing contributions and total payoffs but the primary feedback described is contributions, not others' earnings/payoffs explicitly shown individually.
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  title={\textbf{CONFIG\_showOtherSummaries} \textbar{} DOI: 10.1177\_0190272517703750 \textbar{} Cond.~0},
+  colback=blue!3!white,
+  colframe=blue!45!black,
+  fonttitle=\small\sffamily,
+  sidebyside,
+  sidebyside align=top seam,
+  lower separated=false,
+  breakable,
+  before upper={\small},
+  before lower={\small},
+]
+\textbf{GPT-4.1}\\[2pt]
+\textit{Value:}~1.0\\[3pt]
+\textit{Conf.:}~1.00\\[3pt]
+\textit{Reason:}~"After each round, each member learned how much each person contributed, who was punished, by whom, and at what cost (in MUs) to the punisher and the punished teammate." Also, instructions and screenshots show that after each round, participants saw a table with each member's contribution and total earning.
+\tcblower
+\textbf{Sonnet~4.6}\\[2pt]
+\textit{Value:}~0.0\\[3pt]
+\textit{Conf.:}~0.80\\[3pt]
+\textit{Reason:}~After each round, members learned contributions, who was punished, by whom, and at what cost --- contributions and punishment activity are shown, but individual payoffs/earnings of others are also shown in the final results page. The final results page shows each member's total earning, so earnings of others are visible.
+\end{tcolorbox}
+
+
+
+\section{Confidence Score Analysis}
+\subsection{Overview}
+
+A well-calibrated model should report {\em lower} confidence precisely when it
+is likely to be wrong.  We test this by comparing mean confidence on condition
+pairs where the two models {\em agree} (a proxy for correctness) versus pairs
+where they {\em disagree}.
+
+\begin{quote}
+$\Delta_{\mathrm{confidence}} = \overline{\mathrm{conf}}_{\mathrm{agree}}
+ - \overline{\mathrm{conf}}_{\mathrm{disagree}}$
+\end{quote}
+
+A positive $\Delta$ means the model is \emph{less} confident on disagreement
+cases --- a calibration signal.  A $\Delta \approx 0$ means confidence is
+uninformative.
+
+\subsection{Results}
+\begin{center}\small
+\begin{tabular}{lrr@{\hskip 6pt}rrr@{\hskip 6pt}rr}
+\toprule
+ & \multicolumn{3}{c}{\textbf{GPT-4.1}} & \multicolumn{3}{c}{\textbf{Sonnet~4.6}} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+\textbf{Field} & Agree & Disagree & $\Delta$ & Agree & Disagree & $\Delta$ & N\,disagree \\
+\midrule
+\texttt{CONFIG\_showRewardId} & 0.998 & 1.000 & -0.002 & 0.967 & 0.747 & 0.220 & 34\\
+\texttt{CONFIG\_rewardTech} & 1.000 & 1.000 & -0.000 & 0.983 & 0.800 & 0.183 & 110\\
+\texttt{METHOD\_experiment} & 1.000 & 1.000 & 0.000 & 0.995 & 0.822 & 0.172 & 18\\
+\texttt{CONFIG\_rewardCost} & 1.000 & 1.000 & -0.000 & 0.984 & 0.815 & 0.170 & 117\\
+\texttt{CONFIG\_playerCount} & 0.992 & 0.977 & 0.015 & 0.968 & 0.802 & 0.166 & 289\\
+\texttt{CONFIG\_punishmentTech} & 0.994 & 0.998 & -0.004 & 0.958 & 0.808 & 0.149 & 450\\
+\texttt{METHOD\_empirical} & 1.000 & 1.000 & 0.000 & 0.999 & 0.850 & 0.149 & 10\\
+\texttt{CONFIG\_punishmentCost} & 0.998 & 0.995 & 0.003 & 0.969 & 0.830 & 0.139 & 383\\
+\texttt{METHOD\_lab} & 1.000 & 0.970 & 0.030 & 0.976 & 0.846 & 0.130 & 152\\
+\texttt{CONFIG\_MPCR} & 0.968 & 0.979 & -0.011 & 0.932 & 0.809 & 0.123 & 416\\
+\texttt{CONFIG\_showPunishmentId} & 0.997 & 0.984 & 0.013 & 0.889 & 0.775 & 0.114 & 385\\
+\texttt{CONFIG\_endowment} & 0.979 & 0.994 & -0.016 & 0.949 & 0.837 & 0.112 & 294\\
+\texttt{DV\_efficiencyReported} & 1.000 & 1.000 & 0.000 & 0.881 & 0.774 & 0.107 & 725\\
+\texttt{CONFIG\_allOrNothing} & 0.996 & 0.998 & -0.001 & 0.924 & 0.817 & 0.106 & 407\\
+\texttt{source\_data} & 1.000 & 1.000 & 0.000 & 0.998 & 0.898 & 0.100 & 27\\
+\texttt{experiment\_environment} & 1.000 & 0.986 & 0.014 & 0.981 & 0.893 & 0.088 & 181\\
+\texttt{CONFIG\_defaultContribProp} & 0.997 & 0.986 & 0.011 & 0.907 & 0.822 & 0.085 & 293\\
+\texttt{CONFIG\_numRounds} & 0.994 & 0.968 & 0.026 & 0.961 & 0.883 & 0.078 & 385\\
+\texttt{CONFIG\_showOtherSummaries} & 0.997 & 0.989 & 0.008 & 0.813 & 0.738 & 0.075 & 981\\
+\texttt{CONFIG\_chat} & 0.996 & 1.000 & -0.004 & 0.864 & 0.810 & 0.054 & 869\\
+\texttt{CONFIG\_rewardExists} & 1.000 & 1.000 & 0.000 & 0.959 & 0.908 & 0.051 & 375\\
+\texttt{participant\_country} & 0.985 & 0.880 & 0.105 & 0.982 & 0.946 & 0.036 & 444\\
+\texttt{participant\_education} & 0.937 & 0.964 & -0.027 & 0.965 & 0.930 & 0.036 & 529\\
+\texttt{participant\_gender} & 0.889 & 0.979 & -0.090 & 0.963 & 0.932 & 0.031 & 352\\
+\texttt{participant\_age} & 0.873 & 0.993 & -0.120 & 0.976 & 0.945 & 0.031 & 510\\
+\texttt{CONFIG\_punishmentExists} & 1.000 & 1.000 & 0.000 & 0.962 & 0.938 & 0.024 & 691\\
+\texttt{IVs} & 1.000 & 1.000 & 0.000 & 0.964 & 0.947 & 0.016 & 775\\
+\texttt{indep\_var} & 1.000 & 1.000 & 0.000 & 0.962 & 0.950 & 0.012 & 1063\\
+\texttt{DVs\_Definitions} & 1.000 & 1.000 & 0.000 & 0.912 & 0.901 & 0.010 & 49\\
+\texttt{other\_game\_info} & 1.000 & 1.000 & 0.000 & 0.952 & 0.945 & 0.007 & 1767\\
+\texttt{data\_id} & 1.000 & 1.000 & 0.000 & 0.954 & 0.950 & 0.004 & 395\\
+\texttt{number\_IVs} & 1.000 & 1.000 & 0.000 & 1.000 & 1.000 & 0.000 & 788\\
+\texttt{number\_DVs} & 1.000 & 1.000 & 0.000 & 1.000 & 1.000 & 0.000 & 2208\\
+\texttt{DVs} & 1.000 & 1.000 & 0.000 & 0.903 & 0.906 & -0.004 & 363\\
+\texttt{CONFIG\_showNRounds} & 0.979 & 0.988 & -0.008 & 0.753 & 0.842 & -0.089 & 419\\
+\bottomrule
+\end{tabular}
+\end{center}
+\subsection{Interpretation}
+Across the 35 fields with at least 10 disagreements,
+Sonnet~4.6 shows a positive calibration signal ($\Delta > 0.02$) on
+\textbf{26/35} fields (mean $\Delta = 0.077$),
+compared with \textbf{3/35} for
+GPT-4.1 (mean $\Delta = -0.002$).
+
+\begin{tcolorbox}[
+  colback=green!4!white, colframe=green!50!black,
+  title={\textbf{Key finding: confidence calibration}},
+  fonttitle=\small\sffamily, breakable,
+]
+\textbf{Sonnet~4.6} has a consistently positive $\Delta$ across fields ---
+it gives \emph{lower} confidence precisely on the cases where the two models
+disagree.  This makes Sonnet's confidence score a \textbf{useful signal for
+flagging uncertain extractions} in downstream quality control.
+
+\medskip
+\textbf{GPT-4.1} has $\Delta \approx 0$ on most fields --- it tends to
+assign high confidence (often 1.0) regardless of whether it agrees with Sonnet
+or not.  Its confidence score is therefore \textbf{not a reliable signal for
+quality control}.  Users of GPT-4.1 extractions should rely on independent
+verification rather than confidence thresholds.
+\end{tcolorbox}
+
+
+
+        \section{Conclusion}
+
+        \subsection{Summary of Disagreements}
+        Across 3,315 condition pairs from 708 papers, we observe
+        17,254 field-level disagreements (plus 280 papers with
+        granularity mismatches).  Their breakdown:
+
+        \begin{center}
+        \begin{tabular}{lrrr}
+        \toprule
+        \textbf{Category} & \textbf{N} & \textbf{\%} & \textbf{Verdict} \\
+        \midrule
+        A~---~Natural & 6,247 & 36.2\% & Natural (both models OK) \\
+        B~---~Silence vs.~N/A & 2,354 & 13.6\% & Both models violate (Sonnet 2$\times$ more) \\
+        C~---~Systematic & 8,653 & 50.2\% & Systematic (one model wrong) \\
+        D~---~Granularity & 280 papers & 28.3\% of papers & Systematic \\
+        \bottomrule
+        \end{tabular}
+        \end{center}
+
+        \subsection{Which Model Should We Use?}
+
+        The answer depends on which type of error is more costly for the downstream task:
+        predicting Public Goods Game efficiency outcomes.
+
+        \begin{center}\small
+        \begin{tabular}{llp{3.5cm}p{5cm}}
+        \toprule
+        \textbf{Error} & \textbf{Model} & \textbf{Papers} & \textbf{Cost to dataset} \\
+        \midrule
+        Case~1: misses entire experiments & GPT & $\approx$158 &
+          \textbf{High.} Treatment arms are permanently invisible; no post-hoc fix \\[3pt]
+        Case~2: adds non-PGG studies & Sonnet & $\approx$34 &
+          \textbf{Medium.} Detectable via \texttt{METHOD\_experiment=False}; filterable \\[3pt]
+        Overconfident confidence scores & GPT & all &
+          \textbf{Low.} Quality signal is useless for flagging uncertain rows \\[3pt]
+        \texttt{number\_DVs} 33\% agreement & GPT & all &
+          \textbf{Medium.} Structural field systematically wrong \\
+        \bottomrule
+        \end{tabular}
+        \end{center}
+
+        \medskip
+        Case~1 is more damaging than Case~2 for this task.
+        Sonnet~4.6's false positives (Case~2) are \emph{detectable and filterable};
+        GPT-4.1's false negatives (Case~1) silently corrupt literature coverage
+        with no way to recover the missing conditions without re-running the paper.
+
+        \subsubsection*{Recommendation: Sonnet~4.6 with a post-processing filter}
+
+        Use Sonnet~4.6 as the primary extraction model, then apply a single
+        post-processing filter to catch Case~2 over-extractions:
+
+        \begin{verbatim}
+# Flag conditions Sonnet may have over-extracted
+df["flag_non_pgg"] = (
+    df["METHOD_experiment"].str.lower().isin(["false", "0", "no"]) |
+    df["experiment_environment"].isin(["Observational"])
+)
+        \end{verbatim}
+
+        This flags the $\approx$34 Case~2 papers automatically.
+        A one-time manual review of those papers removes non-PGG rows
+        (meta-analyses, national surveys, anthropological datasets, etc.).
+        The result is a dataset that is both \textbf{complete} (no Case~1 omissions)
+        and \textbf{clean} (no Case~2 contamination).
+
+        \subsubsection*{What about a model router?}
+
+        A router that selects GPT for mixed-paradigm papers and Sonnet for
+        single-paradigm ones is theoretically appealing but has a hidden cost:
+        to route correctly you must first classify the paper --- which requires
+        reading it.  If you are reading the paper anyway, it is simpler to run
+        Sonnet and apply the \texttt{METHOD\_experiment} filter.
+
+        The one scenario where routing adds value is a targeted re-run of the
+        280 mismatch papers through GPT as a cross-check.  If both
+        models agree after re-extraction, that is strong evidence the condition
+        count is correct.  If they still disagree, those papers are flagged for
+        human inspection.
+
+        \begin{center}\small
+        \begin{tabular}{lp{3.5cm}p{5cm}}
+        \toprule
+        \textbf{Approach} & \textbf{Effort} & \textbf{Quality} \\
+        \midrule
+        \textbf{Sonnet + filter (recommended)} &
+          Low --- one afternoon of manual review of $\approx$34 papers &
+          High: complete coverage, clean scope \\[3pt]
+        Router (Sonnet for multi-experiment, GPT for mixed) &
+          High --- requires paper classifier &
+          Marginally better in theory \\[3pt]
+        GPT alone &
+          None &
+          Significant gaps: $\approx$158 papers under-extracted \\
+        \bottomrule
+        \end{tabular}
+        \end{center}
+
+        \subsection{Field-level Recommendations}
+        \begin{enumerate}
+          \item \textbf{Category~A} (naming/detail): apply a normalisation step
+            (e.g., strip \texttt{\_rate} suffixes, lower-case) rather than choosing
+            one model; both are extracting the same facts.
+          \item \textbf{Category~B} (both models code 0 from silence, Sonnet more so):
+            apply the keyword filter described in the Category~B verdict to
+            \emph{both} models' outputs.  The filter checks whether the reasoning
+            trace cites explicit evidence of absence or merely notes silence, and
+            converts silence-based~0 codings back to N/A.  No convention choice is
+            needed --- the prompt already specifies the rule.
+          \item \textbf{Category~C} (systematic errors): for \texttt{CONFIG\_MPCR},
+            \texttt{CONFIG\_playerCount}, and \texttt{DV\_efficiencyReported},
+            use Sonnet's confidence scores to flag low-confidence extractions and
+            verify those with a second model or human reviewer.
+          \item \textbf{Granularity}: re-run the 280 mismatch papers
+            through GPT as a cross-check; route remaining disagreements to human
+            review before using those conditions downstream.
+        \end{enumerate}
+
+\end{document}

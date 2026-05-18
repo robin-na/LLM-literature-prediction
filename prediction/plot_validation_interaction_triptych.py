@@ -12,7 +12,7 @@ from analyze_validation_interaction_alignment import load_or_compute_enet_valida
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
 from plot_paths import VALIDATION_PLOTS as PLOTS, ensure_plot_dir
-DATA = ROOT / "science-data_and_code" / "data" / "processed_data"
+DATA = ROOT / "science_data" / "data" / "processed_data"
 
 
 def fit_line(x: pd.Series, y: pd.Series) -> tuple[np.ndarray, np.ndarray]:

@@ -9,8 +9,8 @@ from scipy.stats import chi2
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PAIRED_VAL_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
-RAW_VAL_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_analysis_val.csv"
+PAIRED_VAL_CSV = ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv"
+RAW_VAL_CSV = ROOT / "science_data" / "data" / "processed_data" / "df_analysis_val.csv"
 
 
 def load_truth_and_sem() -> tuple[np.ndarray, np.ndarray, np.ndarray]:

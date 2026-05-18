@@ -22,8 +22,8 @@ from prediction_metrics import (  # noqa: E402
 
 
 JSONL_PATH = REPO_ROOT / "openAI_batch_output" / "prediction_learning_wave_elicitation_41.jsonl"
-LEARN_GT = REPO_ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_learn.csv"
-VAL_GT = REPO_ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
+LEARN_GT = REPO_ROOT / "science_data" / "data" / "processed_data" / "df_paired_learn.csv"
+VAL_GT = REPO_ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv"
 VAL_PRED = REPO_ROOT / "results" / "prediction_positive_case_variations_41.csv"
 VAL_METRICS = REPO_ROOT / "results" / "prediction_positive_case_variations_41_metrics.csv"
 RESULTS_DIR = REPO_ROOT / "results"

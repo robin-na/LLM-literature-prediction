@@ -36,7 +36,7 @@ PDFs on Google Drive
   → write Excel workbook
         │
         ▼
-batch_processing/output_xlsx/<name>.xlsx
+extraction/output_xlsx/<name>.xlsx
   Sheet "extractions" — one row per condition
 ```
 
@@ -146,7 +146,7 @@ This is more reliable than asking the LLM to count, which is prone to level-coun
 
 ## Output
 
-**File:** `batch_processing/output_xlsx/<name>.xlsx`
+**File:** `extraction/output_xlsx/<name>.xlsx`
 
 **Sheet "extractions":**
 - Columns: `custom_id` + (for each of 45 fields: `{field}`, `{field}_reason`, `{field}_confidence`) = 136 columns total
@@ -165,8 +165,8 @@ set -a && source .env && set +a
 ### Download papers from Google Drive
 ```bash
 # Download a specific list of papers (one DOI-based PDF path per line)
-python batch_processing/download_papers_md.py \
-  --pdf-list batch_processing/inputs/pdf_paths_800.txt \
+python extraction/download_papers_md.py \
+  --pdf-list extraction/inputs/pdf_paths_800.txt \
   --output-dir PGG_papers/papers \
   --drive-folder papers_markdown
 ```
@@ -176,43 +176,43 @@ Already-existing files are skipped. Re-runnable safely.
 
 ```bash
 # Step 1: submit
-python batch_processing/extract_papers.py batch-submit \
+python extraction/extract_papers.py batch-submit \
   --paper-dir PGG_papers/papers \
-  --paper-ids $(cat batch_processing/inputs/paper_ids_800.txt | tr '\n' ' ') \
+  --paper-ids $(cat extraction/inputs/paper_ids_800.txt | tr '\n' ' ') \
   --model gpt-4.1 \
-  --save-jsonl batch_processing/inputs/batch_input_810papers.jsonl
+  --save-jsonl extraction/inputs/batch_input_810papers.jsonl
 # → prints batch_id, save it
 
 # Step 2: check status (poll until "completed")
-python batch_processing/extract_papers.py batch-status <batch_id>
+python extraction/extract_papers.py batch-status <batch_id>
 
 # Step 3: collect results
-python batch_processing/extract_papers.py batch-collect <batch_id> \
-  --output-xlsx batch_processing/output_xlsx/simple_batch_810papers.xlsx \
-  --save-jsonl batch_processing/inputs/batch_output_810papers.jsonl
+python extraction/extract_papers.py batch-collect <batch_id> \
+  --output-xlsx extraction/output_xlsx/simple_batch_810papers.xlsx \
+  --save-jsonl extraction/inputs/batch_output_810papers.jsonl
 ```
 
 ### Real-time extraction (small runs / testing)
 ```bash
-python batch_processing/extract_papers.py simple \
+python extraction/extract_papers.py simple \
   --paper-dir PGG_papers/papers \
   --paper-ids 10.1007_s10645-008-9094-1 \
   --model gpt-4.1 \
-  --output-xlsx batch_processing/output_xlsx/test.xlsx
+  --output-xlsx extraction/output_xlsx/test.xlsx
 ```
 
 ### Hybrid extraction (simple + agentic overrides for error-prone fields)
 ```bash
-python batch_processing/extract_papers.py hybrid \
+python extraction/extract_papers.py hybrid \
   --paper-dir PGG_papers/papers \
   --paper-ids 10.1007_s10645-008-9094-1 \
   --agentic-version v2 \
-  --output-xlsx batch_processing/output_xlsx/hybrid.xlsx
+  --output-xlsx extraction/output_xlsx/hybrid.xlsx
 ```
 
 ### Debug one field on one paper
 ```bash
-python batch_processing/extract_papers.py agentic-field \
+python extraction/extract_papers.py agentic-field \
   --field CONFIG_MPCR \
   --paper-id 10.1007_s10645-008-9094-1 \
   --paper-dir PGG_papers/papers \

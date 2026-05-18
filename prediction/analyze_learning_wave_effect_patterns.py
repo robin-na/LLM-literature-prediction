@@ -10,7 +10,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 RESULTS_DIR = REPO_ROOT / "results"
 PRED_PATH = RESULTS_DIR / "prediction_learning_wave_elicitation_41.csv"
 LEARN_PATH = (
-    REPO_ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_learn.csv"
+    REPO_ROOT / "science_data" / "data" / "processed_data" / "df_paired_learn.csv"
 )
 
 BINARY_FEATURES = [

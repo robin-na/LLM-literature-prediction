@@ -145,7 +145,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--path",
-        default="science-data_and_code/data/processed_data/df_analysis_val.csv",
+        default="science_data/data/processed_data/df_analysis_val.csv",
     )
     parser.add_argument("--bootstrap", type=int, default=0)
     parser.add_argument("--seed", type=int, default=0)

@@ -371,7 +371,7 @@ def main() -> None:
     parser.add_argument(
         "--ground-truth",
         type=Path,
-        default=Path("science-data_and_code/data/processed_data/df_paired_val.csv"),
+        default=Path("science_data/data/processed_data/df_paired_val.csv"),
         help="Path to ground-truth CSV.",
     )
     parser.add_argument(

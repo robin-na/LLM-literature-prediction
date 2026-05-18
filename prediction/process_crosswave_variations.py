@@ -26,8 +26,8 @@ from prediction_metrics import (  # noqa: E402
 
 RESULTS_DIR = REPO_ROOT / "results"
 OPENAI_OUTPUT_DIR = REPO_ROOT / "openAI_batch_output"
-VAL_GT = REPO_ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
-LEARN_GT = REPO_ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_learn.csv"
+VAL_GT = REPO_ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv"
+LEARN_GT = REPO_ROOT / "science_data" / "data" / "processed_data" / "df_paired_learn.csv"
 VAL_REFERENCE_PRED = RESULTS_DIR / "prediction_positive_case_variations_41.csv"
 VAL_REFERENCE_METRICS = RESULTS_DIR / "prediction_positive_case_variations_41_metrics.csv"
 LEARN_BASELINE_PRED = RESULTS_DIR / "prediction_learning_wave_elicitation_41.csv"

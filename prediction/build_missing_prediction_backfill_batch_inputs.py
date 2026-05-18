@@ -18,7 +18,7 @@ ANALYSIS_ROOT = Path(__file__).resolve().parent
 if str(ANALYSIS_ROOT) not in sys.path:
     sys.path.insert(0, str(ANALYSIS_ROOT))
 
-from batch_inputs.paper_only_variants import (  # noqa: E402
+from prediction_inputs.paper_only_variants import (  # noqa: E402
     MODEL_TAGS,
     build_joint_prompt,
     build_joint_system_prompt,

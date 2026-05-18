@@ -22,7 +22,7 @@ from prediction_metrics import _directional_accuracy_np
 
 ROOT = Path(__file__).resolve().parents[1]
 OPENAI_BATCH_OUTPUT = ROOT / "openAI_batch_output"
-DATA = ROOT / "science-data_and_code" / "data" / "processed_data"
+DATA = ROOT / "science_data" / "data" / "processed_data"
 Q_COLS = [f"Q{i}" for i in range(1, 21)]
 MODES = ["single", "reasoning", "joint", "joint_reasoning"]
 MODE_LABELS = {

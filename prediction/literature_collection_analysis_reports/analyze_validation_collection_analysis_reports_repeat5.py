@@ -22,7 +22,7 @@ from prediction_metrics import (  # noqa: E402
 ROOT = ANALYSIS_ROOT.parent
 OPENAI_BATCH_OUTPUT = ROOT / "openAI_batch_output"
 INPUT = ROOT / "input"
-LEARN_DF = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_learn.csv"
+LEARN_DF = ROOT / "science_data" / "data" / "processed_data" / "df_paired_learn.csv"
 COLLECTION_REPORT_INDEX_CSV = (
     ROOT / "literature" / "output" / "collection_analysis_reports" / "switch_sets_stage1" / "report_index.csv"
 )

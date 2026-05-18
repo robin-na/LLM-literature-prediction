@@ -29,12 +29,12 @@ from scipy.optimize import linear_sum_assignment
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
 GPT41_FILES = [
-    REPO_ROOT / "batch_processing/output_xlsx/simple_batch_197papers_gpt41.xlsx",
-    REPO_ROOT / "batch_processing/output_xlsx/simple_batch_810papers_v2.xlsx",
+    REPO_ROOT / "extraction/output_xlsx/simple_batch_197papers_gpt41.xlsx",
+    REPO_ROOT / "extraction/output_xlsx/simple_batch_810papers_v2.xlsx",
 ]
 SONNET46_FILES = [
-    REPO_ROOT / "batch_processing/output_xlsx/simple_batch_197papers_sonnet46_combined.xlsx",
-    REPO_ROOT / "batch_processing/output_xlsx/simple_batch_810papers_sonnet46_combined.xlsx",
+    REPO_ROOT / "extraction/output_xlsx/simple_batch_197papers_sonnet46_combined.xlsx",
+    REPO_ROOT / "extraction/output_xlsx/simple_batch_810papers_sonnet46_combined.xlsx",
 ]
 COMPARISON_DIR = REPO_ROOT / "results/extraction_model_comparison"
 OUTPUT_TEX = COMPARISON_DIR / "disagreement_report.tex"

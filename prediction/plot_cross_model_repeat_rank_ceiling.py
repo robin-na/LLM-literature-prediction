@@ -35,7 +35,7 @@ from literature_collection_analysis_reports.analyze_validation_collection_analys
 
 
 ROOT = ANALYSIS_ROOT.parent
-VAL_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
+VAL_CSV = ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv"
 RESULTS_DIR = ROOT / "results" / "paper" / "robustness"
 PLOTS_DIR = ROOT / "plots" / "paper" / "exploratory"
 

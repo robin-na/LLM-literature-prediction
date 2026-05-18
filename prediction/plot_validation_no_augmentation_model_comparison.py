@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "science-data_and_code" / "data" / "processed_data"
+DATA = ROOT / "science_data" / "data" / "processed_data"
 OPENAI_BATCH_OUTPUT = ROOT / "openAI_batch_output"
 
 sys.path.append(str(ROOT / "analysis"))

@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PLOTS_ROOT = ROOT / "plots"
+PLOTS_ROOT = ROOT / "notebooks"
 
 VALIDATION_PLOTS = PLOTS_ROOT / "validation"
 VALIDATION_NO_AUGMENTATION_MODEL_COMPARISON_PLOTS = (

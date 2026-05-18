@@ -8,7 +8,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 RESULTS_DIR = ROOT / "results" / "validation" / "literature_collection_analysis_reports_repeat5_human_reference"
-HUMAN_PREDICTIONS_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "prediction_survey.csv"
+HUMAN_PREDICTIONS_CSV = ROOT / "science_data" / "data" / "processed_data" / "prediction_survey.csv"
 MODEL_PAIR_CSV = (
     ROOT
     / "results"

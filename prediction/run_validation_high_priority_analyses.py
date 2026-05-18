@@ -16,7 +16,7 @@ from analyze_validation_interaction_alignment import parse_variation
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
-DATA = ROOT / "science-data_and_code" / "data" / "processed_data"
+DATA = ROOT / "science_data" / "data" / "processed_data"
 
 VAL_PATH = DATA / "df_paired_val.csv"
 PRED_PATH = RESULTS / "prediction_positive_case_variations_41.csv"

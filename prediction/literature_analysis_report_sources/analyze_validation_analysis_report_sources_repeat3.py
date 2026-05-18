@@ -19,7 +19,7 @@ BACKFILL_OUTPUT_DIR = OPENAI_BATCH_OUTPUT / "backfill_repeat5_missing"
 RESULTS_DIR = ROOT / "results" / "validation" / "literature_analysis_report_sources_repeat5"
 METADATA_CSV = ROOT / "paper_collection" / "WoS_251031_fileInfo.csv"
 VALIDATION_CSV = ROOT / "input" / "pgg_CONFIGmerged_validation.csv"
-LEARN_DF = ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_learn.csv"
+LEARN_DF = ROOT / "science_data" / "data" / "processed_data" / "df_paired_learn.csv"
 FEATURE_DATASET_CSV = (
     ROOT
     / "results"

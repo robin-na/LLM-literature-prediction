@@ -12,7 +12,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from agentic_report.column_defs import format_prediction_task_column_definitions  # noqa: E402
 from agentic_report.config import DEFAULT_LITERATURE_VECTOR_STORE_ID  # noqa: E402
 from agentic_report.prompts import build_paper_retrieval_report_prompt  # noqa: E402
-from batch_inputs.literature_filters import (  # noqa: E402
+from prediction_inputs.literature_filters import (  # noqa: E402
     build_collection_file_id_map,
     chunk_items,
     load_collection_map,

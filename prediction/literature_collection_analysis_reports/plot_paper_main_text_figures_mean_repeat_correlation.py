@@ -24,7 +24,7 @@ REPEAT_ROWS_CSV = (
     / "literature_collection_analysis_reports_repeat5_model_sampling"
     / "validation_literature_collection_analysis_report_repeat5_model_sampling_repeat_rows.csv"
 )
-HUMAN_PREDICTIONS_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "prediction_survey.csv"
+HUMAN_PREDICTIONS_CSV = ROOT / "science_data" / "data" / "processed_data" / "prediction_survey.csv"
 VALIDATION_CSV = ROOT / "input" / "pgg_CONFIGmerged_validation.csv"
 REPEAT5_SUMMARY_CSV = (
     ROOT

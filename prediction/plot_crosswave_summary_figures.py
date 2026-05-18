@@ -12,7 +12,7 @@ import seaborn as sns
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RESULTS_DIR = REPO_ROOT / "results"
 from plot_paths import CROSSWAVE_PLOTS as PLOTS_DIR, ensure_plot_dir
-DATA_DIR = REPO_ROOT / "science-data_and_code" / "data" / "processed_data"
+DATA_DIR = REPO_ROOT / "science_data" / "data" / "processed_data"
 
 VAL_METRICS_PATH = RESULTS_DIR / "prediction_positive_case_variations_41_metrics.csv"
 LEARN_METRICS_PATH = RESULTS_DIR / "prediction_crosswave_variations_41_learning_with_baselines_metrics.csv"

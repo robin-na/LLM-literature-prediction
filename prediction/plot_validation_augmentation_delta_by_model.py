@@ -355,12 +355,12 @@ def load_benchmark_reference(
     control: pd.Series,
 ) -> pd.DataFrame:
     df_val = pd.read_csv(
-        ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv"
+        ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv"
     ).sort_values("CONFIG_configId")
     enet_pred = 100.0 * df_val["elastic_prereg_pred"].to_numpy(dtype=float)
 
     learn = pd.read_csv(
-        ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_learn.csv"
+        ROOT / "science_data" / "data" / "processed_data" / "df_paired_learn.csv"
     )
     train_mean = float(100.0 * learn["treatment_itt_efficiency"].mean())
     train_mean_pred = np.full(len(treatment), train_mean, dtype=float)
@@ -372,7 +372,7 @@ def load_benchmark_reference(
         load_pairs(
             str(
                 ROOT
-                / "science-data_and_code"
+                / "science_data"
                 / "data"
                 / "processed_data"
                 / "df_analysis_val.csv"

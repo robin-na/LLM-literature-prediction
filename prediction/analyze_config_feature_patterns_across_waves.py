@@ -11,7 +11,7 @@ RESULTS_DIR = REPO_ROOT / "results"
 LEARNING_PRED = RESULTS_DIR / "prediction_learning_wave_elicitation_41.csv"
 VALIDATION_PRED = RESULTS_DIR / "prediction_positive_case_variations_41.csv"
 
-LEARNING_DF = REPO_ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_learn.csv"
+LEARNING_DF = REPO_ROOT / "science_data" / "data" / "processed_data" / "df_paired_learn.csv"
 VALIDATION_DF = REPO_ROOT / "input" / "pgg_CONFIGmerged_validation.csv"
 
 VARIATIONS = [

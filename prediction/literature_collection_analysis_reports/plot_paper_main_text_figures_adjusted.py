@@ -25,7 +25,7 @@ from adjusted_correlation import (
 
 RESULTS_DIR = ROOT / "results" / "paper" / "main_text_figures_adjusted_correlation"
 PLOTS_DIR = ROOT / "plots" / "paper" / "main_text_adjusted_correlation"
-HUMAN_PREDICTIONS_CSV = ROOT / "science-data_and_code" / "data" / "processed_data" / "prediction_survey.csv"
+HUMAN_PREDICTIONS_CSV = ROOT / "science_data" / "data" / "processed_data" / "prediction_survey.csv"
 REPEAT5_ROWS_CSV = (
     ROOT
     / "results"
@@ -83,7 +83,7 @@ def load_human_predictions() -> tuple[pd.DataFrame, np.ndarray, np.ndarray, np.n
     rows = rows.query("prediction.between(-0.2, 1.2) and n_predictions_made == 20").copy()
     truth, control, sem_y = load_truth_and_sem()
     config_ids = (
-        pd.read_csv(ROOT / "science-data_and_code" / "data" / "processed_data" / "df_paired_val.csv")
+        pd.read_csv(ROOT / "science_data" / "data" / "processed_data" / "df_paired_val.csv")
         .sort_values("CONFIG_configId")["CONFIG_configId"]
         .to_numpy(dtype=int)
     )

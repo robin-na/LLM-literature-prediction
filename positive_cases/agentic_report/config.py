@@ -5,7 +5,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-DATA_PATH = PROJECT_ROOT / "science-data_and_code" / "data" / "processed_data" / "df_analysis_learn.csv"
+DATA_PATH = PROJECT_ROOT / "science_data" / "data" / "processed_data" / "df_analysis_learn.csv"
 PAPER_PATH = PROJECT_ROOT / "PGG_papers" / "science-paper" / "PGG_paper_science.pdf"
 
 BASE_OUTPUT_DIR = PROJECT_ROOT / "positive_cases" / "output"

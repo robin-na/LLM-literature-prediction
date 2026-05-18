@@ -40,17 +40,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--batch-table",
         type=Path,
-        default=Path("batch_processing/output_xlsx/agentic_extraction_7papers_rawmd.xlsx"),
+        default=Path("extraction/output_xlsx/agentic_extraction_7papers_rawmd.xlsx"),
     )
     parser.add_argument(
         "--learn-csv",
         type=Path,
-        default=Path("science-data_and_code/data/processed_data/df_paired_learn.csv"),
+        default=Path("science_data/data/processed_data/df_paired_learn.csv"),
     )
     parser.add_argument(
         "--val-csv",
         type=Path,
-        default=Path("science-data_and_code/data/processed_data/df_paired_val.csv"),
+        default=Path("science_data/data/processed_data/df_paired_val.csv"),
     )
     parser.add_argument(
         "--output-dir",
