@@ -29,6 +29,7 @@ __pycache__/
 # Extraction pipeline outputs (large, regenerable)
 extraction/output_csv/
 extraction/output_xlsx/
+extraction/outputs/
 extraction/inputs/
 
 # PGG papers (downloaded from Google Drive, not source-controlled)
