@@ -272,6 +272,41 @@ textarea.finput { resize: vertical; min-height: 54px; line-height: 1.5; }
 .save-btn.saved  { background: var(--done); }
 .save-btn.dirty  { background: var(--warn); }
 
+/* ── PDF search bar ── */
+#pdf-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 8px;
+  background: #3a3d42;
+  border-bottom: 1px solid #555;
+  flex-shrink: 0;
+}
+#pdf-search-input {
+  flex: 1;
+  padding: 4px 8px;
+  background: #2a2d30;
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: #ddd;
+  font-size: 12px;
+  outline: none;
+}
+#pdf-search-input:focus { border-color: #6b8ed6; box-shadow: 0 0 0 2px rgba(107,142,214,.25); }
+#pdf-search-input::placeholder { color: #888; }
+.pdf-search-btn {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #ccc;
+  border-radius: 4px;
+  padding: 3px 9px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.pdf-search-btn:hover { background: rgba(255,255,255,.22); color: #fff; }
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -320,6 +355,12 @@ textarea.finput { resize: vertical; min-height: 54px; line-height: 1.5; }
 
   <!-- ── PDF Viewer ── -->
   <div id="viewer">
+    <div id="pdf-search-bar">
+      <input id="pdf-search-input" type="text" placeholder="Search in PDF… (⌘F)"
+             onkeydown="onPdfSearchKey(event)" autocomplete="off" spellcheck="false">
+      <button class="pdf-search-btn" onclick="runPdfSearch()">Search</button>
+      <button class="pdf-search-btn" onclick="clearPdfSearch()" title="Clear search">✕</button>
+    </div>
     <iframe id="pdf-frame" style="display:none"></iframe>
     <div id="pdf-placeholder">
       <div class="ph-icon">📄</div>
@@ -380,7 +421,7 @@ const FIELDS = [
     hint:"number of rounds · 1–30 · N/R if unknown or hidden" },
   { key:"CONFIG_allOrNothing",
     label:"Contribution Type",
-    type:"bin",
+    type:"bin_na",
     hint:"1 = continuous (any amount) · 0 = binary (all-or-nothing)" },
   { key:"CONFIG_defaultContribProp",
     label:"Contribution Framing",
@@ -396,7 +437,7 @@ const FIELDS = [
     hint:"1 = enabled · 0 = explicitly disabled · N/A = not mentioned" },
   { key:"CONFIG_showOtherSummaries",
     label:"Peer Outcome Visibility",
-    type:"bin",
+    type:"bin_na",
     hint:"1 = others' payoffs/earnings visible · 0 = hidden" },
   { key:"CONFIG_showNRounds",
     label:"Horizon Knowledge",
@@ -596,10 +637,13 @@ async function selectPaper(idx) {
   const placeholder = document.getElementById("pdf-placeholder");
 
   if (p.has_pdf) {
-    frame.src = `/pdf/${encodeURIComponent(p.id)}`;
+    _pdfBaseUrl = `/pdf/${encodeURIComponent(p.id)}`;
+    const searchTerm = document.getElementById("pdf-search-input").value.trim();
+    frame.src = searchTerm ? `${_pdfBaseUrl}#search=${encodeURIComponent(searchTerm)}` : _pdfBaseUrl;
     frame.style.display = "block";
     placeholder.style.display = "none";
   } else {
+    _pdfBaseUrl = "";
     frame.src = "";
     frame.style.display = "none";
     placeholder.style.display = "flex";
@@ -706,7 +750,10 @@ function renderForm() {
   // Condition label is meaningless for non-empirical papers
   let html = nonEmp
     ? ""
-    : fieldHTML({ key: "label", label: "Condition Label", type: "text", hint: "" }, c.label || "");
+    : fieldHTML({ key: "label", label: "Condition Label", type: "text", hint: "" }, c.label || "") +
+      fieldHTML({ key: "experiment_name", label: "Experiment Name", type: "text",
+                  hint: "optional · meaningful shorthand (e.g. 'Punishment + Chat')" },
+                c.experiment_name || "");
 
   for (const f of FIELDS) {
     if (f.sec) {
@@ -910,9 +957,42 @@ function exportCSV()  { window.location.href = "/api/export-csv"; }
 function openGuide() { window.open("/guide", "_blank"); }
 
 /* ═══════════════════════════════════════════════════
+   PDF SEARCH
+═══════════════════════════════════════════════════ */
+let _pdfBaseUrl = "";
+
+function runPdfSearch() {
+  const term = document.getElementById("pdf-search-input").value.trim();
+  if (!_pdfBaseUrl) return;
+  const frame = document.getElementById("pdf-frame");
+  frame.src = term ? `${_pdfBaseUrl}#search=${encodeURIComponent(term)}` : _pdfBaseUrl;
+}
+
+function clearPdfSearch() {
+  document.getElementById("pdf-search-input").value = "";
+  if (_pdfBaseUrl) document.getElementById("pdf-frame").src = _pdfBaseUrl;
+}
+
+function onPdfSearchKey(e) {
+  if (e.key === "Enter")  { e.preventDefault(); runPdfSearch(); }
+  if (e.key === "Escape") { clearPdfSearch(); document.getElementById("pdf-search-input").blur(); }
+}
+
+/* ═══════════════════════════════════════════════════
    KEYBOARD NAV
 ═══════════════════════════════════════════════════ */
 document.addEventListener("keydown", e => {
+  // Cmd/Ctrl+F: focus PDF search bar instead of browser's page search
+  if ((e.metaKey || e.ctrlKey) && e.key === "f") {
+    const frame = document.getElementById("pdf-frame");
+    if (frame.style.display !== "none") {
+      e.preventDefault();
+      const si = document.getElementById("pdf-search-input");
+      si.focus();
+      si.select();
+      return;
+    }
+  }
   const tag = document.activeElement?.tagName;
   if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
   if      (e.key === "ArrowRight" || e.key === "j") { e.preventDefault(); selectPaper(curIdx + 1); }
