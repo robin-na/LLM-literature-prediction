@@ -682,7 +682,10 @@ async function init() {
 
 async function renderPage(num, cont) {
   const page = await pdf.getPage(num);
-  const vp   = page.getViewport({ scale: 1.5 });
+  const containerW = document.getElementById('pages').clientWidth - 32;
+  const baseVp = page.getViewport({ scale: 1 });
+  const scale  = Math.max(1.2, containerW / baseVp.width);
+  const vp     = page.getViewport({ scale });
   const wrap = document.createElement('div');
   wrap.className = 'pw';
   wrap.style.width  = vp.width  + 'px';
