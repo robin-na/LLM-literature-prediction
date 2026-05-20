@@ -7,7 +7,7 @@ from functools import lru_cache
 from pathlib import Path
 
 import docx as _docx
-from flask import Flask, Response, abort, jsonify, request, send_file
+from flask import Flask, Response, abort, jsonify, render_template_string, request, send_file
 
 app = Flask(__name__)
 
@@ -605,6 +605,166 @@ def guide():
     if html is None:
         return "<h2>Guide not found</h2><p>Place the DOCX at the configured path.</p>", 404
     return html
+
+
+_VIEWER_TEMPLATE = r"""<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PDF Viewer</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{display:flex;flex-direction:column;background:#525659;
+     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+#toolbar{display:flex;align-items:center;gap:5px;padding:5px 8px;
+         background:#3a3d42;border-bottom:1px solid #555;flex-shrink:0}
+#si{flex:1;padding:4px 8px;background:#2a2d30;border:1px solid #555;
+    border-radius:4px;color:#ddd;font-size:12px;outline:none}
+#si:focus{border-color:#6b8ed6}
+#si::placeholder{color:#888}
+.tb{padding:3px 8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    border-radius:4px;color:#ccc;font-size:12px;cursor:pointer}
+.tb:hover{background:rgba(255,255,255,.2);color:#fff}
+#info{font-size:11px;color:#aaa;min-width:55px;text-align:right;white-space:nowrap}
+#pages{flex:1;overflow-y:auto;padding:16px;
+       display:flex;flex-direction:column;align-items:center;gap:14px}
+#loading{padding:40px;color:#aaa;font-size:13px}
+.pw{position:relative;box-shadow:0 2px 12px rgba(0,0,0,.5);background:white}
+.pw canvas{display:block}
+.tl{position:absolute;top:0;left:0;width:100%;height:100%;
+    overflow:hidden;pointer-events:none}
+.tl span{color:transparent;position:absolute;white-space:pre;
+         transform-origin:0% 0%;cursor:text}
+.tl span.hl {background:rgba(255,255,0,.5)}
+.tl span.sel{background:rgba(255,130,0,.75)}
+</style>
+</head>
+<body>
+<div id="toolbar">
+  <input id="si" type="text" placeholder="Search in PDF… (⌘F)" autocomplete="off" spellcheck="false">
+  <button class="tb" onclick="prev()">↑</button>
+  <button class="tb" onclick="next()">↓</button>
+  <button class="tb" onclick="clr()">✕</button>
+  <span id="info"></span>
+</div>
+<div id="pages"><div id="loading">Loading PDF…</div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+const PAPER_ID = """ + "{{ paper_id | tojson }}" + r""";
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+function xfm(m1, m2) {
+  return [
+    m1[0]*m2[0]+m1[2]*m2[1], m1[1]*m2[0]+m1[3]*m2[1],
+    m1[0]*m2[2]+m1[2]*m2[3], m1[1]*m2[2]+m1[3]*m2[3],
+    m1[0]*m2[4]+m1[2]*m2[5]+m1[4], m1[1]*m2[4]+m1[3]*m2[5]+m1[5],
+  ];
+}
+const transform = (pdfjsLib.Util && pdfjsLib.Util.transform) || xfm;
+
+let pdf = null, allSpans = [], matches = [], idx = -1;
+
+async function init() {
+  try {
+    pdf = await pdfjsLib.getDocument('/pdf/' + encodeURIComponent(PAPER_ID)).promise;
+  } catch(e) {
+    document.getElementById('loading').textContent = 'Failed to load PDF.'; return;
+  }
+  const cont = document.getElementById('pages');
+  document.getElementById('loading').remove();
+  for (let n = 1; n <= pdf.numPages; n++) await renderPage(n, cont);
+  const q = new URLSearchParams(location.search).get('search') ||
+            decodeURIComponent((location.hash.match(/#search=(.*)/) || [])[1] || '');
+  if (q) { document.getElementById('si').value = q; doSearch(q); }
+}
+
+async function renderPage(num, cont) {
+  const page = await pdf.getPage(num);
+  const vp   = page.getViewport({ scale: 1.5 });
+  const wrap = document.createElement('div');
+  wrap.className = 'pw';
+  wrap.style.width  = vp.width  + 'px';
+  wrap.style.height = vp.height + 'px';
+  const canvas = document.createElement('canvas');
+  canvas.width  = vp.width; canvas.height = vp.height;
+  wrap.appendChild(canvas);
+  const tl = document.createElement('div'); tl.className = 'tl';
+  wrap.appendChild(tl);
+  cont.appendChild(wrap);
+  await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+  const tc = await page.getTextContent();
+  tc.items.forEach(item => {
+    if (!item.str) return;
+    const tx = transform(vp.transform, item.transform);
+    const h  = Math.sqrt(tx[2]*tx[2] + tx[3]*tx[3]);
+    const a  = Math.atan2(tx[1], tx[0]);
+    const s  = document.createElement('span');
+    s.textContent = item.str;
+    s.dataset.low = item.str.toLowerCase();
+    s.style.left  = tx[4] + 'px';
+    s.style.top   = (tx[5] - h) + 'px';
+    s.style.fontSize = h + 'px';
+    if (a) s.style.transform = 'rotate(' + (-a) + 'rad)';
+    tl.appendChild(s); allSpans.push(s);
+  });
+}
+
+let _t = null;
+document.getElementById('si').addEventListener('input', () => {
+  clearTimeout(_t); _t = setTimeout(() => doSearch(document.getElementById('si').value), 200);
+});
+document.getElementById('si').addEventListener('keydown', e => {
+  if (e.key === 'Enter') { e.preventDefault(); e.shiftKey ? prev() : next(); }
+  if (e.key === 'Escape') clr();
+});
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'f') {
+    e.preventDefault(); focusSI();
+  }
+});
+window.addEventListener('message', e => {
+  if (e.data && e.data.action === 'focusSearch') focusSI();
+});
+function focusSI() { const si = document.getElementById('si'); si.focus(); si.select(); }
+
+function doSearch(q) {
+  allSpans.forEach(s => s.classList.remove('hl', 'sel'));
+  matches = []; idx = -1;
+  if (!q.trim()) { upd(); return; }
+  const lq = q.toLowerCase();
+  allSpans.forEach(s => { if (s.dataset.low.includes(lq)) { s.classList.add('hl'); matches.push(s); } });
+  upd();
+  if (matches.length) { idx = 0; doSel(0); }
+}
+function doSel(i) {
+  matches.forEach(s => s.classList.remove('sel'));
+  if (i < 0 || i >= matches.length) return;
+  matches[i].classList.add('sel');
+  matches[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  upd();
+}
+function next() { if (!matches.length) return; idx = (idx + 1) % matches.length; doSel(idx); }
+function prev() { if (!matches.length) return; idx = (idx - 1 + matches.length) % matches.length; doSel(idx); }
+function clr()  { document.getElementById('si').value = ''; doSearch(''); }
+function upd()  {
+  const q = document.getElementById('si').value.trim();
+  document.getElementById('info').textContent =
+    q ? (matches.length ? (idx + 1) + '/' + matches.length : 'No results') : '';
+}
+init();
+</script>
+</body>
+</html>"""
+
+
+@app.route("/viewer/<path:paper_id>")
+def pdf_viewer(paper_id):
+    paper_id = paper_id.removesuffix(".pdf")
+    if not (PDFS_DIR / f"{paper_id}.pdf").exists():
+        abort(404)
+    return render_template_string(_VIEWER_TEMPLATE, paper_id=paper_id)
 
 
 if __name__ == "__main__":
