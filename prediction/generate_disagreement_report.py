@@ -24,6 +24,15 @@ import numpy as np
 import pandas as pd
 from scipy.optimize import linear_sum_assignment
 
+from prediction._comparison_shared import (
+    ALL_FIELDS,
+    BINARY_FIELDS,
+    MISSING_TOKENS,
+    NUMERIC_FIELDS,
+    TEXT_FIELDS,
+    cosine as _cosine,
+)
+
 # ─────────────────────────────── paths & constants ───────────────────────────
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -42,39 +51,12 @@ OUTPUT_TEX = COMPARISON_DIR / "disagreement_report.tex"
 TRUNC_VALUE = 220
 TRUNC_REASON = 450
 
-# Fields compared by compare_extraction_models.py
-BINARY_FIELDS = {
-    "METHOD_empirical", "METHOD_experiment", "METHOD_lab",
-    "METHOD_simulation", "METHOD_analytical",
-    "CONFIG_allOrNothing", "CONFIG_chat",
-    "CONFIG_showOtherSummaries", "CONFIG_showPunishmentId",
-    "CONFIG_showRewardId", "CONFIG_showNRounds",
-    "CONFIG_punishmentExists", "CONFIG_rewardExists",
-    "DV_efficiencyReported",
-    "source_data", "experiment_environment",
-}
-NUMERIC_FIELDS = {
-    "CONFIG_playerCount", "CONFIG_numRounds",
-    "CONFIG_defaultContribProp", "CONFIG_MPCR",
-    "CONFIG_punishmentCost", "CONFIG_punishmentTech",
-    "CONFIG_rewardCost", "CONFIG_rewardTech",
-    "CONFIG_endowment",
-    "number_IVs", "number_DVs",
-}
-TEXT_FIELDS = {
-    "data_id", "indep_var", "IVs", "DVs", "DVs_Definitions",
-    "participant_country", "participant_age",
-    "participant_gender", "participant_education",
-    "other_game_info",
-}
-ALL_FIELDS = sorted(BINARY_FIELDS | NUMERIC_FIELDS | TEXT_FIELDS)
-
 # Disagreement categories
 CAT_A_FIELDS = {
-    "data_id", "DVs", "IVs",                       # naming / terminology
+    "data_id", "DVs", "IVs",                        # naming / terminology
     "indep_var", "other_game_info", "DVs_Definitions",  # level of detail
     "participant_age", "participant_gender",
-    "participant_education", "participant_country",  # demographics formatting
+    "participant_education", "participant_country",   # demographics formatting
 }
 CAT_B_FIELDS = {
     # One model says N/A (not mentioned), other says 0/1 (not present/present)
@@ -83,14 +65,8 @@ CAT_B_FIELDS = {
 }
 # Category C = everything else (binary/numeric with actual value disagreement)
 
-MISSING_TOKENS = {"", "nan", "none", "n/a", "n/r", "na", "null", "missing"}
-
 
 # ─────────────────────────────── data loading ────────────────────────────────
-
-def _cosine(u: np.ndarray, v: np.ndarray) -> float:
-    nu, nv = np.linalg.norm(u), np.linalg.norm(v)
-    return float(np.dot(u, v) / (nu * nv)) if nu > 0 and nv > 0 else 0.0
 
 
 def _assign_condition_idx_alphabetical(df: pd.DataFrame) -> pd.DataFrame:
@@ -227,12 +203,6 @@ def add_category(dis_enriched: pd.DataFrame) -> pd.DataFrame:
 
 # ─────────────────────────────── example selection ───────────────────────────
 
-def _reason_len(s) -> int:
-    if pd.isna(s) or str(s).lower() in {"nan", "none", ""}:
-        return 0
-    return len(str(s))
-
-
 def select_examples(
     subset: pd.DataFrame,
     n: int = 7,
@@ -249,9 +219,8 @@ def select_examples(
     if fields:
         df = df[df["field"].isin(fields)]
 
-    # require substantive reasoning from both models
-    df["_g_len"] = df["gpt41_reason"].apply(_reason_len)
-    df["_s_len"] = df["sonnet46_reason"].apply(_reason_len)
+    df["_g_len"] = df["gpt41_reason"].fillna("").astype(str).str.len()
+    df["_s_len"] = df["sonnet46_reason"].fillna("").astype(str).str.len()
     df = df[(df["_g_len"] > 20) & (df["_s_len"] > 20)]
 
     if df.empty:

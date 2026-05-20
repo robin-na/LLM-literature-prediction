@@ -45,6 +45,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+from prediction._comparison_shared import (
+    ALL_FIELDS,
+    BINARY_FIELDS,
+    MISSING_TOKENS,
+    NUMERIC_FIELDS,
+    TEXT_FIELDS,
+    cosine,
+)
+
 DEFAULT_GPT41 = [
     "extraction/output_xlsx/simple_batch_197papers_gpt41.xlsx",
     "extraction/output_xlsx/simple_batch_810papers_v2.xlsx",
@@ -54,38 +63,11 @@ DEFAULT_SONNET46 = [
     "extraction/output_xlsx/simple_batch_810papers_sonnet46_combined.xlsx",
 ]
 
-BINARY_FIELDS = {
-    "METHOD_empirical", "METHOD_experiment", "METHOD_lab",
-    "METHOD_simulation", "METHOD_analytical",
-    "CONFIG_allOrNothing", "CONFIG_chat",
-    "CONFIG_showOtherSummaries", "CONFIG_showPunishmentId",
-    "CONFIG_showRewardId", "CONFIG_showNRounds",
-    "CONFIG_punishmentExists", "CONFIG_rewardExists",
-    "DV_efficiencyReported",
-    "source_data", "experiment_environment",
-}
-NUMERIC_FIELDS = {
-    "CONFIG_playerCount", "CONFIG_numRounds",
-    "CONFIG_defaultContribProp", "CONFIG_MPCR",
-    "CONFIG_punishmentCost", "CONFIG_punishmentTech",
-    "CONFIG_rewardCost", "CONFIG_rewardTech",
-    "CONFIG_endowment",
-    "number_IVs", "number_DVs",
-}
-TEXT_FIELDS = {
-    "data_id", "indep_var", "IVs", "DVs", "DVs_Definitions",
-    "participant_country", "participant_age",
-    "participant_gender", "participant_education",
-    "other_game_info",
-}
-
 NUMERIC_TOLERANCE = 0.05
-NUMERIC_ABS_FLOOR = 0.01   # values within this absolute diff also agree (protects tiny numbers)
+NUMERIC_ABS_FLOOR = 0.01  # values within this absolute diff also agree (protects near-zero numbers)
 TEXT_COSINE_THRESHOLD = 0.70  # lowered from 0.95: allows paraphrases, blocks genuinely different content
 EMBED_MODEL = "text-embedding-3-small"
 EMBED_BATCH = 256
-
-MISSING_TOKENS = {"", "nan", "none", "n/a", "n/r", "na", "null"}
 
 
 def field_type(field: str) -> str:
@@ -207,16 +189,6 @@ def align_conditions(
     # Hungarian algorithm: maximise total similarity (minimise negative)
     row_ind, col_ind = linear_sum_assignment(-sim)
     return [(gpt_rows[r], sonnet_rows[c]) for r, c in zip(row_ind, col_ind)]
-
-
-# ---------------------------------------------------------------------------
-# Comparators
-# ---------------------------------------------------------------------------
-
-def cosine(u: np.ndarray, v: np.ndarray) -> float:
-    nu = np.linalg.norm(u); nv = np.linalg.norm(v)
-    if nu == 0.0 or nv == 0.0: return 0.0
-    return float(np.dot(u, v) / (nu * nv))
 
 
 # ---------------------------------------------------------------------------
@@ -502,42 +474,28 @@ def write_disagreements_markdown(
         )
         lines.append("")
 
+        def _emit_bucket(subset: pd.DataFrame, label: str) -> None:
+            if subset.empty:
+                return
+            papers = sorted(subset["custom_id"].astype(str).unique())
+            lines.append(
+                f"**{label} ({len(subset)} condition pairs across {len(papers)} papers)**"
+            )
+            lines.append("")
+            for cid in papers[:MAX_PAPERS_PER_BUCKET]:
+                n = int((subset["custom_id"] == cid).sum())
+                lines.append(f"- `{cid}.md` ({n} conditions)")
+            if len(papers) > MAX_PAPERS_PER_BUCKET:
+                lines.append(
+                    f"- _…and {len(papers) - MAX_PAPERS_PER_BUCKET} more "
+                    "— see disagreements.csv_"
+                )
+            lines.append("")
+
         one_missing = sub[(sub["gpt41"] == "MISSING") | (sub["sonnet46"] == "MISSING")]
         both_present = sub.drop(one_missing.index)
-
-        if not one_missing.empty:
-            papers = sorted(one_missing["custom_id"].astype(str).unique())
-            lines.append(
-                f"**One-side missing ({len(one_missing)} condition pairs "
-                f"across {len(papers)} papers)**"
-            )
-            lines.append("")
-            for cid in papers[:MAX_PAPERS_PER_BUCKET]:
-                n = int((one_missing["custom_id"] == cid).sum())
-                lines.append(f"- `{cid}.md` ({n} conditions)")
-            if len(papers) > MAX_PAPERS_PER_BUCKET:
-                lines.append(
-                    f"- _…and {len(papers) - MAX_PAPERS_PER_BUCKET} more "
-                    "— see disagreements.csv_"
-                )
-            lines.append("")
-
-        if not both_present.empty:
-            papers = sorted(both_present["custom_id"].astype(str).unique())
-            lines.append(
-                f"**Both present, value differs ({len(both_present)} condition pairs "
-                f"across {len(papers)} papers)**"
-            )
-            lines.append("")
-            for cid in papers[:MAX_PAPERS_PER_BUCKET]:
-                n = int((both_present["custom_id"] == cid).sum())
-                lines.append(f"- `{cid}.md` ({n} conditions)")
-            if len(papers) > MAX_PAPERS_PER_BUCKET:
-                lines.append(
-                    f"- _…and {len(papers) - MAX_PAPERS_PER_BUCKET} more "
-                    "— see disagreements.csv_"
-                )
-            lines.append("")
+        _emit_bucket(one_missing, "One-side missing")
+        _emit_bucket(both_present, "Both present, value differs")
 
     lines.append("## Fields by reliability (worst first)")
     lines.append("")
