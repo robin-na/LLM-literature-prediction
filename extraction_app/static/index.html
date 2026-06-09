@@ -232,6 +232,15 @@ body { background: var(--bg); height: 100vh; display: flex; flex-direction: colu
 
 /* Locked (non-empirical) fields */
 .field-group.locked { opacity: .45; pointer-events: none; }
+
+/* Missing-mandatory fields — orange outline */
+.field-group.missing .finput,
+.field-group.missing .tog-row {
+  outline: 2px solid #f97316;
+  outline-offset: 1px;
+  border-radius: 5px;
+}
+.field-group.missing .field-label { color: #c2410c; }
 .na-badge {
   display: inline-block; margin-left: 8px; font-size: 9px; font-weight: 700;
   text-transform: uppercase; letter-spacing: .5px;
@@ -380,7 +389,7 @@ const FIELDS = [
     hint:"number of rounds · 1–30 · N/R if unknown or hidden" },
   { key:"CONFIG_allOrNothing",
     label:"Contribution Type",
-    type:"bin",
+    type:"bin_na",
     hint:"1 = continuous (any amount) · 0 = binary (all-or-nothing)" },
   { key:"CONFIG_defaultContribProp",
     label:"Contribution Framing",
@@ -390,13 +399,17 @@ const FIELDS = [
     label:"MPCR",
     type:"text",
     hint:"fund multiplier ÷ group size · typical range 0.06–0.7" },
+  { key:"CONFIG_endowment",
+    label:"Endowment",
+    type:"text",
+    hint:"tokens/coins given to each player per round · N/R if not stated" },
   { key:"CONFIG_chat",
     label:"Communication",
     type:"bin_na",
     hint:"1 = enabled · 0 = explicitly disabled · N/A = not mentioned" },
   { key:"CONFIG_showOtherSummaries",
     label:"Peer Outcome Visibility",
-    type:"bin",
+    type:"bin_na",
     hint:"1 = others' payoffs/earnings visible · 0 = hidden" },
   { key:"CONFIG_showNRounds",
     label:"Horizon Knowledge",
@@ -436,8 +449,20 @@ const FIELDS = [
     hint:"1 = identity revealed · 0 = anonymous · N/A = no reward in condition" },
 
   { sec: "Notes" },
+  { key:"number_IVs",
+    label:"Number of IVs",
+    type:"text",
+    hint:"count of distinct independent variables · N/A if not determinable" },
+  { key:"number_DVs",
+    label:"Number of DVs",
+    type:"text",
+    hint:"count of distinct dependent variables · N/A if not determinable" },
+  { key:"source_data",
+    label:"Original Data",
+    type:"bin_na",
+    hint:"1 = experiment collected its own data · 0 = reuses data from another experiment · N/A = not determinable" },
   { key:"Misc",
-    label:"Misc / Source Notes",
+    label:"Misc",
     type:"area",
     hint:"table/figure refs, edge cases, ambiguities" },
 ];
@@ -465,16 +490,30 @@ const FIELD_DEFS = {
   "CONFIG_rewardCost":          "Tokens spent by the rewarder per unit of reward given. N/A if no reward. N/R if cost not explicitly stated.",
   "CONFIG_rewardTech":          "Recipient's gain per coin the rewarder spends = rewardMagnitude ÷ rewardCost. E.g., spend 1 coin, recipient gains 3 → value is 3. N/A if no reward.",
   "CONFIG_showRewardId":        "1 = the reward recipient can identify who rewarded them. 0 = anonymous. N/A = no reward in this condition, or paper doesn't address identity.",
-  "Misc":                       "Free text: source table/figure references, edge cases, ambiguities, anything that doesn't fit the structured fields.",
+  "CONFIG_endowment":      "Tokens or coins given to each player at the start of each round. N/R if not explicitly stated.",
+  "number_IVs":            "Number of distinct independent variables manipulated in this condition. Enter a whole number. N/A if not determinable.",
+  "number_DVs":            "Number of distinct dependent variables measured in this condition. Enter a whole number. N/A if not determinable.",
+  "source_data":           "1 = experiment collected its own original data. 0 = paper reuses / re-analyzes data collected by another study. N/A = not determinable.",
+  "Misc":                  "Free text: source table/figure references, edge cases, ambiguities, anything that doesn't fit the structured fields.",
 };
 
 /* ═══════════════════════════════════════════════════
    CONSTANTS
 ═══════════════════════════════════════════════════ */
 const AUTO_NA_KEYS = new Set(
-  FIELDS.filter(f => f.key && (f.key.startsWith("CONFIG_") || f.key.startsWith("DV_")))
+  FIELDS.filter(f => f.key && (f.key.startsWith("CONFIG_") || f.key.startsWith("DV_")
+                               || f.key === "number_IVs" || f.key === "number_DVs"))
         .map(f => f.key)
 );
+
+// Mandatory fields: everything in the form except Misc (free-text notes).
+const MANDATORY_KEYS = new Set(
+  FIELDS.filter(f => f.key && f.key !== "Misc").map(f => f.key)
+);
+
+function isMissing(val) {
+  return val === undefined || val === null || String(val).trim() === "";
+}
 
 /* ═══════════════════════════════════════════════════
    STATE
@@ -517,7 +556,7 @@ function renderList() {
     const badge  = noPdf ? `<span class="no-pdf-badge">no PDF</span>` : "";
     return `
     <div class="paper-item ${p.done ? "done" : ""} ${i === curIdx ? "active" : ""} ${noPdf ? "no-pdf" : ""}"
-         onclick="selectPaper(${i})">
+         data-pid="${esc(p.id)}" onclick="selectPaper(${i})">
       <div class="pi-left">
         <span class="paper-num">${i + 1}</span>
         <span class="paper-dot"></span>
@@ -596,7 +635,7 @@ async function selectPaper(idx) {
   const placeholder = document.getElementById("pdf-placeholder");
 
   if (p.has_pdf) {
-    frame.src = `/pdf/${encodeURIComponent(p.id)}`;
+    frame.src = `/viewer/${encodeURIComponent(p.id)}`;
     frame.style.display = "block";
     placeholder.style.display = "none";
   } else {
@@ -637,6 +676,10 @@ function updatePositionLabel() {
 ═══════════════════════════════════════════════════ */
 function blankCond(n) { return { label: `Condition ${n}` }; }
 
+function condFromPrevious(previous, n) {
+  return { ...previous, label: `Condition ${n}` };
+}
+
 function curData() {
   return (_activePaperId && store[_activePaperId]) ? store[_activePaperId] : null;
 }
@@ -669,7 +712,7 @@ function switchCond(i) { curCond = i; renderTabs(); renderForm(); }
 
 function addCond() {
   const d = curData(); if (!d) return;
-  d.conditions.push(blankCond(d.conditions.length));
+  d.conditions.push(condFromPrevious(curCondObj(), d.conditions.length));
   curCond = d.conditions.length - 1;
   renderTabs(); renderForm(); markDirty();
 }
@@ -702,7 +745,8 @@ function renderForm() {
   // Condition label is meaningless for non-empirical papers
   let html = nonEmp
     ? ""
-    : fieldHTML({ key: "label", label: "Condition Label", type: "text", hint: "" }, c.label || "");
+    : fieldHTML({ key: "label", label: "Experiment Name", type: "text",
+                  hint: "name for this condition / treatment arm" }, c.label || "");
 
   for (const f of FIELDS) {
     if (f.sec) {
@@ -715,9 +759,8 @@ function renderForm() {
       continue;
     }
     const val          = c[f.key] !== undefined ? c[f.key] : "";
-    const isConfigField = f.key.startsWith("CONFIG_") || f.key.startsWith("DV_");
-    const isStudyField  = f.key === "Controlled_Or_Observational" || f.key === "Lab_Or_Field";
-    html += fieldHTML(f, val, (isConfigField && lockCfg) || (isStudyField && nonEmp));
+    const isStudyField = f.key === "Controlled_Or_Observational" || f.key === "Lab_Or_Field";
+    html += fieldHTML(f, val, (AUTO_NA_KEYS.has(f.key) && lockCfg) || (isStudyField && nonEmp));
   }
   document.getElementById("form-body").innerHTML = html;
 }
@@ -773,7 +816,10 @@ function fieldHTML(f, val, locked = false) {
   const tipAttr = FIELD_DEFS[f.key]
     ? `data-tip="${esc(FIELD_DEFS[f.key])}" onmouseenter="showTip(this)" onmouseleave="hideTip()"`
     : "";
-  const wrap = locked ? ` locked` : "";
+  const classes = [];
+  if (locked) classes.push("locked");
+  if (!locked && f.key && MANDATORY_KEYS.has(f.key) && isMissing(val)) classes.push("missing");
+  const wrap = classes.length ? " " + classes.join(" ") : "";
   return `<div class="field-group${wrap}" data-field="${f.key || "label"}">
     <div class="field-label" ${tipAttr}>${esc(f.label || "Label")} ${hint}</div>
     ${body}
@@ -818,7 +864,15 @@ function setVal(key, value) {
     if (shouldLockParams()) autoFillNA(); else renderForm();
     if (key === "Empirical") renderTabs();
   }
+  updateMissingClass(key, value);
   markDirty();
+}
+
+function updateMissingClass(key, value) {
+  if (!key || !MANDATORY_KEYS.has(key)) return;
+  const fg = document.querySelector(`#form-body .field-group[data-field="${CSS.escape(key)}"]`);
+  if (!fg || fg.classList.contains("locked")) return;
+  fg.classList.toggle("missing", isMissing(value));
 }
 
 function autoFillNA() {
@@ -881,9 +935,7 @@ async function flushSave(pid) {
 }
 
 function patchDoneState(pid, isDone) {
-  const idx = filtered.findIndex(p => p.id === pid);
-  if (idx < 0) return;
-  const el = document.querySelectorAll(".paper-item")[idx];
+  const el = document.querySelector(`.paper-item[data-pid="${CSS.escape(pid)}"]`);
   if (el) el.classList.toggle("done", isDone);
 }
 
@@ -905,13 +957,59 @@ function showStatus(msg) {
 /* ═══════════════════════════════════════════════════
    EXPORT / DOWNLOAD
 ═══════════════════════════════════════════════════ */
-function exportCSV()  { window.location.href = "/api/export-csv"; }
+const KEY_TO_LABEL = Object.fromEntries(
+  FIELDS.filter(f => f.key).map(f => [f.key, f.label || f.key])
+);
+
+async function exportCSV() {
+  if (dirty && _activePaperId) await flushSave(_activePaperId);
+  try {
+    const r = await fetch("/api/validate");
+    const v = await r.json();
+    if (v.total_missing > 0) {
+      const lines = v.papers.slice(0, 6).map(p => {
+        const condLines = p.conditions.map(c => {
+          const names = c.missing.map(k => KEY_TO_LABEL[k] || k).join(", ");
+          return `    • ${c.label}: ${names}`;
+        }).join("\n");
+        return `${p.title || p.paper_id}\n${condLines}`;
+      });
+      const extra = v.papers.length > 6 ? `\n…and ${v.papers.length - 6} more paper(s).` : "";
+      const msg =
+        `${v.total_missing} mandatory field(s) empty across ${v.papers.length} paper(s).\n` +
+        `(N/A counts as a value. Locked auto-N/A fields are ignored.)\n` +
+        `Click Cancel to jump to the first paper with missing fields — they'll be outlined in orange.\n\n` +
+        lines.join("\n\n") + extra + `\n\nExport CSV anyway?`;
+      if (!confirm(msg)) {
+        // User cancelled — jump to first paper with missing fields so they can see the outlines.
+        const firstId = v.papers[0]?.paper_id;
+        if (firstId) {
+          const idx = filtered.findIndex(p => p.id === firstId);
+          if (idx >= 0) await selectPaper(idx);
+        }
+        return;
+      }
+    }
+  } catch (e) {
+    console.warn("validation failed, proceeding with export", e);
+  }
+  window.location.href = "/api/export-csv";
+}
 function openGuide() { window.open("/guide", "_blank"); }
 
 /* ═══════════════════════════════════════════════════
    KEYBOARD NAV
 ═══════════════════════════════════════════════════ */
 document.addEventListener("keydown", e => {
+  // Cmd/Ctrl+F: forward to the PDF viewer's own search bar via postMessage
+  if ((e.metaKey || e.ctrlKey) && e.key === "f") {
+    const frame = document.getElementById("pdf-frame");
+    if (frame.style.display !== "none") {
+      e.preventDefault();
+      frame.contentWindow?.postMessage({ action: "focusSearch" }, "*");
+      return;
+    }
+  }
   const tag = document.activeElement?.tagName;
   if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
   if      (e.key === "ArrowRight" || e.key === "j") { e.preventDefault(); selectPaper(curIdx + 1); }
