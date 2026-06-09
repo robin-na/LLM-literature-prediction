@@ -13,7 +13,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from batch_inputs.paper_only_variants import (  # noqa: E402
+from prediction_inputs.paper_only_variants import (  # noqa: E402
     DEFAULT_MODELS,
     MODEL_TAGS,
     SYSTEM_PROMPT_SINGLE,
@@ -284,12 +284,6 @@ def load_metadata_map(path: Path) -> dict[str, dict[str, str]]:
         "Publication Year": "2025",
         "Article Title": "Integrative Experiments Identify How Punishment Impacts Welfare in Public Goods Games",
         "Source Title": "",
-    }
-    metadata_map["PGG_Science"] = {
-        "Authors": "Alsobay, M; Rand, DG; Watts, DJ; Almaatouq, A",
-        "Publication Year": "2026",
-        "Article Title": "Integrative experiments identify how punishment affects welfare in public goods games",
-        "Source Title": "Science",
     }
     return metadata_map
 
