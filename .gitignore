@@ -1,26 +1,76 @@
+# Batch API outputs (large, regenerable)
 openAI_batch_output/
-batch_processing/inputs/
-paper_collection/
 openAI_batch_input/
-claude_batch_input/
 claude_batch_output/
-gemini_batch_input/
-gemini_batch_output/
-.api_keys.env
+batch_input.jsonl
+
+# Paper collection metadata
+paper_collection/
+
+# Secrets / credentials
 .env
+extraction/gdrive_credentials.json
+extraction/gdrive_token.json
+
+# System files
 .DS_Store
+.mplconfig/
+
+# Python artifacts
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-tmp/
 .venv*/
 .python-version
-batch_processing/output_csv/
-batch_processing/output_xlsx/
-batch_processing/gdrive_credentials.json
-batch_processing/gdrive_token.json
+
+# Extraction pipeline outputs (large, regenerable)
+extraction/output_csv/
+extraction/output_xlsx/
+extraction/outputs/
+extraction/inputs/
+extraction/plots/
+extraction/gdrive_token_rw.json
+
+# PGG papers (downloaded from Google Drive, not source-controlled)
 PGG_papers/papers/
 PGG_papers/7_papers/
+
+# Large result files (regenerable by running prediction pipeline)
+results/extraction_model_comparison/.embedding_cache.pkl
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Evaluator data dirs (populated locally, not committed)
+evaluator/inputs/human/
+evaluator/inputs/llm/
+evaluator/outputs/
+evaluator/data/
+evaluator/utils/embedding_cache.json
+evaluator/notebooks/
+
+# Extraction app data (annotations + papers + guide → delivered via Drive)
+extraction_app/extractions.json
+extraction_app/pdfs/
+extraction_app/Human_Extraction_Guide.docx
+
+# Test-set evaluation outputs (raw model responses → delivered via Drive)
+benchmarks/test_set_eval/raw_claude_responses.json
+benchmarks/test_set_eval/results/
+
+# Local Deliverables staging area (uploaded to Drive, not committed)
+Deliverables/
+scripts/drive_manifest.yaml
+
+# CoDa benchmark data (raw dataset, not redistributable)
+benchmarks/coda/data/coda_raw.csv
+benchmarks/coda/batch_outputs/

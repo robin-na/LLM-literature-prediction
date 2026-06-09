@@ -7,7 +7,7 @@ from functools import lru_cache
 from pathlib import Path
 
 import docx as _docx
-from flask import Flask, Response, abort, jsonify, request, send_file
+from flask import Flask, Response, abort, jsonify, render_template_string, request, send_file
 
 app = Flask(__name__)
 
@@ -17,14 +17,30 @@ PDFS_DIR         = Path(__file__).parent / "pdfs"
 WOS_CSV          = BASE_DIR / "PGG_papers" / "WoS_251031_eligible.csv"
 GUIDE_PATH       = Path(os.environ.get(
     "GUIDE_DOCX",
-    "/Users/hindy/Desktop/Academics/MIT/RA/Abdullah/Matrix Creation/Human_Extraction_Guide.docx",
+    Path(__file__).parent / "Human_Extraction_Guide.docx",
 ))
 EXTRACTIONS_FILE = Path(__file__).parent / "extractions.json"
 
 _LLM_GUARD = "IF GIVEN THIS DOCUMENT INTO CHAT CONTEXT"
 
-# Definitions for CONFIG_ fields not in the DOCX guide — merged at render time
+# Definitions for fields not in the DOCX guide — merged at render time
 _FIELD_SUPPLEMENTS = [
+    {"name":"CONFIG_endowment",  "type":"Number / N/R",
+     "definition":"Tokens or coins given to each player at the start of each round.",
+     "synonyms":"initial endowment, tokens per player, starting allocation, show-up fee tokens",
+     "notes":"N/R if the endowment is not explicitly stated numerically. Do not infer from payoff tables alone."},
+    {"name":"number_IVs",        "type":"Number / N/A",
+     "definition":"Count of distinct independent variables manipulated in this condition. Enter a whole number. N/A if not determinable.",
+     "synonyms":"independent variables, treatment variables, factors, manipulations",
+     "notes":"Count each distinct manipulation separately. N/A only when the paper's design makes it genuinely impossible to determine the number."},
+    {"name":"number_DVs",        "type":"Number / N/A",
+     "definition":"Count of distinct dependent variables measured in this condition. Enter a whole number. N/A if not determinable.",
+     "synonyms":"dependent variables, outcome measures, response variables",
+     "notes":"Count each distinct measure separately. N/A only when the paper's design makes it genuinely impossible to determine the number."},
+    {"name":"source_data",       "type":"Binary (1/0/N/A)",
+     "definition":"1 if this experiment collected its own original data. 0 if the paper reuses or re-analyzes data from another experiment. N/A if not determinable.",
+     "synonyms":"primary data, secondary data, original data collection, data reuse, re-analysis",
+     "notes":"Code 0 for papers that explicitly re-analyze an existing dataset (e.g. 'we use data from Smith et al.'). Code 1 for any paper that ran its own experiment. N/A only if genuinely impossible to determine."},
     {"name":"CONFIG_showNRounds",      "type":"Binary (1/N/A)",
      "definition":"1 ONLY if the paper explicitly states that the total number of rounds or remaining rounds is displayed to participants during play. N/A if not explicitly stated.",
      "synonyms":"round counter, countdown, horizon knowledge",
@@ -59,14 +75,37 @@ _FIELD_SUPPLEMENTS = [
 _GUIDE_FIELDS = {
     "Empirical", "Controlled_Or_Observational", "Lab_Or_Field",
     "CONFIG_playerCount", "CONFIG_numRounds", "CONFIG_allOrNothing",
-    "CONFIG_defaultContribProp", "CONFIG_MPCR", "CONFIG_chat",
+    "CONFIG_defaultContribProp", "CONFIG_MPCR", "CONFIG_endowment", "CONFIG_chat",
     "CONFIG_showOtherSummaries", "CONFIG_showNRounds",
     "CONFIG_punishmentExists", "CONFIG_punishmentCost", "CONFIG_punishmentTech",
     "CONFIG_showPunishmentId",
     "CONFIG_rewardExists", "CONFIG_rewardCost", "CONFIG_rewardTech",
     "CONFIG_showRewardId",
-    "Misc",
+    "number_IVs", "number_DVs", "source_data", "Misc",
 }
+
+# Fields copied directly from the condition object into the CSV row
+_CSV_DIRECT_FIELDS = [
+    "CONFIG_playerCount", "CONFIG_numRounds", "CONFIG_allOrNothing",
+    "CONFIG_defaultContribProp", "CONFIG_MPCR", "CONFIG_endowment", "CONFIG_chat",
+    "CONFIG_showOtherSummaries", "CONFIG_showNRounds",
+    "CONFIG_punishmentExists", "CONFIG_punishmentCost", "CONFIG_punishmentTech",
+    "CONFIG_showPunishmentId",
+    "CONFIG_rewardExists", "CONFIG_rewardCost", "CONFIG_rewardTech",
+    "CONFIG_showRewardId", "number_IVs", "number_DVs", "source_data", "Misc",
+]
+
+# Fields that must be filled in every condition before CSV export (source_data and Misc are optional).
+_MANDATORY_FIELDS = [
+    "Empirical", "Controlled_Or_Observational", "Lab_Or_Field",
+    "CONFIG_playerCount", "CONFIG_numRounds", "CONFIG_allOrNothing",
+    "CONFIG_defaultContribProp", "CONFIG_MPCR", "CONFIG_endowment", "CONFIG_chat",
+    "CONFIG_showOtherSummaries", "CONFIG_showNRounds",
+    "CONFIG_punishmentExists", "CONFIG_punishmentCost", "CONFIG_punishmentTech",
+    "CONFIG_showPunishmentId",
+    "CONFIG_rewardExists", "CONFIG_rewardCost", "CONFIG_rewardTech",
+    "CONFIG_showRewardId",
+]
 
 _KNOWN_H1 = {
     "Overview": "overview",
@@ -186,6 +225,55 @@ def save_extraction(paper_id):
     return jsonify({"ok": True})
 
 
+def _missing_fields_for_condition(cond):
+    """Return the list of mandatory keys that are empty in this condition.
+
+    Fields that would be auto-N/A in the UI (CONFIG_/DV_/number_IVs/number_DVs
+    when Empirical=0 or Lab_Or_Field=1) are treated as filled — they display as
+    locked N/A in the form even if the value was never written to the JSON.
+    """
+    auto_na_mode = (cond.get("Empirical") == "0"
+                    or cond.get("Lab_Or_Field") == "1")
+    missing = []
+    for k in _MANDATORY_FIELDS:
+        if auto_na_mode and (k.startswith("CONFIG_") or k.startswith("DV_")
+                             or k in ("number_IVs", "number_DVs")):
+            continue
+        v = cond.get(k, "")
+        if v is None or str(v).strip() == "":
+            missing.append(k)
+    return missing
+
+
+@app.route("/api/validate")
+def validate_extractions():
+    """Report mandatory fields missing in any condition of any started paper."""
+    extractions = load_extractions()
+    meta        = paper_meta()
+    papers = []
+    total_missing = 0
+    for paper_id, data in sorted(extractions.items()):
+        if not is_done(data):
+            continue  # untouched paper — would not appear in CSV anyway
+        conds_out = []
+        for i, cond in enumerate(data.get("conditions", [])):
+            miss = _missing_fields_for_condition(cond)
+            if miss:
+                conds_out.append({
+                    "idx": i,
+                    "label": cond.get("label", "") or f"Condition {i + 1}",
+                    "missing": miss,
+                })
+                total_missing += len(miss)
+        if conds_out:
+            papers.append({
+                "paper_id": paper_id,
+                "title":    meta.get(paper_id, {}).get("title", ""),
+                "conditions": conds_out,
+            })
+    return jsonify({"papers": papers, "total_missing": total_missing})
+
+
 @app.route("/api/export-csv")
 def export_csv():
     extractions = load_extractions()
@@ -194,16 +282,21 @@ def export_csv():
         return Response("No data yet.", mimetype="text/plain")
 
     fields = [
-        "paper_id", "title", "authors", "year", "condition_label",
-        "Empirical", "Controlled_Or_Observational", "Lab_Or_Field",
+        "Filename",
+        "Title of the Paper",
+        "Experiment Name",
+        "Controled_Or_Observational",   # intentional single-l typo — matches GT file
+        "Granularity",
+        "Empirical",
+        "Lab_Or_Field",
         "CONFIG_playerCount", "CONFIG_numRounds", "CONFIG_allOrNothing",
-        "CONFIG_defaultContribProp", "CONFIG_MPCR", "CONFIG_chat",
+        "CONFIG_defaultContribProp", "CONFIG_MPCR", "CONFIG_endowment", "CONFIG_chat",
         "CONFIG_showOtherSummaries", "CONFIG_showNRounds",
         "CONFIG_punishmentExists", "CONFIG_punishmentCost", "CONFIG_punishmentTech",
         "CONFIG_showPunishmentId",
         "CONFIG_rewardExists", "CONFIG_rewardCost", "CONFIG_rewardTech",
         "CONFIG_showRewardId",
-        "Misc",
+        "number_IVs", "number_DVs", "source_data", "Misc",
     ]
 
     output = io.StringIO()
@@ -211,19 +304,21 @@ def export_csv():
     writer.writeheader()
     for paper_id, data in sorted(extractions.items()):
         m = meta.get(paper_id, {})
-        for cond in data.get("conditions", []):
+        for i, cond in enumerate(data.get("conditions", [])):
             empirical = cond.get("Empirical") == "1"
             row = {
-                "paper_id":        paper_id,
-                "title":           m.get("title", ""),
-                "authors":         m.get("authors", ""),
-                "year":            m.get("year", ""),
-                "condition_label": cond.get("label", "") if empirical else "N/A",
+                "Filename":                   paper_id,
+                "Title of the Paper":         m.get("title", ""),
+                "Experiment Name":            cond.get("label", "") if empirical else "N/A",
+                "Controled_Or_Observational": cond.get("Controlled_Or_Observational", ""),
+                "Granularity":                f"Condition {i}",
+                "Empirical":                  cond.get("Empirical", ""),
+                "Lab_Or_Field":               cond.get("Lab_Or_Field", ""),
+                **{k: cond.get(k, "") for k in _CSV_DIRECT_FIELDS},
             }
-            row.update(cond)
             if not empirical:
-                row["Controlled_Or_Observational"] = "N/A"
-                row["Lab_Or_Field"]                = "N/A"
+                row["Controled_Or_Observational"] = "N/A"
+                row["Lab_Or_Field"]               = "N/A"
             writer.writerow(row)
 
     output.seek(0)
@@ -236,9 +331,7 @@ def export_csv():
 
 # ── Guide ─────────────────────────────────────────────────────────────────────
 
-_guide_cache = None
-
-
+@lru_cache(maxsize=1)
 def _build_guide_html():
     if not GUIDE_PATH.exists():
         return None
@@ -374,6 +467,15 @@ CONFIG_ fields are auto-set to N/A when <code>Empirical&nbsp;=&nbsp;0</code> or 
 <tr><td><code>CONFIG_showRewardId</code></td>
     <td>0 / 1 / N/A</td>
     <td>identified reward, anonymous reward, rewarder identity, who rewarded</td></tr>
+<tr><td><code>number_IVs</code></td>
+    <td>Number / N/A</td>
+    <td>independent variable, treatment, manipulation, condition, factor, between-subjects</td></tr>
+<tr><td><code>number_DVs</code></td>
+    <td>Number / N/A</td>
+    <td>dependent variable, outcome measure, response variable, measured, recorded</td></tr>
+<tr><td><code>source_data</code></td>
+    <td>0 / 1 / N/A</td>
+    <td><em>1:</em> ran own experiment, recruited participants, collected original data<br><em>0:</em> re-analyzes, reuses data from, data from Smith et al., secondary data</td></tr>
 </tbody></table>"""
 
     granularity_html = """
@@ -423,7 +525,31 @@ CONFIG_ fields are auto-set to N/A when <code>Empirical&nbsp;=&nbsp;0</code> or 
     <td>Code 1 only if the display is <em>explicitly stated</em>. Fixed/known rounds ≠ displayed. Silence → N/A.</td></tr>
 </tbody></table>"""
 
-    mpcr_formula_html = '<div class="formula-box">MPCR = Fund Multiplier ÷ Group Size</div>'
+    formulas_html = """
+<p>Standard linear public-goods payoff (per round, per player):</p>
+<div class="formula-box">π_i = y − g_i + (M / N) · Σ_j g_j</div>
+<ul>
+<li><code>y</code> = endowment · <code>g_i</code> = player <em>i</em>'s contribution · <code>N</code> = group size · <code>M</code> = fund multiplier on the common pool</li>
+<li>Σ_j g_j sums over <strong>all</strong> players including <em>i</em> — every contributor shares equally in the pool</li>
+</ul>
+
+<h3 class="subsec" id="CONFIG_MPCR">MPCR (Marginal Per Capita Return)</h3>
+<div class="formula-box">MPCR = M / N</div>
+<p>The per-yen (or per-token) return each player receives from a ¥1 increase in the public pool. In a standard linear PGG it is the same for every player.</p>
+<p><strong>When MPCR is not well-defined:</strong> some PD-style designs use payoffs like
+<code>π_i = y − g_i + a · Σ_{j≠i} g_j</code> (contributor excluded from own benefit) or asymmetric/non-linear pools.
+These do not have a single MPCR — record <strong>N/A</strong> for <code>CONFIG_MPCR</code> and put the explicit payoff equation in <strong>Misc</strong>.</p>
+
+<h3 class="subsec" id="formula_contrib">Contribution rate (DV)</h3>
+<div class="formula-box">contribution rate = g_i / y</div>
+<p>Fraction of endowment contributed, averaged across players (and rounds, if repeated). Reported as a proportion in [0, 1] or as a percentage.</p>
+
+<h3 class="subsec" id="formula_eff">Efficiency (DV)</h3>
+<div class="formula-box">efficiency = actual group payoff / maximum cooperative group payoff</div>
+<p>Ratio of realized group payoff to the payoff achievable if all players contributed their full endowment. Expressed as a percentage integer (0–100).</p>
+<p>For the standard linear PGG with endowment <code>y</code>, multiplier <code>M</code>, group size <code>N</code>:</p>
+<div class="formula-box">max cooperative payoff per player = M · y &nbsp;&nbsp;·&nbsp;&nbsp; full-defection payoff = y</div>
+"""
 
     # ── Build field nav + cards ─────────────────────────────────────────────
     field_nav = "\n".join(
@@ -565,6 +691,7 @@ code {{ background: #f1f5f9; padding: 1px 5px; border-radius: 3px;
   <a class="nav-plain" href="#workflow">Workflow</a>
   <a class="nav-plain" href="#pitfalls">Pitfalls</a>
   <a class="nav-plain" href="#fields">Field Definitions</a>
+  <a class="nav-plain" href="#formulas">Formulas</a>
   <div class="nav-sep"></div>
   <h2>Fields</h2>
   {field_nav}
@@ -593,8 +720,8 @@ code {{ background: #f1f5f9; padding: 1px 5px; border-radius: 3px;
   <p style="margin-bottom:16px">Hover over any field label in the extraction app to see its definition inline. Full definitions below.</p>
   {field_cards}
 
-  <h3 class="subsec" id="CONFIG_MPCR">MPCR formula</h3>
-  {mpcr_formula_html}
+  <h2 class="sec" id="formulas">Formulas</h2>
+  {formulas_html}
 </main>
 </div>
 </body>
@@ -603,12 +730,173 @@ code {{ background: #f1f5f9; padding: 1px 5px; border-radius: 3px;
 
 @app.route("/guide")
 def guide():
-    global _guide_cache
-    if _guide_cache is None:
-        _guide_cache = _build_guide_html()
-    if _guide_cache is None:
+    html = _build_guide_html()
+    if html is None:
         return "<h2>Guide not found</h2><p>Place the DOCX at the configured path.</p>", 404
-    return _guide_cache
+    return html
+
+
+_VIEWER_TEMPLATE = r"""<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PDF Viewer</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{display:flex;flex-direction:column;background:#525659;
+     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+#toolbar{display:flex;align-items:center;gap:5px;padding:5px 8px;
+         background:#3a3d42;border-bottom:1px solid #555;flex-shrink:0}
+#si{flex:1;padding:4px 8px;background:#2a2d30;border:1px solid #555;
+    border-radius:4px;color:#ddd;font-size:12px;outline:none}
+#si:focus{border-color:#6b8ed6}
+#si::placeholder{color:#888}
+.tb{padding:3px 8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    border-radius:4px;color:#ccc;font-size:12px;cursor:pointer}
+.tb:hover{background:rgba(255,255,255,.2);color:#fff}
+#info{font-size:11px;color:#aaa;min-width:55px;text-align:right;white-space:nowrap}
+#pages{flex:1;overflow-y:auto;padding:16px;
+       display:flex;flex-direction:column;align-items:center;gap:14px}
+#loading{padding:40px;color:#aaa;font-size:13px}
+.pw{position:relative;box-shadow:0 2px 12px rgba(0,0,0,.5);background:white}
+.pw canvas{display:block}
+.tl{position:absolute;top:0;left:0;width:100%;height:100%;
+    overflow:hidden;pointer-events:none}
+.tl span{color:transparent;position:absolute;white-space:pre;
+         transform-origin:0% 0%;cursor:text}
+.tl span.hl {background:rgba(255,255,0,.5)}
+.tl span.sel{background:rgba(255,130,0,.75)}
+</style>
+</head>
+<body>
+<div id="toolbar">
+  <input id="si" type="text" placeholder="Search in PDF… (⌘F)" autocomplete="off" spellcheck="false">
+  <button class="tb" onclick="prev()">↑</button>
+  <button class="tb" onclick="next()">↓</button>
+  <button class="tb" onclick="clr()">✕</button>
+  <span id="info"></span>
+</div>
+<div id="pages"><div id="loading">Loading PDF…</div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+const PAPER_ID = """ + "{{ paper_id | tojson }}" + r""";
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+function xfm(m1, m2) {
+  return [
+    m1[0]*m2[0]+m1[2]*m2[1], m1[1]*m2[0]+m1[3]*m2[1],
+    m1[0]*m2[2]+m1[2]*m2[3], m1[1]*m2[2]+m1[3]*m2[3],
+    m1[0]*m2[4]+m1[2]*m2[5]+m1[4], m1[1]*m2[4]+m1[3]*m2[5]+m1[5],
+  ];
+}
+const transform = (pdfjsLib.Util && pdfjsLib.Util.transform) || xfm;
+
+let pdf = null, allSpans = [], matches = [], idx = -1;
+
+async function init() {
+  try {
+    pdf = await pdfjsLib.getDocument('/pdf/' + encodeURIComponent(PAPER_ID)).promise;
+  } catch(e) {
+    document.getElementById('loading').textContent = 'Failed to load PDF.'; return;
+  }
+  const cont = document.getElementById('pages');
+  document.getElementById('loading').remove();
+  for (let n = 1; n <= pdf.numPages; n++) await renderPage(n, cont);
+  const q = new URLSearchParams(location.search).get('search') ||
+            decodeURIComponent((location.hash.match(/#search=(.*)/) || [])[1] || '');
+  if (q) { document.getElementById('si').value = q; doSearch(q); }
+}
+
+async function renderPage(num, cont) {
+  const page = await pdf.getPage(num);
+  const containerW = document.getElementById('pages').clientWidth - 32;
+  const baseVp = page.getViewport({ scale: 1 });
+  const scale  = Math.max(1.2, containerW / baseVp.width);
+  const vp     = page.getViewport({ scale });
+  const wrap = document.createElement('div');
+  wrap.className = 'pw';
+  wrap.style.width  = vp.width  + 'px';
+  wrap.style.height = vp.height + 'px';
+  const canvas = document.createElement('canvas');
+  canvas.width  = vp.width; canvas.height = vp.height;
+  wrap.appendChild(canvas);
+  const tl = document.createElement('div'); tl.className = 'tl';
+  wrap.appendChild(tl);
+  cont.appendChild(wrap);
+  await page.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+  const tc = await page.getTextContent();
+  tc.items.forEach(item => {
+    if (!item.str) return;
+    const tx = transform(vp.transform, item.transform);
+    const h  = Math.sqrt(tx[2]*tx[2] + tx[3]*tx[3]);
+    const a  = Math.atan2(tx[1], tx[0]);
+    const s  = document.createElement('span');
+    s.textContent = item.str;
+    s.dataset.low = item.str.toLowerCase();
+    s.style.left  = tx[4] + 'px';
+    s.style.top   = (tx[5] - h) + 'px';
+    s.style.fontSize = h + 'px';
+    if (a) s.style.transform = 'rotate(' + (-a) + 'rad)';
+    tl.appendChild(s); allSpans.push(s);
+  });
+}
+
+let _t = null;
+document.getElementById('si').addEventListener('input', () => {
+  clearTimeout(_t); _t = setTimeout(() => doSearch(document.getElementById('si').value), 200);
+});
+document.getElementById('si').addEventListener('keydown', e => {
+  if (e.key === 'Enter') { e.preventDefault(); e.shiftKey ? prev() : next(); }
+  if (e.key === 'Escape') clr();
+});
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'f') {
+    e.preventDefault(); focusSI();
+  }
+});
+window.addEventListener('message', e => {
+  if (e.data && e.data.action === 'focusSearch') focusSI();
+});
+function focusSI() { const si = document.getElementById('si'); si.focus(); si.select(); }
+
+function doSearch(q) {
+  allSpans.forEach(s => s.classList.remove('hl', 'sel'));
+  matches = []; idx = -1;
+  if (!q.trim()) { upd(); return; }
+  const lq = q.toLowerCase();
+  allSpans.forEach(s => { if (s.dataset.low.includes(lq)) { s.classList.add('hl'); matches.push(s); } });
+  upd();
+  if (matches.length) { idx = 0; doSel(0); }
+}
+function doSel(i) {
+  matches.forEach(s => s.classList.remove('sel'));
+  if (i < 0 || i >= matches.length) return;
+  matches[i].classList.add('sel');
+  matches[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  upd();
+}
+function next() { if (!matches.length) return; idx = (idx + 1) % matches.length; doSel(idx); }
+function prev() { if (!matches.length) return; idx = (idx - 1 + matches.length) % matches.length; doSel(idx); }
+function clr()  { document.getElementById('si').value = ''; doSearch(''); }
+function upd()  {
+  const q = document.getElementById('si').value.trim();
+  document.getElementById('info').textContent =
+    q ? (matches.length ? (idx + 1) + '/' + matches.length : 'No results') : '';
+}
+init();
+</script>
+</body>
+</html>"""
+
+
+@app.route("/viewer/<path:paper_id>")
+def pdf_viewer(paper_id):
+    paper_id = paper_id.removesuffix(".pdf")
+    if not (PDFS_DIR / f"{paper_id}.pdf").exists():
+        abort(404)
+    return render_template_string(_VIEWER_TEMPLATE, paper_id=paper_id)
 
 
 if __name__ == "__main__":
